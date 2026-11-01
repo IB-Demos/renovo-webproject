@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
+import { CraftChronology } from "@/components/architectural/CraftChronology";
+import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -110,9 +112,9 @@ export default function AboutPage() {
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] text-xs font-mono tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "HERITAGE & CRAFTSMANSHIP" : "HISTORIA Y ARTESANÍA"}</span>
+              <span>{locale === "en" ? "Heritage & Craftsmanship · Phoenix Atelier" : "Historia y Artesanía"}</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
@@ -130,17 +132,17 @@ export default function AboutPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Meet with Raul Burgos" : "Reunirte con Raul Burgos"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>
@@ -148,13 +150,13 @@ export default function AboutPage() {
       </section>
 
       {/* 2. THE STORY OF RAUL BURGOS */}
-      <section className="py-20 lg:py-28 border-b border-white/8">
+      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Story text */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-                {locale === "en" ? "THE FOUNDER'S VISION" : "LA VISIÓN DEL FUNDADOR"}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+                <span>{locale === "en" ? "The Founder's Vision" : "La Visión del Fundador"}</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5] leading-[1.12]">
                 {locale === "en"
@@ -181,7 +183,7 @@ export default function AboutPage() {
                     ? '"When a client runs their hand along one of our cabinet doors, they immediately feel the difference. There are no brush marks, no rough grain, just pure velvet smoothness that lasts for decades."'
                     : '"Cuando un cliente pasa la mano por una de nuestras puertas, siente la diferencia de inmediato. Cero marcas de brocha, cero grano áspero, solo una tersura aterciopelada que perdura décadas."'}
                 </p>
-                <div className="mt-3 font-mono text-xs uppercase tracking-wider text-[var(--gold)] font-bold">
+                <div className="mt-3 font-serif text-xs uppercase tracking-wider text-[var(--gold)] font-bold">
                   Raul Burgos · Founder & Master Craftsman
                 </div>
               </div>
@@ -217,12 +219,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. FOUR PILLARS OF CRAFT */}
+      {/* 3. THE 7-STAGE CRAFT CHRONOLOGY */}
+      <CraftChronology />
+
+      {/* 4. FOUR PILLARS OF CRAFT */}
       <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-16 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "UNCOMPROMISING QUALITY" : "CALIDAD SIN CONCESIONES"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <ShieldCheck size={14} />
+              <span>{locale === "en" ? "Uncompromising Quality" : "Calidad sin Concesiones"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en" ? "The Four Pillars of Renovo" : "Los Cuatro Pilares de Renovo"}
@@ -258,12 +264,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. COMPANY TIMELINE / MILESTONES */}
-      <section className="py-20 lg:py-28 border-b border-white/8">
+      {/* 5. COMPANY TIMELINE / MILESTONES */}
+      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-16 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "OUR JOURNEY" : "NUESTRO TRAYECTO"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <Sparkle size={14} />
+              <span>{locale === "en" ? "Our Journey" : "Nuestro Trayecto"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
@@ -275,7 +282,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {milestones.map((m, idx) => (
               <div key={idx} className="relative pl-6 border-l-2 border-[var(--gold)]/40 space-y-3">
-                <span className="font-mono text-2xl font-bold text-[var(--gold)] block">
+                <span className="font-serif text-2xl font-bold text-[var(--gold)] block">
                   {m.year}
                 </span>
                 <h3 className="text-lg font-serif font-normal text-white">
@@ -290,12 +297,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. WORKSHOP & SERVICE REGION */}
+      {/* 6. ATELIER SAMPLE BOX CONCIERGE */}
+      <SampleBoxConcierge />
+
+      {/* 7. WORKSHOP & SERVICE REGION */}
       <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-[var(--gold)] uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 text-xs font-serif text-[var(--gold)] uppercase tracking-wider">
                 <MapPin size={16} />
                 <span>{locale === "en" ? "PHOENIX WORKSHOP & SHOWROOM" : "TALLER Y SALA DE MUESTRAS EN PHOENIX"}</span>
               </div>
@@ -309,14 +319,14 @@ export default function AboutPage() {
               </p>
 
               <div className="pt-2">
-                <div className="text-xs font-mono uppercase tracking-wider text-[#8A7F73] mb-3">
+                <div className="text-xs font-serif uppercase tracking-wider text-[#8A7F73] mb-3">
                   {locale === "en" ? "PRIMARY SERVICE AREAS" : "ÁREAS DE SERVICIO PRINCIPALES"}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {serviceAreas.map((area, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-medium"
+                      className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-serif"
                     >
                       {area}
                     </span>
@@ -338,7 +348,7 @@ export default function AboutPage() {
                 <div className="space-y-3 pt-2 text-sm">
                   <div className="flex items-center gap-3 text-[#EAE2D5]">
                     <Phone size={18} className="text-[var(--gold)]" />
-                    <a href={COMPANY_INFO.phoneHref} className="hover:text-[var(--gold)] font-mono font-semibold">
+                    <a href={COMPANY_INFO.phoneHref} className="hover:text-[var(--gold)] font-serif font-semibold">
                       {COMPANY_INFO.phoneDisplay}
                     </a>
                   </div>
@@ -350,7 +360,7 @@ export default function AboutPage() {
                 <div className="pt-4">
                   <Link
                     href="/contacto"
-                    className="interactive-control w-full min-h-[50px] px-6 py-3.5 rounded-xl bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
+                    className="interactive-control w-full min-h-[50px] px-6 py-3.5 rounded-xl bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
                   >
                     <span>{locale === "en" ? "Request an Appointment" : "Solicitar una Cita"}</span>
                     <ArrowRight size={16} weight="bold" />

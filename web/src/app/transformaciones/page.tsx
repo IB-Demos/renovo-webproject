@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { BeforeAfterLab } from "@/components/workbench/BeforeAfterLab";
+import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
+import { CraftChronology } from "@/components/architectural/CraftChronology";
+import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO, BEFORE_AFTER_PAIRS } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -12,6 +15,7 @@ import {
   ShieldCheck,
   CheckCircle,
   Clock,
+  Scales,
 } from "@phosphor-icons/react";
 
 export default function TransformationsPage() {
@@ -75,9 +79,9 @@ export default function TransformationsPage() {
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] text-xs font-mono tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "AUTHENTIC CASE STUDIES" : "CASOS DE ÉXITO REALES"}</span>
+              <span>{locale === "en" ? "Authentic Case Studies" : "Casos de Éxito Reales"}</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
@@ -95,17 +99,17 @@ export default function TransformationsPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/cotizador"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Estimate Your Transformation" : "Cotizar tu Transformación"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>
@@ -113,11 +117,12 @@ export default function TransformationsPage() {
       </section>
 
       {/* 2. INTERACTIVE BEFORE & AFTER LABORATORY */}
-      <section className="py-20 lg:py-28 border-b border-white/8">
+      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-12 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "INTERACTIVE SPLIT-VIEWER" : "VISOR INTERACTIVO COMPARATIVO"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <Sparkle size={14} />
+              <span>{locale === "en" ? "Interactive Split-Viewer" : "Visor Comparativo 50/50"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
@@ -135,12 +140,19 @@ export default function TransformationsPage() {
         </div>
       </section>
 
-      {/* 3. TECHNICAL SPECIFICATIONS COMPARISON */}
+      {/* 3. DECISION MATRIX: REFACING VS. TOTAL BUILD */}
+      <CabinetDecisionMatrix />
+
+      {/* 4. THE 7-STAGE CRAFT CHRONOLOGY */}
+      <CraftChronology />
+
+      {/* 5. TECHNICAL SPECIFICATIONS COMPARISON */}
       <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-16 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "THE RENOVO STANDARD" : "EL ESTÁNDAR RENOVO"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <ShieldCheck size={14} />
+              <span>{locale === "en" ? "The Renovo Standard" : "El Estándar Renovo"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
@@ -154,48 +166,18 @@ export default function TransformationsPage() {
             </p>
           </div>
 
-          {/* Mobile Comparison Cards (< 768px) */}
-          <div className="md:hidden space-y-4">
-            {comparisonPoints.map((pt, idx) => (
-              <div key={idx} className="p-6 rounded-3xl bg-white/5 border border-white/10 shadow-lg space-y-3">
-                <div className="font-mono text-xs uppercase tracking-wider text-[var(--gold)] font-bold">
-                  {locale === "en" ? pt.featureEn : pt.featureEs}
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/5 border border-[var(--gold)]/30 space-y-1">
-                  <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[var(--gold)] font-bold">
-                    <CheckCircle size={15} weight="fill" />
-                    <span>{locale === "en" ? "Renovo 2K Process" : "Proceso Renovo 2K"}</span>
-                  </div>
-                  <div className="text-sm font-medium text-white">
-                    {locale === "en" ? pt.renovoEn : pt.renovoEs}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-1">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#8A7F73] font-semibold">
-                    {locale === "en" ? "Traditional House Painter" : "Pintor Tradicional"}
-                  </div>
-                  <div className="text-sm text-[#A69B8F]">
-                    {locale === "en" ? pt.standardEn : pt.standardEs}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop Comparison Table (md+) */}
-          <div className="hidden md:block overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+          {/* Desktop Comparison Table */}
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-white/10 bg-white/5">
-                  <th className="py-5 px-6 text-xs font-mono uppercase tracking-wider text-[#8A7F73] font-semibold w-1/4">
+                  <th className="py-5 px-6 text-xs font-serif italic text-[#8A7F73] w-1/4">
                     {locale === "en" ? "Engineering Factor" : "Factor Técnico"}
                   </th>
-                  <th className="py-5 px-6 text-xs font-mono uppercase tracking-wider text-[var(--gold)] font-bold bg-white/5 w-2/5 border-x border-white/10">
+                  <th className="py-5 px-6 text-xs font-serif font-bold text-[var(--gold)] bg-white/5 w-2/5 border-x border-white/10">
                     {locale === "en" ? "Renovo 2K Factory Process" : "Proceso Renovo Catalizado 2K"}
                   </th>
-                  <th className="py-5 px-6 text-xs font-mono uppercase tracking-wider text-[#A69B8F] font-semibold w-1/3">
+                  <th className="py-5 px-6 text-xs font-serif italic text-[#A69B8F] w-1/3">
                     {locale === "en" ? "Typical House Painter" : "Pintor Tradicional de Muros"}
                   </th>
                 </tr>
@@ -203,16 +185,16 @@ export default function TransformationsPage() {
               <tbody className="divide-y divide-white/8 text-sm">
                 {comparisonPoints.map((pt, idx) => (
                   <tr key={idx} className="hover:bg-white/5 transition-colors">
-                    <td className="py-5 px-6 font-semibold text-white">
+                    <td className="py-5 px-6 font-serif font-semibold text-white">
                       {locale === "en" ? pt.featureEn : pt.featureEs}
                     </td>
-                    <td className="py-5 px-6 bg-white/[0.03] font-medium text-white border-x border-white/10">
+                    <td className="py-5 px-6 bg-white/[0.03] font-serif text-white border-x border-white/10">
                       <div className="flex items-start gap-2.5">
                         <CheckCircle size={18} className="text-[var(--gold)] shrink-0 mt-0.5" weight="fill" />
                         <span>{locale === "en" ? pt.renovoEn : pt.renovoEs}</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6 text-[#A69B8F]">
+                    <td className="py-5 px-6 text-[#A69B8F] font-serif">
                       <span>{locale === "en" ? pt.standardEn : pt.standardEs}</span>
                     </td>
                   </tr>
@@ -223,7 +205,10 @@ export default function TransformationsPage() {
         </div>
       </section>
 
-      {/* 4. GRAND CONSULTATION CALL TO ACTION */}
+      {/* 6. ATELIER SAMPLE BOX CONCIERGE */}
+      <SampleBoxConcierge />
+
+      {/* 7. GRAND CONSULTATION CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#0E0C0A] text-white text-center">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mx-auto space-y-6">
@@ -240,17 +225,17 @@ export default function TransformationsPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>

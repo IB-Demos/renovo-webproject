@@ -3,10 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
+import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { BlueprintAnatomyExplorer } from "@/components/workbench/BlueprintAnatomyExplorer";
+import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
-import { ArrowRight, Sparkle, Phone } from "@phosphor-icons/react";
+import { ArrowRight, Sparkle, Phone, Compass, ShieldCheck } from "@phosphor-icons/react";
 
 export default function CustomFurniturePage() {
   const { locale } = useRenovo();
@@ -21,21 +23,21 @@ export default function CustomFurniturePage() {
             alt="Renovo Custom Furniture Phoenix"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C0A] via-[#0E0C0A]/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C0A] via-[#0E0C0A]/90 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] text-xs font-mono tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>
                 {locale === "en"
-                  ? "DISCIPLINE 02 · ARCHITECTURAL BUILT-INS & FURNITURE"
-                  : "ESPECIALIDAD 02 · MUEBLES DE AUTOR Y BUILT-INS"}
+                  ? "Architectural Millwork · Custom Built-Ins & Furniture"
+                  : "Ebanistería Arquitectónica · Muebles de Autor"}
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-normal font-serif leading-[1.08] tracking-[-0.02em]">
+            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-normal font-serif leading-[1.08] tracking-tight">
               {locale === "en"
                 ? "Arched Fireplaces, Media Walls & Handcrafted Wine Bars."
                 : "Libreros Arqueados, Muros de TV y Cavas Hechas a Mano."}
@@ -50,7 +52,7 @@ export default function CustomFurniturePage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/cotizador"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2.5 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2.5 shadow-lg w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Commission a Custom Piece" : "Cotizar Mueble a Medida"}</span>
                 <ArrowRight size={16} weight="bold" />
@@ -58,22 +60,26 @@ export default function CustomFurniturePage() {
 
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. INTERACTIVE ANATOMY EXPLORER */}
-      <section className="py-20 lg:py-28 border-b border-white/8">
+      {/* 2. THE ARCHITECTURAL DRAFTING TABLE (Featuring Arched Fireplace & Fluted Vanity) */}
+      <ArchitecturalDraftingTable />
+
+      {/* 3. INTERACTIVE ANATOMY EXPLORER */}
+      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12 max-w-2xl space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "INTERACTIVE ANATOMY" : "ANATOMÍA INTERACTIVA"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <Compass size={14} />
+              <span>{locale === "en" ? "Interactive Anatomy" : "Anatomía Interactiva"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
@@ -91,12 +97,16 @@ export default function CustomFurniturePage() {
         </div>
       </section>
 
-      {/* 3. FULL ARCHIVE PORTFOLIO */}
+      {/* 4. ATELIER SAMPLE BOX CONCIERGE */}
+      <SampleBoxConcierge />
+
+      {/* 5. FULL ARCHIVE PORTFOLIO */}
       <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "COMPLETE REPERTOIRE" : "REPERTORIO COMPLETO"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <ShieldCheck size={14} />
+              <span>{locale === "en" ? "Complete Repertoire" : "Repertorio de Autor"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en" ? "Custom Furniture Archive" : "Archivo de Muebles a Medida"}
@@ -108,7 +118,7 @@ export default function CustomFurniturePage() {
         </div>
       </section>
 
-      {/* 4. GRAND CONSULTATION CTA */}
+      {/* 6. GRAND CONSULTATION CTA */}
       <section className="py-20 lg:py-28 bg-[#0E0C0A] text-white text-center">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mx-auto space-y-6">
@@ -125,17 +135,17 @@ export default function CustomFurniturePage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>

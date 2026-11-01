@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { ParametricScopeEstimator } from "@/components/workbench/ParametricScopeEstimator";
+import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
+import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -11,6 +13,7 @@ import {
   Phone,
   ShieldCheck,
   CheckCircle,
+  Calculator,
 } from "@phosphor-icons/react";
 
 export default function EstimatorPage() {
@@ -43,9 +46,13 @@ export default function EstimatorPage() {
       <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] text-xs font-mono tracking-widest uppercase">
-              <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "TRANSPARENT PROJECT ESTIMATION" : "COTIZADOR TRANSPARENTE DE PROYECTO"}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <Calculator size={14} />
+              <span>
+                {locale === "en"
+                  ? "Transparent Project Scope & Pricing · Phoenix Atelier"
+                  : "Cotizador Transparente de Proyecto · Taller Phoenix"}
+              </span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
@@ -59,7 +66,7 @@ export default function EstimatorPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
                 <span>
@@ -72,11 +79,12 @@ export default function EstimatorPage() {
       </section>
 
       {/* 2. THE INTERACTIVE ESTIMATOR */}
-      <section className="py-20 lg:py-28 border-b border-white/8">
+      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12 max-w-2xl space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "PARAMETRIC CALCULATOR" : "CALCULADORA PARAMÉTRICA"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <Sparkle size={14} />
+              <span>{locale === "en" ? "Parametric Calculator" : "Calculadora Paramétrica"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
@@ -92,12 +100,16 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* 3. TRANSPARENCY PILLARS */}
+      {/* 3. CABINET DECISION MATRIX: REFACING VS. TOTAL BUILD */}
+      <CabinetDecisionMatrix />
+
+      {/* 4. TRANSPARENCY PILLARS */}
       <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-14 space-y-3">
-            <div className="text-xs uppercase tracking-[0.16em] text-[var(--gold)] font-bold font-mono">
-              {locale === "en" ? "OUR COMMITMENT" : "NUESTRO COMPROMISO"}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <ShieldCheck size={14} />
+              <span>{locale === "en" ? "Our Commitment" : "Nuestro Compromiso"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en" ? "Why We Estimate Transparently" : "Por Qué Cotizamos con Transparencia"}
@@ -125,7 +137,10 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* 4. GRAND CONSULTATION CALL TO ACTION */}
+      {/* 5. ATELIER SAMPLE BOX CONCIERGE */}
+      <SampleBoxConcierge />
+
+      {/* 6. GRAND CONSULTATION CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#0E0C0A] text-white text-center">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mx-auto space-y-6">
@@ -140,17 +155,17 @@ export default function EstimatorPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Schedule Consultation" : "Agendar Consulta"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span className="font-mono">{COMPANY_INFO.phoneDisplay}</span>
+                <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>
