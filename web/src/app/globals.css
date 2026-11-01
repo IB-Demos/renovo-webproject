@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+
+  --color-obsidian: #0E0C0A;
+  --color-espresso: #161310;
+  --color-warm-charcoal: #1F1B17;
+  --color-gold: #C59B27;
+  --color-gold-hover: #D8AA30;
+  --color-gold-light: #F7EFCF;
+  --color-olive: #3D5A45;
+  --color-terracotta: #A84B31;
+  --color-cream: #FAF8F5;
+  --color-stone: #1A1714;
+}
+
+:root {
+  /* Renovo Quiet Luxury Atelier Palette (Unified Dark Architecture) */
+  --bg: #0E0C0A;
+  --bg-card: #161310;
+  --bg-elevated: #1F1B17;
+  
+  --fg: #FAF8F5;
+  --fg-muted: #B8AEA2;
+  --fg-light: #8A7F73;
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  
+  /* Brand Accents */
+  --gold: #C59B27;
+  --gold-hover: #D8AA30;
+  --gold-subtle: rgba(197, 155, 39, 0.12);
+  
+  --olive: #3D5A45;
+  --terracotta: #A84B31;
+  --navy: #1F2C38;
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Luxury Editorial Typography */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Headings with calibrated breathing room */
+h1, h2, h3, h4 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  color: var(--fg);
+}
+
+p {
+  line-height: 1.65;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glassmorphism & Luxury Cards */
+.luxury-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.luxury-card-hover {
+  transition: transform 260ms var(--ease-smooth), border-color 260ms var(--ease-smooth), box-shadow 260ms var(--ease-smooth);
+}
+
+.luxury-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(197, 155, 39, 0.45);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+}
+
+/* Minimalist Touch Controls (WCAG 44px min tap target) */
+.interactive-control {
+  min-height: 44px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 180ms var(--ease-smooth);
+}
+
+.interactive-control:active {
+  transform: scale(0.98);
+}
+
+/* Custom Scrollbar for Luxury Aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0E0C0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A241E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
