@@ -8,6 +8,9 @@ import { COMPANY_INFO, BEFORE_AFTER_PAIRS } from "@/lib/company-data/portfolio";
 import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
 import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
+import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
+import { CraftChronology } from "@/components/architectural/CraftChronology";
+import { ExplodedCabinetJoinery } from "@/components/architectural/ExplodedCabinetJoinery";
 import {
   Sparkle,
   ArrowRight,
@@ -573,6 +576,11 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
+          EXCLUSIVE FEATURE 06: EXPLODED CABINET ANATOMY & JOINERY
+      ===================================================================== */}
+      <ExplodedCabinetJoinery />
+
+      {/* =====================================================================
           EXCLUSIVE FEATURE 02: THE ARIZONA DESERT LIGHT ENGINE
       ===================================================================== */}
       <DesertLightEngine />
@@ -581,6 +589,11 @@ export default function HomePage() {
           EXCLUSIVE FEATURE 03: CABINET DECISION MATRIX (Refacing vs. Custom)
       ===================================================================== */}
       <CabinetDecisionMatrix />
+
+      {/* =====================================================================
+          EXCLUSIVE FEATURE 05: THE 7-STAGE CRAFT CHRONOLOGY (Shop Documentary)
+      ===================================================================== */}
+      <CraftChronology />
 
       {/* =====================================================================
           5. THE RAUL BURGOS STORY & PHOENIX WORKSHOP (Soulful Heritage)
@@ -663,6 +676,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* =====================================================================
+          EXCLUSIVE FEATURE 04: ATELIER SAMPLE BOX CONCIERGE (Curated Kit)
+      ===================================================================== */}
+      <SampleBoxConcierge />
 
       {/* =====================================================================
           6. GRAND CONSULTATION CALL TO ACTION (Prestigious Closing)
