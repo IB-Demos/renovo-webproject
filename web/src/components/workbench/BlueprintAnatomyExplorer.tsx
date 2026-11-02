@@ -50,7 +50,7 @@ export function BlueprintAnatomyExplorer() {
                 className={`interactive-control px-3.5 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-colors ${
                   viewMode === "photos"
                     ? "bg-[#B85D3B] text-white shadow-xs font-semibold"
-                    : "text-[#6B5E52] hover:text-[#261F1A]"
+                    : "text-[#3D3228] hover:text-[#261F1A]"
                 }`}
               >
                 {locale === "en" ? "Hotspot Anatomy" : "Anatomía Interactiva"}
@@ -61,7 +61,7 @@ export function BlueprintAnatomyExplorer() {
                 className={`interactive-control px-3.5 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-colors ${
                   viewMode === "archive"
                     ? "bg-[#B85D3B] text-white shadow-xs font-semibold"
-                    : "text-[#6B5E52] hover:text-[#261F1A]"
+                    : "text-[#3D3228] hover:text-[#261F1A]"
                 }`}
               >
                 {locale === "en" ? "Full Archive (19)" : "Archivo Completo (19)"}
@@ -118,14 +118,14 @@ export function BlueprintAnatomyExplorer() {
                 <div className="text-[10px] font-mono uppercase tracking-widest text-[#B85D3B] font-bold">
                   NODE 0{activeHotspotIdx + 1} · {activeHotspot.label[locale]}
                 </div>
-                <p className="mt-1 text-xs sm:text-sm text-[#6B5E52] leading-relaxed font-serif">
+                <p className="mt-1 text-xs sm:text-sm text-[#3D3228] leading-relaxed font-serif">
                   {activeHotspot.detail[locale]}
                 </p>
               </div>
 
               {/* Project Selector Strip */}
               <div className="space-y-2">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-[#8A7E72] font-semibold">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[#54463A] font-semibold">
                   {t.workbench.blueprint.hotspotInstruction}
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -142,7 +142,7 @@ export function BlueprintAnatomyExplorer() {
                         className={`interactive-control p-2.5 rounded-xl border text-left flex items-center gap-2.5 transition-all ${
                           isSelected
                             ? "border-[#B85D3B] bg-[#FCFAF7] text-[#261F1A] shadow-md ring-1 ring-[#B85D3B]"
-                            : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#6B5E52] hover:border-[#B85D3B]/50"
+                            : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#3D3228] hover:border-[#B85D3B]/50"
                         }`}
                       >
                         <img
@@ -151,7 +151,7 @@ export function BlueprintAnatomyExplorer() {
                           className="h-10 w-10 rounded-lg object-cover shrink-0 border border-black/10"
                         />
                         <div className="min-w-0">
-                          <div className={`font-mono text-[9px] uppercase font-bold truncate ${isSelected ? "text-[#B85D3B]" : "text-[#8A7E72]"}`}>
+                          <div className={`font-mono text-[9px] uppercase font-bold truncate ${isSelected ? "text-[#B85D3B]" : "text-[#54463A]"}`}>
                             0{idx + 1} · {proj.category}
                           </div>
                           <div className="text-xs font-semibold truncate leading-tight mt-0.5 text-[#261F1A]">
@@ -184,13 +184,13 @@ export function BlueprintAnatomyExplorer() {
             <div className="text-[10px] font-mono uppercase tracking-widest text-[#B85D3B] font-bold">
               {locale === "en" ? "ARCHITECTURAL JOINERY SPEC" : "ESPECIFICACIÓN DE EBANISTERÍA"}
             </div>
-            <h3 className="mt-2 text-2xl font-normal font-serif text-[#261F1A] leading-snug">
+            <h3 className="mt-2 text-2xl font-semibold font-serif text-[#261F1A] leading-snug">
               {activeProject.title[locale]}
             </h3>
 
             <div className="mt-6 border-y border-[#DFD6C6] py-5 space-y-4 text-xs">
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-[#54463A] font-semibold">
                   {locale === "en" ? "PRIMARY WOOD SPECIES" : "MADERA PRINCIPAL"}
                 </div>
                 <div className="mt-1 text-sm text-[#261F1A] font-medium font-serif">
@@ -199,7 +199,7 @@ export function BlueprintAnatomyExplorer() {
               </div>
 
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-[#54463A] font-semibold">
                   {locale === "en" ? "DIMENSIONS & TOLERANCE" : "DIMENSIONES Y TOLERANCIA"}
                 </div>
                 <div className="mt-1 text-sm text-[#261F1A] font-medium font-mono">
@@ -208,7 +208,7 @@ export function BlueprintAnatomyExplorer() {
               </div>
 
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-[#54463A] font-semibold">
                   {locale === "en" ? "WORKSHOP DISCIPLINE" : "DISCIPLINA DE TALLER"}
                 </div>
                 <div className="mt-1 text-sm text-[#B85D3B] font-semibold uppercase font-mono">

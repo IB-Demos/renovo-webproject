@@ -76,13 +76,13 @@ export default function KitchensAndMillworkPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Bespoke Kitchens Built for a Lifetime of Living."
                 : "Cocinas de Autor Diseñadas para Toda la Vida."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "From raw hardwood milling to precision factory 2K spray finishing, our Phoenix shop delivers custom kitchen cabinetry and complete refacing that elevate your home beyond builder-grade standards."
                 : "Desde el habilitado de maderas nobles hasta el esmaltado 2K de cabina, nuestro taller en Phoenix crea gabinetes a medida y refacing de lujo que superan cualquier estándar comercial."}
@@ -125,12 +125,12 @@ export default function KitchensAndMillworkPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Cabinetry Standards" : "Estándares de Fabricación"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Built to Outlast Everyday Living"
                 : "Fabricados para Superar el Uso Cotidiano"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Every cabinet is engineered with premium American hardwoods, Blum European hardware, and industrial 2K coatings that withstand desert temperatures and busy family households."
                 : "Cada gabinete se construye con maderas nobles, herrajes europeos Blum y lacas industriales 2K capaces de resistir el clima desértico y el ajetreo diario."}
@@ -146,10 +146,10 @@ export default function KitchensAndMillworkPage() {
                 <div className="w-10 h-10 rounded-xl bg-[#EAE2D5] border border-[#DFD6C6] flex items-center justify-center text-[#B85D3B]">
                   <CheckCircle size={20} weight="fill" />
                 </div>
-                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
+                <h3 className="text-lg font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? std.titleEn : std.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
                   {locale === "en" ? std.descEn : std.descEs}
                 </p>
               </div>
@@ -169,12 +169,12 @@ export default function KitchensAndMillworkPage() {
               <Compass size={14} />
               <span>{locale === "en" ? "Photographic Archive" : "Registro Fotográfico de Obras"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Completed Kitchens Across Phoenix"
                 : "Cocinas Realizadas en Phoenix y Alrededores"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Browse our authentic portfolio of recent custom kitchen installations and 2K cabinet transformations."
                 : "Explora nuestro portafolio auténtico de instalaciones recientes de cocinas a medida y transformaciones con lacas 2K."}
@@ -195,12 +195,12 @@ export default function KitchensAndMillworkPage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Plan Your Custom Kitchen Consultation"
                 : "Planea la Transformación de tu Cocina"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Schedule an in-home evaluation with Raul Burgos to review layouts, take laser measurements, and explore physical door samples."
                 : "Agenda una visita a domicilio con Raul Burgos para revisar distribución, tomar medidas con láser y explorar muestras de puertas."}

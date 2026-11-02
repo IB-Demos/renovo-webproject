@@ -234,20 +234,20 @@ export function CraftChronology() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "What Ordinary House Painters Skip."
                 : "Lo que los Pintores Ordinarios se Saltan."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "A \$10,000+ kitchen transformation requires cleanroom extraction, molecular primers, and factory spray booths. Walk through our step-by-step chronology at our 2231 W Shangri La Rd workshop."
                 : "Una transformación de cocina de \$10,000+ USD exige extracción de polvo, selladores moleculares y cabina de aspersión. Conoce el paso a paso de nuestro taller en 2231 W Shangri La Rd."}
             </p>
           </div>
 
-          <div className="text-xs font-serif text-[#6B5E52] max-w-xs self-start lg:self-auto space-y-1">
+          <div className="text-xs font-serif text-[#3D3228] max-w-xs self-start lg:self-auto space-y-1">
             <span className="text-[#B85D3B] font-semibold block">
               {locale === "en" ? "KCMA Certified Factory Standard" : "Estándar de Fábrica KCMA"}
             </span>
@@ -271,13 +271,13 @@ export function CraftChronology() {
                 className={`interactive-control p-3.5 rounded-2xl text-left transition-all border flex flex-col justify-between ${
                   isActive
                     ? "bg-[#B85D3B] border-[#B85D3B] text-[#FCFAF7] shadow-xs"
-                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
                   <span
                     className={`font-serif text-xs font-bold ${
-                      isActive ? "text-[#FCFAF7]" : "text-[#8A7E72]"
+                      isActive ? "text-[#FCFAF7]" : "text-[#54463A]"
                     }`}
                   >
                     STEP {stage.step}
@@ -288,7 +288,7 @@ export function CraftChronology() {
                 </div>
 
                 <div className="mt-2">
-                  <span className={`text-[11px] block font-serif ${isActive ? "text-[#FCFAF7]/85" : "text-[#8A7E72]"}`}>
+                  <span className={`text-[11px] block font-serif ${isActive ? "text-[#FCFAF7]/85" : "text-[#54463A]"}`}>
                     {stage.day[locale]}
                   </span>
                   <span
@@ -337,7 +337,7 @@ export function CraftChronology() {
 
               {/* Equipment Banner */}
               <div className="p-4 bg-[#EAE2D5] border-t border-[#DFD6C6] flex items-center justify-between text-xs">
-                <span className="text-[#6B5E52] font-serif">
+                <span className="text-[#3D3228] font-serif">
                   {locale === "en" ? "Tooling & Tech:" : "Herramientas:"}
                 </span>
                 <span className="font-serif text-[#261F1A] text-right truncate pl-2 font-medium">
@@ -353,17 +353,17 @@ export function CraftChronology() {
                   <span className="text-xs font-serif text-[#B85D3B] font-bold">
                     STAGE {activeStage.step} OF 07
                   </span>
-                  <span className="text-xs text-[#8A7E72]">/</span>
-                  <span className="text-xs font-serif italic text-[#6B5E52]">
+                  <span className="text-xs text-[#54463A]">/</span>
+                  <span className="text-xs font-serif italic text-[#3D3228]">
                     {activeStage.day[locale]}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#261F1A] leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#261F1A] leading-snug">
                   {activeStage.title[locale]}
                 </h3>
 
-                <p className="text-sm text-[#6B5E52] font-light leading-relaxed pt-2">
+                <p className="text-sm text-[#3D3228] font-normal leading-relaxed pt-2">
                   {activeStage.description[locale]}
                 </p>
               </div>
@@ -395,7 +395,7 @@ export function CraftChronology() {
                   type="button"
                   disabled={activeStageIdx === 0}
                   onClick={() => setActiveStageIdx((prev) => Math.max(0, prev - 1))}
-                  className="interactive-control px-4 py-2 rounded-xl text-[#6B5E52] hover:text-[#261F1A] disabled:opacity-30 disabled:hover:text-[#6B5E52] font-serif transition-colors"
+                  className="interactive-control px-4 py-2 rounded-xl text-[#3D3228] hover:text-[#261F1A] disabled:opacity-30 disabled:hover:text-[#3D3228] font-serif transition-colors"
                 >
                   &larr; {locale === "en" ? "Previous Stage" : "Etapa Anterior"}
                 </button>

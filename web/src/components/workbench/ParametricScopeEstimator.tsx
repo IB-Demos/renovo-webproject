@@ -107,7 +107,7 @@ export function ParametricScopeEstimator() {
                 className={`interactive-control p-4 rounded-2xl border text-left transition-all ${
                   discipline === "cabinetry"
                     ? "border-[#B85D3B] bg-[#FCFAF7] text-[#261F1A] shadow-md ring-1 ring-[#B85D3B]"
-                    : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#6B5E52] hover:border-[#B85D3B]/50"
+                    : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#3D3228] hover:border-[#B85D3B]/50"
                 }`}
               >
                 <div className="text-[10px] font-mono uppercase tracking-wider text-[#B85D3B] font-semibold">
@@ -129,7 +129,7 @@ export function ParametricScopeEstimator() {
                 className={`interactive-control p-4 rounded-2xl border text-left transition-all ${
                   discipline === "painting"
                     ? "border-[#B85D3B] bg-[#FCFAF7] text-[#261F1A] shadow-md ring-1 ring-[#B85D3B]"
-                    : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#6B5E52] hover:border-[#B85D3B]/50"
+                    : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#3D3228] hover:border-[#B85D3B]/50"
                 }`}
               >
                 <div className="text-[10px] font-mono uppercase tracking-wider text-[#B85D3B] font-semibold">
@@ -153,7 +153,7 @@ export function ParametricScopeEstimator() {
                 {/* Cabinet Doors Stepper */}
                 <div className="p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xs space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#8A7E72] font-semibold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#54463A] font-semibold">
                       {t.estimatorSection.doorsLabel}
                     </span>
                     <span className="text-xl font-serif font-bold text-[#261F1A] tabular-nums">
@@ -182,7 +182,7 @@ export function ParametricScopeEstimator() {
                     >
                       <Minus size={16} />
                     </button>
-                    <span className="text-[11px] text-[#8A7E72]">Tap +/- or slide</span>
+                    <span className="text-[11px] text-[#54463A]">Tap +/- or slide</span>
                     <button
                       type="button"
                       onClick={() => setDoorsCount(Math.min(64, doorsCount + 1))}
@@ -197,7 +197,7 @@ export function ParametricScopeEstimator() {
                 {/* Drawer Fronts Stepper */}
                 <div className="p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xs space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#8A7E72] font-semibold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#54463A] font-semibold">
                       {t.estimatorSection.drawersLabel}
                     </span>
                     <span className="text-xl font-serif font-bold text-[#261F1A] tabular-nums">
@@ -226,7 +226,7 @@ export function ParametricScopeEstimator() {
                     >
                       <Minus size={16} />
                     </button>
-                    <span className="text-[11px] text-[#8A7E72]">Tap +/- or slide</span>
+                    <span className="text-[11px] text-[#54463A]">Tap +/- or slide</span>
                     <button
                       type="button"
                       onClick={() => setDrawersCount(Math.min(36, drawersCount + 1))}
@@ -242,7 +242,7 @@ export function ParametricScopeEstimator() {
               /* Painting SqFt Stepper */
               <div className="p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#8A7E72] font-semibold">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#54463A] font-semibold">
                     {t.estimatorSection.sqftLabel}
                   </span>
                   <span className="text-xl font-serif font-bold text-[#261F1A] tabular-nums">
@@ -270,7 +270,7 @@ export function ParametricScopeEstimator() {
                   >
                     <Minus size={16} />
                   </button>
-                  <span className="text-[11px] text-[#8A7E72]">Tap +/- or slide</span>
+                  <span className="text-[11px] text-[#54463A]">Tap +/- or slide</span>
                   <button
                     type="button"
                     onClick={() => setPaintSqFt(Math.min(6500, paintSqFt + 200))}
@@ -322,17 +322,17 @@ export function ParametricScopeEstimator() {
                     className={`interactive-control p-4 rounded-2xl border text-left transition-all ${
                       isSelected
                         ? "border-[#B85D3B] bg-[#FCFAF7] text-[#261F1A] shadow-md ring-1 ring-[#B85D3B]"
-                        : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#6B5E52] hover:border-[#B85D3B]/50"
+                        : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#3D3228] hover:border-[#B85D3B]/50"
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className={`text-xs font-mono uppercase font-bold ${isSelected ? "text-[#B85D3B]" : "text-[#8A7E72]"}`}>
+                      <span className={`text-xs font-mono uppercase font-bold ${isSelected ? "text-[#B85D3B]" : "text-[#54463A]"}`}>
                         TIER {tier.id === "essential" ? "01" : tier.id === "architectural" ? "02" : "03"}
                       </span>
                       {isSelected && <CheckCircle size={16} className="text-[#B85D3B]" weight="fill" />}
                     </div>
                     <div className="text-sm font-semibold text-[#261F1A]">{tier.title}</div>
-                    <div className={`text-xs mt-1 leading-snug ${isSelected ? "text-[#6B5E52]" : "text-[#8A7E72]"}`}>
+                    <div className={`text-xs mt-1 leading-snug ${isSelected ? "text-[#3D3228]" : "text-[#54463A]"}`}>
                       {locale === "en" ? tier.descEn : tier.descEs}
                     </div>
                   </button>
@@ -354,11 +354,11 @@ export function ParametricScopeEstimator() {
 
             {/* Investment Range Readout */}
             <div className="mt-6 space-y-2">
-              <div className="text-3xl sm:text-4xl font-normal font-serif text-[#261F1A] tracking-tight tabular-nums">
+              <div className="text-3xl sm:text-4xl font-semibold font-serif text-[#261F1A] tracking-tight tabular-nums">
                 ${low.toLocaleString("en-US")} – ${high.toLocaleString("en-US")}
-                <span className="ml-2 text-xs font-mono font-normal text-[#8A7E72]">USD</span>
+                <span className="ml-2 text-xs font-mono font-normal text-[#54463A]">USD</span>
               </div>
-              <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
+              <p className="text-xs text-[#3D3228] leading-relaxed font-serif">
                 {locale === "en"
                   ? "Reflects full industrial 2K catalyzed materials, Festool HEPA dust extraction, shop spray booths, and turn-key installation."
                   : "Incluye materiales catalizados 2K, extracción HEPA sin polvo, cabinas de taller e instalación garantizada."}
@@ -368,7 +368,7 @@ export function ParametricScopeEstimator() {
             {/* Turnaround & Warranty Badge */}
             <div className="mt-6 grid grid-cols-2 gap-4 border-y border-[#DFD6C6] py-4">
               <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="text-[10px] font-mono uppercase tracking-widest text-[#54463A] font-semibold">
                   {t.estimatorSection.timelineLabel}
                 </div>
                 <div className="mt-1 font-serif text-lg font-normal text-[#261F1A] tabular-nums">
@@ -376,7 +376,7 @@ export function ParametricScopeEstimator() {
                 </div>
               </div>
               <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="text-[10px] font-mono uppercase tracking-widest text-[#54463A] font-semibold">
                   {locale === "en" ? "STANDARDS" : "ESTÁNDAR"}
                 </div>
                 <div className="mt-1 font-mono text-xs font-semibold text-[#2E6B4E] flex items-center gap-1">
@@ -396,7 +396,7 @@ export function ParametricScopeEstimator() {
                 <div className="font-mono text-xs text-[#B85D3B] font-bold">
                   CODE: {submittedSpecCode}
                 </div>
-                <p className="text-xs text-[#6B5E52]">
+                <p className="text-xs text-[#3D3228]">
                   {locale === "en"
                     ? "Raul Burgos will review your dimensions and reach out within 1 business day."
                     : "Raul Burgos revisará tus medidas y te contactará en menos de 1 día hábil."}
@@ -405,7 +405,7 @@ export function ParametricScopeEstimator() {
             ) : (
               <form onSubmit={handleLockSpec} noValidate className="mt-6 space-y-4">
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-[#6B5E52] mb-1.5 font-semibold">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-[#3D3228] mb-1.5 font-semibold">
                     {locale === "en" ? "Your Name or Project Reference *" : "Nombre o Referencia de Obra *"}
                   </label>
                   <input
@@ -424,7 +424,7 @@ export function ParametricScopeEstimator() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B5E52] mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-[#3D3228] mb-1.5 font-semibold">
                       {locale === "en" ? "Email Address *" : "Correo Electrónico *"}
                     </label>
                     <input
@@ -439,7 +439,7 @@ export function ParametricScopeEstimator() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B5E52] mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-[#3D3228] mb-1.5 font-semibold">
                       {locale === "en" ? "Phone or ZIP Code *" : "Teléfono o Código Postal *"}
                     </label>
                     <input

@@ -147,13 +147,13 @@ export function CabinetDecisionMatrix() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "Should You Reface or Build from Scratch?"
                 : "¿Conviene Transformar o Fabricar desde Cero?"}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Many homeowners spend tens of thousands unnecessarily demolishing sound hardwood cabinetry. Use our 3-question diagnostic below to find the most honest, cost-effective path for your Arizona home."
                 : "Muchos propietarios gastan miles de dólares demoliendo madera noble en perfecto estado. Responde estas 3 preguntas para descubrir la opción más honesta y rentable para tu residencia en Arizona."}
@@ -168,7 +168,7 @@ export function CabinetDecisionMatrix() {
               className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl font-serif transition-all flex items-center gap-2 ${
                 selectedPath === "refacing"
                   ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               <Sparkle size={15} weight={selectedPath === "refacing" ? "fill" : "regular"} />
@@ -181,7 +181,7 @@ export function CabinetDecisionMatrix() {
               className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl font-serif transition-all flex items-center gap-2 ${
                 selectedPath === "custom"
                   ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               <Hammer size={15} weight={selectedPath === "custom" ? "fill" : "regular"} />
@@ -200,7 +200,7 @@ export function CabinetDecisionMatrix() {
                 ? "Interactive Kitchen Diagnostic (30 seconds)"
                 : "Diagnóstico Rápido de Cocina (30 segundos)"}
             </span>
-            <span className="text-xs text-[#6B5E52]">
+            <span className="text-xs text-[#3D3228]">
               {locale === "en"
                 ? "Answer to see our honest recommendation"
                 : "Responde para ver la recomendación de nuestro taller"}
@@ -220,7 +220,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.layoutSatisfied
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={answers.layoutSatisfied ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.layoutSatisfied ? "fill" : "regular"} />
@@ -240,7 +240,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     !answers.layoutSatisfied
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={!answers.layoutSatisfied ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={!answers.layoutSatisfied ? "fill" : "regular"} />
@@ -268,7 +268,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.boxCondition === "solid"
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={answers.boxCondition === "solid" ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "solid" ? "fill" : "regular"} />
@@ -288,7 +288,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.boxCondition === "damaged"
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={answers.boxCondition === "damaged" ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "damaged" ? "fill" : "regular"} />
@@ -316,7 +316,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.urgency === "fast"
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={answers.urgency === "fast" ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "fast" ? "fill" : "regular"} />
@@ -336,7 +336,7 @@ export function CabinetDecisionMatrix() {
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.urgency === "thorough"
                       ? "bg-[#FCFAF7] border-[#B85D3B] text-[#261F1A] ring-1 ring-[#B85D3B]/30 shadow-xs"
-                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
+                      : "bg-[#FCFAF7]/75 border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#FCFAF7] shadow-xs"
                   }`}
                 >
                   <CheckCircle size={16} className={answers.urgency === "thorough" ? "text-[#B85D3B] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "thorough" ? "fill" : "regular"} />
@@ -392,17 +392,17 @@ export function CabinetDecisionMatrix() {
                   <span className="text-xs font-serif italic text-[#B85D3B]">
                     {currentPath.tag[locale]}
                   </span>
-                  <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                     {currentPath.headline[locale]}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed font-normal">
                     {currentPath.summary[locale]}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#DFD6C6] text-xs">
                   <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-1">
-                    <span className="text-[#8A7E72] text-[11px] block font-serif">
+                    <span className="text-[#54463A] text-[11px] block font-serif">
                       {locale === "en" ? "Typical Timeline" : "Tiempo de Entrega"}
                     </span>
                     <span className="text-sm font-serif font-semibold text-[#261F1A] flex items-center gap-1.5">
@@ -412,7 +412,7 @@ export function CabinetDecisionMatrix() {
                   </div>
 
                   <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-1">
-                    <span className="text-[#8A7E72] text-[11px] block font-serif">
+                    <span className="text-[#54463A] text-[11px] block font-serif">
                       {locale === "en" ? "Relative Investment" : "Inversión Relativa"}
                     </span>
                     <span className="text-sm font-serif font-semibold text-[#261F1A] flex items-center gap-1.5">
@@ -422,7 +422,7 @@ export function CabinetDecisionMatrix() {
                   </div>
 
                   <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-1">
-                    <span className="text-[#8A7E72] text-[11px] block font-serif">
+                    <span className="text-[#54463A] text-[11px] block font-serif">
                       {locale === "en" ? "Home Disruption" : "Nivel de Obra en Casa"}
                     </span>
                     <span className="text-sm font-serif font-semibold text-[#261F1A] flex items-center gap-1.5">
@@ -440,7 +440,7 @@ export function CabinetDecisionMatrix() {
                 <span className="text-xs font-serif italic text-[#B85D3B]">
                   {locale === "en" ? "Master Craftsman's Honest Advice" : "La Opinión Honesta de Raul Burgos"}
                 </span>
-                <h3 className="text-2xl font-serif font-normal text-[#261F1A] leading-snug">
+                <h3 className="text-2xl font-serif font-semibold text-[#261F1A] leading-snug">
                   {currentPath.title[locale]}
                 </h3>
               </div>
@@ -456,7 +456,7 @@ export function CabinetDecisionMatrix() {
                   </div>
                   <div>
                     <span className="font-semibold text-[#261F1A] block">Raul Burgos</span>
-                    <span className="text-[#8A7E72] text-[11px]">Founder &amp; Master Cabinetmaker</span>
+                    <span className="text-[#54463A] text-[11px]">Founder &amp; Master Cabinetmaker</span>
                   </div>
                 </div>
               </div>
@@ -467,7 +467,7 @@ export function CabinetDecisionMatrix() {
                   <ShieldCheck size={16} />
                   <span>{locale === "en" ? "Scope of Work Included:" : "Alcance del Trabajo Incluido:"}</span>
                 </div>
-                <p className="text-[#6B5E52] leading-relaxed">
+                <p className="text-[#3D3228] leading-relaxed">
                   {currentPath.scope[locale]}
                 </p>
               </div>

@@ -74,13 +74,13 @@ export default function ResidentialPaintingPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Architectural Pigment, Velvet Walls & Desert Durability."
                 : "Color Arquitectónico, Acabados Aterciopelados y Protección."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "From coffered living room ceilings to front entry door revitalization, Renovo combines meticulous surface preparation with industrial spray precision for finishes that never peel or chalk under Arizona sun."
                 : "Desde plafones de gran formato hasta la restauración de puertas principales, Renovo combina preparación milimétrica y aspersión fina para acabados que no se descascaran."}
@@ -117,12 +117,12 @@ export default function ResidentialPaintingPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Surface Protocol" : "Protocolo de Preparación"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "The Science of High-Durability Preparation"
                 : "La Ciencia Detrás de una Preparación Duradera"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Ninety percent of exterior paint failures in Arizona are caused by improper substrate prep. We inspect, decontaminate, and prime to laboratory standards."
                 : "El 90% de las fallas de pintura en Arizona se deben a una mala preparación. Inspeccionamos, descontaminamos y sellamos con estándares de laboratorio."}
@@ -145,10 +145,10 @@ export default function ResidentialPaintingPage() {
                       {proto.code}
                     </span>
                   </div>
-                  <h3 className="text-xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? proto.titleEn : proto.titleEs}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
                     {locale === "en" ? proto.descEn : proto.descEs}
                   </p>
                 </div>
@@ -169,12 +169,12 @@ export default function ResidentialPaintingPage() {
               <Compass size={14} />
               <span>{locale === "en" ? "Color Simulator" : "Simulador de Color"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Test Pigments on Architectural Substrates"
                 : "Experimenta con Pigmentos en Muros y Fachadas"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Evaluate light reflectance, undertones, and velvet sheens across interior and exterior scenarios."
                 : "Evalúa reflectancia de luz, subtonos y tersuras en escenarios interiores y exteriores."}
@@ -198,7 +198,7 @@ export default function ResidentialPaintingPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Verified Portfolio" : "Obras Verificadas en Phoenix"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Recent Interior & Exterior Commissions"
                 : "Proyectos Recientes de Pintura Residencial"}
@@ -215,12 +215,12 @@ export default function ResidentialPaintingPage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Schedule an Architectural Color Evaluation"
                 : "Agenda una Evaluación de Color en Sitio"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Raul Burgos will evaluate your residence in person, conduct moisture testing, and bring physical large-format color boards to test under your home's natural daylight."
                 : "Raul Burgos evaluará tu residencia personalmente, realizará pruebas de humedad y llevará muestras de gran formato para analizarlas bajo la luz natural de tus espacios."}

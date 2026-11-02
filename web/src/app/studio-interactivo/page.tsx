@@ -122,13 +122,13 @@ function InteractiveStudioContent() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Experience Your Space Before a Single Board is Cut."
                 : "Visualiza tu Espacio Antes de Cortar la Primera Madera."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Our proprietary digital atelier puts custom woodcrafting and industrial 2K finishes at your fingertips. Switch between precision tools below to explore elevations, light simulation, and joinery details."
                 : "Nuestro estudio digital pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Conmuta entre herramientas para explorar planos, luz y detalles de ensamble."}
@@ -152,7 +152,7 @@ function InteractiveStudioContent() {
                   className={`interactive-control px-4 py-2.5 rounded-2xl border text-left transition-all shrink-0 flex items-center gap-2.5 min-h-[44px] ${
                     isSelected
                       ? "bg-[#B85D3B] text-[#FCFAF7] border-[#B85D3B] shadow-md font-semibold font-serif"
-                      : "bg-[#FCFAF7] text-[#6B5E52] border-[#DFD6C6] hover:border-[#261F1A] hover:text-[#261F1A] font-serif shadow-xs"
+                      : "bg-[#FCFAF7] text-[#3D3228] border-[#DFD6C6] hover:border-[#261F1A] hover:text-[#261F1A] font-serif shadow-xs"
                   }`}
                 >
                   <Icon
@@ -186,10 +186,10 @@ function InteractiveStudioContent() {
                   <Calculator size={14} />
                   <span>{locale === "en" ? "Parametric Estimator" : "Cotizador Paramétrico"}</span>
                 </div>
-                <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+                <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
                   {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
                 </h2>
-                <p className="text-base text-[#6B5E52] font-light">
+                <p className="text-base text-[#3D3228] font-normal">
                   {locale === "en"
                     ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
                     : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
@@ -208,10 +208,10 @@ function InteractiveStudioContent() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h3 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5]">
+            <h3 className="text-3xl sm:text-5xl font-serif font-semibold text-[#FAF8F5]">
               {locale === "en" ? "Ready to Bring This Design to Life?" : "¿Listo para Hacer Realidad este Diseño?"}
             </h3>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Save your configuration or schedule an on-site visit with Raul Burgos to verify measurements."
                 : "Guarda tu configuración o agenda una visita en sitio con Raul Burgos para verificar medidas."}
@@ -243,7 +243,7 @@ export default function InteractiveStudioPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-[60vh] flex items-center justify-center bg-[#F4EFE6] text-[#6B5E52] font-serif text-sm">
+        <div className="min-h-[60vh] flex items-center justify-center bg-[#F4EFE6] text-[#3D3228] font-serif text-sm">
           Loading Renovo Digital Atelier...
         </div>
       }

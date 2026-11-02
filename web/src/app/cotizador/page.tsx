@@ -55,11 +55,11 @@ export default function EstimatorPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {t.estimatorSection.headline}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {t.estimatorSection.subhead}
             </p>
 
@@ -86,10 +86,10 @@ export default function EstimatorPage() {
               <Sparkle size={14} />
               <span>{locale === "en" ? "Parametric Calculator" : "Calculadora Paramétrica"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
                 : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
@@ -113,7 +113,7 @@ export default function EstimatorPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Pricing Integrity" : "Transparencia Total"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "No Hidden Costs. No Surprises." : "Precios Claros. Cero Sorpresas."}
             </h2>
           </div>
@@ -127,10 +127,10 @@ export default function EstimatorPage() {
                 <div className="w-10 h-10 rounded-xl bg-[#EAE2D5] border border-[#DFD6C6] flex items-center justify-center text-[#B85D3B]">
                   <CheckCircle size={20} weight="fill" />
                 </div>
-                <h3 className="text-xl font-serif font-normal text-[#261F1A]">
+                <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? pillar.titleEn : pillar.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
                   {locale === "en" ? pillar.descEn : pillar.descEs}
                 </p>
               </div>
@@ -147,10 +147,10 @@ export default function EstimatorPage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#FAF8F5]">
               {locale === "en" ? "Lock In Your On-Site Consultation" : "Agenda tu Consulta de Medición en Sitio"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Turn your calculated estimate into a verified scope. Raul Burgos will inspect existing conditions and confirm final pricing."
                 : "Convierte tu cálculo estimado en un presupuesto formal. Raul Burgos verificará las condiciones en tu residencia."}

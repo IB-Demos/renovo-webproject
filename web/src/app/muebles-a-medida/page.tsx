@@ -37,13 +37,13 @@ export default function CustomFurniturePage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-normal font-serif leading-[1.08] tracking-tight text-[#261F1A]">
+            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-semibold font-serif leading-[1.08] tracking-tight text-[#261F1A]">
               {locale === "en"
                 ? "Arched Fireplaces, Media Walls & Handcrafted Wine Bars."
                 : "Libreros Arqueados, Muros de TV y Cavas Hechas a Mano."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] leading-relaxed font-light">
+            <p className="text-base sm:text-xl text-[#3D3228] leading-relaxed font-normal">
               {locale === "en"
                 ? "Custom-built in our Phoenix workshop from premium rift-cut white oak, hard maple, and acoustic paneling with concealed soft-close hardware."
                 : "Fabricados a mano en nuestro taller de Phoenix con encino blanco de corte recto, maple sólido y herrajes ocultos de la más alta calidad."}
@@ -81,12 +81,12 @@ export default function CustomFurniturePage() {
               <Compass size={14} />
               <span>{locale === "en" ? "Interactive Anatomy" : "Anatomía Interactiva"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Inspect Joinery, Woods & Integrated Lighting"
                 : "Inspecciona Ensambles, Maderas e Iluminación"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Click on the numbered pins across our 4 signature builds to explore craft details, or toggle to the full 19-photo archive with workshop video."
                 : "Haz clic en los nodos de nuestras 4 obras de autor para explorar detalles constructivos, o abre el archivo completo de 19 fotos con video."}
@@ -108,7 +108,7 @@ export default function CustomFurniturePage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Complete Repertoire" : "Repertorio de Autor"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Custom Furniture Archive" : "Archivo de Muebles a Medida"}
             </h2>
           </div>
@@ -123,12 +123,12 @@ export default function CustomFurniturePage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Commission an Architectural Centerpiece"
                 : "Comisiona una Obra Arquitectónica a Medida"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Bring your architectural drawings, Pinterest boards, or napkin sketches to Raul Burgos. We translate your vision into heirloom-quality reality."
                 : "Trae tus planos, referencias o bocetos iniciales a Raul Burgos. Convertimos tu idea en una pieza de arte para tu hogar."}

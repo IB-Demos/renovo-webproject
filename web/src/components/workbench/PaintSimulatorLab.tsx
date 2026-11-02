@@ -55,7 +55,7 @@ export function PaintSimulatorLab() {
               className={`interactive-control px-3 py-1.5 rounded-md text-xs font-mono min-h-[34px] transition-all ${
                 mode === "exterior"
                   ? "bg-[#B85D3B] text-white font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               {t.workbench.paint.exteriorMode}
@@ -67,7 +67,7 @@ export function PaintSimulatorLab() {
               className={`interactive-control px-3 py-1.5 rounded-md text-xs font-mono min-h-[34px] transition-all ${
                 mode === "interior"
                   ? "bg-[#B85D3B] text-white font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               {t.workbench.paint.interiorMode}
@@ -90,7 +90,7 @@ export function PaintSimulatorLab() {
                 className={`interactive-control px-2.5 py-1 rounded text-[11px] min-h-[28px] transition-all ${
                   solarState === s.id
                     ? "bg-[#B85D3B] text-white font-semibold shadow-xs"
-                    : "text-[#6B5E52] hover:text-[#261F1A]"
+                    : "text-[#3D3228] hover:text-[#261F1A]"
                 }`}
               >
                 {s.label}
@@ -271,7 +271,7 @@ export function PaintSimulatorLab() {
         <div className="mt-4 pt-4 border-t border-[#DFD6C6] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-6 text-xs font-mono">
             <div>
-              <span className="text-[#8A7E72] block text-[10px] font-semibold">
+              <span className="text-[#54463A] block text-[10px] font-semibold">
                 {t.workbench.paint.lrvMetricLabel}
               </span>
               <span className="tabular-nums text-[#261F1A] font-semibold">
@@ -279,7 +279,7 @@ export function PaintSimulatorLab() {
               </span>
             </div>
             <div>
-              <span className="text-[#8A7E72] block text-[10px] font-semibold">
+              <span className="text-[#54463A] block text-[10px] font-semibold">
                 {t.workbench.paint.vocMetricLabel}
               </span>
               <span className="tabular-nums text-[#261F1A] font-semibold">&lt; 50 g/L Zero-VOC</span>
@@ -308,7 +308,7 @@ export function PaintSimulatorLab() {
             <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#261F1A] font-semibold">
               01. {t.workbench.paint.primaryWallLabel}
             </span>
-            <span className="font-mono text-xs text-[#8A7E72]">{bodyPigment.brandRef}</span>
+            <span className="font-mono text-xs text-[#54463A]">{bodyPigment.brandRef}</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {ARCHITECTURAL_PIGMENTS.map((p) => {
@@ -328,7 +328,7 @@ export function PaintSimulatorLab() {
               );
             })}
           </div>
-          <p className="text-xs text-[#6B5E52] mt-2 font-serif">
+          <p className="text-xs text-[#3D3228] mt-2 font-serif">
             <strong className="text-[#261F1A]">{bodyPigment.name[locale]}:</strong>{" "}
             {bodyPigment.undertone[locale]}
           </p>
@@ -340,7 +340,7 @@ export function PaintSimulatorLab() {
             <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#261F1A] font-semibold">
               02. {t.workbench.paint.trimAndFasciaLabel}
             </span>
-            <span className="font-mono text-xs text-[#8A7E72]">{trimPigment.brandRef}</span>
+            <span className="font-mono text-xs text-[#54463A]">{trimPigment.brandRef}</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {ARCHITECTURAL_PIGMENTS.map((p) => {
@@ -360,7 +360,7 @@ export function PaintSimulatorLab() {
               );
             })}
           </div>
-          <p className="text-xs text-[#6B5E52] mt-2 font-serif">
+          <p className="text-xs text-[#3D3228] mt-2 font-serif">
             <strong className="text-[#261F1A]">{trimPigment.name[locale]}:</strong>{" "}
             {trimPigment.undertone[locale]}
           </p>
@@ -372,7 +372,7 @@ export function PaintSimulatorLab() {
             <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#261F1A] font-semibold">
               03. {t.workbench.paint.accentDoorLabel}
             </span>
-            <span className="font-mono text-xs text-[#8A7E72]">{doorPigment.brandRef}</span>
+            <span className="font-mono text-xs text-[#54463A]">{doorPigment.brandRef}</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {ARCHITECTURAL_PIGMENTS.map((p) => {
@@ -392,7 +392,7 @@ export function PaintSimulatorLab() {
               );
             })}
           </div>
-          <p className="text-xs text-[#6B5E52] mt-2 font-serif">
+          <p className="text-xs text-[#3D3228] mt-2 font-serif">
             <strong className="text-[#261F1A]">{doorPigment.name[locale]}:</strong>{" "}
             {doorPigment.undertone[locale]}
           </p>

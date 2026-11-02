@@ -117,13 +117,13 @@ export default function AboutPage() {
               <span>{locale === "en" ? "Heritage & Craftsmanship · Phoenix Atelier" : "Historia y Artesanía · Taller Phoenix"}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Born in Phoenix. Devoted to High-End Living."
                 : "Nacidos en Phoenix. Dedicados al Detalle y el Arte."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Led by master craftsman Raul Burgos, Renovo Painting Solutions has spent over a decade perfecting the synthesis of fine custom woodworking and flawless factory architectural finishes."
                 : "Dirigido por el maestro ebanista Raul Burgos, Renovo ha perfeccionado durante más de una década la unión entre ebanistería fina a medida y acabados arquitectónicos impecables."}
@@ -158,12 +158,12 @@ export default function AboutPage() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
                 <span>{locale === "en" ? "The Founder's Vision" : "La Visión del Fundador"}</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A] leading-[1.12]">
+              <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] leading-[1.12]">
                 {locale === "en"
                   ? "Crafting Spaces with Passion, Warmth and Enduring Soul."
                   : "Creando Espacios con Pasión, Calidez y un Alma que Perdura."}
               </h2>
-              <div className="space-y-4 text-base text-[#6B5E52] font-light leading-relaxed">
+              <div className="space-y-4 text-base text-[#3D3228] font-normal leading-relaxed">
                 <p>
                   {locale === "en"
                     ? "Renovo started with a simple observation: homeowners throughout the Phoenix Valley were frustrated by generic cabinet companies that delivered flimsy mass-produced boxes and local house painters whose brush marks chipped within months."
@@ -230,10 +230,10 @@ export default function AboutPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Uncompromising Quality" : "Calidad sin Concesiones"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "The Four Pillars of Renovo" : "Los Cuatro Pilares de Renovo"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Every kitchen, finish, and custom built-in is backed by four distinct commitments."
                 : "Cada cocina, acabado y mueble a medida está respaldado por cuatro compromisos innegociables."}
@@ -251,10 +251,10 @@ export default function AboutPage() {
                   <div className="w-12 h-12 rounded-2xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B]">
                     <Icon size={24} weight="fill" />
                   </div>
-                  <h3 className="text-xl font-normal font-serif text-[#261F1A]">
+                  <h3 className="text-xl font-semibold font-serif text-[#261F1A]">
                     {locale === "en" ? p.titleEn : p.titleEs}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
                     {locale === "en" ? p.descEn : p.descEs}
                   </p>
                 </div>
@@ -272,7 +272,7 @@ export default function AboutPage() {
               <Sparkle size={14} />
               <span>{locale === "en" ? "Our Journey" : "Nuestro Trayecto"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Over 10 Years of Continuous Craft Evolution"
                 : "Más de 10 Años de Evolución y Excelencia"}
@@ -285,10 +285,10 @@ export default function AboutPage() {
                 <span className="font-serif text-2xl font-bold text-[#B85D3B] block">
                   {m.year}
                 </span>
-                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
+                <h3 className="text-lg font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? m.titleEn : m.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
                   {locale === "en" ? m.descEn : m.descEs}
                 </p>
               </div>
@@ -309,17 +309,17 @@ export default function AboutPage() {
                 <MapPin size={16} />
                 <span>{locale === "en" ? "PHOENIX WORKSHOP & SHOWROOM" : "TALLER Y SALA DE MUESTRAS EN PHOENIX"}</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+              <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
                 {COMPANY_INFO.address.street}
               </h2>
-              <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+              <p className="text-base text-[#3D3228] font-normal leading-relaxed">
                 {locale === "en"
                   ? `Located at ${COMPANY_INFO.address.full}, our dedicated workshop houses our precision woodworking tools, mock-up stations, and industrial spray booths. Homeowners, interior designers, and architects are welcome by appointment.`
                   : `Ubicado en ${COMPANY_INFO.address.full}, nuestro taller alberga herramientas de ebanistería de precisión, estaciones de ensamble y cabinas de pintura industrial. Propietarios, diseñadores y arquitectos son bienvenidos previa cita.`}
               </p>
 
               <div className="pt-2">
-                <div className="text-xs font-serif uppercase tracking-wider text-[#8A7E72] mb-3 font-semibold">
+                <div className="text-xs font-serif uppercase tracking-wider text-[#54463A] mb-3 font-semibold">
                   {locale === "en" ? "PRIMARY SERVICE AREAS" : "ÁREAS DE SERVICIO PRINCIPALES"}
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -337,10 +337,10 @@ export default function AboutPage() {
 
             <div className="lg:col-span-6">
               <div className="p-8 sm:p-10 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl space-y-6">
-                <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? "Schedule a Workshop Visit or In-Home Consultation" : "Agenda una Visita al Taller o Consulta a Domicilio"}
                 </h3>
-                <p className="text-sm text-[#6B5E52] leading-relaxed">
+                <p className="text-sm text-[#3D3228] leading-relaxed">
                   {locale === "en"
                     ? "Discuss your custom kitchen layout, examine full-scale wood and door samples, or inspect our 2K velvet finishes in person."
                     : "Platica sobre la distribución de tu cocina, examina muestras físicas de maderas y puertas, o inspecciona en persona nuestras lacas 2K."}

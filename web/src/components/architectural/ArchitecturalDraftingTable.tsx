@@ -405,13 +405,13 @@ export function ArchitecturalDraftingTable() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "From Architectural Sketch to Living Home."
                 : "Del Boceto Arquitectónico a tu Hogar."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Every Renovo project starts as a scaled millwork drawing before our craftsmen cut the first piece of hardwood. Drag the slider across the plan to witness how technical drafting transforms into handcrafted luxury."
                 : "Cada proyecto de Renovo comienza como un plano a escala milimétrica antes de cortar la primera tabla. Desliza el control interactivo sobre el plano para ver cómo el trazo técnico se convierte en madera noble y acabados de cabina."}
@@ -426,7 +426,7 @@ export function ArchitecturalDraftingTable() {
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 100
                   ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               <PencilSimpleLine size={15} />
@@ -439,7 +439,7 @@ export function ArchitecturalDraftingTable() {
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 50
                   ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               <ArrowsLeftRight size={15} />
@@ -452,7 +452,7 @@ export function ArchitecturalDraftingTable() {
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 0
                   ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               <Camera size={15} />
@@ -475,7 +475,7 @@ export function ArchitecturalDraftingTable() {
                 className={`interactive-control p-4 rounded-2xl text-left transition-all duration-200 border flex flex-col justify-between gap-3 ${
                   isSelected
                     ? "bg-[#EAE2D5] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-sm text-[#261F1A]"
-                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                 }`}
               >
                 <div>
@@ -492,7 +492,7 @@ export function ArchitecturalDraftingTable() {
                   </h3>
                 </div>
 
-                <div className="text-xs text-[#8A7E72] pt-2 border-t border-[#DFD6C6] truncate">
+                <div className="text-xs text-[#54463A] pt-2 border-t border-[#DFD6C6] truncate">
                   {locale === "en" ? proj.dimensions.en : proj.dimensions.es}
                 </div>
               </button>
@@ -507,7 +507,7 @@ export function ArchitecturalDraftingTable() {
           {/* LEFT 8 COLUMNS: INTERACTIVE SPLIT CANVAS */}
           <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-[#EAE2D5] border border-[#DFD6C6] shadow-lg flex flex-col">
             {/* Canvas Header Bar */}
-            <div className="px-5 py-3.5 border-b border-[#DFD6C6] bg-[#DFD6C6]/60 flex flex-wrap items-center justify-between gap-3 text-xs text-[#6B5E52]">
+            <div className="px-5 py-3.5 border-b border-[#DFD6C6] bg-[#DFD6C6]/60 flex flex-wrap items-center justify-between gap-3 text-xs text-[#3D3228]">
               <span className="font-serif italic text-sm text-[#261F1A]">
                 {locale === "en" ? currentProject.title.en : currentProject.title.es}
               </span>
@@ -832,7 +832,7 @@ export function ArchitecturalDraftingTable() {
 
             {/* Quick Feature Selection Bar (Large, Accessible Touch Targets) */}
             <div className="p-4 bg-[#EAE2D5] border-t border-[#DFD6C6] space-y-2">
-              <span className="text-xs font-serif italic text-[#6B5E52] block">
+              <span className="text-xs font-serif italic text-[#3D3228] block">
                 {locale === "en" ? "Tap a feature to inspect craftsmanship:" : "Toca una característica para inspeccionar el detalle:"}
               </span>
               <div className="flex flex-wrap gap-2">
@@ -846,7 +846,7 @@ export function ArchitecturalDraftingTable() {
                       className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl text-xs font-serif transition-all flex items-center gap-2 ${
                         isSelected
                           ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                          : "bg-[#FCFAF7] text-[#6B5E52] hover:text-[#261F1A] hover:bg-[#F4EFE6] border border-[#DFD6C6] shadow-xs"
+                          : "bg-[#FCFAF7] text-[#3D3228] hover:text-[#261F1A] hover:bg-[#F4EFE6] border border-[#DFD6C6] shadow-xs"
                       }`}
                     >
                       <span>{locale === "en" ? feat.shortLabel.en : feat.shortLabel.es}</span>
@@ -864,7 +864,7 @@ export function ArchitecturalDraftingTable() {
               <span className="text-xs font-serif italic text-[#B85D3B]">
                 {locale === "en" ? currentFeature.category.en : currentFeature.category.es}
               </span>
-              <h3 className="text-2xl font-serif font-normal text-[#261F1A] leading-snug">
+              <h3 className="text-2xl font-serif font-semibold text-[#261F1A] leading-snug">
                 {locale === "en" ? currentFeature.fullTitle.en : currentFeature.fullTitle.es}
               </h3>
             </div>
@@ -888,7 +888,7 @@ export function ArchitecturalDraftingTable() {
 
             {/* Commercial Comparison */}
             <div className="p-5 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-serif text-[#6B5E52] font-semibold">
+              <div className="flex items-center gap-2 text-xs font-serif text-[#3D3228] font-semibold">
                 <ShieldCheck size={16} />
                 <span>
                   {locale === "en"
@@ -896,7 +896,7 @@ export function ArchitecturalDraftingTable() {
                     : "Lo que Hacen los Gabinetes Comerciales"}
                 </span>
               </div>
-              <p className="text-xs text-[#6B5E52] leading-relaxed">
+              <p className="text-xs text-[#3D3228] leading-relaxed">
                 {locale === "en"
                   ? currentFeature.commercialStandard.en
                   : currentFeature.commercialStandard.es}

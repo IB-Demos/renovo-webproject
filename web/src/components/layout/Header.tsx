@@ -62,10 +62,10 @@ export function Header() {
             className="h-14 sm:h-16 w-auto object-contain outline-none drop-shadow-sm"
           />
           <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-3 leading-tight">
-            <span className="text-[10px] tracking-[0.2em] text-[#B85D3B] font-serif font-semibold uppercase">
+            <span className="text-xs tracking-[0.2em] text-[#B85D3B] font-serif font-bold uppercase">
               Phoenix, AZ
             </span>
-            <span className="text-[10px] text-[#6B5E52] tracking-wider uppercase font-serif">
+            <span className="text-xs text-[#3D3228] tracking-wider uppercase font-serif font-semibold">
               {locale === "en" ? "Cabinetry & Finishes" : "Ebanistería y Pintura"}
             </span>
           </div>
@@ -86,12 +86,12 @@ export function Header() {
           >
             <button
               type="button"
-              className={`interactive-control py-2 text-sm font-medium tracking-wide inline-flex items-center gap-1.5 transition-colors font-serif ${
+              className={`interactive-control py-2 text-[15px] font-semibold tracking-normal inline-flex items-center gap-1.5 transition-colors font-serif ${
                 pathname?.startsWith("/cocinas") ||
                 pathname?.startsWith("/muebles") ||
                 pathname?.startsWith("/pintura")
                   ? "text-[#B85D3B] font-semibold"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#261F1A] hover:text-[#B85D3B]"
               }`}
             >
               <span>{t.nav.services}</span>
@@ -123,7 +123,7 @@ export function Header() {
                         <span>{locale === "en" ? item.titleEn : item.titleEs}</span>
                         <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#B85D3B]" />
                       </div>
-                      <div className="text-[11px] text-[#7A6B5D] mt-0.5 leading-relaxed font-serif">
+                      <div className="text-xs text-[#54463A] mt-0.5 leading-relaxed font-serif">
                         {locale === "en" ? item.descEn : item.descEs}
                       </div>
                     </Link>
@@ -136,10 +136,10 @@ export function Header() {
           {/* Transformations */}
           <Link
             href="/transformaciones"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
+            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
               pathname?.startsWith("/transformaciones")
                 ? "text-[#B85D3B] font-semibold"
-                : "text-[#6B5E52] hover:text-[#261F1A]"
+                : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.transformations}
@@ -148,10 +148,10 @@ export function Header() {
           {/* Materials */}
           <Link
             href="/catalogo"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
+            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
               pathname?.startsWith("/catalogo")
                 ? "text-[#B85D3B] font-semibold"
-                : "text-[#6B5E52] hover:text-[#261F1A]"
+                : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.catalog}
@@ -160,10 +160,10 @@ export function Header() {
           {/* Studio & Estimator */}
           <Link
             href="/studio-interactivo"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
+            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
               pathname?.startsWith("/studio-interactivo") || pathname?.startsWith("/cotizador")
                 ? "text-[#B85D3B] font-semibold"
-                : "text-[#6B5E52] hover:text-[#261F1A]"
+                : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.studio}
@@ -172,10 +172,10 @@ export function Header() {
           {/* Atelier Heritage */}
           <Link
             href="/nosotros"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
+            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
               pathname?.startsWith("/nosotros")
                 ? "text-[#B85D3B] font-semibold"
-                : "text-[#6B5E52] hover:text-[#261F1A]"
+                : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.about}
@@ -190,7 +190,7 @@ export function Header() {
           <div
             role="group"
             aria-label={t.meta.bilingualNotice}
-            className="flex items-center text-xs font-serif tracking-wider text-[#7A6B5D]"
+            className="flex items-center text-xs font-serif tracking-wider text-[#4A3E34]"
           >
             <button
               type="button"
@@ -221,7 +221,7 @@ export function Header() {
             onClick={() => setIsDrawerOpen(true)}
             aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
             title={t.sampleDrawer.title}
-            className="interactive-control relative p-2 rounded-full text-[#6B5E52] hover:text-[#B85D3B] hover:bg-[#EAE2D5] transition-colors"
+            className="interactive-control relative p-2 rounded-full text-[#3D3228] hover:text-[#B85D3B] hover:bg-[#EAE2D5] transition-colors"
           >
             <BookmarkSimple
               size={18}
@@ -238,7 +238,7 @@ export function Header() {
           {/* Desktop Phone */}
           <a
             href={COMPANY_INFO.phoneHref}
-            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#7A6B5D] hover:text-[#B85D3B] font-serif transition-colors"
+            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#4A3E34] hover:text-[#B85D3B] font-serif transition-colors"
           >
             <Phone size={13} className="text-[#B85D3B]" />
             <span>{COMPANY_INFO.phoneDisplay}</span>

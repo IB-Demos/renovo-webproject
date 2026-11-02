@@ -124,20 +124,20 @@ export function ExplodedCabinetJoinery() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "The Invisible Anatomy of Heirloom Joinery."
                 : "La Anatomía Invisible de Nuestra Ebanistería."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Anyone can paint a cabinet door. True architectural longevity is engineered into the joints, the structural plywood cores, and the four-tier molecular coating. Explore the cutaway below."
                 : "Cualquiera puede pintar una puerta de cocina. La verdadera longevidad arquitectónica se forja en los ensambles, los núcleos de madera maciza y la estratigrafía 2K. Explora el despiece."}
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-serif text-[#6B5E52] bg-[#EAE2D5] border border-[#DFD6C6] px-4 py-2.5 rounded-2xl self-start lg:self-auto shadow-xs">
+          <div className="flex items-center gap-2 text-xs font-serif text-[#3D3228] bg-[#EAE2D5] border border-[#DFD6C6] px-4 py-2.5 rounded-2xl self-start lg:self-auto shadow-xs">
             <Sparkle size={15} className="text-[#B85D3B] shrink-0" weight="fill" />
             <span>
               {locale === "en"
@@ -159,13 +159,13 @@ export function ExplodedCabinetJoinery() {
                 className={`interactive-control p-3.5 rounded-2xl text-left transition-all border flex flex-col justify-between ${
                   isSelected
                     ? "bg-[#EAE2D5] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-xs text-[#261F1A]"
-                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
                   <span
                     className={`font-serif text-xs font-bold ${
-                      isSelected ? "text-[#B85D3B]" : "text-[#8A7E72]"
+                      isSelected ? "text-[#B85D3B]" : "text-[#54463A]"
                     }`}
                   >
                     PART {layer.number}
@@ -177,7 +177,7 @@ export function ExplodedCabinetJoinery() {
 
                 <span
                   className={`text-xs font-serif font-semibold mt-2 block line-clamp-2 ${
-                    isSelected ? "text-[#261F1A]" : "text-[#6B5E52]"
+                    isSelected ? "text-[#261F1A]" : "text-[#3D3228]"
                   }`}
                 >
                   {locale === "en" ? layer.titleEn : layer.titleEs}
@@ -195,7 +195,7 @@ export function ExplodedCabinetJoinery() {
               <span className="text-xs font-serif italic text-[#B85D3B]">
                 {locale === "en" ? "Isometric Cabinet Cutaway" : "Corte Isométrico de Gabinete"}
               </span>
-              <span className="text-[11px] text-[#6B5E52] font-serif">
+              <span className="text-[11px] text-[#3D3228] font-serif">
                 {locale === "en" ? "Handcrafted in Phoenix, AZ" : "Taller Shangri La Rd, Phoenix"}
               </span>
             </div>
@@ -384,7 +384,7 @@ export function ExplodedCabinetJoinery() {
               </svg>
             </div>
 
-            <div className="text-xs text-[#6B5E52] font-serif italic text-center pt-2 border-t border-[#DFD6C6]">
+            <div className="text-xs text-[#3D3228] font-serif italic text-center pt-2 border-t border-[#DFD6C6]">
               {locale === "en"
                 ? "Interactive drafting schematic: Tap layers to inspect joinery tolerances"
                 : "Esquema interactivo: Toca las capas para examinar tolerancias de ensamble"}
@@ -398,17 +398,17 @@ export function ExplodedCabinetJoinery() {
                 <span className="text-xs font-serif text-[#B85D3B] font-bold">
                   SPECIFICATION {currentLayer.number} OF 05
                 </span>
-                <span className="text-xs text-[#8A7E72]">/</span>
-                <span className="text-xs font-serif italic text-[#6B5E52]">
+                <span className="text-xs text-[#54463A]">/</span>
+                <span className="text-xs font-serif italic text-[#3D3228]">
                   Architectural Standard
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#261F1A] leading-snug">
+              <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#261F1A] leading-snug">
                 {locale === "en" ? currentLayer.titleEn : currentLayer.titleEs}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#6B5E52] font-light leading-relaxed pt-1">
+              <p className="text-xs sm:text-sm text-[#3D3228] font-normal leading-relaxed pt-1">
                 {locale === "en" ? currentLayer.specEn : currentLayer.specEs}
               </p>
             </div>
@@ -434,7 +434,7 @@ export function ExplodedCabinetJoinery() {
                   <CheckCircle size={16} weight="fill" />
                   <span>{locale === "en" ? "Renovo Standard:" : "Estándar Renovo:"}</span>
                 </div>
-                <p className="text-[#261F1A] leading-relaxed text-[11px] font-light">
+                <p className="text-[#261F1A] leading-relaxed text-[11px] font-normal">
                   {locale === "en" ? currentLayer.renovoStandardEn : currentLayer.renovoStandardEs}
                 </p>
               </div>
@@ -445,7 +445,7 @@ export function ExplodedCabinetJoinery() {
                   <Warning size={16} weight="fill" />
                   <span>{locale === "en" ? "Why Builder Grade Fails:" : "Por Qué el Estándar Falla:"}</span>
                 </div>
-                <p className="text-[#4A1D1D] leading-relaxed text-[11px] font-light">
+                <p className="text-[#4A1D1D] leading-relaxed text-[11px] font-normal">
                   {locale === "en"
                     ? currentLayer.builderGradeFailEn
                     : currentLayer.builderGradeFailEs}

@@ -56,13 +56,13 @@ export function KitchenCabinetStudio() {
               <span className="font-semibold text-[#261F1A] uppercase tracking-wider font-mono text-[11px]">
                 {locale === "en" ? "Elevation Design Preview" : "Vista Previa de Alzado"}
               </span>
-              <span className="text-[#8A7E72]">· {selectedProfile.name[locale]}</span>
+              <span className="text-[#54463A]">· {selectedProfile.name[locale]}</span>
             </div>
 
             {/* Ambient Lighting Warmth Selector */}
             <div className="flex items-center gap-1.5 bg-[#EAE2D5] px-2 py-1 rounded-full border border-[#DFD6C6] shadow-2xs">
               <Sun size={13} className="text-[#B85D3B]" />
-              <span className="text-[11px] font-medium text-[#6B5E52] mr-1 hidden sm:inline">
+              <span className="text-[11px] font-medium text-[#3D3228] mr-1 hidden sm:inline">
                 {locale === "en" ? "Sunlight:" : "Luz:"}
               </span>
               {(["2700K", "4000K", "5500K"] as const).map((k) => (
@@ -74,7 +74,7 @@ export function KitchenCabinetStudio() {
                   className={`interactive-control px-2 py-0.5 rounded-full text-[11px] font-medium transition-all ${
                     kelvinMode === k
                       ? "bg-[#B85D3B] text-white font-bold shadow-2xs"
-                      : "text-[#6B5E52] hover:text-[#261F1A]"
+                      : "text-[#3D3228] hover:text-[#261F1A]"
                   }`}
                 >
                   {k}
@@ -319,17 +319,17 @@ export function KitchenCabinetStudio() {
 
           {/* Bottom Specification Bar */}
           <div className="mt-5 pt-4 border-t border-[#DFD6C6] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-6 text-xs text-[#6B5E52]">
+            <div className="flex flex-wrap items-center gap-6 text-xs text-[#3D3228]">
               <div>
-                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Door Profile" : "Perfil"}</span>
+                <span className="block text-[11px] text-[#54463A]">{locale === "en" ? "Door Profile" : "Perfil"}</span>
                 <span className="font-semibold text-[#261F1A]">{selectedProfile.name[locale]}</span>
               </div>
               <div>
-                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Finish Sheen" : "Brillo"}</span>
+                <span className="block text-[11px] text-[#54463A]">{locale === "en" ? "Finish Sheen" : "Brillo"}</span>
                 <span className="font-semibold text-[#261F1A]">{selectedSheen.name[locale]}</span>
               </div>
               <div>
-                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Hardware" : "Herraje"}</span>
+                <span className="block text-[11px] text-[#54463A]">{locale === "en" ? "Hardware" : "Herraje"}</span>
                 <span className="font-semibold text-[#261F1A]">{selectedHardware.name[locale]}</span>
               </div>
             </div>
@@ -368,10 +368,10 @@ export function KitchenCabinetStudio() {
                     className={`interactive-control text-left p-3.5 rounded-2xl border min-h-[70px] flex flex-col justify-between transition-all ${
                       active
                         ? "bg-[#FCFAF7] text-[#261F1A] border-[#B85D3B] shadow-md ring-1 ring-[#B85D3B]"
-                        : "bg-[#FCFAF7] text-[#6B5E52] border-[#DFD6C6] hover:border-[#B85D3B]/50"
+                        : "bg-[#FCFAF7] text-[#3D3228] border-[#DFD6C6] hover:border-[#B85D3B]/50"
                     }`}
                   >
-                    <span className="text-[10px] uppercase tracking-wider text-[#8A7E72] font-mono">
+                    <span className="text-[10px] uppercase tracking-wider text-[#54463A] font-mono">
                       {profile.stileWidthMm > 0 ? `${profile.stileWidthMm}mm Stile` : "Zero-Edge"}
                     </span>
                     <span className="text-xs font-semibold leading-snug">{profile.name[locale]}</span>
@@ -379,7 +379,7 @@ export function KitchenCabinetStudio() {
                 );
               })}
             </div>
-            <p className="text-xs text-[#6B5E52] mt-2 leading-relaxed">
+            <p className="text-xs text-[#3D3228] mt-2 leading-relaxed">
               {selectedProfile.construction[locale]}
             </p>
           </div>
@@ -390,7 +390,7 @@ export function KitchenCabinetStudio() {
               <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold font-mono">
                 {t.workbench.cabinet.perimeterFinishLabel}
               </span>
-              <span className="text-xs font-medium text-[#6B5E52]">
+              <span className="text-xs font-medium text-[#3D3228]">
                 {perimeterPigment.name[locale]}
               </span>
             </div>
@@ -422,7 +422,7 @@ export function KitchenCabinetStudio() {
               <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold font-mono">
                 {t.workbench.cabinet.islandFinishLabel}
               </span>
-              <span className="text-xs font-medium text-[#6B5E52]">
+              <span className="text-xs font-medium text-[#3D3228]">
                 {islandPigment.name[locale]}
               </span>
             </div>

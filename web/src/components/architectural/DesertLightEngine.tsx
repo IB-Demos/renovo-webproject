@@ -252,13 +252,13 @@ export function DesertLightEngine() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "How Your Finishes Respond to Arizona Light."
                 : "Cómo Responden los Acabados a la Luz de Arizona."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Desert sunlight is unique. A finish that looks warm in the morning can feel stark at high noon. Select an authentic wood or 2K lacquer below and toggle through 3 natural Arizona lighting conditions to see the optical shift."
                 : "La luz del desierto es única en el mundo. Un acabado cálido por la mañana puede sentirse rígido al mediodía. Elige una madera o laca 2K y alterna entre 3 horas del día para comprobar cómo reacciona la superficie."}
@@ -278,7 +278,7 @@ export function DesertLightEngine() {
                   className={`interactive-control min-h-[44px] px-3.5 sm:px-4 py-2 rounded-xl text-xs font-serif transition-all flex items-center gap-2 ${
                     isSelected
                       ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                      : "text-[#6B5E52] hover:text-[#261F1A]"
+                      : "text-[#3D3228] hover:text-[#261F1A]"
                   }`}
                 >
                   <Icon size={16} weight={isSelected ? "fill" : "regular"} />
@@ -303,7 +303,7 @@ export function DesertLightEngine() {
                 className={`interactive-control p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-200 flex items-center gap-3.5 ${
                   isSelected
                     ? "bg-[#FCFAF7] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-xs text-[#261F1A]"
-                    : "bg-[#FCFAF7]/75 border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                    : "bg-[#FCFAF7]/75 border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                 }`}
               >
                 {/* Physical Swatch Pill */}
@@ -315,7 +315,7 @@ export function DesertLightEngine() {
                   <div className={`text-xs sm:text-sm font-serif font-medium truncate ${isSelected ? "text-[#261F1A]" : "text-[#3D352E]"}`}>
                     {f.name[locale]}
                   </div>
-                  <div className="text-[10px] text-[#8A7E72] truncate mt-0.5">
+                  <div className="text-[10px] text-[#54463A] truncate mt-0.5">
                     LRV {f.lrv} · {f.sheen[locale].split(" ")[0]}
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export function DesertLightEngine() {
           {/* LEFT 8 COLS: OPTICALLY FILTERED PHOTOGRAPHY VIEWPORT */}
           <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-lg flex flex-col">
             {/* Viewport Header Bar */}
-            <div className="px-5 py-3.5 border-b border-[#DFD6C6] bg-[#EAE2D5] flex flex-wrap items-center justify-between gap-3 text-xs text-[#6B5E52]">
+            <div className="px-5 py-3.5 border-b border-[#DFD6C6] bg-[#EAE2D5] flex flex-wrap items-center justify-between gap-3 text-xs text-[#3D3228]">
               <div className="flex items-center gap-2">
                 <span
                   className="w-2.5 h-2.5 rounded-full"
@@ -388,7 +388,7 @@ export function DesertLightEngine() {
             {/* Bottom Swatch Advice Bar */}
             <div className="p-4 bg-[#EAE2D5] border-t border-[#DFD6C6] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-3">
-                <span className="font-serif italic text-[#6B5E52]">
+                <span className="font-serif italic text-[#3D3228]">
                   {locale === "en" ? "Light Reflectance Value (LRV):" : "Índice de Reflexión Lumínica (LRV):"}
                 </span>
                 <span className="font-serif text-sm text-[#B85D3B] font-bold">
@@ -434,10 +434,10 @@ export function DesertLightEngine() {
               <span className="text-xs font-serif italic text-[#B85D3B]">
                 {locale === "en" ? "Architectural Colorimetry" : "Colorimetría y Diseño Lumínico"}
               </span>
-              <h3 className="text-2xl font-serif font-normal text-[#261F1A] leading-snug">
+              <h3 className="text-2xl font-serif font-semibold text-[#261F1A] leading-snug">
                 {currentFinish.name[locale]}
               </h3>
-              <p className="text-xs text-[#6B5E52] font-serif">
+              <p className="text-xs text-[#3D3228] font-serif">
                 {currentFinish.chemistry[locale]} · {currentFinish.sheen[locale]}
               </p>
             </div>
@@ -459,14 +459,14 @@ export function DesertLightEngine() {
 
             {/* Recommended Kelvin Bulb Specification */}
             <div className="p-5 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] space-y-2">
-              <span className="text-xs font-serif italic text-[#6B5E52] block">
+              <span className="text-xs font-serif italic text-[#3D3228] block">
                 {locale === "en" ? "Raul's Lighting Recommendation:" : "Recomendación Lumínica de Raul:"}
               </span>
               <div className="text-sm font-serif font-medium text-[#261F1A] flex items-center gap-2">
                 <Compass size={16} className="text-[#B85D3B]" />
                 <span>{currentFinish.recommendedKelvin}</span>
               </div>
-              <p className="text-[11px] text-[#6B5E52] leading-relaxed">
+              <p className="text-[11px] text-[#3D3228] leading-relaxed">
                 {locale === "en"
                   ? "We formulate our finishes to avoid the dreaded green or pink color-casts common when cheap paints react to high-CRI Arizona LED lighting."
                   : "Formulamos nuestras lacas para evitar reflejos verdosos o rosados indeseados al recibir iluminación LED de alto rendimiento."}

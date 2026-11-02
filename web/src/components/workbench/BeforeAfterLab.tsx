@@ -43,7 +43,7 @@ export function BeforeAfterLab() {
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#B85D3B]">
               {activePair.code}
             </span>
-            <span className="font-mono text-[11px] text-[#6B5E52] tabular-nums font-medium">
+            <span className="font-mono text-[11px] text-[#3D3228] tabular-nums font-medium">
               {locale === "en"
                 ? `SLIDE TO COMPARE // ${sliderPos}% BEFORE`
                 : `DESLIZA PARA COMPARAR // ${sliderPos}% ANTES`}
@@ -120,14 +120,14 @@ export function BeforeAfterLab() {
                   className={`interactive-control p-2.5 rounded-xl border text-left transition-all ${
                     isSelected
                       ? "border-[#B85D3B] bg-[#FCFAF7] text-[#261F1A] shadow-md ring-1 ring-[#B85D3B]"
-                      : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#6B5E52] hover:border-[#B85D3B]/50"
+                      : "border-[#DFD6C6] bg-[#EAE2D5]/70 text-[#3D3228] hover:border-[#B85D3B]/50"
                   }`}
                 >
                   <div className="grid grid-cols-2 gap-1 mb-1.5 rounded-lg overflow-hidden border border-[#DFD6C6]">
                     <img src={pair.beforeImage} alt="" className="h-10 w-full object-cover" />
                     <img src={pair.afterImage} alt="" className="h-10 w-full object-cover" />
                   </div>
-                  <div className={`font-mono text-[10px] uppercase font-bold truncate ${isSelected ? "text-[#B85D3B]" : "text-[#8A7E72]"}`}>
+                  <div className={`font-mono text-[10px] uppercase font-bold truncate ${isSelected ? "text-[#B85D3B]" : "text-[#54463A]"}`}>
                     0{idx + 1} · {pair.category}
                   </div>
                 </button>
@@ -142,13 +142,13 @@ export function BeforeAfterLab() {
             <div className="font-mono text-xs uppercase tracking-widest text-[#B85D3B] font-bold">
               {locale === "en" ? "VERIFIED TRANSFORMATION" : "CASO DE ÉXITO VERIFICADO"}
             </div>
-            <h3 className="mt-3 text-2xl font-normal font-serif text-[#261F1A] leading-snug">
+            <h3 className="mt-3 text-2xl font-semibold font-serif text-[#261F1A] leading-snug">
               {activePair.title[locale]}
             </h3>
 
             <div className="mt-6 border-y border-[#DFD6C6] py-5 space-y-4 text-xs">
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A7E72] font-semibold">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-[#54463A] font-semibold">
                   {locale === "en" ? "COATING & PREP SYSTEM" : "SISTEMA DE PREPARACIÓN Y ACABADO"}
                 </div>
                 <div className="mt-1 text-sm text-[#261F1A] font-medium leading-relaxed font-serif">
@@ -157,7 +157,7 @@ export function BeforeAfterLab() {
               </div>
 
               <div className="flex items-center justify-between pt-3 border-t border-[#DFD6C6]">
-                <span className="text-[#6B5E52] flex items-center gap-1.5">
+                <span className="text-[#3D3228] flex items-center gap-1.5">
                   <Clock size={15} className="text-[#B85D3B]" />
                   <span>{locale === "en" ? "Turnaround Time" : "Tiempo de Ejecución"}</span>
                 </span>
@@ -193,7 +193,7 @@ export function BeforeAfterLab() {
               <Images size={16} />
               <span>{PROJECT_01_DOCUMENTARY.code}</span>
             </div>
-            <h3 className="mt-1 text-xl sm:text-2xl font-serif font-normal text-[#261F1A]">
+            <h3 className="mt-1 text-xl sm:text-2xl font-serif font-semibold text-[#261F1A]">
               {PROJECT_01_DOCUMENTARY.title[locale]}
             </h3>
           </div>
@@ -213,7 +213,7 @@ export function BeforeAfterLab() {
               className={`interactive-control px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors ${
                 docMode === "after"
                   ? "bg-[#B85D3B] text-white shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               {locale === "en" ? "Completed After (14)" : "Terminado Después (14)"}
@@ -227,7 +227,7 @@ export function BeforeAfterLab() {
               className={`interactive-control px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors ${
                 docMode === "before"
                   ? "bg-[#B85D3B] text-white shadow-xs"
-                  : "text-[#6B5E52] hover:text-[#261F1A]"
+                  : "text-[#3D3228] hover:text-[#261F1A]"
               }`}
             >
               {locale === "en" ? "Original Before (6)" : "Original Antes (6)"}

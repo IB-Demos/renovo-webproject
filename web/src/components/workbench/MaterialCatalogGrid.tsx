@@ -59,7 +59,7 @@ export function MaterialCatalogGrid() {
                 className={`interactive-control px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   active
                     ? "bg-[#B85D3B] text-white shadow-md font-bold"
-                    : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:border-[#B85D3B]/40"
+                    : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] hover:border-[#B85D3B]/40"
                 }`}
               >
                 {tab.label}
@@ -73,7 +73,7 @@ export function MaterialCatalogGrid() {
       {(activeFilter === "all" || activeFilter === "profiles") && (
         <section className="space-y-5">
           <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
+            <h3 className="text-xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Cabinet Door Profiles & Joinery" : "Perfiles de Puerta y Ebanistería"}
             </h3>
             <span className="text-xs font-mono text-[#B85D3B] font-semibold">
@@ -94,7 +94,7 @@ export function MaterialCatalogGrid() {
                       <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {profile.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7E72] font-mono">
+                      <span className="text-[11px] text-[#54463A] font-mono">
                         {profile.stileWidthMm > 0 ? `${profile.stileWidthMm}mm` : "Zero-Edge"}
                       </span>
                     </div>
@@ -122,10 +122,10 @@ export function MaterialCatalogGrid() {
                       </svg>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
+                    <h4 className="text-base font-serif font-semibold text-[#261F1A]">
                       {profile.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
+                    <p className="text-xs text-[#3D3228] leading-relaxed font-serif">
                       {profile.bestFor[locale]}
                     </p>
                   </div>
@@ -163,7 +163,7 @@ export function MaterialCatalogGrid() {
       {(activeFilter === "all" || activeFilter === "coatings") && (
         <section className="space-y-5">
           <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
+            <h3 className="text-xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "2K Catalyzed Velvet Lacquers" : "Lacas Catalizadas 2K Satinadas"}
             </h3>
             <span className="text-xs font-mono text-[#B85D3B] font-semibold">
@@ -194,15 +194,15 @@ export function MaterialCatalogGrid() {
                       <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {pigment.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7E72] font-mono">
+                      <span className="text-[11px] text-[#54463A] font-mono">
                         {pigment.brandRef}
                       </span>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
+                    <h4 className="text-base font-serif font-semibold text-[#261F1A]">
                       {pigment.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
+                    <p className="text-xs text-[#3D3228] leading-relaxed font-serif">
                       {pigment.undertone[locale]}
                     </p>
                   </div>
@@ -241,7 +241,7 @@ export function MaterialCatalogGrid() {
       {(activeFilter === "all" || activeFilter === "systems") && (
         <section className="space-y-5">
           <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
+            <h3 className="text-xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Factory Catalyzed Sheen Levels" : "Niveles de Brillo Catalizado"}
             </h3>
             <span className="text-xs font-mono text-[#B85D3B] font-semibold">
@@ -262,15 +262,15 @@ export function MaterialCatalogGrid() {
                       <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {sheen.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7E72] font-mono font-semibold">
+                      <span className="text-[11px] text-[#54463A] font-mono font-semibold">
                         {sheen.glossUnits} GLOSS
                       </span>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
+                    <h4 className="text-base font-serif font-semibold text-[#261F1A]">
                       {sheen.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
+                    <p className="text-xs text-[#3D3228] leading-relaxed font-serif">
                       {sheen.chemicalSystem[locale]}
                     </p>
                   </div>

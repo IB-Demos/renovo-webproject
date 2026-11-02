@@ -34,11 +34,11 @@ export default function CatalogPage() {
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
                 {t.catalogSection.headline}
               </h1>
 
-              <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed max-w-2xl">
                 {t.catalogSection.subhead}
               </p>
             </div>
@@ -53,7 +53,7 @@ export default function CatalogPage() {
                   {samples.length}
                 </span>
               </div>
-              <p className="text-xs text-[#6B5E52] leading-relaxed">
+              <p className="text-xs text-[#3D3228] leading-relaxed">
                 {locale === "en"
                   ? "Save your preferred wood species, paint shades, and hardware to review with Raul during your consultation."
                   : "Guarda tus maderas, colores y jaladeras favoritas para revisarlas con Raul durante tu cita."}
@@ -79,10 +79,10 @@ export default function CatalogPage() {
               <Sparkle size={14} />
               <span>{locale === "en" ? "Curated Finishes" : "Paletas y Muestras de Taller"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Architectural Palette" : "Selección de Ebanistería y Color"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Every swatch represents a physical material in our Phoenix workshop. Click 'Pin to Tray' to compile your palette."
                 : "Cada muestra corresponde a materiales reales en nuestro taller de Phoenix. Haz clic en 'Guardar' para armar tu paleta."}
@@ -101,10 +101,10 @@ export default function CatalogPage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#FAF8F5]">
               {locale === "en" ? "Request Physical Samples to Your Door" : "Recibe Muestras Físicas en tu Residencia"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Experience the authentic 2K velvet feel and natural wood grains in the natural daylight of your own residence."
                 : "Comprueba la tersura de las lacas 2K y la textura de la madera bajo la luz natural de tus propios espacios."}

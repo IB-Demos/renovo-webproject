@@ -71,13 +71,13 @@ export default function ContactPage() {
               <span>{locale === "en" ? "Consultation & Direct Shop Inquiries" : "Consultas y Atención Directa"}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Let's Craft Something Extraordinary Together."
                 : "Creemos Juntos un Espacio Extraordinario."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Reach out directly to Raul Burgos and our craftsmanship team. We welcome in-home design consultations throughout Phoenix and private workshop walkthroughs by appointment."
                 : "Comunícate directamente con Raul Burgos y nuestro equipo de ebanistería. Ofrecemos visitas de diseño a domicilio en todo Phoenix y recorridos de taller previa cita."}
@@ -96,10 +96,10 @@ export default function ContactPage() {
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
                   <span>{locale === "en" ? "Direct Channels" : "Canales Directos"}</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-normal font-serif text-[#261F1A]">
+                <h2 className="text-3xl sm:text-4xl font-semibold font-serif text-[#261F1A]">
                   {locale === "en" ? "Connect with Our Shop" : "Comunícate con Nuestro Taller"}
                 </h2>
-                <p className="text-sm text-[#6B5E52] leading-relaxed">
+                <p className="text-sm text-[#3D3228] leading-relaxed">
                   {locale === "en"
                     ? "Speak with master craftsman Raul Burgos directly regarding your architectural plans or to schedule an on-site visit."
                     : "Habla directamente con el maestro ebanista Raul Burgos sobre tus planos o para agendar una visita en sitio."}
@@ -116,7 +116,7 @@ export default function ContactPage() {
                     <Phone size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
+                    <span className="text-xs text-[#54463A] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Phone & Direct Line" : "Teléfono Directo"}
                     </span>
                     <span className="text-base font-semibold text-[#261F1A]">
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     <EnvelopeSimple size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
+                    <span className="text-xs text-[#54463A] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Email Address" : "Correo Electrónico"}
                     </span>
                     <span className="text-base font-semibold text-[#261F1A]">
@@ -149,7 +149,7 @@ export default function ContactPage() {
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
+                    <span className="text-xs text-[#54463A] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Phoenix Workshop" : "Taller en Phoenix"}
                     </span>
                     <span className="text-sm font-medium text-[#261F1A] leading-snug block">
@@ -164,7 +164,7 @@ export default function ContactPage() {
                     <Clock size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
+                    <span className="text-xs text-[#54463A] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Hours of Operation" : "Horario de Atención"}
                     </span>
                     <span className="text-sm font-medium text-[#261F1A] block">
@@ -183,10 +183,10 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-[#B85D3B]/15 border border-[#B85D3B] text-[#B85D3B] flex items-center justify-center mx-auto">
                       <CheckCircle size={36} weight="fill" />
                     </div>
-                    <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                    <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                       {locale === "en" ? "Thank You. Consultation Requested!" : "¡Gracias! Tu Solicitud ha Sido Recibida"}
                     </h3>
-                    <p className="text-sm text-[#6B5E52] max-w-md mx-auto leading-relaxed font-serif">
+                    <p className="text-sm text-[#3D3228] max-w-md mx-auto leading-relaxed font-serif">
                       {locale === "en"
                         ? `Raul Burgos or our senior estimator will review your project details and contact you at ${formData.phone || formData.email || "your provided contact"} within one business day.`
                         : `Raul Burgos o nuestro especialista revisará los detalles de tu proyecto y se comunicará contigo en menos de un día hábil.`}
@@ -202,10 +202,10 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                      <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                         {locale === "en" ? "Request an On-Site Consultation" : "Solicita una Evaluación en Sitio"}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#6B5E52] font-serif">
+                      <p className="text-xs sm:text-sm text-[#3D3228] font-serif">
                         {locale === "en"
                           ? "Fill in your project details below and we will prepare tailored recommendations before we speak."
                           : "Completa los datos de tu proyecto y prepararemos recomendaciones a medida antes de conversar."}
@@ -214,7 +214,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "Full Name *" : "Nombre Completo *"}
                         </label>
                         <input
@@ -228,7 +228,7 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "Phone Number *" : "Teléfono de Contacto *"}
                         </label>
                         <input
@@ -244,7 +244,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "Email Address *" : "Correo Electrónico *"}
                         </label>
                         <input
@@ -258,7 +258,7 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "Primary Service *" : "Servicio de Interés *"}
                         </label>
                         <select
@@ -284,7 +284,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "City / Neighborhood" : "Ciudad o Zona"}
                         </label>
                         <input
@@ -297,7 +297,7 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                           {locale === "en" ? "Estimated Timeline" : "Tiempo Estimado"}
                         </label>
                         <select
@@ -319,7 +319,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
+                      <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
                         {locale === "en" ? "Project Vision & Details" : "Detalles del Proyecto"}
                       </label>
                       <textarea
@@ -361,7 +361,7 @@ export default function ContactPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Client Clarity" : "Dudas Frecuentes"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en" ? "Frequently Asked Questions" : "Preguntas Frecuentes"}
             </h2>
           </div>
@@ -372,10 +372,10 @@ export default function ContactPage() {
                 key={idx}
                 className="p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-sm space-y-3"
               >
-                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
+                <h3 className="text-lg font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? faq.qEn : faq.qEs}
                 </h3>
-                <p className="text-sm text-[#6B5E52] leading-relaxed font-serif">
+                <p className="text-sm text-[#3D3228] leading-relaxed font-serif">
                   {locale === "en" ? faq.aEn : faq.aEs}
                 </p>
               </div>

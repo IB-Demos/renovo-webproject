@@ -172,20 +172,20 @@ export function SampleBoxConcierge() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "Feel the Velvet Finish Before You Invest."
                 : "Siente la Tersura de Fábrica Antes de Decidir."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "A high-end kitchen is a tactile commitment. Curate up to two solid hardwoods and two factory 2K catalyzed lacquer blocks. Raul Burgos will bring this custom presentation box directly to your in-home consultation."
                 : "Una cocina de alta gama se decide con las manos. Selecciona hasta dos maderas nobles y dos bloques con laca catalizada 2K curada en cabina. Raul Burgos llevará esta caja de muestras a tu cita de valoración."}
             </p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-xs font-serif text-[#6B5E52] space-y-1.5 self-start lg:self-auto max-w-sm shadow-xs">
+          <div className="p-4 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-xs font-serif text-[#3D3228] space-y-1.5 self-start lg:self-auto max-w-sm shadow-xs">
             <div className="flex items-center gap-2 text-[#B85D3B] font-semibold">
               <ShieldCheck size={16} />
               <span>
@@ -213,13 +213,13 @@ export function SampleBoxConcierge() {
                   <span className="text-xs font-serif italic text-[#B85D3B]">
                     {locale === "en" ? "Curated Hardwoods" : "Maderas Nobles Seleccionadas"}
                   </span>
-                  <h3 className="text-lg font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-lg font-serif font-semibold text-[#261F1A]">
                     {locale === "en"
                       ? "1. Select Hardwood Samples (Choose 1 or 2)"
                       : "1. Selecciona Muestras de Madera (Elige 1 o 2)"}
                   </h3>
                 </div>
-                <span className="text-xs px-2.5 py-1 rounded-full bg-[#EAE2D5] text-[#6B5E52] border border-[#DFD6C6] font-serif">
+                <span className="text-xs px-2.5 py-1 rounded-full bg-[#EAE2D5] text-[#3D3228] border border-[#DFD6C6] font-serif">
                   {selectedWoods.length} / 2
                 </span>
               </div>
@@ -235,7 +235,7 @@ export function SampleBoxConcierge() {
                       className={`interactive-control rounded-2xl p-3.5 text-left transition-all border flex flex-col justify-between h-full ${
                         isSelected
                           ? "bg-[#EAE2D5] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-xs text-[#261F1A]"
-                          : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                          : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                       }`}
                     >
                       <div className="space-y-2.5">
@@ -262,7 +262,7 @@ export function SampleBoxConcierge() {
                           <span className="text-sm font-serif font-semibold text-[#261F1A] block">
                             {locale === "en" ? wood.nameEn : wood.nameEs}
                           </span>
-                          <span className="text-[11px] text-[#7A6E63] leading-tight block mt-1 font-light">
+                          <span className="text-[11px] text-[#7A6E63] leading-tight block mt-1 font-normal">
                             {locale === "en" ? wood.subtitleEn : wood.subtitleEs}
                           </span>
                         </div>
@@ -280,13 +280,13 @@ export function SampleBoxConcierge() {
                   <span className="text-xs font-serif italic text-[#B85D3B]">
                     {locale === "en" ? "Cabinetry Coatings" : "Acabados Catalizados 2K"}
                   </span>
-                  <h3 className="text-lg font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-lg font-serif font-semibold text-[#261F1A]">
                     {locale === "en"
                       ? "2. Select Factory Lacquer Finishes (Choose 1 or 2)"
                       : "2. Selecciona Acabados en Laca (Elige 1 o 2)"}
                   </h3>
                 </div>
-                <span className="text-xs px-2.5 py-1 rounded-full bg-[#EAE2D5] text-[#6B5E52] border border-[#DFD6C6] font-serif">
+                <span className="text-xs px-2.5 py-1 rounded-full bg-[#EAE2D5] text-[#3D3228] border border-[#DFD6C6] font-serif">
                   {selectedLacquers.length} / 2
                 </span>
               </div>
@@ -329,7 +329,7 @@ export function SampleBoxConcierge() {
                           <span className="text-sm font-serif font-semibold text-[#1F1A16] block">
                             {locale === "en" ? wood.nameEn : wood.nameEs}
                           </span>
-                          <span className="text-[11px] text-[#7A6E63] leading-tight block mt-1 font-light">
+                          <span className="text-[11px] text-[#7A6E63] leading-tight block mt-1 font-normal">
                             {locale === "en" ? wood.subtitleEn : wood.subtitleEs}
                           </span>
                         </div>
@@ -347,7 +347,7 @@ export function SampleBoxConcierge() {
                   <span className="text-xs font-serif italic text-[var(--gold-dark)]">
                     {locale === "en" ? "Cabinetry Coatings" : "Acabados Catalizados 2K"}
                   </span>
-                  <h3 className="text-lg font-serif font-normal text-[#1F1A16]">
+                  <h3 className="text-lg font-serif font-semibold text-[#1F1A16]">
                     {locale === "en"
                       ? "2. Select Factory Lacquer Finishes (Choose 1 or 2)"
                       : "2. Selecciona Acabados en Laca (Elige 1 o 2)"}
@@ -369,7 +369,7 @@ export function SampleBoxConcierge() {
                       className={`interactive-control rounded-2xl p-4 text-left transition-all border flex items-center gap-3.5 ${
                         isSelected
                           ? "bg-[#EAE2D5] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-xs text-[#261F1A]"
-                          : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                          : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#3D3228] shadow-xs"
                       }`}
                     >
                       <div
@@ -390,7 +390,7 @@ export function SampleBoxConcierge() {
                             </span>
                           )}
                         </div>
-                        <span className="text-[11px] text-[#6B5E52] line-clamp-1 mt-0.5 font-light">
+                        <span className="text-[11px] text-[#3D3228] line-clamp-1 mt-0.5 font-normal">
                           {locale === "en" ? lacquer.subtitleEn : lacquer.subtitleEs}
                         </span>
                       </div>
@@ -401,7 +401,7 @@ export function SampleBoxConcierge() {
                             <Check size={12} weight="bold" />
                           </div>
                         ) : (
-                          <div className="w-5 h-5 rounded-full bg-[#EAE2D5] text-[#6B5E52] border border-[#DFD6C6] flex items-center justify-center">
+                          <div className="w-5 h-5 rounded-full bg-[#EAE2D5] text-[#3D3228] border border-[#DFD6C6] flex items-center justify-center">
                             <Plus size={10} />
                           </div>
                         )}
@@ -424,7 +424,7 @@ export function SampleBoxConcierge() {
                   <span className="text-xs font-serif italic text-[#B85D3B] block">
                     {locale === "en" ? "Custom Handcrafted Kit" : "Kit Personalizado Hecho a Mano"}
                   </span>
-                  <h3 className="text-xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? "Your Renovo Sample Box" : "Tu Caja de Muestras Renovo"}
                   </h3>
                 </div>
@@ -511,7 +511,7 @@ export function SampleBoxConcierge() {
                   className="space-y-3.5"
                 >
                   <div className="space-y-1">
-                    <label className="text-xs font-serif text-[#6B5E52] block">
+                    <label className="text-xs font-serif text-[#3D3228] block">
                       {locale === "en" ? "Your Name:" : "Tu Nombre:"}
                     </label>
                     <input
@@ -520,13 +520,13 @@ export function SampleBoxConcierge() {
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
                       placeholder={locale === "en" ? "e.g., Katherine Miller" : "Ej. Alejandro Garza"}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#F4EFE6] border border-[#DFD6C6] text-[#261F1A] text-xs font-serif placeholder:text-[#8A7E72] focus:outline-none focus:border-[#B85D3B]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#F4EFE6] border border-[#DFD6C6] text-[#261F1A] text-xs font-serif placeholder:text-[#54463A] focus:outline-none focus:border-[#B85D3B]"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="space-y-1">
-                      <label className="text-xs font-serif text-[#6B5E52] block">
+                      <label className="text-xs font-serif text-[#3D3228] block">
                         {locale === "en" ? "Phone Number:" : "Teléfono de Contacto:"}
                       </label>
                       <input
@@ -535,12 +535,12 @@ export function SampleBoxConcierge() {
                         value={clientPhone}
                         onChange={(e) => setClientPhone(e.target.value)}
                         placeholder="(602) 000-0000"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#F4EFE6] border border-[#DFD6C6] text-[#261F1A] text-xs font-serif placeholder:text-[#8A7E72] focus:outline-none focus:border-[#B85D3B]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#F4EFE6] border border-[#DFD6C6] text-[#261F1A] text-xs font-serif placeholder:text-[#54463A] focus:outline-none focus:border-[#B85D3B]"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-serif text-[#6B5E52] block">
+                      <label className="text-xs font-serif text-[#3D3228] block">
                         {locale === "en" ? "Arizona City:" : "Ciudad en Arizona:"}
                       </label>
                       <select
@@ -575,7 +575,7 @@ export function SampleBoxConcierge() {
                   <div className="w-10 h-10 rounded-full bg-[#2E6B4E] text-white flex items-center justify-center mx-auto shadow-md">
                     <CheckCircle size={22} weight="fill" />
                   </div>
-                  <h4 className="text-base font-serif font-normal text-[#261F1A]">
+                  <h4 className="text-base font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? "Sample Box Reserved!" : "¡Caja de Muestras Reservada!"}
                   </h4>
                   <p className="text-xs text-[#261F1A] leading-relaxed">

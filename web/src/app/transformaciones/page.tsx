@@ -84,13 +84,13 @@ export default function TransformationsPage() {
               <span>{locale === "en" ? "Authentic Case Studies" : "Casos de Éxito Reales"}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Witness the Power of Factory 2K Transformation."
                 : "Comprueba el Poder de una Transformación 2K de Fábrica."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
                 ? "Explore genuine before-and-after projects across Phoenix, Paradise Valley, Scottsdale, and Peoria. Every project featured is 100% completed by Raul Burgos and the Renovo craft team."
                 : "Explora proyectos reales de antes y después en Phoenix, Paradise Valley, Scottsdale y Peoria. Cada trabajo mostrado fue ejecutado al 100% por Raul Burgos y el equipo de Renovo."}
@@ -124,12 +124,12 @@ export default function TransformationsPage() {
               <Sparkle size={14} />
               <span>{locale === "en" ? "Interactive Split-Viewer" : "Visor Comparativo 50/50"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Compare Original vs. Handcrafted Completion"
                 : "Compara el Estado Original con el Acabado de Taller"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Slide horizontally to reveal the dramatic difference made by precision preparation and catalyzed factory coatings."
                 : "Desliza horizontalmente para descubrir la diferencia que logran una preparación minuciosa y lacas catalizadas de taller."}
@@ -154,12 +154,12 @@ export default function TransformationsPage() {
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "The Renovo Standard" : "El Estándar Renovo"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Why Renovo Outlasts Traditional House Painting"
                 : "Por Qué Renovo Supera a los Pintores Tradicionales"}
             </h2>
-            <p className="text-base text-[#6B5E52] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Cabinetry is high-contact furniture, not drywall. We treat it with industrial wood lacquer chemistry, specialized spray rigs, and rigorous surface preparation."
                 : "Los gabinetes son muebles de alto contacto, no muros de tablaroca. Los tratamos con química industrial para madera, equipos de aspersión fina y preparación profunda."}
@@ -171,13 +171,13 @@ export default function TransformationsPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-[#DFD6C6] bg-[#EAE2D5]">
-                  <th className="py-5 px-6 text-xs font-serif italic text-[#6B5E52] w-1/4">
+                  <th className="py-5 px-6 text-xs font-serif italic text-[#3D3228] w-1/4">
                     {locale === "en" ? "Engineering Factor" : "Factor Técnico"}
                   </th>
                   <th className="py-5 px-6 text-xs font-serif font-bold text-[#B85D3B] bg-[#B85D3B]/5 w-2/5 border-x border-[#DFD6C6]">
                     {locale === "en" ? "Renovo 2K Factory Process" : "Proceso Renovo Catalizado 2K"}
                   </th>
-                  <th className="py-5 px-6 text-xs font-serif italic text-[#6B5E52] w-1/3">
+                  <th className="py-5 px-6 text-xs font-serif italic text-[#3D3228] w-1/3">
                     {locale === "en" ? "Typical House Painter" : "Pintor Tradicional de Muros"}
                   </th>
                 </tr>
@@ -194,7 +194,7 @@ export default function TransformationsPage() {
                         <span>{locale === "en" ? pt.renovoEn : pt.renovoEs}</span>
                       </div>
                     </td>
-                    <td className="py-5 px-6 text-[#6B5E52] font-serif">
+                    <td className="py-5 px-6 text-[#3D3228] font-serif">
                       <span>{locale === "en" ? pt.standardEn : pt.standardEs}</span>
                     </td>
                   </tr>
@@ -213,12 +213,12 @@ export default function TransformationsPage() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Ready to Transform Your Kitchen or Living Space?"
                 : "¿Listo para Transformar tu Cocina o Residencia?"}
             </h2>
-            <p className="text-base text-[#D4CBBF] font-light">
+            <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
                 ? "Schedule an in-home evaluation with Raul Burgos or visit our Phoenix workshop on Shangri La Rd."
                 : "Agenda una evaluación a domicilio con Raul Burgos o visita nuestro taller en Shangri La Rd, Phoenix."}

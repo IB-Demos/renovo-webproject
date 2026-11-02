@@ -24,7 +24,7 @@ export function Footer() {
                 />
               </div>
             </div>
-            <p className="text-sm text-[#BFB5AA] max-w-[46ch] leading-relaxed">
+            <p className="text-sm text-[#3D3228] max-w-[46ch] leading-relaxed">
               {locale === "en"
                 ? "For over 10 years, Renovo has designed, hand-built, and refinished custom kitchens, arched bookcases, wine credenzas, and luxury residential coatings across Phoenix and Arizona."
                 : "Por más de 10 años, Renovo ha diseñado, fabricado a mano y transformado cocinas integrales, libreros arqueados, cavas y acabados residenciales finos en Phoenix y todo Arizona."}
@@ -147,7 +147,7 @@ export function Footer() {
               </a>
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs text-[#BFB5AA]">
+          <div className="flex items-center gap-2 text-xs text-[#3D3228]">
             <Sparkle size={14} className="text-[var(--gold)]" weight="fill" />
             <span>Family-Owned &amp; Operated in Phoenix</span>
           </div>

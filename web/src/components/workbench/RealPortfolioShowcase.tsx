@@ -120,7 +120,7 @@ export function RealPortfolioShowcase({
 
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
           <div>
-            <div className="font-mono text-xs uppercase tracking-wider text-[#8A7E72] mb-3 font-semibold">
+            <div className="font-mono text-xs uppercase tracking-wider text-[#54463A] mb-3 font-semibold">
               {locale === "en"
                 ? "SELECT PHOTOGRAPH TO INSPECT"
                 : "SELECCIONA UNA FOTOGRAFÍA PARA INSPECCIONAR"}

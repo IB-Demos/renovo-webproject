@@ -148,7 +148,7 @@ export default function HomePage() {
               {/* Minimalist Heritage Eyebrow */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7]/90 border border-[#DFD6C6] backdrop-blur-md shadow-xs">
                 <Sparkle size={13} className="text-[#B85D3B]" weight="fill" />
-                <span className="text-[10px] sm:text-xs uppercase tracking-[0.16em] text-[#6B5E52] font-serif font-medium">
+                <span className="text-xs sm:text-sm uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
                   {locale === "en"
                     ? "PHOENIX, ARIZONA · BESPOKE ATELIER"
                     : "PHOENIX, ARIZONA · TALLER DE AUTOR"}
@@ -156,16 +156,16 @@ export default function HomePage() {
               </div>
 
               {/* Main Grand Serif Headline */}
-              <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-normal leading-[1.06] tracking-[-0.025em] font-serif text-[#261F1A]">
+              <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-semibold leading-[1.06] tracking-[-0.02em] font-serif text-[#1A1410]">
                 {t.hero.headlinePart1}{" "}
-                <span className="italic text-[#B85D3B] font-normal">
+                <span className="italic text-[#B85D3B] font-medium">
                   {t.hero.headlineItalic}
                 </span>{" "}
                 {t.hero.headlinePart2}
               </h1>
 
               {/* Editorial Subhead */}
-              <p className="text-base sm:text-xl text-[#6B5E52] leading-relaxed max-w-2xl font-light">
+              <p className="text-lg sm:text-2xl text-[#2E241D] leading-relaxed max-w-2xl font-normal">
                 {locale === "en"
                   ? "From grain-matched rift-cut white oak arched built-ins to factory 2K catalyzed kitchens, Raul Burgos and our dedicated craftsmen design, hand-build, and finish timeless living spaces across Arizona."
                   : "Desde libreros arqueados en encino blanco hasta cocinas completas en laca catalizada 2K, Raul Burgos y nuestro equipo de artesanos diseñan, construyen a mano y transforman residencias en todo Arizona."}
@@ -191,7 +191,7 @@ export default function HomePage() {
 
                 <a
                   href={COMPANY_INFO.phoneHref}
-                  className="interactive-control hidden sm:inline-flex items-center gap-2 text-sm text-[#6B5E52] hover:text-[#B85D3B] ml-2 transition-colors"
+                  className="interactive-control hidden sm:inline-flex items-center gap-2 text-sm text-[#3D3228] hover:text-[#B85D3B] ml-2 transition-colors"
                 >
                   <Phone size={16} className="text-[#B85D3B]" />
                   <span className="font-serif tabular-nums font-medium">{COMPANY_INFO.phoneDisplay}</span>
@@ -220,7 +220,7 @@ export default function HomePage() {
                         className={`interactive-control py-2 px-2 rounded-xl text-xs font-serif transition-all ${
                           isSelected
                             ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
-                            : "text-[#6B5E52] hover:text-[#261F1A]"
+                            : "text-[#3D3228] hover:text-[#261F1A]"
                         }`}
                       >
                         {locale === "en" ? tab.labelEn : tab.labelEs}
@@ -250,14 +250,14 @@ export default function HomePage() {
                     <div className="text-[10px] font-serif uppercase tracking-wider text-[#C59B27] font-semibold">
                       {locale === "en" ? heroShowcase[heroTab].tagEn : heroShowcase[heroTab].tagEs}
                     </div>
-                    <div className="text-sm sm:text-base font-serif font-normal text-white">
+                    <div className="text-sm sm:text-base font-serif font-semibold text-white">
                       {locale === "en" ? heroShowcase[heroTab].titleEn : heroShowcase[heroTab].titleEs}
                     </div>
                   </div>
                 </div>
 
                 {/* Spec Note */}
-                <div className="px-2 py-1 text-[11px] text-[#6B5E52] flex items-center justify-between">
+                <div className="px-2 py-1 text-[11px] text-[#3D3228] flex items-center justify-between">
                   <span>{locale === "en" ? heroShowcase[heroTab].specEn : heroShowcase[heroTab].specEs}</span>
                   <Link
                     href={
@@ -280,7 +280,7 @@ export default function HomePage() {
 
         {/* Minimalist Bottom Credential Bar */}
         <div className="absolute bottom-0 inset-x-0 z-10 border-t border-[#DFD6C6] bg-[#FCFAF7]/90 backdrop-blur-md py-3.5">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-wrap items-center justify-between gap-4 text-xs text-[#6B5E52]">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-wrap items-center justify-between gap-4 text-xs text-[#3D3228]">
             <div className="flex items-center gap-2">
               <CheckCircle size={15} className="text-[#B85D3B]" weight="fill" />
               <span>{locale === "en" ? "10+ Years Serving Arizona" : "Más de 10 Años en Arizona"}</span>
@@ -310,12 +310,12 @@ export default function HomePage() {
             <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
               {locale === "en" ? "MASTER DISCIPLINES" : "NUESTRAS ESPECIALIDADES"}
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "Every Space Built with Soul, Art & Precision."
                 : "Cada Espacio Creado con Alma, Arte y Precisión."}
             </h2>
-            <p className="text-base text-[#6B5E52] leading-relaxed font-light">
+            <p className="text-base text-[#3D3228] leading-relaxed font-normal">
               {locale === "en"
                 ? "We don't do mass-produced boxes. From raw hardwood selection to the final coat of 2K catalyzed finish, every project is handled by our dedicated Phoenix craftsmen."
                 : "No hacemos muebles genéricos. Desde la selección de madera noble hasta la última mano de laca catalizada 2K, cada proyecto es ejecutado por nuestros artesanos en Phoenix."}
@@ -339,10 +339,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? "Custom Kitchens & Cabinetry" : "Cocinas y Gabinetes a Medida"}
                   </h3>
-                  <p className="text-sm text-[#6B5E52] leading-relaxed font-light">
+                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
                       ? "Custom-built islands, recessed Shaker door profiles, Blum soft-close concealed hardware, and durable 2K polyurethane finishes resistant to heat and moisture."
                       : "Islas a medida, perfiles de puerta Shaker, herrajes ocultos Blum de cierre suave y acabados catalizados 2K ultra-resistentes al calor y la grasa."}
@@ -377,10 +377,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? "Architectural Built-Ins & Furniture" : "Muebles de Autor y Built-Ins"}
                   </h3>
-                  <p className="text-sm text-[#6B5E52] leading-relaxed font-light">
+                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
                       ? "Arched rift-cut white oak fireplace niches, floating entertainment centers, illuminated stemware credenzas, and custom bathroom vanities."
                       : "Nichos gemelos arqueados en encino blanco, centros de entretenimiento flotantes, cavas de vino iluminadas y muebles de baño de autor."}
@@ -415,10 +415,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
+                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
                     {locale === "en" ? "Residential & Exterior Painting" : "Pintura Residencial y Acabados"}
                   </h3>
-                  <p className="text-sm text-[#6B5E52] leading-relaxed font-light">
+                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
                       ? "HEPA dustless surface preparation, velvet interior wall enamels, and UV-shield elastomeric coatings that resist fading under the Arizona sun."
                       : "Lijado HEPA sin polvo, esmaltes aterciopelados para muros interiores y recubrimientos elastoméricos con filtro UV para el sol de Arizona."}
@@ -457,13 +457,13 @@ export default function HomePage() {
                 {locale === "en" ? "TRANSFORMATION SPOTLIGHT" : "CASO DE ÉXITO EN PHOENIX"}
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
+              <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
                 {locale === "en"
                   ? "From Dated Stained Oak to Factory Alabaster Elegance."
                   : "De Madera Desgastada a Elegancia de Fábrica."}
               </h2>
 
-              <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+              <p className="text-base text-[#3D3228] font-normal leading-relaxed">
                 {locale === "en"
                   ? "Witness how our 4-stage preparation and 2K catalyzed factory spraying completely reimagined this Phoenix residence, without replacing the existing cabinet framework."
                   : "Observa cómo nuestro protocolo de 4 etapas y aplicación catalizada 2K transformó esta residencia en Phoenix sin necesidad de demoler los gabinetes."}
@@ -477,7 +477,7 @@ export default function HomePage() {
                 <div className="text-[#B85D3B] font-serif font-medium">
                   {activeSpotlight.systemUsed[locale]}
                 </div>
-                <div className="text-[#6B5E52] pt-1 flex items-center gap-1.5">
+                <div className="text-[#3D3228] pt-1 flex items-center gap-1.5">
                   <Clock size={14} className="text-[#B85D3B]" />
                   <span>
                     {locale === "en"
@@ -500,7 +500,7 @@ export default function HomePage() {
                     className={`interactive-control px-3.5 py-1.5 rounded-full text-xs font-serif uppercase tracking-wider transition-all ${
                       idx === activeSpotlightIdx
                         ? "bg-[#B85D3B] text-[#FCFAF7] font-bold shadow-xs"
-                        : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] shadow-xs"
+                        : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] shadow-xs"
                     }`}
                   >
                     Case 0{idx + 1}
@@ -607,13 +607,13 @@ export default function HomePage() {
                 {locale === "en" ? "FOUNDER & HERITAGE" : "HISTORIA Y ARTESANÍA"}
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A] leading-[1.12]">
+              <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] leading-[1.12]">
                 {locale === "en"
                   ? "Crafting Spaces with Passion, Warmth and Enduring Soul."
                   : "Creando Espacios con Pasión, Calidez y un Alma que Perdura."}
               </h2>
 
-              <div className="space-y-4 text-base text-[#6B5E52] font-light leading-relaxed">
+              <div className="space-y-4 text-base text-[#3D3228] font-normal leading-relaxed">
                 <p>
                   {locale === "en"
                     ? "Renovo started with an uncompromising standard: treat every kitchen, every arched fireplace bookcase, and every bathroom vanity as an heirloom piece of architectural furniture."
@@ -696,13 +696,13 @@ export default function HomePage() {
               <span>{locale === "en" ? "READY TO BEGIN?" : "¿LISTO PARA COMENZAR?"}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5] tracking-tight">
               {locale === "en"
                 ? "Let's Craft Something Extraordinary for Your Home."
                 : "Creemos Algo Extraordinario para tu Residencia."}
             </h2>
 
-            <p className="text-base sm:text-lg text-[#D4CBBF] font-light max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#3D3228] font-normal max-w-2xl mx-auto">
               {locale === "en"
                 ? "Schedule an in-home evaluation with Raul Burgos or visit our Phoenix workshop on Shangri La Rd to test physical samples and review your architectural vision."
                 : "Agenda una evaluación en sitio con Raul Burgos o visita nuestro taller en Shangri La Rd en Phoenix para examinar muestras y planear tu proyecto."}
