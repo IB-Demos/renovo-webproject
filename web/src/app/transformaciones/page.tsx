@@ -209,11 +209,11 @@ export default function TransformationsPage() {
       <SampleBoxConcierge />
 
       {/* 7. GRAND CONSULTATION CALL TO ACTION */}
-      <section className="py-20 lg:py-28 bg-[#261F1A] text-[#FAF8F5] text-center relative overflow-hidden">
-        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
+      <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
+        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410]">
               {locale === "en"
                 ? "Ready to Transform Your Kitchen or Living Space?"
                 : "¿Listo para Transformar tu Cocina o Residencia?"}
@@ -233,9 +233,9 @@ export default function TransformationsPage() {
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                <Phone size={16} className="text-[var(--gold)]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>

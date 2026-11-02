@@ -685,18 +685,18 @@ export default function HomePage() {
       {/* =====================================================================
           6. GRAND CONSULTATION CALL TO ACTION (Deep Roasted Walnut Anchor)
       ===================================================================== */}
-      <section className="py-20 lg:py-28 bg-[#261F1A] text-[#FAF8F5] border-t border-[#3D332B] relative overflow-hidden">
+      <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
         {/* Soft Terracotta Glow */}
-        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
+        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
 
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-3xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-serif uppercase tracking-widest text-[#C59B27]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-xs font-serif uppercase tracking-widest text-[#B85D3B] font-bold shadow-xs">
               <Sparkle size={13} weight="fill" />
               <span>{locale === "en" ? "READY TO BEGIN?" : "¿LISTO PARA COMENZAR?"}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#FAF8F5] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410] tracking-tight">
               {locale === "en"
                 ? "Let's Craft Something Extraordinary for Your Home."
                 : "Creemos Algo Extraordinario para tu Residencia."}
@@ -719,9 +719,9 @@ export default function HomePage() {
 
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-sm font-medium flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                <Phone size={16} className="text-[#C59B27]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
