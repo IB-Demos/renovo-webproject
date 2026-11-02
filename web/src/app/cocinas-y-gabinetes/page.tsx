@@ -53,21 +53,21 @@ export default function KitchensAndMillworkPage() {
   ];
 
   return (
-    <div className="w-full bg-[#0E0C0A] text-[#FAF8F5]">
+    <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
-        <div className="absolute inset-0 z-0 opacity-30">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="absolute inset-0 z-0 opacity-25">
           <img
             src="/assets/kitchens/kitchen-01.jpg"
             alt="Renovo Bespoke Kitchens Phoenix"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C0A] via-[#0E0C0A]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>
                 {locale === "en"
@@ -76,13 +76,13 @@ export default function KitchensAndMillworkPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Bespoke Kitchens Built for a Lifetime of Living."
                 : "Cocinas de Autor Diseñadas para Toda la Vida."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#B8AEA2] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "From raw hardwood milling to precision factory 2K spray finishing, our Phoenix shop delivers custom kitchen cabinetry and complete refacing that elevate your home beyond builder-grade standards."
                 : "Desde el habilitado de maderas nobles hasta el esmaltado 2K de cabina, nuestro taller en Phoenix crea gabinetes a medida y refacing de lujo que superan cualquier estándar comercial."}
@@ -91,16 +91,16 @@ export default function KitchensAndMillworkPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/cotizador"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Estimate Your Kitchen Project" : "Cotizar tu Cocina"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#261F1A] bg-[#FCFAF7] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs"
               >
-                <Phone size={16} className="text-[var(--gold)]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
@@ -118,19 +118,19 @@ export default function KitchensAndMillworkPage() {
       <CabinetDecisionMatrix />
 
       {/* 5. CRAFTSMANSHIP & CONSTRUCTION STANDARDS */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Cabinetry Standards" : "Estándares de Fabricación"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Built to Outlast Everyday Living"
                 : "Fabricados para Superar el Uso Cotidiano"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#6B5E52] font-light">
               {locale === "en"
                 ? "Every cabinet is engineered with premium American hardwoods, Blum European hardware, and industrial 2K coatings that withstand desert temperatures and busy family households."
                 : "Cada gabinete se construye con maderas nobles, herrajes europeos Blum y lacas industriales 2K capaces de resistir el clima desértico y el ajetreo diario."}
@@ -141,15 +141,15 @@ export default function KitchensAndMillworkPage() {
             {standards.map((std, idx) => (
               <div
                 key={idx}
-                className="p-7 rounded-3xl bg-white/5 border border-white/10 shadow-lg space-y-4 hover:border-[var(--gold)]/40 transition-colors"
+                className="p-7 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-md space-y-4 hover:border-[#B85D3B] transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)]">
+                <div className="w-10 h-10 rounded-xl bg-[#EAE2D5] border border-[#DFD6C6] flex items-center justify-center text-[#B85D3B]">
                   <CheckCircle size={20} weight="fill" />
                 </div>
-                <h3 className="text-lg font-serif font-normal text-[#FAF8F5]">
+                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
                   {locale === "en" ? std.titleEn : std.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#A69B8F] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
                   {locale === "en" ? std.descEn : std.descEs}
                 </p>
               </div>
@@ -162,26 +162,26 @@ export default function KitchensAndMillworkPage() {
       <CraftChronology />
 
       {/* 7. REAL PHOENIX KITCHEN ARCHIVE */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Compass size={14} />
               <span>{locale === "en" ? "Photographic Archive" : "Registro Fotográfico de Obras"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Completed Kitchens Across Phoenix"
                 : "Cocinas Realizadas en Phoenix y Alrededores"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#6B5E52] font-light">
               {locale === "en"
                 ? "Browse our authentic portfolio of recent custom kitchen installations and 2K cabinet transformations."
                 : "Explora nuestro portafolio auténtico de instalaciones recientes de cocinas a medida y transformaciones con lacas 2K."}
             </p>
           </div>
 
-          <div className="rounded-3xl p-6 sm:p-8 bg-white/5 border border-white/10 shadow-2xl">
+          <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
             <RealPortfolioShowcase initialCategory="kitchens" />
           </div>
         </div>
@@ -191,15 +191,16 @@ export default function KitchensAndMillworkPage() {
       <SampleBoxConcierge />
 
       {/* 9. CONSULTATION CALL TO ACTION */}
-      <section className="py-20 lg:py-28 bg-[#0A0908] text-white text-center">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="py-20 lg:py-28 bg-[#261F1A] text-[#FAF8F5] text-center relative overflow-hidden">
+        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Plan Your Custom Kitchen Consultation"
                 : "Planea la Transformación de tu Cocina"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#D4CBBF] font-light">
               {locale === "en"
                 ? "Schedule an in-home evaluation with Raul Burgos to review layouts, take laser measurements, and explore physical door samples."
                 : "Agenda una visita a domicilio con Raul Burgos para revisar distribución, tomar medidas con láser y explorar muestras de puertas."}
@@ -207,7 +208,7 @@ export default function KitchensAndMillworkPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
                 <ArrowRight size={16} weight="bold" />
@@ -217,7 +218,7 @@ export default function KitchensAndMillworkPage() {
                 className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
+                <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>

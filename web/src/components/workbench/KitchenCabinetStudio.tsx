@@ -8,7 +8,7 @@ import {
   SHEEN_SPECS,
   HARDWARE_SPECS,
 } from "@/lib/catalog-data/specs";
-import { PushPin, Check, Sun, Sparkle } from "@phosphor-icons/react";
+import { PushPin, Check, Sun } from "@phosphor-icons/react";
 
 export function KitchenCabinetStudio() {
   const { locale, t, addSample, isSampleInTray } = useRenovo();
@@ -45,24 +45,24 @@ export function KitchenCabinetStudio() {
   };
 
   return (
-    <div className="p-4 sm:p-6 bg-transparent text-white">
+    <div className="p-4 sm:p-6 bg-transparent text-[#261F1A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Handcrafted Kitchen Elevation Viewport (7 Cols) */}
-        <div className="lg:col-span-7 bg-white/5 rounded-3xl p-5 sm:p-7 border border-white/10 shadow-xl backdrop-blur-xl">
+        <div className="lg:col-span-7 bg-[#FCFAF7] rounded-3xl p-5 sm:p-7 border border-[#DFD6C6] shadow-xl">
           {/* Top Canvas Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10 text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#DFD6C6] text-xs">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[var(--gold)]" />
-              <span className="font-semibold text-white uppercase tracking-wider font-mono text-[11px]">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#B85D3B]" />
+              <span className="font-semibold text-[#261F1A] uppercase tracking-wider font-mono text-[11px]">
                 {locale === "en" ? "Elevation Design Preview" : "Vista Previa de Alzado"}
               </span>
-              <span className="text-[#8A7F73]">· {selectedProfile.name[locale]}</span>
+              <span className="text-[#8A7E72]">· {selectedProfile.name[locale]}</span>
             </div>
 
             {/* Ambient Lighting Warmth Selector */}
-            <div className="flex items-center gap-1.5 bg-black/40 px-2 py-1 rounded-full border border-white/10 shadow-2xs">
-              <Sun size={13} className="text-[var(--gold)]" />
-              <span className="text-[11px] font-medium text-[#8A7F73] mr-1 hidden sm:inline">
+            <div className="flex items-center gap-1.5 bg-[#EAE2D5] px-2 py-1 rounded-full border border-[#DFD6C6] shadow-2xs">
+              <Sun size={13} className="text-[#B85D3B]" />
+              <span className="text-[11px] font-medium text-[#6B5E52] mr-1 hidden sm:inline">
                 {locale === "en" ? "Sunlight:" : "Luz:"}
               </span>
               {(["2700K", "4000K", "5500K"] as const).map((k) => (
@@ -73,8 +73,8 @@ export function KitchenCabinetStudio() {
                   aria-pressed={kelvinMode === k}
                   className={`interactive-control px-2 py-0.5 rounded-full text-[11px] font-medium transition-all ${
                     kelvinMode === k
-                      ? "bg-[var(--gold)] text-[#12100E] font-bold shadow-2xs"
-                      : "text-[#8A7F73] hover:text-white"
+                      ? "bg-[#B85D3B] text-white font-bold shadow-2xs"
+                      : "text-[#6B5E52] hover:text-[#261F1A]"
                   }`}
                 >
                   {k}
@@ -85,7 +85,7 @@ export function KitchenCabinetStudio() {
 
           {/* Interactive SVG Elevation with Warm Architectural Shading */}
           <div
-            className="relative mt-5 rounded-2xl overflow-hidden border border-white/10 bg-[#0B0A08] aspect-[16/10] flex items-center justify-center p-4 shadow-inner"
+            className="relative mt-5 rounded-2xl overflow-hidden border border-[#DFD6C6] bg-[#EAE2D5] aspect-[16/10] flex items-center justify-center p-4 shadow-inner"
             style={{ filter: kelvinFilter }}
           >
             {/* Ambient Warm Glow */}
@@ -218,7 +218,7 @@ export function KitchenCabinetStudio() {
                 </g>
               ))}
 
-              {/* Foreground Center Island Volume (Dual-Tone Contrast) */}
+              {/* Foreground Center Island Volume */}
               <g transform="translate(175, 276)">
                 {/* Waterfall Countertop Slab */}
                 <rect x="-8" y="-12" width="466" height="14" rx="2" fill="#FFFFFF" stroke="#D1CAC0" strokeWidth="0.75" />
@@ -318,19 +318,19 @@ export function KitchenCabinetStudio() {
           </div>
 
           {/* Bottom Specification Bar */}
-          <div className="mt-5 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-6 text-xs text-[#B8AEA2]">
+          <div className="mt-5 pt-4 border-t border-[#DFD6C6] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-6 text-xs text-[#6B5E52]">
               <div>
-                <span className="block text-[11px] text-[#8A7F73]">{locale === "en" ? "Door Profile" : "Perfil"}</span>
-                <span className="font-semibold text-white">{selectedProfile.name[locale]}</span>
+                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Door Profile" : "Perfil"}</span>
+                <span className="font-semibold text-[#261F1A]">{selectedProfile.name[locale]}</span>
               </div>
               <div>
-                <span className="block text-[11px] text-[#8A7F73]">{locale === "en" ? "Finish Sheen" : "Brillo"}</span>
-                <span className="font-semibold text-white">{selectedSheen.name[locale]}</span>
+                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Finish Sheen" : "Brillo"}</span>
+                <span className="font-semibold text-[#261F1A]">{selectedSheen.name[locale]}</span>
               </div>
               <div>
-                <span className="block text-[11px] text-[#8A7F73]">{locale === "en" ? "Hardware" : "Herraje"}</span>
-                <span className="font-semibold text-white">{selectedHardware.name[locale]}</span>
+                <span className="block text-[11px] text-[#8A7E72]">{locale === "en" ? "Hardware" : "Herraje"}</span>
+                <span className="font-semibold text-[#261F1A]">{selectedHardware.name[locale]}</span>
               </div>
             </div>
 
@@ -340,7 +340,7 @@ export function KitchenCabinetStudio() {
               className={`interactive-control min-h-[44px] px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shrink-0 shadow-md inline-flex items-center gap-2 transition-colors ${
                 isPinned
                   ? "bg-[#2E6B4E] text-white"
-                  : "bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E]"
+                  : "bg-[#B85D3B] hover:bg-[#A34E2F] text-white"
               }`}
             >
               {isPinned ? <Check size={15} weight="bold" /> : <PushPin size={15} />}
@@ -353,7 +353,7 @@ export function KitchenCabinetStudio() {
         <div className="lg:col-span-5 space-y-6">
           {/* 1. Door Profile Cards */}
           <div>
-            <label className="text-xs uppercase tracking-wider text-[#D4CBBF] font-bold block mb-2.5 font-mono">
+            <label className="text-xs uppercase tracking-wider text-[#261F1A] font-bold block mb-2.5 font-mono">
               {t.workbench.cabinet.doorProfileLabel}
             </label>
             <div className="grid grid-cols-2 gap-2">
@@ -367,11 +367,11 @@ export function KitchenCabinetStudio() {
                     aria-pressed={active}
                     className={`interactive-control text-left p-3.5 rounded-2xl border min-h-[70px] flex flex-col justify-between transition-all ${
                       active
-                        ? "bg-white/10 text-white border-[var(--gold)] shadow-md"
-                        : "bg-white/5 text-[#D4CBBF] border-white/10 hover:border-white/30"
+                        ? "bg-[#FCFAF7] text-[#261F1A] border-[#B85D3B] shadow-md ring-1 ring-[#B85D3B]"
+                        : "bg-[#FCFAF7] text-[#6B5E52] border-[#DFD6C6] hover:border-[#B85D3B]/50"
                     }`}
                   >
-                    <span className="text-[10px] uppercase tracking-wider text-[#8A7F73] font-mono">
+                    <span className="text-[10px] uppercase tracking-wider text-[#8A7E72] font-mono">
                       {profile.stileWidthMm > 0 ? `${profile.stileWidthMm}mm Stile` : "Zero-Edge"}
                     </span>
                     <span className="text-xs font-semibold leading-snug">{profile.name[locale]}</span>
@@ -379,18 +379,18 @@ export function KitchenCabinetStudio() {
                 );
               })}
             </div>
-            <p className="text-xs text-[var(--muted)] mt-2 leading-relaxed">
+            <p className="text-xs text-[#6B5E52] mt-2 leading-relaxed">
               {selectedProfile.construction[locale]}
             </p>
           </div>
 
           {/* 2. Perimeter Cabinet Pigment */}
-          <div className="pt-4 border-t border-[var(--border)]">
+          <div className="pt-4 border-t border-[#DFD6C6]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs uppercase tracking-wider text-[#211C18] font-bold">
+              <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold font-mono">
                 {t.workbench.cabinet.perimeterFinishLabel}
               </span>
-              <span className="text-xs font-medium text-[var(--muted)]">
+              <span className="text-xs font-medium text-[#6B5E52]">
                 {perimeterPigment.name[locale]}
               </span>
             </div>
@@ -406,8 +406,8 @@ export function KitchenCabinetStudio() {
                     aria-pressed={active}
                     className={`interactive-control h-12 rounded-xl border-2 shadow-xs transition-transform ${
                       active
-                        ? "border-[#211C18] scale-110 ring-2 ring-[var(--gold)]/40"
-                        : "border-white hover:scale-105"
+                        ? "border-[#261F1A] scale-110 ring-2 ring-[#B85D3B]"
+                        : "border-[#DFD6C6] hover:scale-105"
                     }`}
                     style={{ backgroundColor: pigment.hex }}
                   />
@@ -417,12 +417,12 @@ export function KitchenCabinetStudio() {
           </div>
 
           {/* 3. Center Island Statement Tone */}
-          <div className="pt-4 border-t border-[var(--border)]">
+          <div className="pt-4 border-t border-[#DFD6C6]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs uppercase tracking-wider text-[#211C18] font-bold">
+              <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold font-mono">
                 {t.workbench.cabinet.islandFinishLabel}
               </span>
-              <span className="text-xs font-medium text-[var(--muted)]">
+              <span className="text-xs font-medium text-[#6B5E52]">
                 {islandPigment.name[locale]}
               </span>
             </div>
@@ -438,8 +438,8 @@ export function KitchenCabinetStudio() {
                     aria-pressed={active}
                     className={`interactive-control h-12 rounded-xl border-2 shadow-xs transition-transform ${
                       active
-                        ? "border-[#211C18] scale-110 ring-2 ring-[var(--gold)]/40"
-                        : "border-white hover:scale-105"
+                        ? "border-[#261F1A] scale-110 ring-2 ring-[#B85D3B]"
+                        : "border-[#DFD6C6] hover:scale-105"
                     }`}
                     style={{ backgroundColor: pigment.hex }}
                   />
@@ -449,8 +449,8 @@ export function KitchenCabinetStudio() {
           </div>
 
           {/* 4. Sheen Spec */}
-          <div className="pt-4 border-t border-[var(--border)]">
-            <span className="text-xs uppercase tracking-wider text-[#211C18] font-bold block mb-2">
+          <div className="pt-4 border-t border-[#DFD6C6]">
+            <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold block mb-2 font-mono">
               {t.workbench.cabinet.sheenLevelLabel}
             </span>
             <div className="grid grid-cols-3 gap-2">
@@ -462,10 +462,10 @@ export function KitchenCabinetStudio() {
                     type="button"
                     onClick={() => setSelectedSheen(sheen)}
                     aria-pressed={active}
-                    className={`interactive-control p-2.5 rounded-xl border text-left min-h-[52px] ${
+                    className={`interactive-control p-2.5 rounded-xl border text-left min-h-[52px] transition-all ${
                       active
-                        ? "bg-[#211C18] text-white border-[#211C18]"
-                        : "bg-white text-[#211C18] border-[var(--border)] hover:border-[#211C18]/40"
+                        ? "bg-[#261F1A] text-white border-[#261F1A]"
+                        : "bg-[#FCFAF7] text-[#261F1A] border-[#DFD6C6] hover:border-[#B85D3B]/50"
                     }`}
                   >
                     <span className="text-[10px] block opacity-75">{sheen.glossUnits}</span>
@@ -477,8 +477,8 @@ export function KitchenCabinetStudio() {
           </div>
 
           {/* 5. Hardware Accent */}
-          <div className="pt-4 border-t border-[var(--border)]">
-            <span className="text-xs uppercase tracking-wider text-[#211C18] font-bold block mb-2">
+          <div className="pt-4 border-t border-[#DFD6C6]">
+            <span className="text-xs uppercase tracking-wider text-[#261F1A] font-bold block mb-2 font-mono">
               {t.workbench.cabinet.hardwareLabel}
             </span>
             <div className="grid grid-cols-3 gap-2">
@@ -490,10 +490,10 @@ export function KitchenCabinetStudio() {
                     type="button"
                     onClick={() => setSelectedHardware(hw)}
                     aria-pressed={active}
-                    className={`interactive-control p-2.5 rounded-xl border text-left flex items-center gap-2 min-h-[48px] ${
+                    className={`interactive-control p-2.5 rounded-xl border text-left flex items-center gap-2 min-h-[48px] transition-all ${
                       active
-                        ? "bg-[#211C18] text-white border-[#211C18]"
-                        : "bg-white text-[#211C18] border-[var(--border)] hover:border-[#211C18]/40"
+                        ? "bg-[#261F1A] text-white border-[#261F1A]"
+                        : "bg-[#FCFAF7] text-[#261F1A] border-[#DFD6C6] hover:border-[#B85D3B]/50"
                     }`}
                   >
                     <span

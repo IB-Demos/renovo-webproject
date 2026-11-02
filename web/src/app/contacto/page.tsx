@@ -6,7 +6,6 @@ import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierg
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
-  ArrowRight,
   Phone,
   EnvelopeSimple,
   MapPin,
@@ -62,23 +61,23 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="w-full bg-[#0E0C0A] text-[#FAF8F5]">
+    <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>{locale === "en" ? "Consultation & Direct Shop Inquiries" : "Consultas y Atención Directa"}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Let's Craft Something Extraordinary Together."
                 : "Creemos Juntos un Espacio Extraordinario."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#B8AEA2] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "Reach out directly to Raul Burgos and our craftsmanship team. We welcome in-home design consultations throughout Phoenix and private workshop walkthroughs by appointment."
                 : "Comunícate directamente con Raul Burgos y nuestro equipo de ebanistería. Ofrecemos visitas de diseño a domicilio en todo Phoenix y recorridos de taller previa cita."}
@@ -88,19 +87,19 @@ export default function ContactPage() {
       </section>
 
       {/* 2. DIRECT CONTACT INFO + FORM */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Left 5 Cols: Contact Details */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
                   <span>{locale === "en" ? "Direct Channels" : "Canales Directos"}</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-normal font-serif text-[#FAF8F5]">
+                <h2 className="text-3xl sm:text-4xl font-normal font-serif text-[#261F1A]">
                   {locale === "en" ? "Connect with Our Shop" : "Comunícate con Nuestro Taller"}
                 </h2>
-                <p className="text-sm text-[#A69B8F] leading-relaxed">
+                <p className="text-sm text-[#6B5E52] leading-relaxed">
                   {locale === "en"
                     ? "Speak with master craftsman Raul Burgos directly regarding your architectural plans or to schedule an on-site visit."
                     : "Habla directamente con el maestro ebanista Raul Burgos sobre tus planos o para agendar una visita en sitio."}
@@ -111,16 +110,16 @@ export default function ContactPage() {
                 {/* Phone */}
                 <a
                   href={COMPANY_INFO.phoneHref}
-                  className="interactive-control p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[var(--gold)]/40 flex items-center gap-4 transition-all"
+                  className="interactive-control p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B]/50 flex items-center gap-4 transition-all shadow-sm"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B] shrink-0">
                     <Phone size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7F73] block uppercase tracking-wider">
+                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Phone & Direct Line" : "Teléfono Directo"}
                     </span>
-                    <span className="text-base font-semibold text-white">
+                    <span className="text-base font-semibold text-[#261F1A]">
                       {COMPANY_INFO.phoneDisplay}
                     </span>
                   </div>
@@ -129,46 +128,46 @@ export default function ContactPage() {
                 {/* Email */}
                 <a
                   href={`mailto:${COMPANY_INFO.emailGeneral}`}
-                  className="interactive-control p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[var(--gold)]/40 flex items-center gap-4 transition-all"
+                  className="interactive-control p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B]/50 flex items-center gap-4 transition-all shadow-sm"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B] shrink-0">
                     <EnvelopeSimple size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7F73] block uppercase tracking-wider">
+                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Email Address" : "Correo Electrónico"}
                     </span>
-                    <span className="text-base font-semibold text-white">
+                    <span className="text-base font-semibold text-[#261F1A]">
                       {COMPANY_INFO.emailGeneral}
                     </span>
                   </div>
                 </a>
 
                 {/* Address */}
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] shrink-0">
+                <div className="p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] flex items-center gap-4 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B] shrink-0">
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7F73] block uppercase tracking-wider">
+                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Phoenix Workshop" : "Taller en Phoenix"}
                     </span>
-                    <span className="text-sm font-medium text-white leading-snug block">
+                    <span className="text-sm font-medium text-[#261F1A] leading-snug block">
                       {COMPANY_INFO.address.full}
                     </span>
                   </div>
                 </div>
 
                 {/* Hours */}
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] shrink-0">
+                <div className="p-5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] flex items-center gap-4 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B] shrink-0">
                     <Clock size={22} />
                   </div>
                   <div>
-                    <span className="text-xs text-[#8A7F73] block uppercase tracking-wider">
+                    <span className="text-xs text-[#8A7E72] block uppercase tracking-wider font-semibold">
                       {locale === "en" ? "Hours of Operation" : "Horario de Atención"}
                     </span>
-                    <span className="text-sm font-medium text-white block">
+                    <span className="text-sm font-medium text-[#261F1A] block">
                       {locale === "en" ? "Mon – Sat: 7:00 AM – 6:00 PM" : "Lun – Sáb: 7:00 AM – 6:00 PM"}
                     </span>
                   </div>
@@ -178,16 +177,16 @@ export default function ContactPage() {
 
             {/* Right 7 Cols: Inquiry Form */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#181410] border border-white/10 shadow-2xl backdrop-blur-xl">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
                 {submitted ? (
                   <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-[var(--gold)]/20 border border-[var(--gold)] text-[var(--gold)] flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 rounded-full bg-[#B85D3B]/15 border border-[#B85D3B] text-[#B85D3B] flex items-center justify-center mx-auto">
                       <CheckCircle size={36} weight="fill" />
                     </div>
-                    <h3 className="text-2xl font-serif font-normal text-white">
+                    <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
                       {locale === "en" ? "Thank You. Consultation Requested!" : "¡Gracias! Tu Solicitud ha Sido Recibida"}
                     </h3>
-                    <p className="text-sm text-[#B8AEA2] max-w-md mx-auto leading-relaxed font-serif">
+                    <p className="text-sm text-[#6B5E52] max-w-md mx-auto leading-relaxed font-serif">
                       {locale === "en"
                         ? `Raul Burgos or our senior estimator will review your project details and contact you at ${formData.phone || formData.email || "your provided contact"} within one business day.`
                         : `Raul Burgos o nuestro especialista revisará los detalles de tu proyecto y se comunicará contigo en menos de un día hábil.`}
@@ -195,7 +194,7 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="interactive-control px-6 py-2.5 rounded-full border border-white/20 text-xs font-serif font-semibold uppercase tracking-wider text-white hover:bg-white/10"
+                      className="interactive-control px-6 py-2.5 rounded-full border border-[#DFD6C6] text-xs font-serif font-semibold uppercase tracking-wider text-[#261F1A] hover:bg-[#EAE2D5] transition-colors"
                     >
                       {locale === "en" ? "Send Another Message" : "Enviar Otra Consulta"}
                     </button>
@@ -203,10 +202,10 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-serif font-normal text-white">
+                      <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
                         {locale === "en" ? "Request an On-Site Consultation" : "Solicita una Evaluación en Sitio"}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#A69B8F] font-serif">
+                      <p className="text-xs sm:text-sm text-[#6B5E52] font-serif">
                         {locale === "en"
                           ? "Fill in your project details below and we will prepare tailored recommendations before we speak."
                           : "Completa los datos de tu proyecto y prepararemos recomendaciones a medida antes de conversar."}
@@ -215,7 +214,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "Full Name *" : "Nombre Completo *"}
                         </label>
                         <input
@@ -224,12 +223,12 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder={locale === "en" ? "e.g. Eleanor Vance" : "ej. Carlos Mendoza"}
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
                         />
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "Phone Number *" : "Teléfono de Contacto *"}
                         </label>
                         <input
@@ -238,14 +237,14 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="(602) 000-0000"
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "Email Address *" : "Correo Electrónico *"}
                         </label>
                         <input
@@ -254,18 +253,18 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="client@example.com"
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
                         />
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "Primary Service *" : "Servicio de Interés *"}
                         </label>
                         <select
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif"
                         >
                           <option value="kitchens">
                             {locale === "en" ? "Custom Kitchens & Cabinetry" : "Cocinas a Medida y Gabinetes"}
@@ -285,7 +284,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "City / Neighborhood" : "Ciudad o Zona"}
                         </label>
                         <input
@@ -293,18 +292,18 @@ export default function ContactPage() {
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                           placeholder="e.g. Paradise Valley, Scottsdale, Peoria"
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
                         />
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                        <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                           {locale === "en" ? "Estimated Timeline" : "Tiempo Estimado"}
                         </label>
                         <select
                           value={formData.timeline}
                           onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif"
                         >
                           <option value="immediate">
                             {locale === "en" ? "Immediate (Next 1-2 Weeks)" : "Inmediato (Próximas 1-2 semanas)"}
@@ -320,7 +319,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-serif uppercase tracking-wider text-[#D4CBBF] font-semibold">
+                      <label className="text-xs font-serif uppercase tracking-wider text-[#6B5E52] font-semibold">
                         {locale === "en" ? "Project Vision & Details" : "Detalles del Proyecto"}
                       </label>
                       <textarea
@@ -332,13 +331,13 @@ export default function ContactPage() {
                             ? "Tell us about your kitchen, square footage, wood preferences (White Oak, Walnut), or color inspirations..."
                             : "Cuéntanos sobre tu cocina, medidas aproximadas, maderas de interés (Roble, Nogal) o paleta de colores..."
                         }
-                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#14100D] text-sm text-white focus:outline-none focus:border-[var(--gold)] font-serif"
+                        className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="interactive-control w-full min-h-[52px] px-8 py-3.5 rounded-xl bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
+                      className="interactive-control w-full min-h-[52px] px-8 py-3.5 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
                     >
                       <PaperPlaneTilt size={18} weight="fill" />
                       <span>{locale === "en" ? "Submit Consultation Request" : "Enviar Solicitud de Consulta"}</span>
@@ -355,14 +354,14 @@ export default function ContactPage() {
       <SampleBoxConcierge />
 
       {/* 4. FREQUENTLY ASKED QUESTIONS */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Client Clarity" : "Dudas Frecuentes"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en" ? "Frequently Asked Questions" : "Preguntas Frecuentes"}
             </h2>
           </div>
@@ -371,12 +370,12 @@ export default function ContactPage() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg space-y-3"
+                className="p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-sm space-y-3"
               >
-                <h3 className="text-lg font-serif font-normal text-white">
+                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
                   {locale === "en" ? faq.qEn : faq.qEs}
                 </h3>
-                <p className="text-sm text-[#A69B8F] leading-relaxed font-serif">
+                <p className="text-sm text-[#6B5E52] leading-relaxed font-serif">
                   {locale === "en" ? faq.aEn : faq.aEs}
                 </p>
               </div>

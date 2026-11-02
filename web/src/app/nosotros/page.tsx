@@ -98,32 +98,32 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="w-full bg-[#0E0C0A] text-[#FAF8F5]">
+    <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="absolute inset-0 z-0 opacity-20">
           <img
             src="/assets/blueprints-and-docs/custom-furniture-01.jpg"
             alt="Renovo Craftsmanship Workshop"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C0A] via-[#0E0C0A]/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/85 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "Heritage & Craftsmanship · Phoenix Atelier" : "Historia y Artesanía"}</span>
+              <span>{locale === "en" ? "Heritage & Craftsmanship · Phoenix Atelier" : "Historia y Artesanía · Taller Phoenix"}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Born in Phoenix. Devoted to High-End Living."
                 : "Nacidos en Phoenix. Dedicados al Detalle y el Arte."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#B8AEA2] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "Led by master craftsman Raul Burgos, Renovo Painting Solutions has spent over a decade perfecting the synthesis of fine custom woodworking and flawless factory architectural finishes."
                 : "Dirigido por el maestro ebanista Raul Burgos, Renovo ha perfeccionado durante más de una década la unión entre ebanistería fina a medida y acabados arquitectónicos impecables."}
@@ -132,16 +132,16 @@ export default function AboutPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-md w-full sm:w-auto transition-colors"
               >
                 <span>{locale === "en" ? "Meet with Raul Burgos" : "Reunirte con Raul Burgos"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#B85D3B]/40 bg-[#FCFAF7] hover:bg-[#EAE2D5] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-colors"
               >
-                <Phone size={16} className="text-[var(--gold)]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
@@ -150,20 +150,20 @@ export default function AboutPage() {
       </section>
 
       {/* 2. THE STORY OF RAUL BURGOS */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Story text */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
                 <span>{locale === "en" ? "The Founder's Vision" : "La Visión del Fundador"}</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5] leading-[1.12]">
+              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A] leading-[1.12]">
                 {locale === "en"
                   ? "Crafting Spaces with Passion, Warmth and Enduring Soul."
                   : "Creando Espacios con Pasión, Calidez y un Alma que Perdura."}
               </h2>
-              <div className="space-y-4 text-base text-[#B8AEA2] font-light leading-relaxed">
+              <div className="space-y-4 text-base text-[#6B5E52] font-light leading-relaxed">
                 <p>
                   {locale === "en"
                     ? "Renovo started with a simple observation: homeowners throughout the Phoenix Valley were frustrated by generic cabinet companies that delivered flimsy mass-produced boxes and local house painters whose brush marks chipped within months."
@@ -177,13 +177,13 @@ export default function AboutPage() {
               </div>
 
               {/* Verified Quote Callout */}
-              <div className="p-6 rounded-3xl bg-white/5 border-l-4 border-[var(--gold)] mt-8">
-                <p className="text-base sm:text-lg italic font-serif text-[#FAF8F5]">
+              <div className="p-6 rounded-3xl bg-[#FCFAF7] border-l-4 border-[#B85D3B] shadow-sm mt-8 border border-[#DFD6C6]">
+                <p className="text-base sm:text-lg italic font-serif text-[#261F1A]">
                   {locale === "en"
                     ? '"When a client runs their hand along one of our cabinet doors, they immediately feel the difference. There are no brush marks, no rough grain, just pure velvet smoothness that lasts for decades."'
                     : '"Cuando un cliente pasa la mano por una de nuestras puertas, siente la diferencia de inmediato. Cero marcas de brocha, cero grano áspero, solo una tersura aterciopelada que perdura décadas."'}
                 </p>
-                <div className="mt-3 font-serif text-xs uppercase tracking-wider text-[var(--gold)] font-bold">
+                <div className="mt-3 font-serif text-xs uppercase tracking-wider text-[#B85D3B] font-bold">
                   Raul Burgos · Founder & Master Craftsman
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
 
             {/* Visual Mosaic */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="rounded-3xl overflow-hidden border border-[#DFD6C6] shadow-xl">
                 <img
                   src="/assets/kitchens/kitchen-05.jpg"
                   alt="Renovo Kitchen in Paradise Valley"
@@ -199,14 +199,14 @@ export default function AboutPage() {
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-md">
+                <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-sm">
                   <img
                     src="/assets/blueprints-and-docs/custom-furniture-04.jpg"
                     alt="Custom Furniture Detail"
                     className="w-full aspect-square object-cover"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-md">
+                <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-sm">
                   <img
                     src="/assets/painting-interior/interior-02.jpg"
                     alt="Interior Paint Detail"
@@ -223,17 +223,17 @@ export default function AboutPage() {
       <CraftChronology />
 
       {/* 4. FOUR PILLARS OF CRAFT */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Uncompromising Quality" : "Calidad sin Concesiones"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en" ? "The Four Pillars of Renovo" : "Los Cuatro Pilares de Renovo"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#6B5E52] font-light">
               {locale === "en"
                 ? "Every kitchen, finish, and custom built-in is backed by four distinct commitments."
                 : "Cada cocina, acabado y mueble a medida está respaldado por cuatro compromisos innegociables."}
@@ -246,15 +246,15 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg space-y-4 hover:border-[var(--gold)]/40 transition-colors"
+                  className="p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-sm space-y-4 hover:border-[#B85D3B]/40 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)]">
+                  <div className="w-12 h-12 rounded-2xl bg-[#B85D3B]/10 border border-[#B85D3B]/20 flex items-center justify-center text-[#B85D3B]">
                     <Icon size={24} weight="fill" />
                   </div>
-                  <h3 className="text-xl font-normal font-serif text-[#FAF8F5]">
+                  <h3 className="text-xl font-normal font-serif text-[#261F1A]">
                     {locale === "en" ? p.titleEn : p.titleEs}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#A69B8F] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
                     {locale === "en" ? p.descEn : p.descEs}
                   </p>
                 </div>
@@ -265,14 +265,14 @@ export default function AboutPage() {
       </section>
 
       {/* 5. COMPANY TIMELINE / MILESTONES */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} />
               <span>{locale === "en" ? "Our Journey" : "Nuestro Trayecto"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Over 10 Years of Continuous Craft Evolution"
                 : "Más de 10 Años de Evolución y Excelencia"}
@@ -281,14 +281,14 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {milestones.map((m, idx) => (
-              <div key={idx} className="relative pl-6 border-l-2 border-[var(--gold)]/40 space-y-3">
-                <span className="font-serif text-2xl font-bold text-[var(--gold)] block">
+              <div key={idx} className="relative pl-6 border-l-2 border-[#B85D3B]/40 space-y-3">
+                <span className="font-serif text-2xl font-bold text-[#B85D3B] block">
                   {m.year}
                 </span>
-                <h3 className="text-lg font-serif font-normal text-white">
+                <h3 className="text-lg font-serif font-normal text-[#261F1A]">
                   {locale === "en" ? m.titleEn : m.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#A69B8F] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
                   {locale === "en" ? m.descEn : m.descEs}
                 </p>
               </div>
@@ -301,32 +301,32 @@ export default function AboutPage() {
       <SampleBoxConcierge />
 
       {/* 7. WORKSHOP & SERVICE REGION */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-serif text-[var(--gold)] uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 text-xs font-serif text-[#B85D3B] uppercase tracking-wider font-semibold">
                 <MapPin size={16} />
                 <span>{locale === "en" ? "PHOENIX WORKSHOP & SHOWROOM" : "TALLER Y SALA DE MUESTRAS EN PHOENIX"}</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+              <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
                 {COMPANY_INFO.address.street}
               </h2>
-              <p className="text-base text-[#B8AEA2] font-light leading-relaxed">
+              <p className="text-base text-[#6B5E52] font-light leading-relaxed">
                 {locale === "en"
                   ? `Located at ${COMPANY_INFO.address.full}, our dedicated workshop houses our precision woodworking tools, mock-up stations, and industrial spray booths. Homeowners, interior designers, and architects are welcome by appointment.`
                   : `Ubicado en ${COMPANY_INFO.address.full}, nuestro taller alberga herramientas de ebanistería de precisión, estaciones de ensamble y cabinas de pintura industrial. Propietarios, diseñadores y arquitectos son bienvenidos previa cita.`}
               </p>
 
               <div className="pt-2">
-                <div className="text-xs font-serif uppercase tracking-wider text-[#8A7F73] mb-3">
+                <div className="text-xs font-serif uppercase tracking-wider text-[#8A7E72] mb-3 font-semibold">
                   {locale === "en" ? "PRIMARY SERVICE AREAS" : "ÁREAS DE SERVICIO PRINCIPALES"}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {serviceAreas.map((area, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-serif"
+                      className="px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-xs text-[#261F1A] font-serif"
                     >
                       {area}
                     </span>
@@ -336,31 +336,31 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="p-8 sm:p-10 rounded-3xl bg-white/5 border border-white/10 shadow-2xl space-y-6 backdrop-blur-xl">
-                <h3 className="text-2xl font-serif font-normal text-[#FAF8F5]">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl space-y-6">
+                <h3 className="text-2xl font-serif font-normal text-[#261F1A]">
                   {locale === "en" ? "Schedule a Workshop Visit or In-Home Consultation" : "Agenda una Visita al Taller o Consulta a Domicilio"}
                 </h3>
-                <p className="text-sm text-[#B8AEA2] leading-relaxed">
+                <p className="text-sm text-[#6B5E52] leading-relaxed">
                   {locale === "en"
                     ? "Discuss your custom kitchen layout, examine full-scale wood and door samples, or inspect our 2K velvet finishes in person."
                     : "Platica sobre la distribución de tu cocina, examina muestras físicas de maderas y puertas, o inspecciona en persona nuestras lacas 2K."}
                 </p>
                 <div className="space-y-3 pt-2 text-sm">
-                  <div className="flex items-center gap-3 text-[#EAE2D5]">
-                    <Phone size={18} className="text-[var(--gold)]" />
-                    <a href={COMPANY_INFO.phoneHref} className="hover:text-[var(--gold)] font-serif font-semibold">
+                  <div className="flex items-center gap-3 text-[#261F1A]">
+                    <Phone size={18} className="text-[#B85D3B]" />
+                    <a href={COMPANY_INFO.phoneHref} className="hover:text-[#B85D3B] font-serif font-semibold">
                       {COMPANY_INFO.phoneDisplay}
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-[#EAE2D5]">
-                    <MapPin size={18} className="text-[var(--gold)]" />
+                  <div className="flex items-center gap-3 text-[#261F1A]">
+                    <MapPin size={18} className="text-[#B85D3B]" />
                     <span>{COMPANY_INFO.address.full}</span>
                   </div>
                 </div>
                 <div className="pt-4">
                   <Link
                     href="/contacto"
-                    className="interactive-control w-full min-h-[50px] px-6 py-3.5 rounded-xl bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
+                    className="interactive-control w-full min-h-[50px] px-6 py-3.5 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
                   >
                     <span>{locale === "en" ? "Request an Appointment" : "Solicitar una Cita"}</span>
                     <ArrowRight size={16} weight="bold" />

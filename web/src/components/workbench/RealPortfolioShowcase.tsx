@@ -40,11 +40,11 @@ export function RealPortfolioShowcase({
   const currentImg = activeImages[selectedIdx] || activeImages[0];
 
   return (
-    <div className="border border-[#121316]/15 bg-[#EAEAE5] p-6 sm:p-8">
+    <div className="rounded-3xl border border-[#DFD6C6] bg-[#FCFAF7] p-6 sm:p-8 shadow-xl text-[#261F1A]">
       {/* Category Switcher */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#121316]/15">
-        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#121316]">
-          <Images size={17} className="text-[#C84B31]" />
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#DFD6C6]">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#B85D3B] font-bold">
+          <Images size={17} className="text-[#B85D3B]" />
           <span>
             {locale === "en"
               ? "PHOENIX, AZ REAL PROJECT ARCHIVE"
@@ -92,10 +92,10 @@ export function RealPortfolioShowcase({
                 setCategory(tab.id);
                 setSelectedIdx(0);
               }}
-              className={`interactive-control border px-3.5 py-2 font-mono text-xs uppercase tracking-wider tabular-nums ${
+              className={`interactive-control rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider tabular-nums transition-all ${
                 category === tab.id
-                  ? "border-[#121316] bg-[#121316] text-[#F4F4F1] font-semibold"
-                  : "border-[#121316]/20 bg-[#F4F4F1] text-[#121316] hover:border-[#121316]"
+                  ? "border border-[#B85D3B] bg-[#B85D3B] text-white font-semibold shadow-md"
+                  : "border border-[#DFD6C6] bg-[#F4EFE6] text-[#261F1A] hover:bg-[#EAE2D5]"
               }`}
             >
               {tab.label}
@@ -106,13 +106,13 @@ export function RealPortfolioShowcase({
 
       {/* Main Viewer + Thumbnails */}
       <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-7 aspect-[16/11] border border-[#121316]/20 bg-[#121316] overflow-hidden relative">
+        <div className="lg:col-span-7 aspect-[16/11] rounded-2xl border border-[#DFD6C6] bg-[#261F1A] overflow-hidden relative shadow-inner">
           <img
             src={currentImg}
             alt={`Renovo ${category} project ${selectedIdx + 1}`}
             className="h-full w-full object-contain"
           />
-          <div className="absolute bottom-3 left-3 bg-[#121316]/90 border border-white/15 px-3 py-1 font-mono text-[11px] text-[#F4F4F1] tabular-nums">
+          <div className="absolute bottom-3 left-3 bg-[#261F1A]/90 border border-white/20 px-3 py-1 font-mono text-[11px] text-[#FCFAF7] tabular-nums rounded-md backdrop-blur-xs">
             PLATE {String(selectedIdx + 1).padStart(2, "0")} /{" "}
             {String(activeImages.length).padStart(2, "0")} // {category.toUpperCase()}
           </div>
@@ -120,7 +120,7 @@ export function RealPortfolioShowcase({
 
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
           <div>
-            <div className="font-mono text-xs uppercase tracking-wider text-[#52565E] mb-3">
+            <div className="font-mono text-xs uppercase tracking-wider text-[#8A7E72] mb-3 font-semibold">
               {locale === "en"
                 ? "SELECT PHOTOGRAPH TO INSPECT"
                 : "SELECCIONA UNA FOTOGRAFÍA PARA INSPECCIONAR"}
@@ -131,9 +131,9 @@ export function RealPortfolioShowcase({
                   key={img}
                   type="button"
                   onClick={() => setSelectedIdx(idx)}
-                  className={`interactive-control aspect-square overflow-hidden border-2 ${
+                  className={`interactive-control aspect-square overflow-hidden rounded-xl border-2 transition-all ${
                     selectedIdx === idx
-                      ? "border-[#C84B31] scale-105"
+                      ? "border-[#B85D3B] scale-105 shadow-md"
                       : "border-transparent opacity-75 hover:opacity-100"
                   }`}
                 >
@@ -145,8 +145,8 @@ export function RealPortfolioShowcase({
 
           {/* Real Videos Strip when in Exterior or Custom */}
           {(category === "exterior" || category === "custom") && (
-            <div className="border-t border-[#121316]/15 pt-4">
-              <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[#C84B31] mb-2.5">
+            <div className="border-t border-[#DFD6C6] pt-4">
+              <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[#B85D3B] mb-2.5 font-bold">
                 <PlayCircle size={16} />
                 <span>
                   {locale === "en" ? "SITE VIDEO DOCUMENTATION" : "VIDEOS REALES DE OBRA"}
@@ -160,7 +160,7 @@ export function RealPortfolioShowcase({
                       src={vid}
                       controls
                       preload="metadata"
-                      className="w-full h-32 object-cover border border-[#121316]/20 bg-black"
+                      className="w-full h-32 object-cover rounded-xl border border-[#DFD6C6] bg-black"
                     />
                   ))}
                 </div>
@@ -169,7 +169,7 @@ export function RealPortfolioShowcase({
                   src={CUSTOM_FURNITURE_VIDEO}
                   controls
                   preload="metadata"
-                  className="w-full h-36 object-cover border border-[#121316]/20 bg-black"
+                  className="w-full h-36 object-cover rounded-xl border border-[#DFD6C6] bg-black"
                 />
               )}
             </div>

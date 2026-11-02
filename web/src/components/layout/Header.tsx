@@ -47,7 +47,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FAF8F5]/92 backdrop-blur-xl border-b border-[#E5DFD5] text-[#1F1A16] transition-all">
+    <header className="sticky top-0 z-50 w-full bg-[#F4EFE6]/92 backdrop-blur-xl border-b border-[#E0D7C8] text-[#261F1A] transition-all">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* =====================================================================
             1. BRAND LOGO (Clean, high-end atelier proportions)
@@ -61,11 +61,11 @@ export function Header() {
             alt="Renovo Painting Solutions"
             className="h-8 sm:h-10 w-auto object-contain outline-none drop-shadow-xs"
           />
-          <div className="hidden sm:flex flex-col border-l border-[#D5CABE] pl-3 leading-tight">
-            <span className="text-[10px] tracking-[0.2em] text-[var(--gold-dark)] font-serif font-semibold uppercase">
+          <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-3 leading-tight">
+            <span className="text-[10px] tracking-[0.2em] text-[#B85D3B] font-serif font-semibold uppercase">
               Phoenix, AZ
             </span>
-            <span className="text-[10px] text-[#665C52] tracking-wider uppercase font-serif">
+            <span className="text-[10px] text-[#6B5E52] tracking-wider uppercase font-serif">
               {locale === "en" ? "Cabinetry & Finishes" : "Ebanistería y Pintura"}
             </span>
           </div>
@@ -90,14 +90,14 @@ export function Header() {
                 pathname?.startsWith("/cocinas") ||
                 pathname?.startsWith("/muebles") ||
                 pathname?.startsWith("/pintura")
-                  ? "text-[var(--gold-dark)] font-semibold"
-                  : "text-[#665C52] hover:text-[#1F1A16]"
+                  ? "text-[#B85D3B] font-semibold"
+                  : "text-[#6B5E52] hover:text-[#261F1A]"
               }`}
             >
               <span>{t.nav.services}</span>
               <CaretDown
                 size={12}
-                className={`transition-transform duration-200 text-[var(--gold-dark)] ${
+                className={`transition-transform duration-200 text-[#B85D3B] ${
                   disciplinesOpen ? "rotate-180" : ""
                 }`}
               />
@@ -110,18 +110,18 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 w-80 p-2.5 rounded-2xl bg-white border border-[#E5DFD5] shadow-2xl z-50 backdrop-blur-2xl"
+                  className="absolute top-full left-0 w-80 p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#E0D7C8] shadow-2xl z-50 backdrop-blur-2xl"
                 >
                   {disciplines.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setDisciplinesOpen(false)}
-                      className="block p-3 rounded-xl hover:bg-[#F3EFEA] transition-colors group"
+                      className="block p-3 rounded-xl hover:bg-[#EAE2D5] transition-colors group"
                     >
-                      <div className="text-xs font-serif font-semibold text-[#1F1A16] group-hover:text-[var(--gold-dark)] transition-colors flex items-center justify-between">
+                      <div className="text-xs font-serif font-semibold text-[#261F1A] group-hover:text-[#B85D3B] transition-colors flex items-center justify-between">
                         <span>{locale === "en" ? item.titleEn : item.titleEs}</span>
-                        <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[var(--gold-dark)]" />
+                        <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#B85D3B]" />
                       </div>
                       <div className="text-[11px] text-[#7A6B5D] mt-0.5 leading-relaxed font-serif">
                         {locale === "en" ? item.descEn : item.descEs}
@@ -138,8 +138,8 @@ export function Header() {
             href="/transformaciones"
             className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/transformaciones")
-                ? "text-[var(--gold-dark)] font-semibold"
-                : "text-[#665C52] hover:text-[#1F1A16]"
+                ? "text-[#B85D3B] font-semibold"
+                : "text-[#6B5E52] hover:text-[#261F1A]"
             }`}
           >
             {t.nav.transformations}
@@ -150,8 +150,8 @@ export function Header() {
             href="/catalogo"
             className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/catalogo")
-                ? "text-[var(--gold-dark)] font-semibold"
-                : "text-[#665C52] hover:text-[#1F1A16]"
+                ? "text-[#B85D3B] font-semibold"
+                : "text-[#6B5E52] hover:text-[#261F1A]"
             }`}
           >
             {t.nav.catalog}
@@ -162,8 +162,8 @@ export function Header() {
             href="/studio-interactivo"
             className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/studio-interactivo") || pathname?.startsWith("/cotizador")
-                ? "text-[var(--gold-dark)] font-semibold"
-                : "text-[#665C52] hover:text-[#1F1A16]"
+                ? "text-[#B85D3B] font-semibold"
+                : "text-[#6B5E52] hover:text-[#261F1A]"
             }`}
           >
             {t.nav.studio}
@@ -174,8 +174,8 @@ export function Header() {
             href="/nosotros"
             className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/nosotros")
-                ? "text-[var(--gold-dark)] font-semibold"
-                : "text-[#665C52] hover:text-[#1F1A16]"
+                ? "text-[#B85D3B] font-semibold"
+                : "text-[#6B5E52] hover:text-[#261F1A]"
             }`}
           >
             {t.nav.about}
@@ -197,7 +197,7 @@ export function Header() {
               onClick={() => setLocale("en")}
               aria-pressed={locale === "en"}
               className={`interactive-control py-1 transition-colors ${
-                locale === "en" ? "text-[var(--gold-dark)] font-bold" : "hover:text-[#1F1A16]"
+                locale === "en" ? "text-[#B85D3B] font-bold" : "hover:text-[#261F1A]"
               }`}
             >
               EN
@@ -208,7 +208,7 @@ export function Header() {
               onClick={() => setLocale("es")}
               aria-pressed={locale === "es"}
               className={`interactive-control py-1 transition-colors ${
-                locale === "es" ? "text-[var(--gold-dark)] font-bold" : "hover:text-[#1F1A16]"
+                locale === "es" ? "text-[#B85D3B] font-bold" : "hover:text-[#261F1A]"
               }`}
             >
               ES
@@ -221,15 +221,15 @@ export function Header() {
             onClick={() => setIsDrawerOpen(true)}
             aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
             title={t.sampleDrawer.title}
-            className="interactive-control relative p-2 rounded-full text-[#665C52] hover:text-[var(--gold-dark)] hover:bg-[#F3EFEA] transition-colors"
+            className="interactive-control relative p-2 rounded-full text-[#6B5E52] hover:text-[#B85D3B] hover:bg-[#EAE2D5] transition-colors"
           >
             <BookmarkSimple
               size={18}
               weight={samples.length > 0 ? "fill" : "regular"}
-              className={samples.length > 0 ? "text-[var(--gold-dark)]" : ""}
+              className={samples.length > 0 ? "text-[#B85D3B]" : ""}
             />
             {samples.length > 0 && (
-              <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-[var(--gold)] text-[#1F1A16] text-[9px] font-bold font-serif flex items-center justify-center">
+              <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-[#B85D3B] text-white text-[9px] font-bold font-serif flex items-center justify-center">
                 {samples.length}
               </span>
             )}
@@ -238,16 +238,16 @@ export function Header() {
           {/* Desktop Phone */}
           <a
             href={COMPANY_INFO.phoneHref}
-            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#7A6B5D] hover:text-[var(--gold-dark)] font-serif transition-colors"
+            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#7A6B5D] hover:text-[#B85D3B] font-serif transition-colors"
           >
-            <Phone size={13} className="text-[var(--gold-dark)]" />
+            <Phone size={13} className="text-[#B85D3B]" />
             <span>{COMPANY_INFO.phoneDisplay}</span>
           </a>
 
-          {/* Refined Consultation CTA */}
+          {/* Refined Consultation CTA in Terracotta */}
           <Link
             href="/contacto"
-            className="interactive-control hidden sm:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#1F1A16] text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
+            className="interactive-control hidden sm:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
           >
             {t.nav.bookConsult}
           </Link>
@@ -258,7 +258,7 @@ export function Header() {
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-            className="interactive-control lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D5CABE] bg-white text-[#1F1A16] hover:bg-[#F3EFEA] transition-colors"
+            className="interactive-control lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D6CCBC] bg-[#FCFAF7] text-[#261F1A] hover:bg-[#EAE2D5] transition-colors"
           >
             {mobileMenuOpen ? <X size={20} /> : <List size={20} />}
           </button>
@@ -275,10 +275,10 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden border-t border-[#E5DFD5] bg-[#FAF8F5] px-4 py-6 space-y-4 shadow-2xl"
+            className="lg:hidden border-t border-[#E0D7C8] bg-[#F4EFE6] px-4 py-6 space-y-4 shadow-2xl"
           >
             <div className="space-y-1">
-              <span className="text-[10px] uppercase font-serif tracking-widest text-[var(--gold-dark)] font-bold px-3 block">
+              <span className="text-[10px] uppercase font-serif tracking-widest text-[#B85D3B] font-bold px-3 block">
                 {t.nav.services}
               </span>
               {disciplines.map((item) => (
@@ -286,18 +286,18 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+                  className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
                 >
                   {locale === "en" ? item.titleEn : item.titleEs}
                 </Link>
               ))}
             </div>
 
-            <div className="pt-2 border-t border-[#E5DFD5] space-y-1">
+            <div className="pt-2 border-t border-[#E0D7C8] space-y-1">
               <Link
                 href="/transformaciones"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.transformations}
               </Link>

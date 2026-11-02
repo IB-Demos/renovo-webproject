@@ -31,10 +31,10 @@ export function MaterialCatalogGrid() {
   };
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 text-[#261F1A]">
       {/* Category Pills Filter Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[var(--gold)] font-mono">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#DFD6C6] pb-6">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#B85D3B] font-mono">
           <Sparkle size={15} weight="fill" />
           <span>
             {locale === "en" ? "FILTER DESIGN ELEMENTS" : "FILTRAR POR CATEGORÍA"}
@@ -58,8 +58,8 @@ export function MaterialCatalogGrid() {
                 onClick={() => setActiveFilter(tab.id)}
                 className={`interactive-control px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   active
-                    ? "bg-[var(--gold)] text-[#12100E] shadow-md font-bold"
-                    : "bg-white/5 border border-white/10 text-[#D4CBBF] hover:text-white hover:border-white/20"
+                    ? "bg-[#B85D3B] text-white shadow-md font-bold"
+                    : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#6B5E52] hover:text-[#261F1A] hover:border-[#B85D3B]/40"
                 }`}
               >
                 {tab.label}
@@ -72,11 +72,11 @@ export function MaterialCatalogGrid() {
       {/* 1. Door Profiles Section */}
       {(activeFilter === "all" || activeFilter === "profiles") && (
         <section className="space-y-5">
-          <div className="flex items-baseline justify-between border-b border-white/8 pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#FAF8F5]">
+          <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
+            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
               {locale === "en" ? "Cabinet Door Profiles & Joinery" : "Perfiles de Puerta y Ebanistería"}
             </h3>
-            <span className="text-xs font-mono text-[var(--gold)]">
+            <span className="text-xs font-mono text-[#B85D3B] font-semibold">
               {DOOR_PROFILES.length} {locale === "en" ? "Architectural Profiles" : "Perfiles"}
             </span>
           </div>
@@ -87,50 +87,50 @@ export function MaterialCatalogGrid() {
               return (
                 <div
                   key={profile.id}
-                  className="rounded-2xl p-5 bg-white/5 border border-white/10 hover:border-[var(--gold)]/50 transition-all flex flex-col justify-between shadow-lg"
+                  className="rounded-2xl p-5 bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B]/50 transition-all flex flex-col justify-between shadow-md"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-[10px] text-[var(--gold)] font-bold uppercase tracking-wider">
+                      <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {profile.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7F73]">
+                      <span className="text-[11px] text-[#8A7E72] font-mono">
                         {profile.stileWidthMm > 0 ? `${profile.stileWidthMm}mm` : "Zero-Edge"}
                       </span>
                     </div>
 
                     {/* SVG Door Profile Illustration */}
-                    <div className="aspect-[4/3] w-full rounded-xl bg-black/40 border border-white/8 p-4 flex items-center justify-center">
+                    <div className="aspect-[4/3] w-full rounded-xl bg-[#EAE2D5] border border-[#DFD6C6] p-4 flex items-center justify-center">
                       <svg viewBox="0 0 120 120" className="w-20 h-20" role="img" aria-label={profile.name[locale]}>
-                        <rect x="10" y="10" width="100" height="100" fill="#25211D" stroke="#3E352B" strokeWidth="2" />
+                        <rect x="10" y="10" width="100" height="100" fill="#FCFAF7" stroke="#261F1A" strokeWidth="1.5" />
                         {profile.svgType === "shaker" && (
-                          <rect x="22" y="22" width="76" height="76" fill="#1A1714" stroke="#4A3F35" strokeWidth="1.5" />
+                          <rect x="22" y="22" width="76" height="76" fill="#F4EFE6" stroke="#261F1A" strokeWidth="1.2" />
                         )}
                         {profile.svgType === "slim-shaker" && (
-                          <rect x="16" y="16" width="88" height="88" fill="#1A1714" stroke="#4A3F35" strokeWidth="1" />
+                          <rect x="16" y="16" width="88" height="88" fill="#F4EFE6" stroke="#261F1A" strokeWidth="1" />
                         )}
                         {profile.svgType === "fluted" && (
-                          <g stroke="#4A3F35" strokeWidth="1.5">
+                          <g stroke="#261F1A" strokeWidth="1.2">
                             {[24, 38, 52, 66, 80, 94].map((lx) => (
                               <line key={lx} x1={lx} y1="12" x2={lx} y2="108" />
                             ))}
                           </g>
                         )}
                         {profile.svgType === "slab" && (
-                          <line x1="20" y1="10" x2="20" y2="110" stroke="#4A3F35" strokeWidth="1" strokeDasharray="3 3" />
+                          <line x1="20" y1="10" x2="20" y2="110" stroke="#8A7E72" strokeWidth="1" strokeDasharray="3 3" />
                         )}
                       </svg>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-white">
+                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
                       {profile.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#A69B8F] leading-relaxed">
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
                       {profile.bestFor[locale]}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/8 mt-4">
+                  <div className="pt-4 border-t border-[#DFD6C6] mt-4">
                     <button
                       type="button"
                       onClick={() =>
@@ -145,7 +145,7 @@ export function MaterialCatalogGrid() {
                       className={`interactive-control w-full py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
                         pinned
                           ? "bg-[#2E6B4E] text-white"
-                          : "bg-white/10 hover:bg-white/20 text-white"
+                          : "bg-[#F4EFE6] hover:bg-[#EAE2D5] text-[#261F1A] border border-[#DFD6C6]"
                       }`}
                     >
                       {pinned ? <Check size={14} weight="bold" /> : <PushPin size={14} />}
@@ -162,11 +162,11 @@ export function MaterialCatalogGrid() {
       {/* 2. Architectural 2K Catalyzed Coatings Section */}
       {(activeFilter === "all" || activeFilter === "coatings") && (
         <section className="space-y-5">
-          <div className="flex items-baseline justify-between border-b border-white/8 pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#FAF8F5]">
+          <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
+            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
               {locale === "en" ? "2K Catalyzed Velvet Lacquers" : "Lacas Catalizadas 2K Satinadas"}
             </h3>
-            <span className="text-xs font-mono text-[var(--gold)]">
+            <span className="text-xs font-mono text-[#B85D3B] font-semibold">
               {ARCHITECTURAL_PIGMENTS.length} {locale === "en" ? "Formulations" : "Formulaciones"}
             </span>
           </div>
@@ -177,37 +177,37 @@ export function MaterialCatalogGrid() {
               return (
                 <div
                   key={pigment.id}
-                  className="rounded-2xl p-5 bg-white/5 border border-white/10 hover:border-[var(--gold)]/50 transition-all flex flex-col justify-between shadow-lg"
+                  className="rounded-2xl p-5 bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B]/50 transition-all flex flex-col justify-between shadow-md"
                 >
                   <div className="space-y-3">
                     {/* Swatch Pill & Color Block */}
                     <div
-                      className="aspect-[16/9] w-full rounded-xl border border-white/15 shadow-inner relative flex items-end p-3"
+                      className="aspect-[16/9] w-full rounded-xl border border-[#DFD6C6] shadow-inner relative flex items-end p-3"
                       style={{ backgroundColor: pigment.hex }}
                     >
-                      <span className="px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-[10px] font-mono text-white font-bold">
+                      <span className="px-2.5 py-1 rounded-md bg-[#261F1A]/85 backdrop-blur-md text-[10px] font-mono text-white font-bold">
                         LRV {pigment.lrv}%
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-[10px] text-[var(--gold)] font-bold uppercase tracking-wider">
+                      <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {pigment.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7F73] font-mono">
+                      <span className="text-[11px] text-[#8A7E72] font-mono">
                         {pigment.brandRef}
                       </span>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-white">
+                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
                       {pigment.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#A69B8F] leading-relaxed">
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
                       {pigment.undertone[locale]}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/8 mt-4">
+                  <div className="pt-4 border-t border-[#DFD6C6] mt-4">
                     <button
                       type="button"
                       onClick={() =>
@@ -223,7 +223,7 @@ export function MaterialCatalogGrid() {
                       className={`interactive-control w-full py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
                         pinned
                           ? "bg-[#2E6B4E] text-white"
-                          : "bg-white/10 hover:bg-white/20 text-white"
+                          : "bg-[#F4EFE6] hover:bg-[#EAE2D5] text-[#261F1A] border border-[#DFD6C6]"
                       }`}
                     >
                       {pinned ? <Check size={14} weight="bold" /> : <PushPin size={14} />}
@@ -240,11 +240,11 @@ export function MaterialCatalogGrid() {
       {/* 3. Sheen Specs & Systems */}
       {(activeFilter === "all" || activeFilter === "systems") && (
         <section className="space-y-5">
-          <div className="flex items-baseline justify-between border-b border-white/8 pb-3">
-            <h3 className="text-xl font-normal font-serif text-[#FAF8F5]">
+          <div className="flex items-baseline justify-between border-b border-[#DFD6C6] pb-3">
+            <h3 className="text-xl font-normal font-serif text-[#261F1A]">
               {locale === "en" ? "Factory Catalyzed Sheen Levels" : "Niveles de Brillo Catalizado"}
             </h3>
-            <span className="text-xs font-mono text-[var(--gold)]">
+            <span className="text-xs font-mono text-[#B85D3B] font-semibold">
               {SHEEN_SPECS.length} {locale === "en" ? "KCMA Standards" : "Niveles KCMA"}
             </span>
           </div>
@@ -255,27 +255,27 @@ export function MaterialCatalogGrid() {
               return (
                 <div
                   key={sheen.id}
-                  className="rounded-2xl p-5 bg-white/5 border border-white/10 hover:border-[var(--gold)]/50 transition-all flex flex-col justify-between shadow-lg"
+                  className="rounded-2xl p-5 bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B]/50 transition-all flex flex-col justify-between shadow-md"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-[10px] text-[var(--gold)] font-bold uppercase tracking-wider">
+                      <span className="font-mono text-[10px] text-[#B85D3B] font-bold uppercase tracking-wider">
                         {sheen.code}
                       </span>
-                      <span className="text-[11px] text-[#8A7F73] font-mono">
+                      <span className="text-[11px] text-[#8A7E72] font-mono font-semibold">
                         {sheen.glossUnits} GLOSS
                       </span>
                     </div>
 
-                    <h4 className="text-base font-serif font-normal text-white">
+                    <h4 className="text-base font-serif font-normal text-[#261F1A]">
                       {sheen.name[locale]}
                     </h4>
-                    <p className="text-xs text-[#A69B8F] leading-relaxed">
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-serif">
                       {sheen.chemicalSystem[locale]}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/8 mt-4">
+                  <div className="pt-4 border-t border-[#DFD6C6] mt-4">
                     <button
                       type="button"
                       onClick={() =>
@@ -290,7 +290,7 @@ export function MaterialCatalogGrid() {
                       className={`interactive-control w-full py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
                         pinned
                           ? "bg-[#2E6B4E] text-white"
-                          : "bg-white/10 hover:bg-white/20 text-white"
+                          : "bg-[#F4EFE6] hover:bg-[#EAE2D5] text-[#261F1A] border border-[#DFD6C6]"
                       }`}
                     >
                       {pinned ? <Check size={14} weight="bold" /> : <PushPin size={14} />}

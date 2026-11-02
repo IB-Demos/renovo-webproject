@@ -14,10 +14,9 @@ import {
   ArrowRight,
   Phone,
   ShieldCheck,
-  Drop,
   CheckCircle,
   Sun,
-  Broom,
+  Drop,
   Compass,
 } from "@phosphor-icons/react";
 
@@ -27,16 +26,16 @@ export default function ResidentialPaintingPage() {
   const protocols = [
     {
       code: "PREP 01",
-      icon: Broom,
-      titleEn: "HEPA Dustless Sanding & Clean Air Containment",
-      titleEs: "Lijado con Extracción HEPA Sin Polvo",
-      descEn: "We treat your home with total respect. Festool HEPA dust extractors capture 99.97% of airborne dust before primers or enamels are applied.",
-      descEs: "Cuidamos tu hogar con total respeto. Extractores HEPA capturan el 99.97% del polvo antes de aplicar selladores o esmaltes.",
+      icon: ShieldCheck,
+      titleEn: "Festool HEPA Dustless Sanding & Etching",
+      titleEs: "Lijado con Extracción HEPA Festool",
+      descEn: "We abrade surfaces mechanically to virgin profiles while capturing 99.97% of particulates, ensuring pure adhesion without contaminating your interior living air.",
+      descEs: "Lijamos mecánicamente hasta abrir el poro sin levantar polvo gracias al sistema de aspiración cerrada Festool de grado hospitalario.",
     },
     {
       code: "PREP 02",
       icon: Drop,
-      titleEn: "Digital Moisture Checks & Desert Urethane Sealants",
+      titleEn: "Moisture-Testing & High-Expansion Elastomeric Caulk",
       titleEs: "Medición de Humedad y Selladores de Alto Rendimiento",
       descEn: "Substrates are electronically verified below 12% moisture. Exterior joints receive elastomeric urethane caulk engineered for Arizona thermal expansion.",
       descEs: "Verificamos electrónicamente la humedad (<12%) y sellamos grietas con poliuretano elástico formulado para la expansión térmica del desierto.",
@@ -52,21 +51,21 @@ export default function ResidentialPaintingPage() {
   ];
 
   return (
-    <div className="w-full bg-[#0E0C0A] text-[#FAF8F5]">
+    <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
-        <div className="absolute inset-0 z-0 opacity-30">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="absolute inset-0 z-0 opacity-25">
           <img
             src="/assets/painting-interior/interior-01.jpg"
             alt="Renovo Architectural Painting Phoenix"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C0A] via-[#0E0C0A]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>
                 {locale === "en"
@@ -75,13 +74,13 @@ export default function ResidentialPaintingPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Architectural Pigment, Velvet Walls & Desert Durability."
                 : "Color Arquitectónico, Acabados Aterciopelados y Protección."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#B8AEA2] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "From coffered living room ceilings to front entry door revitalization, Renovo combines meticulous surface preparation with industrial spray precision for finishes that never peel or chalk under Arizona sun."
                 : "Desde plafones de gran formato hasta la restauración de puertas principales, Renovo combina preparación milimétrica y aspersión fina para acabados que no se descascaran."}
@@ -90,16 +89,16 @@ export default function ResidentialPaintingPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/cotizador"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Estimate Painting Project" : "Cotizar Proyecto de Pintura"}</span>
                 <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#261F1A] bg-[#FCFAF7] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs"
               >
-                <Phone size={16} className="text-[var(--gold)]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
@@ -111,19 +110,19 @@ export default function ResidentialPaintingPage() {
       <DesertLightEngine />
 
       {/* 3. CRAFTSMANSHIP & PREPARATION PROTOCOLS */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Surface Protocol" : "Protocolo de Preparación"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "The Science of High-Durability Preparation"
                 : "La Ciencia Detrás de una Preparación Duradera"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#6B5E52] font-light">
               {locale === "en"
                 ? "Ninety percent of exterior paint failures in Arizona are caused by improper substrate prep. We inspect, decontaminate, and prime to laboratory standards."
                 : "El 90% de las fallas de pintura en Arizona se deben a una mala preparación. Inspeccionamos, descontaminamos y sellamos con estándares de laboratorio."}
@@ -136,20 +135,20 @@ export default function ResidentialPaintingPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg space-y-5 hover:border-[var(--gold)]/40 transition-colors"
+                  className="p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-md space-y-5 hover:border-[#B85D3B] transition-colors"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-2xl bg-white/5 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)]">
+                    <div className="w-11 h-11 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] flex items-center justify-center text-[#B85D3B]">
                       <IconComp size={22} />
                     </div>
-                    <span className="text-xs font-serif text-[var(--gold)] font-bold">
+                    <span className="text-xs font-serif text-[#B85D3B] font-bold">
                       {proto.code}
                     </span>
                   </div>
-                  <h3 className="text-xl font-serif font-normal text-[#FAF8F5]">
+                  <h3 className="text-xl font-serif font-normal text-[#261F1A]">
                     {locale === "en" ? proto.titleEn : proto.titleEs}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#A69B8F] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed">
                     {locale === "en" ? proto.descEn : proto.descEs}
                   </p>
                 </div>
@@ -163,26 +162,26 @@ export default function ResidentialPaintingPage() {
       <CraftChronology />
 
       {/* 5. INTERACTIVE PAINT & FINISH SIMULATOR */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="mb-12 max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+          <div className="max-w-2xl mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Compass size={14} />
               <span>{locale === "en" ? "Color Simulator" : "Simulador de Color"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Test Pigments on Architectural Substrates"
                 : "Experimenta con Pigmentos en Muros y Fachadas"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#6B5E52] font-light">
               {locale === "en"
                 ? "Evaluate light reflectance, undertones, and velvet sheens across interior and exterior scenarios."
                 : "Evalúa reflectancia de luz, subtonos y tersuras en escenarios interiores y exteriores."}
             </p>
           </div>
 
-          <div className="rounded-3xl p-6 sm:p-8 bg-white/5 border border-white/10 shadow-2xl">
+          <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
             <PaintSimulatorLab />
           </div>
         </div>
@@ -192,35 +191,36 @@ export default function ResidentialPaintingPage() {
       <SampleBoxConcierge />
 
       {/* 7. REAL PHOENIX RESIDENTIAL PORTFOLIO */}
-      <section className="py-20 lg:py-28 border-b border-white/8 bg-[#0B0A08]">
+      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
               <span>{locale === "en" ? "Verified Portfolio" : "Obras Verificadas en Phoenix"}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
               {locale === "en"
                 ? "Recent Interior & Exterior Commissions"
                 : "Proyectos Recientes de Pintura Residencial"}
             </h2>
           </div>
-          <div className="rounded-3xl p-6 sm:p-8 bg-white/5 border border-white/10 shadow-2xl">
+          <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
             <RealPortfolioShowcase initialCategory="interior" />
           </div>
         </div>
       </section>
 
       {/* 8. GRAND CONSULTATION CTA */}
-      <section className="py-20 lg:py-28 bg-[#0E0C0A] text-white text-center">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="py-20 lg:py-28 bg-[#261F1A] text-[#FAF8F5] text-center relative overflow-hidden">
+        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
               {locale === "en"
                 ? "Schedule an Architectural Color Evaluation"
                 : "Agenda una Evaluación de Color en Sitio"}
             </h2>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#D4CBBF] font-light">
               {locale === "en"
                 ? "Raul Burgos will evaluate your residence in person, conduct moisture testing, and bring physical large-format color boards to test under your home's natural daylight."
                 : "Raul Burgos evaluará tu residencia personalmente, realizará pruebas de humedad y llevará muestras de gran formato para analizarlas bajo la luz natural de tus espacios."}
@@ -228,7 +228,7 @@ export default function ResidentialPaintingPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
                 <ArrowRight size={16} weight="bold" />
@@ -238,7 +238,7 @@ export default function ResidentialPaintingPage() {
                 className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={16} className="text-[var(--gold)]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
+                <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>

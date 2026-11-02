@@ -108,12 +108,12 @@ function InteractiveStudioContent() {
   ];
 
   return (
-    <div className="w-full bg-[#0E0C0A] text-[#FAF8F5]">
+    <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HEADER BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-white/8 bg-[#0A0908]">
+      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>
                 {locale === "en"
@@ -122,13 +122,13 @@ function InteractiveStudioContent() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#FAF8F5] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-normal font-serif text-[#261F1A] tracking-tight leading-[1.08]">
               {locale === "en"
                 ? "Experience Your Space Before a Single Board is Cut."
                 : "Visualiza tu Espacio Antes de Cortar la Primera Madera."}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#B8AEA2] font-light leading-relaxed">
+            <p className="text-base sm:text-xl text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "Our proprietary digital atelier puts custom woodcrafting and industrial 2K finishes at your fingertips. Switch between precision tools below to explore elevations, light simulation, and joinery details."
                 : "Nuestro estudio digital pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Conmuta entre herramientas para explorar planos, luz y detalles de ensamble."}
@@ -138,7 +138,7 @@ function InteractiveStudioContent() {
       </section>
 
       {/* 2. ATELIER TABS NAVIGATION */}
-      <section className="py-8 bg-[#120F0C] border-b border-white/8 sticky top-16 z-30 backdrop-blur-md bg-opacity-95">
+      <section className="py-6 bg-[#F4EFE6]/95 border-b border-[#DFD6C6] sticky top-16 z-30 backdrop-blur-md">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
             {tools.map((tool) => {
@@ -151,14 +151,14 @@ function InteractiveStudioContent() {
                   onClick={() => setActiveTab(tool.id)}
                   className={`interactive-control px-4 py-2.5 rounded-2xl border text-left transition-all shrink-0 flex items-center gap-2.5 min-h-[44px] ${
                     isSelected
-                      ? "bg-[var(--gold)] text-[#0E0C0A] border-[var(--gold)] shadow-md font-semibold font-serif"
-                      : "bg-white/5 text-[#D4CBBF] border-white/10 hover:border-white/20 hover:text-white font-serif"
+                      ? "bg-[#B85D3B] text-[#FCFAF7] border-[#B85D3B] shadow-md font-semibold font-serif"
+                      : "bg-[#FCFAF7] text-[#6B5E52] border-[#DFD6C6] hover:border-[#261F1A] hover:text-[#261F1A] font-serif shadow-xs"
                   }`}
                 >
                   <Icon
                     size={16}
                     weight={isSelected ? "bold" : "regular"}
-                    className={isSelected ? "text-[#0E0C0A]" : "text-[var(--gold)]"}
+                    className={isSelected ? "text-[#FCFAF7]" : "text-[#B85D3B]"}
                   />
                   <div className="text-xs">
                     <span>{locale === "en" ? tool.titleEn : tool.titleEs}</span>
@@ -179,36 +179,39 @@ function InteractiveStudioContent() {
         {activeTab === "chronology" && <CraftChronology />}
         {activeTab === "samplebox" && <SampleBoxConcierge />}
         {activeTab === "estimator" && (
-          <section className="py-20 lg:py-28 border-b border-white/8 bg-[#120F0C]">
+          <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
               <div className="mb-12 max-w-2xl space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
                   <Calculator size={14} />
                   <span>{locale === "en" ? "Parametric Estimator" : "Cotizador Paramétrico"}</span>
                 </div>
-                <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#FAF8F5]">
+                <h2 className="text-3xl sm:text-5xl font-normal font-serif text-[#261F1A]">
                   {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
                 </h2>
-                <p className="text-base text-[#B8AEA2] font-light">
+                <p className="text-base text-[#6B5E52] font-light">
                   {locale === "en"
                     ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
                     : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
                 </p>
               </div>
-              <ParametricScopeEstimator />
+              <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
+                <ParametricScopeEstimator />
+              </div>
             </div>
           </section>
         )}
       </div>
 
       {/* 4. CALL TO ACTION */}
-      <section className="py-20 lg:py-28 bg-[#0E0C0A] text-white">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
+      <section className="py-20 lg:py-28 bg-[#261F1A] text-[#FAF8F5] relative overflow-hidden">
+        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/15 blur-[130px] rounded-full" />
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
             <h3 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5]">
               {locale === "en" ? "Ready to Bring This Design to Life?" : "¿Listo para Hacer Realidad este Diseño?"}
             </h3>
-            <p className="text-base text-[#B8AEA2] font-light">
+            <p className="text-base text-[#D4CBBF] font-light">
               {locale === "en"
                 ? "Save your configuration or schedule an on-site visit with Raul Burgos to verify measurements."
                 : "Guarda tu configuración o agenda una visita en sitio con Raul Burgos para verificar medidas."}
@@ -216,7 +219,7 @@ function InteractiveStudioContent() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#12100E] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book Consultation" : "Agendar Consulta"}</span>
                 <ArrowRight size={15} weight="bold" />
@@ -226,7 +229,7 @@ function InteractiveStudioContent() {
                 className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <Phone size={15} className="text-[var(--gold)]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
+                <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
           </div>
@@ -240,7 +243,7 @@ export default function InteractiveStudioPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-[60vh] flex items-center justify-center bg-[#0E0C0A] text-[#B8AEA2] font-serif text-sm">
+        <div className="min-h-[60vh] flex items-center justify-center bg-[#F4EFE6] text-[#6B5E52] font-serif text-sm">
           Loading Renovo Digital Atelier...
         </div>
       }
