@@ -60,54 +60,112 @@ export default function KitchensAndMillworkPage() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <img
-            src="/assets/kitchens/kitchen-01.jpg"
-            alt="Renovo Bespoke Kitchens Phoenix"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/80 to-transparent" />
-        </div>
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} weight="fill" />
-              <span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: COMMERCIAL STORYTELLING & VALUE CONVERSION */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>01 · {locale === "en" ? "CASA RENOVO CULINARY ATELIER" : "CASA RENOVO · TALLER CULINARIO"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <ShieldCheck size={14} weight="fill" />
+                  <span>{locale === "en" ? "KCMA Chemical Tested · 2K Lacquers" : "Norma KCMA · Lacas 2K Catalizadas"}</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Atelier Cabinetry · Bespoke Kitchens & Refacing"
-                  : "Ebanistería Fina · Cocinas de Autor y Refacing"}
-              </span>
+                  ? "Bespoke Luxury Kitchens & Factory 2K Refacing."
+                  : "Cocinas de Autor a Medida y Refacing 2K de Fábrica."}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "We elevate Arizona residences with furniture-grade solid maple dovetail drawers, custom island waterfall framing, and climate-controlled spray booth 2K lacquers that resist boiling oils, heavy steam, and desert heat without peeling or yellowing."
+                  : "Transformamos residencias en Arizona con cajones de arce en cola de milano, islas a medida y lacas de poliuretano 2K aplicadas en cabina profesional, resistentes al calor, vapor y aceite caliente sin descascararse."}
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <Link
+                  href="/cotizador"
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <span>{locale === "en" ? "Instant Kitchen Estimator" : "Cotizar Proyecto de Cocina"}</span>
+                  <ArrowRight size={16} weight="bold" />
+                </Link>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Commercial Proof & Trust Strip */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">10+ {locale === "en" ? "YEARS" : "AÑOS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Crafting luxury across the Valley" : "Ebanistería fina en Phoenix"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">100K {locale === "en" ? "CYCLES" : "CICLOS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Blum soft-close concealed hardware" : "Herrajes Blum de cierre suave"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">0% {locale === "en" ? "PEELING" : "DESPRENDIMIENTO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Molecular cross-linked 2K finish" : "Adhesión química molecular 2K"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-              {locale === "en"
-                ? "Bespoke Kitchens Built for a Lifetime of Living."
-                : "Cocinas de Autor Diseñadas para Toda la Vida."}
-            </h1>
+            {/* RIGHT 5 COLS: HERO SHOWCASE STAGE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/kitchens/kitchen-14.jpg"
+                    alt="Renovo Bespoke Kitchen Showcase"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
 
-            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
-              {locale === "en"
-                ? "From raw hardwood milling to precision factory 2K spray finishing, our Phoenix shop delivers custom kitchen cabinetry and complete refacing that elevate your home beyond builder-grade standards."
-                : "Desde el habilitado de maderas nobles hasta el esmaltado 2K de cabina, nuestro taller en Phoenix crea gabinetes a medida y refacing de lujo que superan cualquier estándar comercial."}
-            </p>
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Paradise Valley Residence
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    2K Satin Velvet 18%
+                  </span>
+                </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-              <Link
-                href="/cotizador"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
-              >
-                <span>{locale === "en" ? "Estimate Your Kitchen Project" : "Cotizar tu Cocina"}</span>
-                <ArrowRight size={16} weight="bold" />
-              </Link>
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#261F1A] bg-[#FCFAF7] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs"
-              >
-                <Phone size={16} className="text-[#B85D3B]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
-              </a>
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "Dual-Tone Architectural Island" : "Isla Arquitectónica Bicolor"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO 2K</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug">
+                    {locale === "en"
+                      ? "Midnight Indigo Slate island anchored by perimeter cabinetry in Navajo Alabaster. Solid 5/8\" maple dovetail boxes."
+                      : "Isla en Azul Índigo Medianoche y gabinetes en Alabastro Navajo 2K. Cajones de arce macizo con ensamble en cola de milano."}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

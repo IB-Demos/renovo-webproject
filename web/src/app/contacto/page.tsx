@@ -6,6 +6,7 @@ import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierg
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
+  ArrowRight,
   Phone,
   EnvelopeSimple,
   MapPin,
@@ -67,25 +68,113 @@ export default function ContactPage() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "Consultation & Direct Shop Inquiries" : "Consultas y Atención Directa"}</span>
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: COMMERCIAL CONSULTATION HOOK */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>04 · {locale === "en" ? "CASA RENOVO PRIVATE CONSULTATION" : "CASA RENOVO · CONSULTA EN SITIO"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <Clock size={14} weight="fill" />
+                  <span>{locale === "en" ? "Fast Response < 2 Hours" : "Respuesta Rápida en < 2 Horas"}</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
+                {locale === "en"
+                  ? "Book an On-Site Evaluation with Master Craftsman Raul Burgos."
+                  : "Agenda una Evaluación en Sitio con el Maestro Raul Burgos."}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "Meet directly with founder Raul Burgos at your residence in Paradise Valley, Scottsdale, Phoenix, or visit our Shangri La Rd workshop to inspect physical wood samples, dovetail joinery, and 2K finish swatches."
+                  : "Reúnete directamente con el fundador Raul Burgos en tu residencia en Paradise Valley, Scottsdale, Phoenix, o visítanos en nuestro taller de Shangri La Rd para examinar muestras de madera, ensambles y acabados 2K."}
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <a
+                  href="#contact-form-section"
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <span>{locale === "en" ? "Send Project Details Below" : "Enviar Detalles de tu Proyecto"}</span>
+                  <ArrowRight size={16} weight="bold" />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Direct Line" : "Línea Directa"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">&lt; 2 {locale === "en" ? "HOURS" : "HORAS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Rapid consultation turnaround" : "Respuesta rápida garantizada"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">{locale === "en" ? "IN-HOME" : "EN SITIO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Physical sample kit brought to you" : "Maletín de muestras en tu hogar"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">0 {locale === "en" ? "PRESSURE" : "PRESIÓN"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Transparent architectural advice" : "Asesoría honesta sin compromiso"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-              {locale === "en"
-                ? "Let's Craft Something Extraordinary Together."
-                : "Creemos Juntos un Espacio Extraordinario."}
-            </h1>
+            {/* RIGHT 5 COLS: SHOWCASE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/painting-exterior/exterior-01.jpg"
+                    alt="Renovo Phoenix Consultation and Atelier"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
 
-            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
-              {locale === "en"
-                ? "Reach out directly to Raul Burgos and our craftsmanship team. We welcome in-home design consultations throughout Phoenix and private workshop walkthroughs by appointment."
-                : "Comunícate directamente con Raul Burgos y nuestro equipo de ebanistería. Ofrecemos visitas de diseño a domicilio en todo Phoenix y recorridos de taller previa cita."}
-            </p>
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Phoenix Workshop
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    2231 W Shangri La Rd
+                  </span>
+                </div>
+
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "On-Site & Workshop Appointments" : "Citas en Sitio o en Taller"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">AGENDA ABIERTA</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug">
+                    {locale === "en"
+                      ? "Serving Paradise Valley, Scottsdale, Arcadia, Phoenix, Peoria, and Cave Creek."
+                      : "Atendemos Paradise Valley, Scottsdale, Arcadia, Phoenix, Peoria y Cave Creek."}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

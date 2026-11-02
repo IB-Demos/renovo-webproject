@@ -58,54 +58,112 @@ export default function ResidentialPaintingPage() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <img
-            src="/assets/painting-interior/interior-01.jpg"
-            alt="Renovo Architectural Painting Phoenix"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/80 to-transparent" />
-        </div>
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} weight="fill" />
-              <span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: COMMERCIAL STORYTELLING */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>03 · {locale === "en" ? "CASA RENOVO GRAND THRESHOLD" : "CASA RENOVO · EL GRAN UMBRAL"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <ShieldCheck size={14} weight="fill" />
+                  <span>{locale === "en" ? "Festool HEPA Dustless · UV Solar Armor" : "Lijado HEPA sin Polvo · Filtro UV Solar"}</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Fine Residential Finishes · Architectural Painting & UV Shielding"
-                  : "Acabados Finos Residenciales · Pintura de Autor y Protección UV"}
-              </span>
+                  ? "Architectural Residential Coatings & Exterior UV Armor."
+                  : "Pintura Arquitectónica Residencial y Blindaje Exterior UV."}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "We banish rough brush marks and peeling paint. Using 99.97% HEPA dustless surface preparation, velvet scrubbable zero-VOC interior wall enamels, and elastomeric solar shields that resist 115°F Arizona summers without fading or cracking."
+                  : "Eliminamos las marcas de brocha y descarapalamientos. Aplicamos preparación con extracción HEPA al 99.97%, esmaltes aterciopelados lavables para muros y escudos elastoméricos resistentes a los 45°C del desierto sonorense."}
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <Link
+                  href="/contacto"
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <span>{locale === "en" ? "Book On-Site Evaluation" : "Agendar Evaluación en Sitio"}</span>
+                  <ArrowRight size={16} weight="bold" />
+                </Link>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">99.97% {locale === "en" ? "HEPA" : "HEPA"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Hospital-grade air filtration in home" : "Extracción de polvo sin contaminar"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">UV-SHIELD</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Non-fading cross-linked exterior acrylics" : "Cero decoloración bajo el sol de AZ"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">10-15 {locale === "en" ? "YEARS" : "AÑOS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Long-term performance guarantee" : "Durabilidad comprobada en el Valle"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-              {locale === "en"
-                ? "Architectural Pigment, Velvet Walls & Desert Durability."
-                : "Color Arquitectónico, Acabados Aterciopelados y Protección."}
-            </h1>
+            {/* RIGHT 5 COLS: SHOWCASE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/before-after/pair-02-double-door-after.jpg"
+                    alt="Renovo Exterior Portico Restoration"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
 
-            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
-              {locale === "en"
-                ? "From coffered living room ceilings to front entry door revitalization, Renovo combines meticulous surface preparation with industrial spray precision for finishes that never peel or chalk under Arizona sun."
-                : "Desde plafones de gran formato hasta la restauración de puertas principales, Renovo combina preparación milimétrica y aspersión fina para acabados que no se descascaran."}
-            </p>
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Paradise Valley Portico
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    UV Marine 2K Finish
+                  </span>
+                </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-              <Link
-                href="/cotizador"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto"
-              >
-                <span>{locale === "en" ? "Estimate Painting Project" : "Cotizar Proyecto de Pintura"}</span>
-                <ArrowRight size={16} weight="bold" />
-              </Link>
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#261F1A] bg-[#FCFAF7] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs"
-              >
-                <Phone size={16} className="text-[#B85D3B]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
-              </a>
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "Solid Double Door Restoration" : "Restauración de Puertas Dobles"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO UV ARMOR</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug">
+                    {locale === "en"
+                      ? "Restored with penetrating marine oil and UV-blocking elastomeric topcoats that expand with diurnal desert temperature shifts."
+                      : "Tratadas con aceites marinos y esmaltes elastoméricos con filtro UV que soportan el choque térmico día/noche."}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

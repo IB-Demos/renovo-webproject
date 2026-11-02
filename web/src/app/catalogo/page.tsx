@@ -25,51 +25,113 @@ export default function CatalogPage() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-                <Sparkle size={14} weight="fill" />
-                <span>
-                  {locale === "en"
-                    ? "Material & Finish Specification · Phoenix Atelier"
-                    : "Especificación de Materiales y Acabados"}
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: COMMERCIAL COPY */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>02 · {locale === "en" ? "CASA RENOVO MATERIAL SPECIFICATION" : "CASA RENOVO · ESPECIFICACIÓN DE MATERIALES"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <BookmarkSimple size={14} weight="fill" />
+                  <span>{locale === "en" ? "Direct Spec Tray Integration" : "Bandeja de Muestras en Vivo"}</span>
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-                {t.catalogSection.headline}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
+                {locale === "en"
+                  ? "Curated Hardwoods, 2K Lacquers & Forged Hardware."
+                  : "Maderas Nobles, Lacas Catalizadas 2K y Herrajes de Autor."}
               </h1>
 
-              <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed max-w-2xl">
-                {t.catalogSection.subhead}
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "Every material in our catalog is engineered in our Phoenix spray booths for chemical durability, high tactile smoothness, and authentic desert resilience. Save your favorite finishes to review with Raul during your consultation."
+                  : "Cada acabado en nuestro catálogo es formulado en nuestro taller de Phoenix para máxima tersura táctil, resistencia química y durabilidad en el desierto. Guarda tus materiales favoritos para revisarlos con Raul en tu cita."}
               </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <button
+                  type="button"
+                  onClick={() => setIsDrawerOpen(true)}
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <BookmarkSimple size={16} weight="bold" />
+                  <span>{locale === "en" ? "Review Sample Tray" : "Ver Bandeja de Muestras"} ({samples.length})</span>
+                </button>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">20+ {locale === "en" ? "SAMPLES" : "MUESTRAS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Physical boards ready at workshop" : "Muestras físicas listas en taller"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">5 {locale === "en" ? "SHEENS" : "NIVELES DE BRILLO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "From 5% Dead Flat to 35% Semi" : "Desde 5% mate hasta 35% semibrillo"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">{locale === "en" ? "FREE KIT" : "KIT GRATUITO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Sample box brought to your home" : "Maletín llevado a tu residencia"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Design Tray Trigger Badge */}
-            <div className="p-6 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] space-y-3 shrink-0 max-w-sm shadow-xl">
-              <div className="flex items-center justify-between">
-                <span className="font-serif text-xs uppercase tracking-wider text-[#B85D3B] font-bold">
-                  {locale === "en" ? "YOUR DESIGN TRAY" : "TU BANDEJA DE MUESTRAS"}
-                </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#B85D3B] text-[#FCFAF7] text-xs font-bold font-serif">
-                  {samples.length}
-                </span>
+            {/* RIGHT 5 COLS: SHOWCASE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/painting-interior/interior-03.jpg"
+                    alt="Renovo Curated Materials"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
+
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Sonoran Sage 2K Lacquer
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    LRV 26% · Satin
+                  </span>
+                </div>
+
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "Active Design Tray" : "Tu Bandeja de Diseño"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">{samples.length} ITEMS</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug">
+                    {locale === "en"
+                      ? "Pin and save wood species, pigments, and Blum runners to request a curated tactile sample box."
+                      : "Guarda especies de madera, pigmentos y herrajes para solicitar una caja física de muestras en sitio."}
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-[#3D3228] leading-relaxed">
-                {locale === "en"
-                  ? "Save your preferred wood species, paint shades, and hardware to review with Raul during your consultation."
-                  : "Guarda tus maderas, colores y jaladeras favoritas para revisarlas con Raul durante tu cita."}
-              </p>
-              <button
-                type="button"
-                onClick={() => setIsDrawerOpen(true)}
-                className="interactive-control w-full min-h-[42px] px-4 py-2 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-colors shadow-md"
-              >
-                <BookmarkSimple size={15} weight="bold" />
-                <span>{locale === "en" ? "Review Sample Tray" : "Ver Bandeja de Muestras"}</span>
-              </button>
             </div>
           </div>
         </div>

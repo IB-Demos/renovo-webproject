@@ -104,50 +104,112 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <img
-            src="/assets/blueprints-and-docs/custom-furniture-01.jpg"
-            alt="Renovo Craftsmanship Workshop"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE2D5] via-[#EAE2D5]/85 to-transparent" />
-        </div>
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/25 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} weight="fill" />
-              <span>{locale === "en" ? "Heritage & Craftsmanship · Phoenix Atelier" : "Historia y Artesanía · Taller Phoenix"}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: FOUNDER STORY */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>04 · {locale === "en" ? "CASA RENOVO WORKSHOP HERITAGE" : "CASA RENOVO · MAESTRÍA DE TALLER"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <Certificate size={14} weight="fill" />
+                  <span>{locale === "en" ? "Master Craftsman Raul Burgos" : "Maestro Ebanista Raul Burgos"}</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
+                {locale === "en"
+                  ? "Rooted in Passion, Precision and Enduring Arizona Craft."
+                  : "Pasión por la Madera, Precisión y Artesanía que Perdura."}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "Founded by master craftsman Raul Burgos, Renovo Painting Solutions was built on an uncompromising standard: treat every residential kitchen, arched bookcase, and entrance portico as an heirloom architectural commission. Operating from our Phoenix workshop on Shangri La Rd."
+                  : "Fundada por el maestro ebanista Raul Burgos, Renovo Painting Solutions nació con un principio inquebrantable: tratar cada cocina, librero arqueado y pórtico de entrada como una obra patrimonial de autor. Operamos desde nuestro taller en Shangri La Rd en Phoenix."}
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <Link
+                  href="/contacto"
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <span>{locale === "en" ? "Meet with Raul Burgos" : "Reunirte con Raul Burgos"}</span>
+                  <ArrowRight size={16} weight="bold" />
+                </Link>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">10+ {locale === "en" ? "YEARS" : "AÑOS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Independent family shop in Phoenix" : "Taller familiar independiente"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">2231 W</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Shangri La Rd workshop & spray booth" : "Shangri La Rd, Phoenix taller propio"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">100% {locale === "en" ? "DIRECT" : "DIRECTO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Direct founder oversight on all work" : "Supervisión personal de Raul"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-              {locale === "en"
-                ? "Born in Phoenix. Devoted to High-End Living."
-                : "Nacidos en Phoenix. Dedicados al Detalle y el Arte."}
-            </h1>
+            {/* RIGHT 5 COLS: SHOWCASE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/kitchens/kitchen-05.jpg"
+                    alt="Master Craftsman Raul Burgos at Renovo Workshop"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
 
-            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
-              {locale === "en"
-                ? "Led by master craftsman Raul Burgos, Renovo Painting Solutions has spent over a decade perfecting the synthesis of fine custom woodworking and flawless factory architectural finishes."
-                : "Dirigido por el maestro ebanista Raul Burgos, Renovo ha perfeccionado durante más de una década la unión entre ebanistería fina a medida y acabados arquitectónicos impecables."}
-            </p>
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Master Craftsman
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    Raul Burgos
+                  </span>
+                </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-              <Link
-                href="/contacto"
-                className="interactive-control min-h-[48px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-md w-full sm:w-auto transition-colors"
-              >
-                <span>{locale === "en" ? "Meet with Raul Burgos" : "Reunirte con Raul Burgos"}</span>
-                <ArrowRight size={16} weight="bold" />
-              </Link>
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[48px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#B85D3B]/40 bg-[#FCFAF7] hover:bg-[#EAE2D5] text-[#261F1A] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-colors"
-              >
-                <Phone size={16} className="text-[#B85D3B]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
-              </a>
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "The Renovo Philosophy" : "La Filosofía Renovo"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">CALIDAD TOTAL</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug italic font-serif">
+                    {locale === "en"
+                      ? '"When you touch our cabinetry, you feel zero brush marks, zero roller orange-peel, just pure velvet smoothness that lasts for decades."'
+                      : '"Cuando tocas nuestros gabinetes, sientes cero marcas de brocha, cero piel de naranja, solo una tersura de terciopelo que dura por décadas."'}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

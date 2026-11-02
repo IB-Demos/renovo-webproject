@@ -124,29 +124,114 @@ function InteractiveStudioContent() {
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HEADER BANNER */}
-      <section className="relative py-20 lg:py-28 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} weight="fill" />
-              <span>
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#C59B27]/10 rounded-full blur-[140px]" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* LEFT 7 COLS: COMMERCIAL ATELIER INTRO */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                  <span>{locale === "en" ? "DIGITAL ARCHITECTURAL WORKBENCH" : "MESA DE TRABAJO ARQUITECTÓNICA"}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <Sparkle size={14} weight="fill" />
+                  <span>{locale === "en" ? "7 Precision Tools" : "7 Herramientas en Vivo"}</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Architectural Studio Suite · Interactive Workbench"
-                  : "Estudio Digital Arquitectónico · Mesa de Trabajo"}
-              </span>
+                  ? "Experience Your Space Before a Single Board is Cut."
+                  : "Visualiza tu Espacio Antes de Cortar la Primera Madera."}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+                {locale === "en"
+                  ? "Our proprietary digital atelier puts custom woodcrafting and industrial 2K finishes at your fingertips. Simulate natural desert light from 2700K to 5500K, review exploded joinery, test colorimetry, and estimate investment with absolute clarity."
+                  : "Nuestro estudio digital pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Simula la luz solar de Arizona de 2700K a 5500K, examina ensambles, prueba pigmentos y calcula tu presupuesto con total claridad."}
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("spatial")}
+                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                >
+                  <span>{locale === "en" ? "Launch Spatial Walkthrough" : "Iniciar Recorrido Espacial"}</span>
+                  <ArrowRight size={16} weight="bold" />
+                </button>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                >
+                  <Phone size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">2700K-5500K</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Real Arizona diurnal lighting engine" : "Simulador solar diurno de Arizona"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">7 {locale === "en" ? "MODULES" : "MÓDULOS"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Interactive drafting & joinery tools" : "Herramientas de planos y despiece"}
+                  </div>
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">{locale === "en" ? "PHYSICAL" : "FÍSICO"}</div>
+                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                    {locale === "en" ? "Sample box delivered to your home" : "Muestras táctiles en tu domicilio"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-semibold font-serif text-[#261F1A] tracking-tight leading-[1.08]">
-              {locale === "en"
-                ? "Experience Your Space Before a Single Board is Cut."
-                : "Visualiza tu Espacio Antes de Cortar la Primera Madera."}
-            </h1>
+            {/* RIGHT 5 COLS: SHOWCASE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/assets/blueprints-and-docs/custom-furniture-04.jpg"
+                    alt="Renovo Atelier Digital Drafting"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
 
-            <p className="text-base sm:text-xl text-[#3D3228] font-normal leading-relaxed">
-              {locale === "en"
-                ? "Our proprietary digital atelier puts custom woodcrafting and industrial 2K finishes at your fingertips. Switch between precision tools below to explore elevations, light simulation, and joinery details."
-                : "Nuestro estudio digital pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Conmuta entre herramientas para explorar planos, luz y detalles de ensamble."}
-            </p>
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
+                    Phoenix Digital Atelier
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
+                    Interactive Suite
+                  </span>
+                </div>
+
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-serif font-semibold text-[#1A1410]">
+                      {locale === "en" ? "Interactive Workbench" : "Mesa de Trabajo Digital"}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO LAB</span>
+                  </div>
+                  <p className="text-[11px] text-[#3D3228] leading-snug">
+                    {locale === "en"
+                      ? "Switch between tabs below to test elevations, joinery details, and light temperatures."
+                      : "Usa las pestañas inferiores para alternar entre planos, despieces y simulación de luz."}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
