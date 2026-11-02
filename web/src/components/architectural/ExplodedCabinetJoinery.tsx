@@ -110,12 +110,12 @@ export function ExplodedCabinetJoinery() {
     CABINET_LAYERS.find((l) => l.id === activeLayerId) || CABINET_LAYERS[1];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#120F0C] text-[#FAF8F5] border-b border-white/8 relative">
+    <section className="py-20 lg:py-28 bg-[#FAF8F5] text-[#1F1A16] border-b border-[#E7E0D5] relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
         {/* Headline */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/15 border border-[var(--gold)]/35 text-[var(--gold-dark)] text-xs font-serif italic">
               <Stack size={15} />
               <span>
                 {locale === "en"
@@ -124,21 +124,21 @@ export function ExplodedCabinetJoinery() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#1F1A16] tracking-tight">
               {locale === "en"
                 ? "The Invisible Anatomy of Heirloom Joinery."
                 : "La Anatomía Invisible de Nuestra Ebanistería."}
             </h2>
 
-            <p className="text-base text-[#D4CBBF] font-light leading-relaxed">
+            <p className="text-base text-[#5E554B] font-light leading-relaxed">
               {locale === "en"
                 ? "Anyone can paint a cabinet door. True architectural longevity is engineered into the joints, the structural plywood cores, and the four-tier molecular coating. Explore the cutaway below."
                 : "Cualquiera puede pintar una puerta de cocina. La verdadera longevidad arquitectónica se forja en los ensambles, los núcleos de madera maciza y la estratigrafía 2K. Explora el despiece."}
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-serif text-[#D4CBBF] bg-white/5 border border-white/10 px-4 py-2.5 rounded-2xl self-start lg:self-auto">
-            <Sparkle size={15} className="text-[var(--gold)] shrink-0" weight="fill" />
+          <div className="flex items-center gap-2 text-xs font-serif text-[#5E554B] bg-[#EFEAE1] border border-[#E0D8CB] px-4 py-2.5 rounded-2xl self-start lg:self-auto shadow-xs">
+            <Sparkle size={15} className="text-[var(--gold-dark)] shrink-0" weight="fill" />
             <span>
               {locale === "en"
                 ? "Click any anatomical component to inspect build specs"
@@ -158,26 +158,26 @@ export function ExplodedCabinetJoinery() {
                 onClick={() => setActiveLayerId(layer.id)}
                 className={`interactive-control p-3.5 rounded-2xl text-left transition-all border flex flex-col justify-between ${
                   isSelected
-                    ? "bg-[#241E17] border-[var(--gold)] shadow-md"
-                    : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/8"
+                    ? "bg-[#F5F0E6] border-[var(--gold)] ring-1 ring-[var(--gold)]/40 shadow-xs text-[#1F1A16]"
+                    : "bg-white border-[#E7E0D5] hover:border-[#D5CABE] text-[#5E554B] shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
                   <span
                     className={`font-serif text-xs font-bold ${
-                      isSelected ? "text-[var(--gold)]" : "text-[#8A7F73]"
+                      isSelected ? "text-[var(--gold-dark)]" : "text-[#8A7E72]"
                     }`}
                   >
                     PART {layer.number}
                   </span>
                   {isSelected && (
-                    <div className="w-2 h-2 rounded-full bg-[var(--gold)] animate-pulse" />
+                    <div className="w-2 h-2 rounded-full bg-[var(--gold)]" />
                   )}
                 </div>
 
                 <span
                   className={`text-xs font-serif font-semibold mt-2 block line-clamp-2 ${
-                    isSelected ? "text-white" : "text-[#D4CBBF]"
+                    isSelected ? "text-[#1F1A16]" : "text-[#5E554B]"
                   }`}
                 >
                   {locale === "en" ? layer.titleEn : layer.titleEs}
@@ -190,12 +190,12 @@ export function ExplodedCabinetJoinery() {
         {/* Main Section: Interactive Architectural Cutaway SVG Left, Deep Comparison Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left 6 Columns: Interactive SVG Cutaway Diagram */}
-          <div className="lg:col-span-6 rounded-3xl bg-[#16120E] border border-white/10 p-6 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between">
-            <div className="flex items-center justify-between border-b border-white/8 pb-3">
-              <span className="text-xs font-serif italic text-[var(--gold)]">
+          <div className="lg:col-span-6 rounded-3xl bg-[#F3EFEA] border border-[#E7E0D5] p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
+            <div className="flex items-center justify-between border-b border-[#E7E0D5] pb-3">
+              <span className="text-xs font-serif italic text-[var(--gold-dark)]">
                 {locale === "en" ? "Isometric Cabinet Cutaway" : "Corte Isométrico de Gabinete"}
               </span>
-              <span className="text-[11px] text-[#8A7F73] font-serif">
+              <span className="text-[11px] text-[#5E554B] font-serif">
                 {locale === "en" ? "Handcrafted in Phoenix, AZ" : "Taller Shangri La Rd, Phoenix"}
               </span>
             </div>
@@ -384,7 +384,7 @@ export function ExplodedCabinetJoinery() {
               </svg>
             </div>
 
-            <div className="text-xs text-[#8A7F73] font-serif italic text-center pt-2 border-t border-white/5">
+            <div className="text-xs text-[#5E554B] font-serif italic text-center pt-2 border-t border-[#E7E0D5]">
               {locale === "en"
                 ? "Interactive drafting schematic: Tap layers to inspect joinery tolerances"
                 : "Esquema interactivo: Toca las capas para examinar tolerancias de ensamble"}
@@ -392,35 +392,35 @@ export function ExplodedCabinetJoinery() {
           </div>
 
           {/* Right 6 Columns: Deep Technical Comparison & Real Spec Photo */}
-          <div className="lg:col-span-6 rounded-3xl bg-[#181410] border border-white/10 p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="lg:col-span-6 rounded-3xl bg-white border border-[#E7E0D5] p-6 sm:p-8 shadow-lg space-y-6 text-[#1F1A16]">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-serif text-[var(--gold)] font-bold">
+                <span className="text-xs font-serif text-[var(--gold-dark)] font-bold">
                   SPECIFICATION {currentLayer.number} OF 05
                 </span>
-                <span className="text-xs text-white/30">/</span>
-                <span className="text-xs font-serif italic text-[#A69B8F]">
+                <span className="text-xs text-[#8A7E72]">/</span>
+                <span className="text-xs font-serif italic text-[#5E554B]">
                   Architectural Standard
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-white leading-snug">
+              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#1F1A16] leading-snug">
                 {locale === "en" ? currentLayer.titleEn : currentLayer.titleEs}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#D4CBBF] font-light leading-relaxed pt-1">
+              <p className="text-xs sm:text-sm text-[#5E554B] font-light leading-relaxed pt-1">
                 {locale === "en" ? currentLayer.specEn : currentLayer.specEs}
               </p>
             </div>
 
             {/* Macro Photo Evidence */}
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 relative bg-black/60 shadow-lg">
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden border border-[#E7E0D5] relative bg-[#1F1A16] shadow-sm">
               <img
                 src={currentLayer.image}
                 alt={currentLayer.titleEn}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 text-xs font-serif text-white/90">
                 {locale === "en" ? "Real Renovo Atelier Build" : "Fabricación Real de Renovo"}
               </div>
@@ -429,23 +429,23 @@ export function ExplodedCabinetJoinery() {
             {/* Side-by-side: Renovo Standard vs Builder Grade Fail */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-serif">
               {/* Renovo Standard */}
-              <div className="p-4 rounded-2xl bg-[#1C261A] border border-[#3E6135] space-y-2">
-                <div className="flex items-center gap-1.5 text-[#73BA58] font-semibold">
+              <div className="p-4 rounded-2xl bg-[#F0F7EE] border border-[#C2DEC0] space-y-2">
+                <div className="flex items-center gap-1.5 text-[#2E6B4E] font-semibold">
                   <CheckCircle size={16} weight="fill" />
                   <span>{locale === "en" ? "Renovo Standard:" : "Estándar Renovo:"}</span>
                 </div>
-                <p className="text-[#D8CFBF] leading-relaxed text-[11px]">
+                <p className="text-[#1F1A16] leading-relaxed text-[11px] font-light">
                   {locale === "en" ? currentLayer.renovoStandardEn : currentLayer.renovoStandardEs}
                 </p>
               </div>
 
               {/* Builder Grade Warning */}
-              <div className="p-4 rounded-2xl bg-[#281816] border border-[#6B2E2E] space-y-2">
-                <div className="flex items-center gap-1.5 text-[#E06D6D] font-semibold">
+              <div className="p-4 rounded-2xl bg-[#FDF2F2] border border-[#F0C4C4] space-y-2">
+                <div className="flex items-center gap-1.5 text-[#A83232] font-semibold">
                   <Warning size={16} weight="fill" />
                   <span>{locale === "en" ? "Why Builder Grade Fails:" : "Por Qué el Estándar Falla:"}</span>
                 </div>
-                <p className="text-[#D8CFBF] leading-relaxed text-[11px]">
+                <p className="text-[#4A1D1D] leading-relaxed text-[11px] font-light">
                   {locale === "en"
                     ? currentLayer.builderGradeFailEn
                     : currentLayer.builderGradeFailEs}
@@ -457,14 +457,14 @@ export function ExplodedCabinetJoinery() {
             <div className="pt-2">
               <a
                 href="/contacto"
-                className="interactive-control min-h-[46px] w-full rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white hover:text-[var(--gold)] text-xs font-serif uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                className="interactive-control min-h-[46px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#1F1A16] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
               >
                 <span>
                   {locale === "en"
                     ? "Schedule In-Home Inspection with Raul Burgos"
                     : "Agendar Inspección en Sitio con Raul Burgos"}
                 </span>
-                <ArrowRight size={14} />
+                <ArrowRight size={14} weight="bold" />
               </a>
             </div>
           </div>

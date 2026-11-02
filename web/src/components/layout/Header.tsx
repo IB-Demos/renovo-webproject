@@ -47,7 +47,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#0E0C0A]/95 backdrop-blur-xl border-b border-white/8 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-[#FAF8F5]/90 backdrop-blur-xl border-b border-[#E7E0D5] text-[#1F1A16] transition-all">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* =====================================================================
             1. BRAND LOGO (Clean, high-end atelier proportions)
@@ -59,13 +59,13 @@ export function Header() {
           <img
             src="/assets/brand/renovo-logo.png"
             alt="Renovo Painting Solutions"
-            className="h-8 sm:h-10 w-auto object-contain outline-none drop-shadow-sm"
+            className="h-8 sm:h-10 w-auto object-contain outline-none drop-shadow-xs"
           />
-          <div className="hidden sm:flex flex-col border-l border-white/10 pl-3 leading-tight">
-            <span className="text-[10px] tracking-[0.2em] text-[var(--gold)] font-mono font-semibold uppercase">
+          <div className="hidden sm:flex flex-col border-l border-[#DDD6C9] pl-3 leading-tight">
+            <span className="text-[10px] tracking-[0.2em] text-[var(--gold)] font-serif font-semibold uppercase">
               Phoenix, AZ
             </span>
-            <span className="text-[10px] text-[#8A7F73] tracking-wider uppercase font-mono">
+            <span className="text-[10px] text-[#5E554B] tracking-wider uppercase font-serif">
               {locale === "en" ? "Cabinetry & Finishes" : "Ebanistería y Pintura"}
             </span>
           </div>
@@ -86,12 +86,12 @@ export function Header() {
           >
             <button
               type="button"
-              className={`interactive-control py-2 text-sm font-medium tracking-wide inline-flex items-center gap-1.5 transition-colors ${
+              className={`interactive-control py-2 text-sm font-medium tracking-wide inline-flex items-center gap-1.5 transition-colors font-serif ${
                 pathname?.startsWith("/cocinas") ||
                 pathname?.startsWith("/muebles") ||
                 pathname?.startsWith("/pintura")
                   ? "text-[var(--gold)] font-semibold"
-                  : "text-[#D4CBBF] hover:text-white"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <span>{t.nav.services}</span>
@@ -110,20 +110,20 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 w-80 p-2.5 rounded-2xl bg-[#141210] border border-white/10 shadow-2xl z-50 backdrop-blur-2xl"
+                  className="absolute top-full left-0 w-80 p-2.5 rounded-2xl bg-white border border-[#E7E0D5] shadow-2xl z-50 backdrop-blur-2xl"
                 >
                   {disciplines.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setDisciplinesOpen(false)}
-                      className="block p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                      className="block p-3 rounded-xl hover:bg-[#F7F4EE] transition-colors group"
                     >
-                      <div className="text-xs font-semibold text-white group-hover:text-[var(--gold)] transition-colors flex items-center justify-between">
+                      <div className="text-xs font-serif font-semibold text-[#1F1A16] group-hover:text-[var(--gold)] transition-colors flex items-center justify-between">
                         <span>{locale === "en" ? item.titleEn : item.titleEs}</span>
                         <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <div className="text-[11px] text-[#8A7F73] mt-0.5 leading-relaxed">
+                      <div className="text-[11px] text-[#7A7167] mt-0.5 leading-relaxed font-serif">
                         {locale === "en" ? item.descEn : item.descEs}
                       </div>
                     </Link>
@@ -136,10 +136,10 @@ export function Header() {
           {/* Transformations */}
           <Link
             href="/transformaciones"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors ${
+            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/transformaciones")
                 ? "text-[var(--gold)] font-semibold"
-                : "text-[#D4CBBF] hover:text-white"
+                : "text-[#5E554B] hover:text-[#1F1A16]"
             }`}
           >
             {t.nav.transformations}
@@ -148,10 +148,10 @@ export function Header() {
           {/* Materials */}
           <Link
             href="/catalogo"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors ${
+            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/catalogo")
                 ? "text-[var(--gold)] font-semibold"
-                : "text-[#D4CBBF] hover:text-white"
+                : "text-[#5E554B] hover:text-[#1F1A16]"
             }`}
           >
             {t.nav.catalog}
@@ -160,10 +160,10 @@ export function Header() {
           {/* Studio & Estimator */}
           <Link
             href="/studio-interactivo"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors ${
+            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/studio-interactivo") || pathname?.startsWith("/cotizador")
                 ? "text-[var(--gold)] font-semibold"
-                : "text-[#D4CBBF] hover:text-white"
+                : "text-[#5E554B] hover:text-[#1F1A16]"
             }`}
           >
             {t.nav.studio}
@@ -172,10 +172,10 @@ export function Header() {
           {/* Atelier Heritage */}
           <Link
             href="/nosotros"
-            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors ${
+            className={`interactive-control py-2 text-sm font-medium tracking-wide transition-colors font-serif ${
               pathname?.startsWith("/nosotros")
                 ? "text-[var(--gold)] font-semibold"
-                : "text-[#D4CBBF] hover:text-white"
+                : "text-[#5E554B] hover:text-[#1F1A16]"
             }`}
           >
             {t.nav.about}
@@ -190,25 +190,25 @@ export function Header() {
           <div
             role="group"
             aria-label={t.meta.bilingualNotice}
-            className="flex items-center text-xs font-mono tracking-wider text-[#8A7F73]"
+            className="flex items-center text-xs font-serif tracking-wider text-[#7A7167]"
           >
             <button
               type="button"
               onClick={() => setLocale("en")}
               aria-pressed={locale === "en"}
               className={`interactive-control py-1 transition-colors ${
-                locale === "en" ? "text-[var(--gold)] font-semibold" : "hover:text-white"
+                locale === "en" ? "text-[var(--gold)] font-bold" : "hover:text-[#1F1A16]"
               }`}
             >
               EN
             </button>
-            <span className="mx-1.5 opacity-30">/</span>
+            <span className="mx-1.5 opacity-40">/</span>
             <button
               type="button"
               onClick={() => setLocale("es")}
               aria-pressed={locale === "es"}
               className={`interactive-control py-1 transition-colors ${
-                locale === "es" ? "text-[var(--gold)] font-semibold" : "hover:text-white"
+                locale === "es" ? "text-[var(--gold)] font-bold" : "hover:text-[#1F1A16]"
               }`}
             >
               ES
@@ -221,7 +221,7 @@ export function Header() {
             onClick={() => setIsDrawerOpen(true)}
             aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
             title={t.sampleDrawer.title}
-            className="interactive-control relative p-2 rounded-full text-[#B8AEA2] hover:text-[var(--gold)] hover:bg-white/5 transition-colors"
+            className="interactive-control relative p-2 rounded-full text-[#5E554B] hover:text-[var(--gold)] hover:bg-[#F2EDE4] transition-colors"
           >
             <BookmarkSimple
               size={18}
@@ -229,16 +229,16 @@ export function Header() {
               className={samples.length > 0 ? "text-[var(--gold)]" : ""}
             />
             {samples.length > 0 && (
-              <span className="absolute 0 top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-[var(--gold)] text-[#0E0C0A] text-[9px] font-bold font-mono flex items-center justify-center">
+              <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-[var(--gold)] text-white text-[9px] font-bold font-serif flex items-center justify-center">
                 {samples.length}
               </span>
             )}
           </button>
 
-          {/* Desktop Phone (Visible on 2xl screens) */}
+          {/* Desktop Phone */}
           <a
             href={COMPANY_INFO.phoneHref}
-            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#8A7F73] hover:text-[var(--gold)] font-mono transition-colors"
+            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#7A7167] hover:text-[var(--gold)] font-serif transition-colors"
           >
             <Phone size={13} className="text-[var(--gold)]" />
             <span>{COMPANY_INFO.phoneDisplay}</span>
@@ -247,18 +247,18 @@ export function Header() {
           {/* Refined Consultation CTA */}
           <Link
             href="/contacto"
-            className="interactive-control hidden sm:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#0E0C0A] text-xs font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
+            className="interactive-control hidden sm:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-white text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
           >
             {t.nav.bookConsult}
           </Link>
 
-          {/* Mobile Menu Trigger (44px tap target) */}
+          {/* Mobile Menu Trigger */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-            className="interactive-control lg:hidden min-h-[44px] min-w-[44px] rounded-full border border-white/10 bg-white/5 text-white inline-flex items-center justify-center hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
+            className="interactive-control lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#DDD6C9] bg-white text-[#1F1A16] hover:bg-[#F7F4EE] transition-colors"
           >
             {mobileMenuOpen ? <X size={20} /> : <List size={20} />}
           </button>
@@ -266,7 +266,7 @@ export function Header() {
       </div>
 
       {/* =====================================================================
-          4. MOBILE ACCORDION DRAWER (Clean, spacious, high-contrast)
+          4. MOBILE CURATED ACCORDION MENU
       ===================================================================== */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -274,120 +274,72 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="lg:hidden border-t border-white/8 bg-[#0E0C0A] overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden border-t border-[#E7E0D5] bg-[#FAF8F5] px-4 py-6 space-y-4 shadow-2xl"
           >
-            <nav
-              aria-label="Mobile Navigation"
-              className="px-4 py-6 space-y-4 max-h-[calc(100vh-80px)] overflow-y-auto"
-            >
-              {/* Primary Disciplines */}
-              <div className="space-y-1">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--gold)] px-3 py-1 font-semibold">
-                  {locale === "en" ? "MASTER DISCIPLINES" : "ESPECIALIDADES"}
-                </div>
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase font-serif tracking-widest text-[var(--gold)] font-bold px-3 block">
+                {t.nav.services}
+              </span>
+              {disciplines.map((item) => (
                 <Link
-                  href="/cocinas-y-gabinetes"
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white font-medium"
+                  className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
                 >
-                  <span>{locale === "en" ? "Kitchens & Cabinetry" : "Cocinas y Gabinetes"}</span>
-                  <ArrowRight size={14} className="text-[var(--gold)]" />
+                  {locale === "en" ? item.titleEn : item.titleEs}
                 </Link>
-                <Link
-                  href="/muebles-a-medida"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white font-medium"
-                >
-                  <span>{locale === "en" ? "Custom Furniture & Built-Ins" : "Muebles a Medida"}</span>
-                  <ArrowRight size={14} className="text-[var(--gold)]" />
-                </Link>
-                <Link
-                  href="/pintura-residencial"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white font-medium"
-                >
-                  <span>{locale === "en" ? "Residential & Exterior Painting" : "Pintura Residencial"}</span>
-                  <ArrowRight size={14} className="text-[var(--gold)]" />
-                </Link>
-              </div>
+              ))}
+            </div>
 
-              {/* Exploration & Tools */}
-              <div className="space-y-1 pt-2">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-[#8A7F73] px-3 py-1 font-semibold">
-                  {locale === "en" ? "EXPLORE & TOOLS" : "HERRAMIENTAS Y PORTAFOLIO"}
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    href="/transformaciones"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-medium"
-                  >
-                    {t.nav.transformations}
-                  </Link>
-                  <Link
-                    href="/studio-interactivo"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-medium"
-                  >
-                    {t.nav.studio}
-                  </Link>
-                  <Link
-                    href="/catalogo"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-medium"
-                  >
-                    {t.nav.catalog}
-                  </Link>
-                  <Link
-                    href="/cotizador"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#EAE2D5] font-medium"
-                  >
-                    {t.nav.estimator}
-                  </Link>
-                </div>
-              </div>
+            <div className="pt-2 border-t border-[#E7E0D5] space-y-1">
+              <Link
+                href="/transformaciones"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+              >
+                {t.nav.transformations}
+              </Link>
+              <Link
+                href="/catalogo"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+              >
+                {t.nav.catalog}
+              </Link>
+              <Link
+                href="/studio-interactivo"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+              >
+                {t.nav.studio}
+              </Link>
+              <Link
+                href="/nosotros"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+              >
+                {t.nav.about}
+              </Link>
+            </div>
 
-              {/* Atelier & Contact */}
-              <div className="space-y-1 pt-2">
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    href="/nosotros"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#BFB4A6] text-center font-medium"
-                  >
-                    {t.nav.about}
-                  </Link>
-                  <Link
-                    href="/contacto"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#BFB4A6] text-center font-medium"
-                  >
-                    {t.nav.contact}
-                  </Link>
-                </div>
-              </div>
-
-              {/* Mobile Actions */}
-              <div className="pt-3 space-y-2">
-                <Link
-                  href="/contacto"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="interactive-control min-h-[48px] w-full rounded-xl bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#0E0C0A] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
-                >
-                  <Sparkle size={15} weight="fill" />
-                  <span>{t.nav.bookConsult}</span>
-                </Link>
-                <a
-                  href={COMPANY_INFO.phoneHref}
-                  className="interactive-control min-h-[44px] w-full rounded-xl border border-white/10 bg-white/5 text-white text-xs font-mono flex items-center justify-center gap-2"
-                >
-                  <Phone size={14} className="text-[var(--gold)]" />
-                  <span>{COMPANY_INFO.phoneDisplay}</span>
-                </a>
-              </div>
-            </nav>
+            <div className="pt-4 border-t border-[#E7E0D5] flex flex-col gap-3">
+              <Link
+                href="/contacto"
+                onClick={() => setMobileMenuOpen(false)}
+                className="interactive-control flex items-center justify-center min-h-[46px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-white text-xs font-serif font-semibold tracking-wider uppercase shadow-sm"
+              >
+                {t.nav.bookConsult}
+              </Link>
+              <a
+                href={COMPANY_INFO.phoneHref}
+                className="interactive-control flex items-center justify-center gap-2 min-h-[44px] w-full rounded-full border border-[#DDD6C9] bg-white text-xs font-serif text-[#1F1A16]"
+              >
+                <Phone size={14} className="text-[var(--gold)]" />
+                <span>{COMPANY_INFO.phoneDisplay}</span>
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

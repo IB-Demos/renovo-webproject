@@ -389,14 +389,14 @@ export function ArchitecturalDraftingTable() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#120F0C] text-[#FAF8F5] border-b border-white/8 relative">
+    <section className="py-20 lg:py-28 bg-[#FAF8F5] text-[#1F1A16] border-b border-[#E7E0D5] relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-10">
         {/* =====================================================================
             1. REFINED ARCHITECTURAL HEADLINE & PRESET BUTTONS
         ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/15 border border-[var(--gold)]/35 text-[var(--gold-dark)] text-xs font-serif italic">
               <Sparkle size={14} weight="fill" />
               <span>
                 {locale === "en"
@@ -405,13 +405,13 @@ export function ArchitecturalDraftingTable() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#1F1A16] tracking-tight">
               {locale === "en"
                 ? "From Architectural Sketch to Living Home."
                 : "Del Boceto Arquitectónico a tu Hogar."}
             </h2>
 
-            <p className="text-base text-[#D4CBBF] font-light leading-relaxed">
+            <p className="text-base text-[#5E554B] font-light leading-relaxed">
               {locale === "en"
                 ? "Every Renovo project starts as a scaled millwork drawing before our craftsmen cut the first piece of hardwood. Drag the slider across the plan to witness how technical drafting transforms into handcrafted luxury."
                 : "Cada proyecto de Renovo comienza como un plano a escala milimétrica antes de cortar la primera tabla. Desliza el control interactivo sobre el plano para ver cómo el trazo técnico se convierte en madera noble y acabados de cabina."}
@@ -419,14 +419,14 @@ export function ArchitecturalDraftingTable() {
           </div>
 
           {/* QUICK SLIDER PRESET SWITCHERS */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-[#1C1814] border border-white/10 self-start lg:self-auto text-xs">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-[#EFEAE1] border border-[#E0D8CB] self-start lg:self-auto text-xs shadow-xs">
             <button
               type="button"
               onClick={() => setSliderPos(100)}
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 100
-                  ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                  : "text-[#B8AEA2] hover:text-white"
+                  ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <PencilSimpleLine size={15} />
@@ -438,8 +438,8 @@ export function ArchitecturalDraftingTable() {
               onClick={() => setSliderPos(50)}
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 50
-                  ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                  : "text-[#B8AEA2] hover:text-white"
+                  ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <ArrowsLeftRight size={15} />
@@ -451,8 +451,8 @@ export function ArchitecturalDraftingTable() {
               onClick={() => setSliderPos(0)}
               className={`interactive-control px-3.5 py-2 rounded-xl font-serif transition-all flex items-center gap-1.5 ${
                 sliderPos === 0
-                  ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                  : "text-[#B8AEA2] hover:text-white"
+                  ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <Camera size={15} />
@@ -474,25 +474,25 @@ export function ArchitecturalDraftingTable() {
                 onClick={() => handleSelectProject(proj.id)}
                 className={`interactive-control p-4 rounded-2xl text-left transition-all duration-200 border flex flex-col justify-between gap-3 ${
                   isSelected
-                    ? "bg-[#1E1914] border-[var(--gold)] shadow-xl"
-                    : "bg-[#16120E] border-white/10 hover:border-white/20 text-[#A69B8F]"
+                    ? "bg-[#F5F0E6] border-[var(--gold)] ring-1 ring-[var(--gold)]/40 shadow-sm text-[#1F1A16]"
+                    : "bg-white border-[#E7E0D5] hover:border-[#D5CABE] text-[#5E554B] shadow-xs"
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[11px] font-serif italic text-[var(--gold)]">
+                    <span className="text-[11px] font-serif italic text-[var(--gold-dark)]">
                       Project 0{idx + 1}
                     </span>
                     {isSelected && (
-                      <CheckCircle size={16} className="text-[var(--gold)]" weight="fill" />
+                      <CheckCircle size={16} className="text-[var(--gold-dark)]" weight="fill" />
                     )}
                   </div>
-                  <h3 className={`text-base font-serif font-medium leading-snug ${isSelected ? "text-white" : "text-[#D8CFBF]"}`}>
+                  <h3 className={`text-base font-serif font-medium leading-snug ${isSelected ? "text-[#1F1A16]" : "text-[#3D352E]"}`}>
                     {locale === "en" ? proj.title.en : proj.title.es}
                   </h3>
                 </div>
 
-                <div className="text-xs text-[#8A7F73] pt-2 border-t border-white/5 truncate">
+                <div className="text-xs text-[#8A7E72] pt-2 border-t border-[#EFEAE1] truncate">
                   {locale === "en" ? proj.dimensions.en : proj.dimensions.es}
                 </div>
               </button>
@@ -505,19 +505,19 @@ export function ArchitecturalDraftingTable() {
         ===================================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* LEFT 8 COLUMNS: INTERACTIVE SPLIT CANVAS */}
-          <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-[#181410] border border-white/10 shadow-2xl flex flex-col">
+          <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-[#F3EFEA] border border-[#E7E0D5] shadow-lg flex flex-col">
             {/* Canvas Header Bar */}
-            <div className="px-5 py-3.5 border-b border-white/8 bg-[#1F1914] flex flex-wrap items-center justify-between gap-3 text-xs text-[#B8AEA2]">
-              <span className="font-serif italic text-sm text-white">
+            <div className="px-5 py-3.5 border-b border-[#E7E0D5] bg-[#EFEAE1] flex flex-wrap items-center justify-between gap-3 text-xs text-[#5E554B]">
+              <span className="font-serif italic text-sm text-[#1F1A16]">
                 {locale === "en" ? currentProject.title.en : currentProject.title.es}
               </span>
-              <span className="text-[var(--gold)] font-mono text-[11px] font-semibold">
+              <span className="text-[var(--gold-dark)] font-serif text-[12px] font-semibold">
                 {locale === "en" ? currentProject.dimensions.en : currentProject.dimensions.es}
               </span>
             </div>
 
             {/* Split Reveal Viewport (Drafting Sketch vs Completed Photography) */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#100D0A] flex items-center justify-center overflow-hidden touch-pan-y select-none">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#FAF7F0] flex items-center justify-center overflow-hidden touch-pan-y select-none">
               {/* BASE LAYER: REAL COMPLETED PHOTOGRAPHY */}
               <div className="absolute inset-0">
                 <img
@@ -525,23 +525,32 @@ export function ArchitecturalDraftingTable() {
                   alt={currentProject.photoAlt}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                <span className="pointer-events-none absolute bottom-4 right-4 bg-black/80 border border-white/20 px-3 py-1 rounded-full font-serif text-xs text-white backdrop-blur-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <span className="pointer-events-none absolute bottom-4 right-4 bg-[#1F1A16]/85 border border-[#FAF8F5]/20 px-3 py-1 rounded-full font-serif text-xs text-white backdrop-blur-md shadow-md">
                   {locale === "en" ? "Real Residence Photography" : "Obra Real Entregada"}
                 </span>
               </div>
 
-              {/* CLIPPED LAYER: ARCHITECTURAL SKETCH ELEVATION */}
+              {/* CLIPPED LAYER: ARCHITECTURAL SKETCH ELEVATION ON WARM VELLUM */}
               <div
-                className="absolute inset-0 overflow-hidden bg-[#14100D]"
+                className="absolute inset-0 overflow-hidden bg-[#FAF7F0]"
                 style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
               >
-                <div className="relative w-full h-full p-4 sm:p-8 flex items-center justify-center bg-[#14100D]">
+                {/* Blueprint grid effect subtle parchment overlay */}
+                <div
+                  className="absolute inset-0 opacity-[0.06] pointer-events-none"
+                  style={{
+                    backgroundImage: "radial-gradient(#1F1A16 1px, transparent 1px)",
+                    backgroundSize: "24px 24px",
+                  }}
+                />
+
+                <div className="relative w-full h-full p-4 sm:p-8 flex items-center justify-center bg-[#FAF7F0]">
                   {/* SVG Drawing for Kitchen */}
                   {currentProject.id === "kitchen" && (
                     <svg
                       viewBox="0 0 900 520"
-                      className="w-full h-full text-[#E2DACF]"
+                      className="w-full h-full text-[#3D352E]"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.6"
@@ -549,45 +558,45 @@ export function ArchitecturalDraftingTable() {
                       {/* Crown Molding */}
                       <path
                         d="M 80 60 L 820 60 L 810 75 L 90 75 Z"
-                        fill="rgba(197, 155, 39, 0.12)"
-                        stroke="var(--gold)"
+                        fill="rgba(197, 155, 39, 0.15)"
+                        stroke="var(--gold-dark)"
                         strokeWidth="2"
                       />
-                      <text x="95" y="71" fill="var(--gold)" fontSize="11" fontFamily="serif" fontStyle="italic">
+                      <text x="95" y="71" fill="var(--gold-dark)" fontSize="11" fontFamily="serif" fontStyle="italic">
                         Architectural Crown Molding
                       </text>
 
                       {/* Canopy Hood */}
                       <path
                         d="M 360 75 L 540 75 L 560 170 L 340 170 Z"
-                        fill={currentFeature.id === "hood" ? "rgba(197, 155, 39, 0.2)" : "rgba(255,255,255,0.04)"}
-                        stroke={currentFeature.id === "hood" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "hood" ? "rgba(197, 155, 39, 0.25)" : "rgba(31, 26, 22, 0.04)"}
+                        stroke={currentFeature.id === "hood" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "hood" ? "2.5" : "1.6"}
                       />
-                      <rect x="330" y="170" width="240" height="24" rx="3" fill="rgba(197, 155, 39, 0.12)" stroke="var(--gold)" />
-                      <text x="450" y="186" textAnchor="middle" fill="#FAF8F5" fontSize="12" fontFamily="serif">
+                      <rect x="330" y="170" width="240" height="24" rx="3" fill="rgba(197, 155, 39, 0.18)" stroke="var(--gold-dark)" />
+                      <text x="450" y="186" textAnchor="middle" fill="#1F1A16" fontSize="12" fontFamily="serif" fontWeight="500">
                         Custom Range Hood Canopy
                       </text>
 
                       {/* Upper Wall Cabinets */}
-                      <rect x="100" y="75" width="110" height="210" fill="rgba(255,255,255,0.02)" stroke="currentColor" />
-                      <rect x="110" y="85" width="90" height="190" strokeDasharray="3 3" opacity="0.6" />
+                      <rect x="100" y="75" width="110" height="210" fill="rgba(31, 26, 22, 0.02)" stroke="currentColor" />
+                      <rect x="110" y="85" width="90" height="190" strokeDasharray="3 3" opacity="0.5" />
                       <rect
                         x="220"
                         y="75"
                         width="110"
                         height="210"
-                        fill={currentFeature.id === "finish" ? "rgba(197, 155, 39, 0.2)" : "rgba(255,255,255,0.02)"}
-                        stroke={currentFeature.id === "finish" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "finish" ? "rgba(197, 155, 39, 0.25)" : "rgba(31, 26, 22, 0.02)"}
+                        stroke={currentFeature.id === "finish" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "finish" ? "2.5" : "1.6"}
                       />
-                      <rect x="230" y="85" width="90" height="190" strokeDasharray="3 3" opacity="0.6" />
-                      <rect x="580" y="75" width="110" height="210" fill="rgba(255,255,255,0.02)" stroke="currentColor" />
-                      <rect x="700" y="75" width="110" height="210" fill="rgba(255,255,255,0.02)" stroke="currentColor" />
+                      <rect x="230" y="85" width="90" height="190" strokeDasharray="3 3" opacity="0.5" />
+                      <rect x="580" y="75" width="110" height="210" fill="rgba(31, 26, 22, 0.02)" stroke="currentColor" />
+                      <rect x="700" y="75" width="110" height="210" fill="rgba(31, 26, 22, 0.02)" stroke="currentColor" />
 
                       {/* Mitered Slab Countertop */}
-                      <rect x="80" y="330" width="740" height="18" fill="rgba(255,255,255,0.08)" stroke="#FAF8F5" strokeWidth="2" />
-                      <text x="450" y="343" textAnchor="middle" fill="#FAF8F5" fontSize="11" fontFamily="serif" fontStyle="italic">
+                      <rect x="80" y="330" width="740" height="18" fill="rgba(31, 26, 22, 0.07)" stroke="#1F1A16" strokeWidth="2" />
+                      <text x="450" y="343" textAnchor="middle" fill="#1F1A16" fontSize="11" fontFamily="serif" fontStyle="italic">
                         60mm Mitered Quartz Countertop
                       </text>
 
@@ -597,17 +606,17 @@ export function ArchitecturalDraftingTable() {
                         y="352"
                         width="160"
                         height="98"
-                        fill={currentFeature.id === "dovetail" ? "rgba(197, 155, 39, 0.2)" : "rgba(255,255,255,0.02)"}
-                        stroke={currentFeature.id === "dovetail" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "dovetail" ? "rgba(197, 155, 39, 0.25)" : "rgba(31, 26, 22, 0.02)"}
+                        stroke={currentFeature.id === "dovetail" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "dovetail" ? "2.5" : "1.6"}
                       />
-                      <rect x="110" y="358" width="140" height="24" stroke="var(--gold)" />
+                      <rect x="110" y="358" width="140" height="24" stroke="var(--gold-dark)" />
                       <rect x="110" y="388" width="140" height="26" stroke="currentColor" />
                       <rect x="110" y="420" width="140" height="26" stroke="currentColor" />
 
                       {/* Center Range Opening */}
-                      <rect x="290" y="352" width="320" height="98" fill="rgba(0,0,0,0.4)" strokeDasharray="3 3" stroke="currentColor" />
-                      <text x="450" y="405" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="12" fontFamily="serif">
+                      <rect x="290" y="352" width="320" height="98" fill="rgba(31, 26, 22, 0.06)" strokeDasharray="3 3" stroke="currentColor" />
+                      <text x="450" y="405" textAnchor="middle" fill="#5E554B" fontSize="12" fontFamily="serif">
                         36-inch Professional Range
                       </text>
 
@@ -617,11 +626,11 @@ export function ArchitecturalDraftingTable() {
                         y="352"
                         width="160"
                         height="98"
-                        fill={currentFeature.id === "blum" ? "rgba(197, 155, 39, 0.2)" : "rgba(255,255,255,0.02)"}
-                        stroke={currentFeature.id === "blum" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "blum" ? "rgba(197, 155, 39, 0.25)" : "rgba(31, 26, 22, 0.02)"}
+                        stroke={currentFeature.id === "blum" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "blum" ? "2.5" : "1.6"}
                       />
-                      <rect x="650" y="358" width="140" height="24" stroke="var(--gold)" />
+                      <rect x="650" y="358" width="140" height="24" stroke="var(--gold-dark)" />
                       <rect x="650" y="388" width="140" height="26" stroke="currentColor" />
                       <rect x="650" y="420" width="140" height="26" stroke="currentColor" />
                     </svg>
@@ -631,15 +640,15 @@ export function ArchitecturalDraftingTable() {
                   {currentProject.id === "builtin" && (
                     <svg
                       viewBox="0 0 900 520"
-                      className="w-full h-full text-[#E2DACF]"
+                      className="w-full h-full text-[#3D352E]"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.6"
                     >
                       {/* Central Fireplace */}
-                      <rect x="360" y="150" width="180" height="310" fill="rgba(0,0,0,0.5)" stroke="currentColor" strokeWidth="2" />
-                      <rect x="380" y="300" width="140" height="150" fill="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
-                      <text x="450" y="380" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="12" fontFamily="serif">
+                      <rect x="360" y="150" width="180" height="310" fill="rgba(31, 26, 22, 0.05)" stroke="currentColor" strokeWidth="2" />
+                      <rect x="380" y="300" width="140" height="150" fill="rgba(31, 26, 22, 0.08)" strokeDasharray="3 3" />
+                      <text x="450" y="380" textAnchor="middle" fill="#5E554B" fontSize="12" fontFamily="serif">
                         Linear Fireplace & Stone Hearth
                       </text>
 
@@ -647,15 +656,15 @@ export function ArchitecturalDraftingTable() {
                       <g stroke="currentColor" strokeWidth="1.6">
                         <path
                           d="M 100 150 A 110 110 0 0 1 320 150 L 320 460 L 100 460 Z"
-                          fill="rgba(255,255,255,0.02)"
+                          fill="rgba(31, 26, 22, 0.02)"
                         />
                         <path
                           d="M 115 155 A 95 95 0 0 1 305 155"
-                          stroke="var(--gold)"
+                          stroke="var(--gold-dark)"
                           strokeWidth={currentFeature.id === "arch" ? "3" : "2"}
                         />
-                        <circle cx="210" cy="105" r="8" fill="var(--gold)" />
-                        <line x1="200" y1="115" x2="220" y2="115" stroke="var(--gold)" strokeWidth="3" />
+                        <circle cx="210" cy="105" r="8" fill="var(--gold-dark)" />
+                        <line x1="200" y1="115" x2="220" y2="115" stroke="var(--gold-dark)" strokeWidth="3" />
 
                         {/* 38mm Shelves */}
                         <rect
@@ -663,8 +672,8 @@ export function ArchitecturalDraftingTable() {
                           y="205"
                           width="210"
                           height="12"
-                          fill="rgba(197,155,39,0.18)"
-                          stroke="var(--gold)"
+                          fill="rgba(197, 155, 39, 0.22)"
+                          stroke="var(--gold-dark)"
                           strokeWidth={currentFeature.id === "shelving" ? "2.5" : "1.2"}
                         />
                         <rect
@@ -672,8 +681,8 @@ export function ArchitecturalDraftingTable() {
                           y="265"
                           width="210"
                           height="12"
-                          fill="rgba(197,155,39,0.18)"
-                          stroke="var(--gold)"
+                          fill="rgba(197, 155, 39, 0.22)"
+                          stroke="var(--gold-dark)"
                           strokeWidth={currentFeature.id === "shelving" ? "2.5" : "1.2"}
                         />
                         <rect
@@ -681,8 +690,8 @@ export function ArchitecturalDraftingTable() {
                           y="325"
                           width="210"
                           height="12"
-                          fill="rgba(197,155,39,0.18)"
-                          stroke="var(--gold)"
+                          fill="rgba(197, 155, 39, 0.22)"
+                          stroke="var(--gold-dark)"
                           strokeWidth={currentFeature.id === "shelving" ? "2.5" : "1.2"}
                         />
 
@@ -692,8 +701,8 @@ export function ArchitecturalDraftingTable() {
                           y="370"
                           width="220"
                           height="90"
-                          fill={currentFeature.id === "basecredenza" ? "rgba(197, 155, 39, 0.2)" : "rgba(0,0,0,0.4)"}
-                          stroke={currentFeature.id === "basecredenza" ? "var(--gold)" : "currentColor"}
+                          fill={currentFeature.id === "basecredenza" ? "rgba(197, 155, 39, 0.25)" : "rgba(31, 26, 22, 0.04)"}
+                          stroke={currentFeature.id === "basecredenza" ? "var(--gold-dark)" : "currentColor"}
                           strokeWidth={currentFeature.id === "basecredenza" ? "2.5" : "1.6"}
                         />
                         <line x1="210" y1="370" x2="210" y2="460" stroke="currentColor" />
@@ -703,17 +712,17 @@ export function ArchitecturalDraftingTable() {
                       <g stroke="currentColor" strokeWidth="1.6">
                         <path
                           d="M 580 150 A 110 110 0 0 1 800 150 L 800 460 L 580 460 Z"
-                          fill="rgba(255,255,255,0.02)"
+                          fill="rgba(31, 26, 22, 0.02)"
                         />
-                        <path d="M 595 155 A 95 95 0 0 1 785 155" stroke="var(--gold)" strokeWidth="2" />
-                        <circle cx="690" cy="105" r="8" fill="var(--gold)" />
-                        <line x1="680" y1="115" x2="700" y2="115" stroke="var(--gold)" strokeWidth="3" />
+                        <path d="M 595 155 A 95 95 0 0 1 785 155" stroke="var(--gold-dark)" strokeWidth="2" />
+                        <circle cx="690" cy="105" r="8" fill="var(--gold-dark)" />
+                        <line x1="680" y1="115" x2="700" y2="115" stroke="var(--gold-dark)" strokeWidth="3" />
 
-                        <rect x="585" y="205" width="210" height="12" fill="rgba(197,155,39,0.18)" stroke="var(--gold)" />
-                        <rect x="585" y="265" width="210" height="12" fill="rgba(197,155,39,0.18)" stroke="var(--gold)" />
-                        <rect x="585" y="325" width="210" height="12" fill="rgba(197,155,39,0.18)" stroke="var(--gold)" />
+                        <rect x="585" y="205" width="210" height="12" fill="rgba(197, 155, 39, 0.22)" stroke="var(--gold-dark)" />
+                        <rect x="585" y="265" width="210" height="12" fill="rgba(197, 155, 39, 0.22)" stroke="var(--gold-dark)" />
+                        <rect x="585" y="325" width="210" height="12" fill="rgba(197, 155, 39, 0.22)" stroke="var(--gold-dark)" />
 
-                        <rect x="580" y="370" width="220" height="90" fill="rgba(0,0,0,0.4)" stroke="currentColor" />
+                        <rect x="580" y="370" width="220" height="90" fill="rgba(31, 26, 22, 0.04)" stroke="currentColor" />
                         <line x1="690" y1="370" x2="690" y2="460" stroke="currentColor" />
                       </g>
                     </svg>
@@ -723,22 +732,22 @@ export function ArchitecturalDraftingTable() {
                   {currentProject.id === "vanity" && (
                     <svg
                       viewBox="0 0 900 520"
-                      className="w-full h-full text-[#E2DACF]"
+                      className="w-full h-full text-[#3D352E]"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.6"
                     >
-                      <line x1="60" y1="460" x2="840" y2="460" stroke="#FAF8F5" strokeWidth="2" />
-                      <text x="450" y="485" textAnchor="middle" fill="#B8AEA2" fontSize="12" fontFamily="serif">
+                      <line x1="60" y1="460" x2="840" y2="460" stroke="#1F1A16" strokeWidth="2" />
+                      <text x="450" y="485" textAnchor="middle" fill="#5E554B" fontSize="12" fontFamily="serif">
                         12-inch Floating Floor Clearance with Ambient LED Wash
                       </text>
 
                       {/* Dual Sinks */}
-                      <rect x="100" y="180" width="700" height="24" fill="rgba(255,255,255,0.08)" stroke="#FAF8F5" strokeWidth="2" />
+                      <rect x="100" y="180" width="700" height="24" fill="rgba(31, 26, 22, 0.08)" stroke="#1F1A16" strokeWidth="2" />
                       <rect x="180" y="160" width="160" height="20" rx="3" stroke="currentColor" />
                       <rect x="560" y="160" width="160" height="20" rx="3" stroke="currentColor" />
-                      <text x="260" y="174" textAnchor="middle" fill="#FAF8F5" fontSize="11" fontFamily="serif">Under-Mount Sink Left</text>
-                      <text x="640" y="174" textAnchor="middle" fill="#FAF8F5" fontSize="11" fontFamily="serif">Under-Mount Sink Right</text>
+                      <text x="260" y="174" textAnchor="middle" fill="#1F1A16" fontSize="11" fontFamily="serif">Under-Mount Sink Left</text>
+                      <text x="640" y="174" textAnchor="middle" fill="#1F1A16" fontSize="11" fontFamily="serif">Under-Mount Sink Right</text>
 
                       {/* Vanity Cabinet Body */}
                       <rect
@@ -746,8 +755,8 @@ export function ArchitecturalDraftingTable() {
                         y="204"
                         width="700"
                         height="210"
-                        fill="rgba(255,255,255,0.03)"
-                        stroke={currentFeature.id === "cantilever" ? "var(--gold)" : "currentColor"}
+                        fill="rgba(31, 26, 22, 0.03)"
+                        stroke={currentFeature.id === "cantilever" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "cantilever" ? "2.5" : "1.6"}
                       />
 
@@ -757,11 +766,11 @@ export function ArchitecturalDraftingTable() {
                         y="220"
                         width="310"
                         height="85"
-                        fill={currentFeature.id === "udrawer" ? "rgba(197, 155, 39, 0.2)" : "transparent"}
-                        stroke={currentFeature.id === "udrawer" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "udrawer" ? "rgba(197, 155, 39, 0.25)" : "transparent"}
+                        stroke={currentFeature.id === "udrawer" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "udrawer" ? "2.5" : "1.6"}
                       />
-                      <text x="275" y="265" textAnchor="middle" fill="var(--gold)" fontSize="12" fontFamily="serif">
+                      <text x="275" y="265" textAnchor="middle" fill="var(--gold-dark)" fontSize="12" fontFamily="serif">
                         U-Drawer Around Plumbing P-Trap
                       </text>
                       <rect x="120" y="315" width="310" height="85" stroke="currentColor" />
@@ -772,8 +781,8 @@ export function ArchitecturalDraftingTable() {
                         y="220"
                         width="310"
                         height="85"
-                        fill={currentFeature.id === "fluted" ? "rgba(197, 155, 39, 0.2)" : "transparent"}
-                        stroke={currentFeature.id === "fluted" ? "var(--gold)" : "currentColor"}
+                        fill={currentFeature.id === "fluted" ? "rgba(197, 155, 39, 0.25)" : "transparent"}
+                        stroke={currentFeature.id === "fluted" ? "var(--gold-dark)" : "currentColor"}
                         strokeWidth={currentFeature.id === "fluted" ? "2.5" : "1.6"}
                       />
                       <rect x="470" y="315" width="310" height="85" stroke="currentColor" />
@@ -784,15 +793,15 @@ export function ArchitecturalDraftingTable() {
                           y1="225"
                           x2={485 + i * 20}
                           y2="300"
-                          stroke="var(--gold)"
+                          stroke="var(--gold-dark)"
                           strokeWidth="1.2"
-                          opacity="0.45"
+                          opacity="0.6"
                         />
                       ))}
                     </svg>
                   )}
 
-                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-[#0E0C0A]/90 border border-white/15 px-3 py-1.5 rounded-full text-xs text-white backdrop-blur-md">
+                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-[#1F1A16]/85 border border-[#FAF8F5]/20 px-3 py-1.5 rounded-full text-xs text-white backdrop-blur-md shadow-md">
                     <span className="w-2 h-2 rounded-full bg-[var(--gold)]" />
                     <span>{locale === "en" ? "Scale Architectural Elevation" : "Elevación de Taller en Tinta"}</span>
                   </div>
@@ -801,10 +810,10 @@ export function ArchitecturalDraftingTable() {
 
               {/* SPLIT SLIDER DIVIDER LINE & DRAGGABLE HANDLE */}
               <div
-                className="pointer-events-none absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_15px_rgba(0,0,0,0.9)] z-30"
+                className="pointer-events-none absolute top-0 bottom-0 w-0.5 bg-[#1F1A16] shadow-[0_0_10px_rgba(0,0,0,0.3)] z-30"
                 style={{ left: `${sliderPos}%` }}
               >
-                <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-[var(--gold)] text-[#0E0C0A] shadow-2xl">
+                <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-[var(--gold)] text-[#1F1A16] shadow-xl">
                   <ArrowsLeftRight size={18} weight="bold" />
                 </div>
               </div>
@@ -822,8 +831,8 @@ export function ArchitecturalDraftingTable() {
             </div>
 
             {/* Quick Feature Selection Bar (Large, Accessible Touch Targets) */}
-            <div className="p-4 bg-[#1C1814] border-t border-white/8 space-y-2">
-              <span className="text-xs font-serif italic text-[#B8AEA2] block">
+            <div className="p-4 bg-[#EFEAE1] border-t border-[#E7E0D5] space-y-2">
+              <span className="text-xs font-serif italic text-[#5E554B] block">
                 {locale === "en" ? "Tap a feature to inspect craftsmanship:" : "Toca una característica para inspeccionar el detalle:"}
               </span>
               <div className="flex flex-wrap gap-2">
@@ -836,8 +845,8 @@ export function ArchitecturalDraftingTable() {
                       onClick={() => setActiveFeatureId(feat.id)}
                       className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl text-xs font-serif transition-all flex items-center gap-2 ${
                         isSelected
-                          ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                          : "bg-white/5 text-[#D8CFBF] hover:bg-white/10 hover:text-white border border-white/10"
+                          ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                          : "bg-white text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] border border-[#E0D8CB] shadow-xs"
                       }`}
                     >
                       <span>{locale === "en" ? feat.shortLabel.en : feat.shortLabel.es}</span>
@@ -850,19 +859,19 @@ export function ArchitecturalDraftingTable() {
           </div>
 
           {/* RIGHT 4 COLUMNS: THE ARTISANAL SPECIFICATION CARD */}
-          <div className="lg:col-span-4 rounded-3xl bg-[#181410] border border-white/10 p-6 sm:p-7 shadow-xl space-y-6">
+          <div className="lg:col-span-4 rounded-3xl bg-white border border-[#E7E0D5] p-6 sm:p-7 shadow-lg space-y-6 text-[#1F1A16]">
             <div className="space-y-1.5">
-              <span className="text-xs font-serif italic text-[var(--gold)]">
+              <span className="text-xs font-serif italic text-[var(--gold-dark)]">
                 {locale === "en" ? currentFeature.category.en : currentFeature.category.es}
               </span>
-              <h3 className="text-2xl font-serif font-normal text-[#FAF8F5] leading-snug">
+              <h3 className="text-2xl font-serif font-normal text-[#1F1A16] leading-snug">
                 {locale === "en" ? currentFeature.fullTitle.en : currentFeature.fullTitle.es}
               </h3>
             </div>
 
             {/* Renovo Craftsmanship Guarantee */}
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-serif text-[var(--gold)] font-semibold">
+            <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E7E0D5] space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-serif text-[var(--gold-dark)] font-semibold">
                 <CheckCircle size={16} weight="fill" />
                 <span>
                   {locale === "en"
@@ -870,7 +879,7 @@ export function ArchitecturalDraftingTable() {
                     : "El Estándar de Taller Renovo"}
                 </span>
               </div>
-              <p className="text-xs text-[#EAE2D5] leading-relaxed">
+              <p className="text-xs text-[#3D352E] leading-relaxed">
                 {locale === "en"
                   ? currentFeature.renovoStandard.en
                   : currentFeature.renovoStandard.es}
@@ -878,8 +887,8 @@ export function ArchitecturalDraftingTable() {
             </div>
 
             {/* Commercial Comparison */}
-            <div className="p-5 rounded-2xl bg-[#14100D] border border-white/10 space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-serif text-[#B8AEA2] font-semibold">
+            <div className="p-5 rounded-2xl bg-[#F5F1EB] border border-[#E7E0D5] space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-serif text-[#6B6155] font-semibold">
                 <ShieldCheck size={16} />
                 <span>
                   {locale === "en"
@@ -887,7 +896,7 @@ export function ArchitecturalDraftingTable() {
                     : "Lo que Hacen los Gabinetes Comerciales"}
                 </span>
               </div>
-              <p className="text-xs text-[#8A7F73] leading-relaxed">
+              <p className="text-xs text-[#6B6155] leading-relaxed">
                 {locale === "en"
                   ? currentFeature.commercialStandard.en
                   : currentFeature.commercialStandard.es}
@@ -898,7 +907,7 @@ export function ArchitecturalDraftingTable() {
             <div className="pt-2">
               <a
                 href="/contacto"
-                className="interactive-control min-h-[48px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#0E0C0A] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                className="interactive-control min-h-[48px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#1F1A16] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
               >
                 <span>
                   {locale === "en"

@@ -18,26 +18,28 @@
 }
 
 :root {
-  /* Renovo Quiet Luxury Atelier Palette (Unified Dark Architecture) */
-  --bg: #0E0C0A;
-  --bg-card: #161310;
-  --bg-elevated: #1F1B17;
+  /* Renovo Luminous Atelier Palette (Proposal 1: Alabaster Linen & Desert Oak) */
+  --bg: #FAF8F5;
+  --bg-subtle: #F3EFEA;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #EDE7DE;
   
-  --fg: #FAF8F5;
-  --fg-muted: #B8AEA2;
-  --fg-light: #8A7F73;
+  --fg: #1F1A16;
+  --fg-muted: #5E554B;
+  --fg-light: #8A7E72;
   
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --border: rgba(31, 26, 22, 0.09);
+  --border-strong: rgba(31, 26, 22, 0.18);
   
   /* Brand Accents */
   --gold: #C59B27;
-  --gold-hover: #D8AA30;
+  --gold-hover: #AF871C;
   --gold-subtle: rgba(197, 155, 39, 0.12);
   
   --olive: #3D5A45;
   --terracotta: #A84B31;
-  --navy: #1F2C38;
+  --navy: #22303C;
+  --wood-oak: #C79F67;
 
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -89,11 +91,9 @@ p {
 
 /* Glassmorphism & Luxury Cards */
 .luxury-card {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: #FFFFFF;
   border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 4px 24px -2px rgba(31, 26, 22, 0.06);
 }
 
 .luxury-card-hover {
@@ -103,7 +103,7 @@ p {
 .luxury-card-hover:hover {
   transform: translateY(-3px);
   border-color: rgba(197, 155, 39, 0.45);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 36px -8px rgba(31, 26, 22, 0.12);
 }
 
 /* Minimalist Touch Controls (WCAG 44px min tap target) */
@@ -126,11 +126,11 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0E0C0A;
+  background: #FAF8F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A241E;
+  background: #D8D1C5;
   border-radius: 4px;
 }
 

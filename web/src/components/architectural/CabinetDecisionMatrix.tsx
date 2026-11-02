@@ -131,14 +131,14 @@ export function CabinetDecisionMatrix() {
   const currentPath = pathDetails[selectedPath];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#120F0C] text-[#FAF8F5] border-b border-white/8 relative">
+    <section className="py-20 lg:py-28 bg-[#FAF8F5] text-[#1F1A16] border-b border-[#E7E0D5] relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
         {/* =====================================================================
             1. SECTION HEADLINE (Architectural Decision Discipline)
         ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/25 text-[var(--gold)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/15 border border-[var(--gold)]/35 text-[var(--gold-dark)] text-xs font-serif italic">
               <Scales size={15} />
               <span>
                 {locale === "en"
@@ -147,13 +147,13 @@ export function CabinetDecisionMatrix() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#1F1A16] tracking-tight">
               {locale === "en"
                 ? "Should You Reface or Build from Scratch?"
                 : "¿Conviene Transformar o Fabricar desde Cero?"}
             </h2>
 
-            <p className="text-base text-[#D4CBBF] font-light leading-relaxed">
+            <p className="text-base text-[#5E554B] font-light leading-relaxed">
               {locale === "en"
                 ? "Many homeowners spend tens of thousands unnecessarily demolishing sound hardwood cabinetry. Use our 3-question diagnostic below to find the most honest, cost-effective path for your Arizona home."
                 : "Muchos propietarios gastan miles de dólares demoliendo madera noble en perfecto estado. Responde estas 3 preguntas para descubrir la opción más honesta y rentable para tu residencia en Arizona."}
@@ -161,14 +161,14 @@ export function CabinetDecisionMatrix() {
           </div>
 
           {/* MANUAL PATH TOGGLE (Refacing vs Full Build) */}
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#1C1814] border border-white/10 self-start lg:self-auto text-xs">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#EFEAE1] border border-[#E0D8CB] self-start lg:self-auto text-xs shadow-xs">
             <button
               type="button"
               onClick={() => setSelectedPath("refacing")}
               className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl font-serif transition-all flex items-center gap-2 ${
                 selectedPath === "refacing"
-                  ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                  : "text-[#B8AEA2] hover:text-white"
+                  ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <Sparkle size={15} weight={selectedPath === "refacing" ? "fill" : "regular"} />
@@ -180,8 +180,8 @@ export function CabinetDecisionMatrix() {
               onClick={() => setSelectedPath("custom")}
               className={`interactive-control min-h-[44px] px-4 py-2 rounded-xl font-serif transition-all flex items-center gap-2 ${
                 selectedPath === "custom"
-                  ? "bg-[var(--gold)] text-[#0E0C0A] font-semibold shadow-md"
-                  : "text-[#B8AEA2] hover:text-white"
+                  ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
+                  : "text-[#5E554B] hover:text-[#1F1A16]"
               }`}
             >
               <Hammer size={15} weight={selectedPath === "custom" ? "fill" : "regular"} />
@@ -193,14 +193,14 @@ export function CabinetDecisionMatrix() {
         {/* =====================================================================
             2. THREE-QUESTION ARCHITECTURAL DIAGNOSTIC (Interactive)
         ===================================================================== */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#181410] border border-white/10 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-white/8 pb-4">
-            <span className="text-xs font-serif italic text-[var(--gold)]">
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#F3EFEA] border border-[#E7E0D5] shadow-lg space-y-6">
+          <div className="flex items-center justify-between border-b border-[#E7E0D5] pb-4">
+            <span className="text-xs font-serif italic text-[var(--gold-dark)]">
               {locale === "en"
                 ? "Interactive Kitchen Diagnostic (30 seconds)"
                 : "Diagnóstico Rápido de Cocina (30 segundos)"}
             </span>
-            <span className="text-xs text-[#8A7F73]">
+            <span className="text-xs text-[#5E554B]">
               {locale === "en"
                 ? "Answer to see our honest recommendation"
                 : "Responde para ver la recomendación de nuestro taller"}
@@ -210,7 +210,7 @@ export function CabinetDecisionMatrix() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Question 1: Footprint & Layout */}
             <div className="space-y-3">
-              <label className="text-sm font-serif font-medium text-white block">
+              <label className="text-sm font-serif font-medium text-[#1F1A16] block">
                 {locale === "en" ? "1. Current Kitchen Layout:" : "1. Distribución Actual:"}
               </label>
               <div className="space-y-2">
@@ -219,16 +219,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("layoutSatisfied", true)}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.layoutSatisfied
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={answers.layoutSatisfied ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.layoutSatisfied ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={answers.layoutSatisfied ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.layoutSatisfied ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Happy with current footprint" : "Satisfecho con la distribución actual"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Appliances and island stay in place" : "Estufa, tarja e isla se quedan donde están"}
                     </span>
                   </div>
@@ -239,16 +239,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("layoutSatisfied", false)}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     !answers.layoutSatisfied
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={!answers.layoutSatisfied ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={!answers.layoutSatisfied ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={!answers.layoutSatisfied ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={!answers.layoutSatisfied ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Want to reconfigure or expand" : "Deseo reconfigurar o ampliar"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Moving walls, expanding island, ceiling height" : "Mover muros, agrandar isla o llegar a techo"}
                     </span>
                   </div>
@@ -258,7 +258,7 @@ export function CabinetDecisionMatrix() {
 
             {/* Question 2: Box Condition */}
             <div className="space-y-3">
-              <label className="text-sm font-serif font-medium text-white block">
+              <label className="text-sm font-serif font-medium text-[#1F1A16] block">
                 {locale === "en" ? "2. Existing Cabinet Box Health:" : "2. Estado de las Cajas Estructurales:"}
               </label>
               <div className="space-y-2">
@@ -267,16 +267,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("boxCondition", "solid")}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.boxCondition === "solid"
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={answers.boxCondition === "solid" ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "solid" ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={answers.boxCondition === "solid" ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "solid" ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Solid hardwood / structurally sound" : "Madera sólida / estructura firme"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Boxes are square, finish is just dated" : "Cajas a plomo, solo el acabado está gastado"}
                     </span>
                   </div>
@@ -287,16 +287,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("boxCondition", "damaged")}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.boxCondition === "damaged"
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={answers.boxCondition === "damaged" ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "damaged" ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={answers.boxCondition === "damaged" ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.boxCondition === "damaged" ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Damaged particleboard / sagging" : "Aglomerado dañado / pandeado"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Water damage, warping or broken frames" : "Daño por agua o marcos desalineados"}
                     </span>
                   </div>
@@ -306,7 +306,7 @@ export function CabinetDecisionMatrix() {
 
             {/* Question 3: Urgency & Lifestyle */}
             <div className="space-y-3">
-              <label className="text-sm font-serif font-medium text-white block">
+              <label className="text-sm font-serif font-medium text-[#1F1A16] block">
                 {locale === "en" ? "3. Desired Timeline & Lifestyle:" : "3. Tiempos y Estilo de Vida:"}
               </label>
               <div className="space-y-2">
@@ -315,16 +315,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("urgency", "fast")}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.urgency === "fast"
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={answers.urgency === "fast" ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "fast" ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={answers.urgency === "fast" ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "fast" ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Fast transformation (5 to 7 days)" : "Transformación rápida (5 a 7 días)"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Need kitchen usable with zero demo" : "Cocina usable casi sin interrupción"}
                     </span>
                   </div>
@@ -335,16 +335,16 @@ export function CabinetDecisionMatrix() {
                   onClick={() => handleDiagnosticChange("urgency", "thorough")}
                   className={`interactive-control w-full p-3.5 rounded-xl border text-left text-xs font-serif transition-all flex items-start gap-2.5 ${
                     answers.urgency === "thorough"
-                      ? "bg-[#231D16] border-[var(--gold)] text-white shadow-sm"
-                      : "bg-white/5 border-white/10 text-[#A69B8F] hover:text-white hover:bg-white/10"
+                      ? "bg-[#F5F0E6] border-[var(--gold)] text-[#1F1A16] ring-1 ring-[var(--gold)]/40 shadow-xs"
+                      : "bg-white border-[#E7E0D5] text-[#5E554B] hover:text-[#1F1A16] hover:bg-[#FAF8F5] shadow-xs"
                   }`}
                 >
-                  <CheckCircle size={16} className={answers.urgency === "thorough" ? "text-[var(--gold)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "thorough" ? "fill" : "regular"} />
+                  <CheckCircle size={16} className={answers.urgency === "thorough" ? "text-[var(--gold-dark)] shrink-0 mt-0.5" : "opacity-30 shrink-0 mt-0.5"} weight={answers.urgency === "thorough" ? "fill" : "regular"} />
                   <div>
-                    <span className="font-semibold block text-white">
+                    <span className="font-semibold block text-[#1F1A16]">
                       {locale === "en" ? "Ready for a complete renovation" : "Listo para una renovación completa"}
                     </span>
-                    <span className="text-[11px] text-[#8A7F73]">
+                    <span className="text-[11px] text-[#7A6E63]">
                       {locale === "en" ? "Willing to invest 4 to 6 weeks for dream layout" : "Dispuesto a invertir 4 a 6 semanas"}
                     </span>
                   </div>
@@ -367,66 +367,66 @@ export function CabinetDecisionMatrix() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
           >
             {/* Left 7 Columns: Visual Case Study & Technical Comparison */}
-            <div className="lg:col-span-7 rounded-3xl overflow-hidden bg-[#181410] border border-white/10 shadow-2xl flex flex-col">
+            <div className="lg:col-span-7 rounded-3xl overflow-hidden bg-white border border-[#E7E0D5] shadow-lg flex flex-col">
               {/* Photo Viewport */}
-              <div className="relative aspect-[16/10] w-full bg-[#100D0A] overflow-hidden">
+              <div className="relative aspect-[16/10] w-full bg-[#1F1A16] overflow-hidden">
                 <img
                   src={currentPath.photo}
                   alt={currentPath.title[locale]}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
                   <span className="font-serif text-sm">
                     {currentPath.photoCaption[locale]}
                   </span>
-                  <span className="bg-[var(--gold)] text-[#0E0C0A] px-3 py-1 rounded-full font-serif font-semibold text-[11px]">
+                  <span className="bg-[var(--gold)] text-[#1F1A16] px-3 py-1 rounded-full font-serif font-semibold text-[11px] shadow-sm">
                     {selectedPath === "refacing" ? "Verified Refacing" : "Full Custom Build"}
                   </span>
                 </div>
               </div>
 
               {/* Technical Comparison Matrix Table */}
-              <div className="p-6 sm:p-8 space-y-5">
+              <div className="p-6 sm:p-8 space-y-5 text-[#1F1A16]">
                 <div className="space-y-1.5">
-                  <span className="text-xs font-serif italic text-[var(--gold)]">
+                  <span className="text-xs font-serif italic text-[var(--gold-dark)]">
                     {currentPath.tag[locale]}
                   </span>
-                  <h3 className="text-2xl font-serif font-normal text-white">
+                  <h3 className="text-2xl font-serif font-normal text-[#1F1A16]">
                     {currentPath.headline[locale]}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D4CBBF] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#5E554B] leading-relaxed font-light">
                     {currentPath.summary[locale]}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/8 text-xs">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[#8A7F73] text-[11px] block font-serif">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#EFEAE1] text-xs">
+                  <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E7E0D5] space-y-1">
+                    <span className="text-[#8A7E72] text-[11px] block font-serif">
                       {locale === "en" ? "Typical Timeline" : "Tiempo de Entrega"}
                     </span>
-                    <span className="text-sm font-serif font-semibold text-white flex items-center gap-1.5">
-                      <Clock size={15} className="text-[var(--gold)]" />
+                    <span className="text-sm font-serif font-semibold text-[#1F1A16] flex items-center gap-1.5">
+                      <Clock size={15} className="text-[var(--gold-dark)]" />
                       {currentPath.timeline[locale]}
                     </span>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[#8A7F73] text-[11px] block font-serif">
+                  <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E7E0D5] space-y-1">
+                    <span className="text-[#8A7E72] text-[11px] block font-serif">
                       {locale === "en" ? "Relative Investment" : "Inversión Relativa"}
                     </span>
-                    <span className="text-sm font-serif font-semibold text-white flex items-center gap-1.5">
-                      <Sparkle size={15} className="text-[var(--gold)]" weight="fill" />
+                    <span className="text-sm font-serif font-semibold text-[#1F1A16] flex items-center gap-1.5">
+                      <Sparkle size={15} className="text-[var(--gold-dark)]" weight="fill" />
                       {selectedPath === "refacing" ? "40% - 50% Lower" : "Full Bespoke"}
                     </span>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[#8A7F73] text-[11px] block font-serif">
+                  <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E7E0D5] space-y-1">
+                    <span className="text-[#8A7E72] text-[11px] block font-serif">
                       {locale === "en" ? "Home Disruption" : "Nivel de Obra en Casa"}
                     </span>
-                    <span className="text-sm font-serif font-semibold text-white flex items-center gap-1.5">
-                      <HouseLine size={15} className="text-[var(--gold)]" />
+                    <span className="text-sm font-serif font-semibold text-[#1F1A16] flex items-center gap-1.5">
+                      <HouseLine size={15} className="text-[var(--gold-dark)]" />
                       {selectedPath === "refacing" ? "Minimal" : "Full Renovation"}
                     </span>
                   </div>
@@ -435,39 +435,39 @@ export function CabinetDecisionMatrix() {
             </div>
 
             {/* Right 5 Columns: Raul's Honest Verdict & Consultation Action */}
-            <div className="lg:col-span-5 rounded-3xl bg-[#181410] border border-white/10 p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="lg:col-span-5 rounded-3xl bg-white border border-[#E7E0D5] p-6 sm:p-8 shadow-lg space-y-6 text-[#1F1A16]">
               <div className="space-y-2">
-                <span className="text-xs font-serif italic text-[var(--gold)]">
+                <span className="text-xs font-serif italic text-[var(--gold-dark)]">
                   {locale === "en" ? "Master Craftsman's Honest Advice" : "La Opinión Honesta de Raul Burgos"}
                 </span>
-                <h3 className="text-2xl font-serif font-normal text-white leading-snug">
+                <h3 className="text-2xl font-serif font-normal text-[#1F1A16] leading-snug">
                   {currentPath.title[locale]}
                 </h3>
               </div>
 
               {/* Quote Card */}
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 relative space-y-3">
-                <p className="text-sm font-serif italic text-[#FAF8F5] leading-relaxed">
+              <div className="p-5 rounded-2xl bg-[#FAF8F5] border-l-4 border-[var(--gold)] border-y border-r border-[#E7E0D5] relative space-y-3 shadow-xs">
+                <p className="text-sm font-serif italic text-[#2C2621] leading-relaxed">
                   &ldquo;{currentPath.raulQuote[locale]}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-2 border-t border-white/8 text-xs">
-                  <div className="w-8 h-8 rounded-full bg-[var(--gold)] text-[#0E0C0A] font-bold flex items-center justify-center font-serif text-sm">
+                <div className="flex items-center gap-3 pt-2 border-t border-[#EFEAE1] text-xs">
+                  <div className="w-8 h-8 rounded-full bg-[var(--gold)] text-[#1F1A16] font-bold flex items-center justify-center font-serif text-sm">
                     RB
                   </div>
                   <div>
-                    <span className="font-semibold text-white block">Raul Burgos</span>
-                    <span className="text-[#8A7F73] text-[11px]">Founder &amp; Master Cabinetmaker</span>
+                    <span className="font-semibold text-[#1F1A16] block">Raul Burgos</span>
+                    <span className="text-[#8A7E72] text-[11px]">Founder &amp; Master Cabinetmaker</span>
                   </div>
                 </div>
               </div>
 
               {/* What is Included Pill */}
-              <div className="p-5 rounded-2xl bg-[#14100D] border border-white/10 space-y-2 text-xs">
-                <div className="flex items-center gap-2 text-[var(--gold)] font-serif font-semibold">
+              <div className="p-5 rounded-2xl bg-[#F5F1EB] border border-[#E7E0D5] space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-[var(--gold-dark)] font-serif font-semibold">
                   <ShieldCheck size={16} />
                   <span>{locale === "en" ? "Scope of Work Included:" : "Alcance del Trabajo Incluido:"}</span>
                 </div>
-                <p className="text-[#D4CBBF] leading-relaxed">
+                <p className="text-[#5E554B] leading-relaxed">
                   {currentPath.scope[locale]}
                 </p>
               </div>
@@ -476,7 +476,7 @@ export function CabinetDecisionMatrix() {
               <div className="pt-2">
                 <a
                   href={`/contacto?service=${selectedPath === "refacing" ? "refacing" : "kitchens"}`}
-                  className="interactive-control min-h-[48px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#0E0C0A] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                  className="interactive-control min-h-[48px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#1F1A16] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
                 >
                   <span>
                     {locale === "en"
