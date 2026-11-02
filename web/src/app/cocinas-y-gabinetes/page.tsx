@@ -23,7 +23,12 @@ import {
 } from "@phosphor-icons/react";
 
 export default function KitchensAndMillworkPage() {
-  const { locale, t } = useRenovo();
+  const { locale, t, setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("kitchen");
+  }, [setActiveRoom]);
+
 
   const standards = [
     {

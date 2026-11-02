@@ -18,7 +18,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function AboutPage() {
-  const { locale } = useRenovo();
+  const {  locale , setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("patio");
+  }, [setActiveRoom]);
 
   const milestones = [
     {

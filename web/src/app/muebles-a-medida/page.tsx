@@ -11,7 +11,11 @@ import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import { ArrowRight, Sparkle, Phone, Compass, ShieldCheck } from "@phosphor-icons/react";
 
 export default function CustomFurniturePage() {
-  const { locale } = useRenovo();
+  const {  locale , setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("living");
+  }, [setActiveRoom]);
 
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">

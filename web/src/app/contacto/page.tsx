@@ -16,7 +16,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function ContactPage() {
-  const { locale } = useRenovo();
+  const {  locale , setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("patio");
+  }, [setActiveRoom]);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",

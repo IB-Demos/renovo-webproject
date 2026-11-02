@@ -66,7 +66,7 @@ export function Header() {
               Phoenix, AZ
             </span>
             <span className="text-xs text-[#3D3228] tracking-wider uppercase font-serif font-semibold">
-              {locale === "en" ? "Cabinetry & Finishes" : "Ebanistería y Pintura"}
+              Painting Solutions
             </span>
           </div>
         </Link>

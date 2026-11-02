@@ -2,7 +2,7 @@ import { Locale } from "../i18n/dictionaries";
 
 export const COMPANY_INFO = {
   name: "Renovo Painting Solutions",
-  legacyName: "Renovo Cabinetry & Finishes",
+  legacyName: "Renovo Painting Solutions",
   director: "Raul Burgos",
   phoneDisplay: "(602) 550-4369",
   phoneHref: "tel:+16025504369",

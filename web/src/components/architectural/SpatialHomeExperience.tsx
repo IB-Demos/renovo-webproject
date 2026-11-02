@@ -675,7 +675,7 @@ const LIGHTING_PRESETS: LightingPreset[] = [
 /* -------------------------------------------------------------------------- */
 
 export function SpatialHomeExperience() {
-  const { locale, addSample, isInTray } = useRenovo();
+  const { locale, addSample, isInTray, setActiveRoom, setLightingMode, setRoomColor } = useRenovo();
 
   // Scroll Container Ref for progress tracking
   const containerRef = useRef<HTMLDivElement>(null);
@@ -718,7 +718,14 @@ export function SpatialHomeExperience() {
         SPATIAL_ROOMS.length - 1,
         Math.max(0, Math.floor(progress * SPATIAL_ROOMS.length))
       );
-      setActiveRoomIdx((prev) => (prev !== targetIdx ? targetIdx : prev));
+      setActiveRoomIdx((prev) => {
+        if (prev !== targetIdx) {
+          const r = SPATIAL_ROOMS[targetIdx];
+          if (r) setActiveRoom(r.id as any);
+          return targetIdx;
+        }
+        return prev;
+      });
     });
     return () => unsubscribe();
   }, [scrollYProgress]);
@@ -727,6 +734,8 @@ export function SpatialHomeExperience() {
   const handleSelectRoom = (idx: number) => {
     setActiveRoomIdx(idx);
     setActiveHotspotId(null);
+    const r = SPATIAL_ROOMS[idx];
+    if (r) setActiveRoom(r.id as any);
 
     if (containerRef.current) {
       const containerTop = containerRef.current.offsetTop;
@@ -747,6 +756,10 @@ export function SpatialHomeExperience() {
       ...prev,
       [activeRoom.id]: finishId,
     }));
+    const f = activeRoom.finishes.find((item) => item.id === finishId);
+    if (f) {
+      setRoomColor(activeRoom.id as any, f.hex);
+    }
   };
 
   // Select lighting for active room
@@ -755,6 +768,7 @@ export function SpatialHomeExperience() {
       ...prev,
       [activeRoom.id]: mode,
     }));
+    setLightingMode(mode);
   };
 
   // Pin current room + color + lighting to sample tray

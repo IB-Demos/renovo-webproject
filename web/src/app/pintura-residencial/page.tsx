@@ -21,7 +21,12 @@ import {
 } from "@phosphor-icons/react";
 
 export default function ResidentialPaintingPage() {
-  const { locale, t } = useRenovo();
+  const { locale, t, setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("entryway");
+  }, [setActiveRoom]);
+
 
   const protocols = [
     {

@@ -5,6 +5,8 @@ import { RenovoProvider } from "@/context/RenovoContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SampleTrayDrawer } from "@/components/layout/SampleTrayDrawer";
+import { CasaAtmosphereCanvas } from "@/components/architectural/CasaAtmosphereCanvas";
+import { CasaSpatialHud } from "@/components/architectural/CasaSpatialHud";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -51,7 +53,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: "Renovo Painting Solutions",
-    alternateName: "Renovo Cabinetry & Finishes",
+    alternateName: "Renovo Painting Solutions",
     telephone: "+1-602-550-4369",
     email: "contact@renovoaz.com",
     address: {
@@ -85,10 +87,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
         <RenovoProvider>
+          <CasaAtmosphereCanvas />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 relative z-10">{children}</main>
           <Footer />
           <SampleTrayDrawer />
+          <CasaSpatialHud />
         </RenovoProvider>
       </body>
     </html>

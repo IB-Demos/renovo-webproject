@@ -16,7 +16,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function CatalogPage() {
-  const { locale, t, samples, setIsDrawerOpen } = useRenovo();
+  const {  locale, t, samples, setIsDrawerOpen , setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("living");
+  }, [setActiveRoom]);
 
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">

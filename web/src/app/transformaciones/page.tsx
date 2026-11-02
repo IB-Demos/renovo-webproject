@@ -19,7 +19,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function TransformationsPage() {
-  const { locale } = useRenovo();
+  const {  locale , setActiveRoom } = useRenovo();
+
+  React.useEffect(() => {
+    setActiveRoom("entryway");
+  }, [setActiveRoom]);
 
   const comparisonPoints = [
     {

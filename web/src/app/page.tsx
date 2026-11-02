@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { useRenovo } from "@/context/RenovoContext";
+import { useRenovo, CasaRoomId } from "@/context/RenovoContext";
 import { COMPANY_INFO, BEFORE_AFTER_PAIRS } from "@/lib/company-data/portfolio";
 import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
@@ -27,7 +27,32 @@ import {
 } from "@phosphor-icons/react";
 
 export default function HomePage() {
-  const { locale, t } = useRenovo();
+  const { locale, t, setActiveRoom } = useRenovo();
+
+  // Scroll-Driven Integral Casa Renovo Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const room = entry.target.getAttribute("data-casa-room") as CasaRoomId | null;
+            if (room) {
+              setActiveRoom(room);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -35% 0px",
+        threshold: 0.1,
+      }
+    );
+
+    const zones = document.querySelectorAll("[data-casa-room]");
+    zones.forEach((z) => observer.observe(z));
+
+    return () => observer.disconnect();
+  }, [setActiveRoom]);
 
   // Hero Quick-Switch Showcase
   const [heroTab, setHeroTab] = useState<"kitchen" | "furniture" | "finish">("kitchen");
@@ -115,7 +140,7 @@ export default function HomePage() {
       {/* =====================================================================
           1. CINEMATIC LUXURY HERO (Sonoran Mineral Canvas, Warm Earth & Clay)
       ===================================================================== */}
-      <section className="relative min-h-[90vh] lg:min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#EFE8DD] border-b border-[#DFD6C6]">
+      <section data-casa-room="kitchen" className="relative min-h-[90vh] lg:min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#EFE8DD] border-b border-[#DFD6C6]">
         {/* Atmospheric Background with soft natural veil */}
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
@@ -305,7 +330,7 @@ export default function HomePage() {
       {/* =====================================================================
           2. THE THREE MASTER DISCIPLINES (Warm Sonoran Earth Gallery)
       ===================================================================== */}
-      <section className="py-20 lg:py-28 bg-[#EAE2D5] border-b border-[#DFD6C6] relative">
+      <section data-casa-room="kitchen" className="py-20 lg:py-28 bg-[#EAE2D5] border-b border-[#DFD6C6] relative">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-14 space-y-3">
             <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
@@ -455,7 +480,7 @@ export default function HomePage() {
       {/* =====================================================================
           3. FEATURED TRANSFORMATION SPOTLIGHT (Seamless Before / After Reveal)
       ===================================================================== */}
-      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
+      <section data-casa-room="entryway" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left 5 Cols: Storytelling & Project Selectors */}
@@ -605,7 +630,7 @@ export default function HomePage() {
       {/* =====================================================================
           5. THE RAUL BURGOS STORY & PHOENIX WORKSHOP (Soulful Heritage)
       ===================================================================== */}
-      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
+      <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Story */}
@@ -692,7 +717,7 @@ export default function HomePage() {
       {/* =====================================================================
           6. GRAND CONSULTATION CALL TO ACTION (Deep Roasted Walnut Anchor)
       ===================================================================== */}
-      <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
+      <section data-casa-room="patio" className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
         {/* Soft Terracotta Glow */}
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
 
