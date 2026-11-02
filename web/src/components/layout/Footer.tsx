@@ -20,7 +20,7 @@ export function Footer() {
                 <img
                   src={COMPANY_INFO.logoPath}
                   alt={COMPANY_INFO.name}
-                  className="h-11 sm:h-12 w-auto object-contain outline-none"
+                  className="h-14 sm:h-16 w-auto object-contain outline-none"
                 />
               </div>
             </div>

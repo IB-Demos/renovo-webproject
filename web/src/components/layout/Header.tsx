@@ -48,7 +48,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#F4EFE6]/92 backdrop-blur-xl border-b border-[#E0D7C8] text-[#261F1A] transition-all">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-20 sm:h-24 flex items-center justify-between gap-4">
         {/* =====================================================================
             1. BRAND LOGO (Clean, high-end atelier proportions)
         ===================================================================== */}
@@ -59,7 +59,7 @@ export function Header() {
           <img
             src={COMPANY_INFO.logoPath}
             alt="Renovo Painting Solutions"
-            className="h-10 sm:h-12 w-auto object-contain outline-none drop-shadow-xs"
+            className="h-14 sm:h-16 w-auto object-contain outline-none drop-shadow-sm"
           />
           <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-3 leading-tight">
             <span className="text-[10px] tracking-[0.2em] text-[#B85D3B] font-serif font-semibold uppercase">

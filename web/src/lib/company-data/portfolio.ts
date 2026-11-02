@@ -16,7 +16,7 @@ export const COMPANY_INFO = {
     full: "2231 W Shangri La Rd, Ste K-L, Phoenix, AZ 85029",
   },
   experienceYears: 10,
-  logoPath: "/assets/brand/renovo-logo-terracota.png",
+  logoPath: "/assets/brand/renovo-logo-negro.png",
   wordpressOrigin: "https://cabinetryaz.wordpress.com/",
   googleMapsUrl: "https://maps.google.com/?q=2231+W+Shangri+La+Rd,+Phoenix,+AZ+85029",
 };
