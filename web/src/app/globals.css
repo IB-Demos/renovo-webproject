@@ -18,26 +18,30 @@
 }
 
 :root {
-  /* Renovo Luminous Atelier Palette (Proposal 1: Alabaster Linen & Desert Oak) */
-  --bg: #FAF8F5;
-  --bg-subtle: #F3EFEA;
-  --bg-card: #FFFFFF;
-  --bg-elevated: #EDE7DE;
+  /* Renovo Sonoran Heritage Palette (Proposal 2: Tierra Desértica & Pigmentos Minerales) */
+  --bg: #F4EFE6;
+  --bg-subtle: #EAE2D5;
+  --bg-card: #FCFAF7;
+  --bg-elevated: #DFD5C6;
   
-  --fg: #1F1A16;
-  --fg-muted: #5E554B;
-  --fg-light: #8A7E72;
+  --fg: #261F1A;
+  --fg-muted: #6B5E52;
+  --fg-light: #948678;
   
-  --border: rgba(31, 26, 22, 0.09);
-  --border-strong: rgba(31, 26, 22, 0.18);
+  --border: rgba(38, 31, 26, 0.12);
+  --border-strong: rgba(38, 31, 26, 0.22);
   
   /* Brand Accents */
+  --terracotta: #B85D3B;
+  --terracotta-hover: #A34E2F;
+  --terracotta-subtle: rgba(184, 93, 59, 0.14);
+
   --gold: #C59B27;
-  --gold-hover: #AF871C;
-  --gold-subtle: rgba(197, 155, 39, 0.12);
+  --gold-hover: #D4AF37;
+  --gold-dark: #997314;
+  --gold-subtle: rgba(197, 155, 39, 0.14);
   
-  --olive: #3D5A45;
-  --terracotta: #A84B31;
+  --olive: #475845;
   --navy: #22303C;
   --wood-oak: #C79F67;
 
@@ -91,9 +95,9 @@ p {
 
 /* Glassmorphism & Luxury Cards */
 .luxury-card {
-  background-color: #FFFFFF;
+  background-color: #FCFAF7;
   border: 1px solid var(--border);
-  box-shadow: 0 4px 24px -2px rgba(31, 26, 22, 0.06);
+  box-shadow: 0 4px 24px -2px rgba(38, 31, 26, 0.07);
 }
 
 .luxury-card-hover {
@@ -102,8 +106,8 @@ p {
 
 .luxury-card-hover:hover {
   transform: translateY(-3px);
-  border-color: rgba(197, 155, 39, 0.45);
-  box-shadow: 0 16px 36px -8px rgba(31, 26, 22, 0.12);
+  border-color: rgba(184, 93, 59, 0.5);
+  box-shadow: 0 16px 36px -8px rgba(38, 31, 26, 0.14);
 }
 
 /* Minimalist Touch Controls (WCAG 44px min tap target) */
@@ -126,14 +130,14 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #F4EFE6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8D1C5;
+  background: #D5CBBC;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--terracotta);
 }

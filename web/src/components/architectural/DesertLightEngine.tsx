@@ -236,14 +236,14 @@ export function DesertLightEngine() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F3EFEA] text-[#1F1A16] border-b border-[#E7E0D5] relative">
+    <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#261F1A] border-b border-[#DFD6C6] relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-10">
         {/* =====================================================================
             1. SECTION HEADER (Architectural Lighting Discipline)
         ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--gold)]/15 border border-[var(--gold)]/35 text-[var(--gold-dark)] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <Sun size={14} weight="fill" />
               <span>
                 {locale === "en"
@@ -252,13 +252,13 @@ export function DesertLightEngine() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#1F1A16] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
               {locale === "en"
                 ? "How Your Finishes Respond to Arizona Light."
                 : "Cómo Responden los Acabados a la Luz de Arizona."}
             </h2>
 
-            <p className="text-base text-[#5E554B] font-light leading-relaxed">
+            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
               {locale === "en"
                 ? "Desert sunlight is unique. A finish that looks warm in the morning can feel stark at high noon. Select an authentic wood or 2K lacquer below and toggle through 3 natural Arizona lighting conditions to see the optical shift."
                 : "La luz del desierto es única en el mundo. Un acabado cálido por la mañana puede sentirse rígido al mediodía. Elige una madera o laca 2K y alterna entre 3 horas del día para comprobar cómo reacciona la superficie."}
@@ -266,7 +266,7 @@ export function DesertLightEngine() {
           </div>
 
           {/* LIGHT CONDITION TABS */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-[#EFEAE1] border border-[#E0D8CB] self-start lg:self-auto shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-[#DFD6C6]/70 border border-[#DFD6C6] self-start lg:self-auto shadow-xs">
             {lightPresets.map((preset) => {
               const isSelected = activeLight === preset.id;
               const Icon = preset.icon;
@@ -277,8 +277,8 @@ export function DesertLightEngine() {
                   onClick={() => setActiveLight(preset.id)}
                   className={`interactive-control min-h-[44px] px-3.5 sm:px-4 py-2 rounded-xl text-xs font-serif transition-all flex items-center gap-2 ${
                     isSelected
-                      ? "bg-[var(--gold)] text-[#1F1A16] font-semibold shadow-xs"
-                      : "text-[#5E554B] hover:text-[#1F1A16]"
+                      ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
+                      : "text-[#6B5E52] hover:text-[#261F1A]"
                   }`}
                 >
                   <Icon size={16} weight={isSelected ? "fill" : "regular"} />
@@ -302,8 +302,8 @@ export function DesertLightEngine() {
                 onClick={() => setActiveFinishId(f.id)}
                 className={`interactive-control p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-200 flex items-center gap-3.5 ${
                   isSelected
-                    ? "bg-[#F5F0E6] border-[var(--gold)] ring-1 ring-[var(--gold)]/40 shadow-xs text-[#1F1A16]"
-                    : "bg-white border-[#E7E0D5] hover:border-[#D5CABE] text-[#5E554B] shadow-xs"
+                    ? "bg-[#FCFAF7] border-[#B85D3B] ring-1 ring-[#B85D3B]/30 shadow-xs text-[#261F1A]"
+                    : "bg-[#FCFAF7]/75 border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
                 }`}
               >
                 {/* Physical Swatch Pill */}
@@ -312,7 +312,7 @@ export function DesertLightEngine() {
                   style={{ backgroundColor: f.baseHex }}
                 />
                 <div className="min-w-0">
-                  <div className={`text-xs sm:text-sm font-serif font-medium truncate ${isSelected ? "text-[#1F1A16]" : "text-[#3D352E]"}`}>
+                  <div className={`text-xs sm:text-sm font-serif font-medium truncate ${isSelected ? "text-[#261F1A]" : "text-[#3D352E]"}`}>
                     {f.name[locale]}
                   </div>
                   <div className="text-[10px] text-[#8A7E72] truncate mt-0.5">
@@ -329,19 +329,19 @@ export function DesertLightEngine() {
         ===================================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* LEFT 8 COLS: OPTICALLY FILTERED PHOTOGRAPHY VIEWPORT */}
-          <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-white border border-[#E7E0D5] shadow-lg flex flex-col">
+          <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-lg flex flex-col">
             {/* Viewport Header Bar */}
-            <div className="px-5 py-3.5 border-b border-[#E7E0D5] bg-[#EFEAE1] flex flex-wrap items-center justify-between gap-3 text-xs text-[#5E554B]">
+            <div className="px-5 py-3.5 border-b border-[#DFD6C6] bg-[#EAE2D5] flex flex-wrap items-center justify-between gap-3 text-xs text-[#6B5E52]">
               <div className="flex items-center gap-2">
                 <span
                   className="w-2.5 h-2.5 rounded-full"
                   style={{ backgroundColor: currentFinish.baseHex }}
                 />
-                <span className="font-serif italic text-sm text-[#1F1A16]">
+                <span className="font-serif italic text-sm text-[#261F1A]">
                   {currentFinish.name[locale]}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-xs font-serif text-[var(--gold-dark)]">
+              <div className="flex items-center gap-3 text-xs font-serif text-[#B85D3B]">
                 <span>{currentLightPreset.label[locale]}</span>
                 <span>·</span>
                 <span className="font-serif text-[12px] font-semibold">{currentLightPreset.kelvin}</span>
@@ -386,12 +386,12 @@ export function DesertLightEngine() {
             </div>
 
             {/* Bottom Swatch Advice Bar */}
-            <div className="p-4 bg-[#EFEAE1] border-t border-[#E7E0D5] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div className="p-4 bg-[#EAE2D5] border-t border-[#DFD6C6] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-3">
-                <span className="font-serif italic text-[#5E554B]">
+                <span className="font-serif italic text-[#6B5E52]">
                   {locale === "en" ? "Light Reflectance Value (LRV):" : "Índice de Reflexión Lumínica (LRV):"}
                 </span>
-                <span className="font-serif text-sm text-[var(--gold-dark)] font-bold">
+                <span className="font-serif text-sm text-[#B85D3B] font-bold">
                   {currentFinish.lrv} / 100
                 </span>
                 <span className="text-[11px] text-[#7A6E63]">
@@ -410,8 +410,8 @@ export function DesertLightEngine() {
                 onClick={handleTogglePin}
                 className={`interactive-control min-h-[36px] px-3.5 py-1.5 rounded-full text-xs font-serif transition-all inline-flex items-center gap-1.5 border self-start sm:self-auto ${
                   isPinned
-                    ? "bg-[var(--gold)] text-[#1F1A16] border-transparent font-semibold shadow-xs"
-                    : "bg-white border-[#E0D8CB] text-[#1F1A16] hover:border-[var(--gold)] shadow-xs"
+                    ? "bg-[#B85D3B] text-[#FCFAF7] border-transparent font-semibold shadow-xs"
+                    : "bg-[#FCFAF7] border-[#DFD6C6] text-[#261F1A] hover:border-[#B85D3B] shadow-xs"
                 }`}
               >
                 {isPinned ? <Check size={14} weight="bold" /> : <BookmarkSimple size={14} />}
@@ -429,22 +429,22 @@ export function DesertLightEngine() {
           </div>
 
           {/* RIGHT 4 COLS: RAUL BURGOS' LIGHTING ADVICE & BULB RECOMMENDATIONS */}
-          <div className="lg:col-span-4 rounded-3xl bg-white border border-[#E7E0D5] p-6 sm:p-7 shadow-lg space-y-6 text-[#1F1A16]">
+          <div className="lg:col-span-4 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] p-6 sm:p-7 shadow-lg space-y-6 text-[#261F1A]">
             <div className="space-y-1.5">
-              <span className="text-xs font-serif italic text-[var(--gold-dark)]">
+              <span className="text-xs font-serif italic text-[#B85D3B]">
                 {locale === "en" ? "Architectural Colorimetry" : "Colorimetría y Diseño Lumínico"}
               </span>
-              <h3 className="text-2xl font-serif font-normal text-[#1F1A16] leading-snug">
+              <h3 className="text-2xl font-serif font-normal text-[#261F1A] leading-snug">
                 {currentFinish.name[locale]}
               </h3>
-              <p className="text-xs text-[#5E554B] font-serif">
+              <p className="text-xs text-[#6B5E52] font-serif">
                 {currentFinish.chemistry[locale]} · {currentFinish.sheen[locale]}
               </p>
             </div>
 
             {/* Dynamic Advice for Active Light Condition */}
-            <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E7E0D5] space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-serif text-[var(--gold-dark)] font-semibold">
+            <div className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-serif text-[#B85D3B] font-semibold">
                 <Sun size={15} weight="fill" />
                 <span>
                   {locale === "en"
@@ -452,21 +452,21 @@ export function DesertLightEngine() {
                     : `Comportamiento en ${currentLightPreset.label.es}:`}
                 </span>
               </div>
-              <p className="text-xs text-[#3D352E] leading-relaxed">
+              <p className="text-xs text-[#261F1A] leading-relaxed">
                 {currentFinish.lightingAdvice[activeLight][locale]}
               </p>
             </div>
 
             {/* Recommended Kelvin Bulb Specification */}
-            <div className="p-5 rounded-2xl bg-[#F5F1EB] border border-[#E7E0D5] space-y-2">
-              <span className="text-xs font-serif italic text-[#5E554B] block">
+            <div className="p-5 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] space-y-2">
+              <span className="text-xs font-serif italic text-[#6B5E52] block">
                 {locale === "en" ? "Raul's Lighting Recommendation:" : "Recomendación Lumínica de Raul:"}
               </span>
-              <div className="text-sm font-serif font-medium text-[#1F1A16] flex items-center gap-2">
-                <Compass size={16} className="text-[var(--gold-dark)]" />
+              <div className="text-sm font-serif font-medium text-[#261F1A] flex items-center gap-2">
+                <Compass size={16} className="text-[#B85D3B]" />
                 <span>{currentFinish.recommendedKelvin}</span>
               </div>
-              <p className="text-[11px] text-[#6B6155] leading-relaxed">
+              <p className="text-[11px] text-[#6B5E52] leading-relaxed">
                 {locale === "en"
                   ? "We formulate our finishes to avoid the dreaded green or pink color-casts common when cheap paints react to high-CRI Arizona LED lighting."
                   : "Formulamos nuestras lacas para evitar reflejos verdosos o rosados indeseados al recibir iluminación LED de alto rendimiento."}
@@ -477,7 +477,7 @@ export function DesertLightEngine() {
             <div className="pt-2">
               <a
                 href="/contacto"
-                className="interactive-control min-h-[48px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-[#1F1A16] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                className="interactive-control min-h-[48px] w-full rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
               >
                 <span>
                   {locale === "en"
