@@ -57,9 +57,9 @@ export function Header() {
           className="interactive-control flex items-center gap-3 group focus-visible:rounded-md py-1 shrink-0"
         >
           <img
-            src="/assets/brand/renovo-logo.png"
+            src={COMPANY_INFO.logoPath}
             alt="Renovo Painting Solutions"
-            className="h-8 sm:h-10 w-auto object-contain outline-none drop-shadow-xs"
+            className="h-10 sm:h-12 w-auto object-contain outline-none drop-shadow-xs"
           />
           <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-3 leading-tight">
             <span className="text-[10px] tracking-[0.2em] text-[#B85D3B] font-serif font-semibold uppercase">

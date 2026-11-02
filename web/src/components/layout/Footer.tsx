@@ -16,11 +16,11 @@ export function Footer() {
           {/* Official Brand & Phoenix Identity */}
           <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3.5">
-              <div className="p-2 rounded-xl bg-[#1F1814] border border-[#3D332B] shadow-sm inline-block">
+              <div className="p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-sm inline-block">
                 <img
                   src={COMPANY_INFO.logoPath}
                   alt={COMPANY_INFO.name}
-                  className="h-10 w-auto object-contain outline-none"
+                  className="h-11 sm:h-12 w-auto object-contain outline-none"
                 />
               </div>
             </div>
