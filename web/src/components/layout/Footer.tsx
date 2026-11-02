@@ -10,13 +10,13 @@ export function Footer() {
   const { locale, t } = useRenovo();
 
   return (
-    <footer className="bg-[#261F1A] text-[#F3EFE8] border-t border-[#3D332B]">
+    <footer className="bg-[#1A1613] text-[#FAF8F5] border-t border-[#38312A]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#3D332B]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#38312A]">
           {/* Official Brand & Phoenix Identity */}
           <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3.5">
-              <div className="p-2 rounded-xl bg-[#1F1814] border border-[#3D332B] shadow-sm inline-block">
+              <div className="p-2 rounded-xl bg-[#25201B] border border-[#38312A] shadow-sm inline-block">
                 <img
                   src={COMPANY_INFO.logoPath}
                   alt={COMPANY_INFO.name}

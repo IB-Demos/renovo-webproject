@@ -220,38 +220,38 @@ export function CraftChronology() {
   const activeStage = CRAFT_STAGES[activeStageIdx];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#261F1A] border-b border-[#DFD6C6] relative">
+    <section className="py-20 lg:py-28 bg-[#1A1613] text-[#FAF8F5] border-b border-[#38312A] relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
         {/* Headline */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] text-xs font-serif italic">
               <Clock size={15} />
               <span>
                 {locale === "en"
-                  ? "The 7-Stage Craft Chronology · Phoenix Shop Process"
+                  ? "The 7-Stage Craft Chronology · Phoenix Shop Process Vault"
                   : "El Diario de Taller en 7 Etapas · Proceso de Taller en Phoenix"}
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#261F1A] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#FAF8F5] tracking-tight">
               {locale === "en"
                 ? "What Ordinary House Painters Skip."
                 : "Lo que los Pintores Ordinarios se Saltan."}
             </h2>
 
-            <p className="text-base text-[#6B5E52] font-light leading-relaxed">
+            <p className="text-base text-[#D4CBBF] font-light leading-relaxed">
               {locale === "en"
                 ? "A \$10,000+ kitchen transformation requires cleanroom extraction, molecular primers, and factory spray booths. Walk through our step-by-step chronology at our 2231 W Shangri La Rd workshop."
                 : "Una transformación de cocina de \$10,000+ USD exige extracción de polvo, selladores moleculares y cabina de aspersión. Conoce el paso a paso de nuestro taller en 2231 W Shangri La Rd."}
             </p>
           </div>
 
-          <div className="text-xs font-serif text-[#6B5E52] max-w-xs self-start lg:self-auto space-y-1">
-            <span className="text-[#B85D3B] font-semibold block">
+          <div className="text-xs font-serif text-[#D4CBBF] max-w-xs self-start lg:self-auto space-y-1">
+            <span className="text-[var(--gold)] font-semibold block">
               {locale === "en" ? "KCMA Certified Factory Standard" : "Estándar de Fábrica KCMA"}
             </span>
-            <p className="text-[11px] leading-relaxed text-[#7A6E63]">
+            <p className="text-[11px] leading-relaxed text-[#9E9386]">
               {locale === "en"
                 ? "Tested for moisture resistance, grease repellency, and decade-long adhesion."
                 : "Probado para resistir humedad, vapor, grasa y adherencia por décadas."}
@@ -270,30 +270,30 @@ export function CraftChronology() {
                 onClick={() => setActiveStageIdx(idx)}
                 className={`interactive-control p-3.5 rounded-2xl text-left transition-all border flex flex-col justify-between ${
                   isActive
-                    ? "bg-[#B85D3B] border-[#B85D3B] text-[#FCFAF7] shadow-xs"
-                    : "bg-[#FCFAF7] border-[#DFD6C6] hover:border-[#261F1A] text-[#6B5E52] shadow-xs"
+                    ? "bg-[var(--gold)] border-[var(--gold)] text-[#1F1A16] shadow-xs"
+                    : "bg-[#25201B] border-[#38312A] hover:border-white/30 text-[#D4CBBF] shadow-xs"
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
                   <span
                     className={`font-serif text-xs font-bold ${
-                      isActive ? "text-[#FCFAF7]" : "text-[#8A7E72]"
+                      isActive ? "text-[#1F1A16]" : "text-[#9E9386]"
                     }`}
                   >
                     STEP {stage.step}
                   </span>
                   {isActive && (
-                    <div className="w-2 h-2 rounded-full bg-[#FCFAF7]" />
+                    <div className="w-2 h-2 rounded-full bg-[#1F1A16]" />
                   )}
                 </div>
 
                 <div className="mt-2">
-                  <span className={`text-[11px] block font-serif ${isActive ? "text-[#FCFAF7]/85" : "text-[#8A7E72]"}`}>
+                  <span className={`text-[11px] block font-serif ${isActive ? "text-[#1F1A16]/85" : "text-[#9E9386]"}`}>
                     {stage.day[locale]}
                   </span>
                   <span
                     className={`text-xs font-serif font-semibold block truncate mt-0.5 ${
-                      isActive ? "text-[#FCFAF7]" : "text-[#3D352E]"
+                      isActive ? "text-[#1F1A16]" : "text-[#FAF8F5]"
                     }`}
                   >
                     {locale === "en" ? stage.title.en.split("&")[0] : stage.title.es.split("y")[0]}
@@ -315,8 +315,8 @@ export function CraftChronology() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
           >
             {/* Visual Viewport */}
-            <div className="lg:col-span-6 rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-lg relative">
-              <div className="aspect-[16/11] w-full overflow-hidden bg-[#261F1A] relative">
+            <div className="lg:col-span-6 rounded-3xl overflow-hidden bg-[#25201B] border border-[#38312A] shadow-lg relative">
+              <div className="aspect-[16/11] w-full overflow-hidden bg-[#1F1A16] relative">
                 <img
                   src={activeStage.image}
                   alt={activeStage.title[locale]}
@@ -324,7 +324,7 @@ export function CraftChronology() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
-                <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-xs font-serif text-[#C59B27] border border-white/10 shadow-xs">
+                <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#1A1613]/85 backdrop-blur-md text-xs font-serif text-[var(--gold)] border border-white/10 shadow-xs">
                   {activeStage.day[locale]} · {locale === "en" ? "Phoenix Shop" : "Taller Shangri La"}
                 </div>
 
@@ -336,66 +336,66 @@ export function CraftChronology() {
               </div>
 
               {/* Equipment Banner */}
-              <div className="p-4 bg-[#EAE2D5] border-t border-[#DFD6C6] flex items-center justify-between text-xs">
-                <span className="text-[#6B5E52] font-serif">
+              <div className="p-4 bg-[#1A1613] border-t border-[#38312A] flex items-center justify-between text-xs">
+                <span className="text-[#9E9386] font-serif">
                   {locale === "en" ? "Tooling & Tech:" : "Herramientas:"}
                 </span>
-                <span className="font-serif text-[#261F1A] text-right truncate pl-2 font-medium">
+                <span className="font-serif text-[#FAF8F5] text-right truncate pl-2 font-medium">
                   {activeStage.equipment}
                 </span>
               </div>
             </div>
 
             {/* Technical Narrative & Master Craftsman Insight */}
-            <div className="lg:col-span-6 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] p-6 sm:p-8 shadow-lg space-y-6 text-[#261F1A]">
+            <div className="lg:col-span-6 rounded-3xl bg-[#25201B] border border-[#38312A] p-6 sm:p-8 shadow-lg space-y-6 text-[#FAF8F5]">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-serif text-[#B85D3B] font-bold">
+                  <span className="text-xs font-serif text-[var(--gold)] font-bold">
                     STAGE {activeStage.step} OF 07
                   </span>
-                  <span className="text-xs text-[#8A7E72]">/</span>
-                  <span className="text-xs font-serif italic text-[#6B5E52]">
+                  <span className="text-xs text-[#9E9386]">/</span>
+                  <span className="text-xs font-serif italic text-[#D4CBBF]">
                     {activeStage.day[locale]}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#261F1A] leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#FAF8F5] leading-snug">
                   {activeStage.title[locale]}
                 </h3>
 
-                <p className="text-sm text-[#6B5E52] font-light leading-relaxed pt-2">
+                <p className="text-sm text-[#D4CBBF] font-light leading-relaxed pt-2">
                   {activeStage.description[locale]}
                 </p>
               </div>
 
               {/* Inspection Standard Box */}
-              <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-1.5 text-xs">
-                <div className="flex items-center gap-2 text-[#B85D3B] font-serif font-semibold">
+              <div className="p-4 rounded-2xl bg-[#1A1613] border border-[#38312A] space-y-1.5 text-xs">
+                <div className="flex items-center gap-2 text-[var(--gold)] font-serif font-semibold">
                   <ShieldCheck size={16} />
                   <span>
                     {locale === "en" ? "Renovo Inspection Standard:" : "Criterio de Inspección Renovo:"}
                   </span>
                 </div>
-                <p className="text-[#261F1A] leading-relaxed">
+                <p className="text-[#FAF8F5] leading-relaxed">
                   {activeStage.inspectionStandard[locale]}
                 </p>
               </div>
 
               {/* Craftsman Tip */}
-              <div className="p-4 rounded-2xl bg-[#EAE2D5] border-l-4 border-[#B85D3B] text-xs font-serif italic text-[#261F1A] space-y-1 shadow-xs">
-                <span className="text-[10px] uppercase font-bold text-[#B85D3B] block not-italic tracking-wider">
+              <div className="p-4 rounded-2xl bg-[#1A1613] border-l-4 border-[var(--gold)] text-xs font-serif italic text-[#FAF8F5] space-y-1 shadow-xs">
+                <span className="text-[10px] uppercase font-bold text-[var(--gold)] block not-italic tracking-wider">
                   Raul Burgos · Master Cabinetmaker
                 </span>
                 <p>&ldquo;{activeStage.craftsmanTip[locale]}&rdquo;</p>
               </div>
 
               {/* Quick Jump Buttons */}
-              <div className="flex items-center justify-between pt-2 border-t border-[#DFD6C6] text-xs">
+              <div className="flex items-center justify-between pt-2 border-t border-[#38312A] text-xs">
                 <button
                   type="button"
                   disabled={activeStageIdx === 0}
                   onClick={() => setActiveStageIdx((prev) => Math.max(0, prev - 1))}
-                  className="interactive-control px-4 py-2 rounded-xl text-[#6B5E52] hover:text-[#261F1A] disabled:opacity-30 disabled:hover:text-[#6B5E52] font-serif transition-colors"
+                  className="interactive-control px-4 py-2 rounded-xl text-[#D4CBBF] hover:text-[#FAF8F5] disabled:opacity-30 disabled:hover:text-[#D4CBBF] font-serif transition-colors"
                 >
                   &larr; {locale === "en" ? "Previous Stage" : "Etapa Anterior"}
                 </button>
@@ -404,7 +404,7 @@ export function CraftChronology() {
                   type="button"
                   disabled={activeStageIdx === CRAFT_STAGES.length - 1}
                   onClick={() => setActiveStageIdx((prev) => Math.min(CRAFT_STAGES.length - 1, prev + 1))}
-                  className="interactive-control px-4 py-2 rounded-xl bg-[#F4EFE6] hover:bg-[#EAE2D5] border border-[#DFD6C6] text-[#261F1A] font-serif transition-colors flex items-center gap-1.5 disabled:opacity-30 shadow-xs"
+                  className="interactive-control px-4 py-2 rounded-xl bg-[#1A1613] hover:bg-[#38312A] border border-[#38312A] text-[#FAF8F5] font-serif transition-colors flex items-center gap-1.5 disabled:opacity-30 shadow-xs"
                 >
                   <span>{locale === "en" ? "Next Stage" : "Siguiente Etapa"}</span>
                   <ArrowRight size={13} />
