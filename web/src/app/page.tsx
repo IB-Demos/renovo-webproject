@@ -11,6 +11,7 @@ import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisio
 import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { CraftChronology } from "@/components/architectural/CraftChronology";
 import { ExplodedCabinetJoinery } from "@/components/architectural/ExplodedCabinetJoinery";
+import { SpatialHomeExperience } from "@/components/architectural/SpatialHomeExperience";
 import {
   Sparkle,
   ArrowRight,
@@ -439,6 +440,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+            {/* =====================================================================
+          EXCLUSIVE FEATURE 00: SPATIAL RESIDENTIAL TOUR (Casa Renovo)
+          Scroll-driven room-by-room experience with live color & desert lighting
+      ===================================================================== */}
+      <SpatialHomeExperience />
 
       {/* =====================================================================
           EXCLUSIVE FEATURE 01: THE ARCHITECTURAL DRAFTING TABLE

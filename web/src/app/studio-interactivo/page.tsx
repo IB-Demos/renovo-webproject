@@ -4,6 +4,7 @@ import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRenovo } from "@/context/RenovoContext";
+import { SpatialHomeExperience } from "@/components/architectural/SpatialHomeExperience";
 import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
 import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
@@ -13,6 +14,7 @@ import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierg
 import { ParametricScopeEstimator } from "@/components/workbench/ParametricScopeEstimator";
 import {
   Sparkle,
+  Eye,
   PaintBrush,
   Compass,
   Calculator,
@@ -30,6 +32,9 @@ function InteractiveStudioContent() {
   const searchParams = useSearchParams();
   const initialParam = searchParams.get("tab");
   const initialTab =
+    initialParam === "spatial"
+      ? "spatial"
+      :
     initialParam === "light"
       ? "light"
       : initialParam === "matrix"
@@ -45,10 +50,19 @@ function InteractiveStudioContent() {
       : "drafting";
 
   const [activeTab, setActiveTab] = useState<
-    "drafting" | "light" | "matrix" | "joinery" | "chronology" | "samplebox" | "estimator"
+    "spatial" | "drafting" | "light" | "matrix" | "joinery" | "chronology" | "samplebox" | "estimator"
   >(initialTab);
 
   const tools = [
+    {
+      id: "spatial" as const,
+      icon: Eye,
+      titleEn: "Spatial Tour",
+      titleEs: "Recorrido Espacial",
+      descEn: "Room-by-room walkthrough",
+      descEs: "Casa Renovo interactiva",
+    },
+
     {
       id: "drafting" as const,
       icon: Compass,
@@ -172,6 +186,7 @@ function InteractiveStudioContent() {
 
       {/* 3. ACTIVE TOOL VIEWPORT */}
       <div>
+        {activeTab === "spatial" && <SpatialHomeExperience />}
         {activeTab === "drafting" && <ArchitecturalDraftingTable />}
         {activeTab === "light" && <DesertLightEngine />}
         {activeTab === "matrix" && <CabinetDecisionMatrix />}
@@ -208,7 +223,7 @@ function InteractiveStudioContent() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h3 className="text-3xl sm:text-5xl font-serif font-semibold text-[#FAF8F5]">
+            <h3 className="text-3xl sm:text-5xl font-serif font-semibold text-[#1A1410]">
               {locale === "en" ? "Ready to Bring This Design to Life?" : "¿Listo para Hacer Realidad este Diseño?"}
             </h3>
             <p className="text-base text-[#3D3228] font-normal">
