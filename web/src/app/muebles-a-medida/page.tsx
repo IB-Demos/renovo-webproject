@@ -3,15 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
-import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { BlueprintAnatomyExplorer } from "@/components/workbench/BlueprintAnatomyExplorer";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
-import { ArrowRight, Sparkle, Phone, Compass, ShieldCheck } from "@phosphor-icons/react";
+import { ArrowRight, Phone, Compass, ShieldCheck } from "@phosphor-icons/react";
 
 export default function CustomFurniturePage() {
-  const {  locale , setActiveRoom } = useRenovo();
+  const { locale, setActiveRoom } = useRenovo();
 
   React.useEffect(() => {
     setActiveRoom("living");
@@ -131,10 +129,7 @@ export default function CustomFurniturePage() {
         </div>
       </section>
 
-      {/* 2. THE ARCHITECTURAL DRAFTING TABLE (Featuring Arched Fireplace & Fluted Vanity) */}
-      <ArchitecturalDraftingTable />
-
-      {/* 3. INTERACTIVE ANATOMY EXPLORER */}
+      {/* 2. INTERACTIVE ANATOMY EXPLORER */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12 max-w-2xl space-y-3">
@@ -149,8 +144,8 @@ export default function CustomFurniturePage() {
             </h2>
             <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
-                ? "Click on the numbered pins across our 4 signature builds to explore craft details, or toggle to the full 19-photo archive with workshop video."
-                : "Haz clic en los nodos de nuestras 4 obras de autor para explorar detalles constructivos, o abre el archivo completo de 19 fotos con video."}
+                ? "Click on the numbered pins across our signature builds to explore craft details, or toggle to the full photo archive with workshop video."
+                : "Haz clic en los nodos de nuestras obras de autor para explorar detalles constructivos, o abre el archivo completo de fotos con video."}
             </p>
           </div>
 
@@ -158,10 +153,7 @@ export default function CustomFurniturePage() {
         </div>
       </section>
 
-      {/* 4. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 5. FULL ARCHIVE PORTFOLIO */}
+      {/* 3. FULL ARCHIVE PORTFOLIO */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12 space-y-3">
@@ -179,7 +171,7 @@ export default function CustomFurniturePage() {
         </div>
       </section>
 
-      {/* 6. GRAND CONSULTATION CTA */}
+      {/* 4. GRAND CONSULTATION CTA */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">

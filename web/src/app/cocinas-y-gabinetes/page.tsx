@@ -3,11 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
-import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
-import { ExplodedCabinetJoinery } from "@/components/architectural/ExplodedCabinetJoinery";
-import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
-import { CraftChronology } from "@/components/architectural/CraftChronology";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
@@ -17,18 +12,15 @@ import {
   CheckCircle,
   Hammer,
   ShieldCheck,
-  Package,
-  Clock,
   Compass,
 } from "@phosphor-icons/react";
 
 export default function KitchensAndMillworkPage() {
-  const { locale, t, setActiveRoom } = useRenovo();
+  const { locale, setActiveRoom } = useRenovo();
 
   React.useEffect(() => {
     setActiveRoom("kitchen");
   }, [setActiveRoom]);
-
 
   const standards = [
     {
@@ -171,16 +163,7 @@ export default function KitchensAndMillworkPage() {
         </div>
       </section>
 
-      {/* 2. THE ARCHITECTURAL DRAFTING TABLE */}
-      <ArchitecturalDraftingTable />
-
-      {/* 3. EXPLODED CABINET JOINERY & ANATOMY */}
-      <ExplodedCabinetJoinery />
-
-      {/* 4. THE DECISION MATRIX: REFACING VS FULL BUILD */}
-      <CabinetDecisionMatrix />
-
-      {/* 5. CRAFTSMANSHIP & CONSTRUCTION STANDARDS */}
+      {/* 2. CRAFTSMANSHIP & CONSTRUCTION STANDARDS */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-16 space-y-3">
@@ -221,10 +204,7 @@ export default function KitchensAndMillworkPage() {
         </div>
       </section>
 
-      {/* 6. THE 7-STAGE CRAFT CHRONOLOGY */}
-      <CraftChronology />
-
-      {/* 7. REAL PHOENIX KITCHEN ARCHIVE */}
+      {/* 3. REAL PHOENIX KITCHEN ARCHIVE */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-12 space-y-3">
@@ -250,10 +230,7 @@ export default function KitchensAndMillworkPage() {
         </div>
       </section>
 
-      {/* 8. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 9. CONSULTATION CALL TO ACTION */}
+      {/* 4. CONSULTATION CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">

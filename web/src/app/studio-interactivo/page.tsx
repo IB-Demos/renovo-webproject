@@ -138,7 +138,7 @@ function InteractiveStudioContent() {
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Sparkle size={14} weight="fill" />
-                  <span>{locale === "en" ? "7 Precision Tools" : "7 Herramientas en Vivo"}</span>
+                  <span>{locale === "en" ? "8 Precision Tools" : "8 Herramientas en Vivo"}</span>
                 </span>
               </div>
 
@@ -182,7 +182,7 @@ function InteractiveStudioContent() {
                   </div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">7 {locale === "en" ? "MODULES" : "MÓDULOS"}</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">8 {locale === "en" ? "MODULES" : "MÓDULOS"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
                     {locale === "en" ? "Interactive drafting & joinery tools" : "Herramientas de planos y despiece"}
                   </div>

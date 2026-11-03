@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useRenovo } from "@/context/RenovoContext";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -443,10 +442,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 3. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 4. FREQUENTLY ASKED QUESTIONS */}
+      {/* 3. FREQUENTLY ASKED QUESTIONS */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-14 space-y-3">

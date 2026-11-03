@@ -4,8 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { ParametricScopeEstimator } from "@/components/workbench/ParametricScopeEstimator";
-import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -17,12 +15,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function EstimatorPage() {
-  const { locale, t, setActiveRoom } = useRenovo();
+  const { locale, setActiveRoom } = useRenovo();
 
   React.useEffect(() => {
     setActiveRoom("kitchen");
   }, [setActiveRoom]);
-
 
   const pricingPillars = [
     {
@@ -58,32 +55,32 @@ export default function EstimatorPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>01 · {locale === "en" ? "TRANSPARENT PROJECT ESTIMATION" : "COTIZACIÓN TRANSPARENTE"}</span>
+                  <span>04 · {locale === "en" ? "CASA RENOVO INVESTMENT CALCULATOR" : "CASA RENOVO · ESTIMADOR DE INVERSIÓN"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Calculator size={14} weight="fill" />
-                  <span>{locale === "en" ? "Instant Parametric Calculation" : "Cálculo Inmediato en 30 Seg"}</span>
+                  <span>{locale === "en" ? "Real Market Pricing · Transparent Scope" : "Precios Reales del Valle · Sin Sorpresas"}</span>
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Transparent Project Investment & Scope Estimator."
-                  : "Calcula tu Inversión y Alcance con Transparencia Total."}
+                  ? "Parametric Scope Estimator & Pricing Transparency."
+                  : "Estimador de Alcance Paramétrico y Precios Transparentes."}
               </h1>
 
               <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
-                  ? "Instant parametric pricing based on actual Phoenix workshop rates. No hidden markups or surprise fees. Includes true 2K industrial catalyzed finish, Blum soft-close hardware, and laser measurement verification."
-                  : "Precios paramétricos inmediatos basados en tarifas reales de taller en Phoenix. Sin costos ocultos. Incluye laca catalizada 2K de cabina, herrajes Blum y verificación láser de medidas en sitio."}
+                  ? "Calculate your investment with complete honesty. Choose your room dimensions, cabinetry door counts, wood species, and finish grades to see realistic, itemized Phoenix market cost ranges."
+                  : "Calcula tu inversión con total honestidad. Selecciona dimensiones, número de puertas, especies de madera y tipo de acabado para obtener rangos reales de costo en el mercado de Phoenix."}
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
                 <a
-                  href="#estimator-section"
+                  href="#calculator-section"
                   className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
                 >
-                  <span>{locale === "en" ? "Calculate Scope Below" : "Calcular Inversión Abajo"}</span>
+                  <span>{locale === "en" ? "Configure Scope Below" : "Configurar Proyecto Abajo"}</span>
                   <ArrowRight size={16} weight="bold" />
                 </a>
 
@@ -92,28 +89,28 @@ export default function EstimatorPage() {
                   className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
                 >
                   <Phone size={16} className="text-[#B85D3B]" />
-                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                  <span>{locale === "en" ? "Direct Line" : "Línea Directa"}: {COMPANY_INFO.phoneDisplay}</span>
                 </a>
               </div>
 
               {/* Trust Indicators */}
               <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">30 {locale === "en" ? "SECONDS" : "SEGUNDOS"}</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">100% {locale === "en" ? "HONEST" : "HONESTO"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Instant realistic price range" : "Rango estimado al instante"}
+                    {locale === "en" ? "Zero surprise hidden fees" : "Cero cargos ocultos imprevistos"}
                   </div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">{locale === "en" ? "ALL-IN" : "TODO INCLUIDO"}</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">24H {locale === "en" ? "QUOTE" : "COTIZACIÓN"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Shop spray & home containment" : "Cabina de aspersión y sellado"}
+                    {locale === "en" ? "Formal quote after in-home visit" : "Propuesta formal en 24 horas"}
                   </div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">{locale === "en" ? "LASER CHECK" : "LÁSER"}</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">2K {locale === "en" ? "INCLUDED" : "INCLUIDO"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Free digital measuring visit" : "Medición digital en tu residencia"}
+                    {locale === "en" ? "Industrial coating always standard" : "Laca 2K de fábrica por defecto"}
                   </div>
                 </div>
               </div>
@@ -125,7 +122,7 @@ export default function EstimatorPage() {
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src="/assets/kitchens/kitchen-05.jpg"
-                    alt="Renovo Transparent Kitchen Costing"
+                    alt="Renovo Pricing Transparency"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
@@ -133,24 +130,24 @@ export default function EstimatorPage() {
 
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                   <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
-                    Scope Guarantee
+                    Phoenix Atelier
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
-                    2K Chemistry Baseline
+                    Direct From Craftsman
                   </span>
                 </div>
 
                 <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-serif font-semibold text-[#1A1410]">
-                      {locale === "en" ? "No Surprise Change Orders" : "Sin Sorpresas ni Costos Ocultos"}
+                      {locale === "en" ? "No Middlemen, No Sales Commissions" : "Sin Intermediarios ni Comisiones"}
                     </span>
-                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">100% TRANSPARENTE</span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO PRICING</span>
                   </div>
                   <p className="text-[11px] text-[#3D3228] leading-snug">
                     {locale === "en"
-                      ? "Doors, drawer fronts, hardware, Blum soft-close, off-site shop spray, and in-home containment are clearly itemized."
-                      : "Puertas, frentes, herrajes de cierre suave Blum y sellado de casa quedan desglosados en firme."}
+                      ? "You work directly with Raul Burgos from initial consultation to final installation, ensuring maximum value."
+                      : "Tratas directamente con Raul Burgos desde el primer día hasta la instalación final, asegurando máxima calidad e inversión."}
                   </p>
                 </div>
               </div>
@@ -159,48 +156,35 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* 2. THE INTERACTIVE ESTIMATOR */}
-      <section id="estimator-section" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
+      {/* 2. PARAMETRIC SCOPE ESTIMATOR ENGINE */}
+      <section id="calculator-section" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="mb-12 max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} />
-              <span>{locale === "en" ? "Parametric Calculator" : "Calculadora Paramétrica"}</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
-              {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
-            </h2>
-            <p className="text-base text-[#3D3228] font-normal">
-              {locale === "en"
-                ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
-                : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
-            </p>
-          </div>
-
-          <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
-            <ParametricScopeEstimator />
-          </div>
+          <ParametricScopeEstimator />
         </div>
       </section>
 
-      {/* 3. DECISION MATRIX: REFACING VS FULL BUILD */}
-      <CabinetDecisionMatrix />
-
-      {/* 4. TRANSPARENCY PILLARS */}
+      {/* 3. PRICING PILLARS */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-14 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
-              <span>{locale === "en" ? "Pricing Integrity" : "Transparencia Total"}</span>
+              <span>{locale === "en" ? "Clear Commitments" : "Compromisos Claros"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
-              {locale === "en" ? "No Hidden Costs. No Surprises." : "Precios Claros. Cero Sorpresas."}
+              {locale === "en"
+                ? "Our Fixed-Price Transparency Commitment"
+                : "Nuestro Compromiso de Precios Transparentes"}
             </h2>
+            <p className="text-base text-[#3D3228] font-normal">
+              {locale === "en"
+                ? "Every dollar in your quote goes directly to premium American materials, European precision hardware, and master craft labor."
+                : "Cada dólar de tu cotización va directo a materiales certificados, herrajes de precisión europea y mano de obra experta."}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingPillars.map((pillar, idx) => (
+            {pricingPillars.map((p, idx) => (
               <div
                 key={idx}
                 className="p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-md space-y-4 hover:border-[#B85D3B] transition-colors"
@@ -209,10 +193,10 @@ export default function EstimatorPage() {
                   <CheckCircle size={20} weight="fill" />
                 </div>
                 <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
-                  {locale === "en" ? pillar.titleEn : pillar.titleEs}
+                  {locale === "en" ? p.titleEn : p.titleEs}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
-                  {locale === "en" ? pillar.descEn : pillar.descEs}
+                  {locale === "en" ? p.descEn : p.descEs}
                 </p>
               </div>
             ))}
@@ -220,21 +204,20 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* 5. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 6. CALL TO ACTION */}
+      {/* 4. CONSULTATION CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-serif font-semibold text-[#1A1410]">
-              {locale === "en" ? "Lock In Your On-Site Consultation" : "Agenda tu Consulta de Medición en Sitio"}
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410]">
+              {locale === "en"
+                ? "Book Your In-Home Evaluation"
+                : "Agenda tu Evaluación en Sitio"}
             </h2>
             <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
-                ? "Turn your calculated estimate into a verified scope. Raul Burgos will inspect existing conditions and confirm final pricing."
-                : "Convierte tu cálculo estimado en un presupuesto formal. Raul Burgos verificará las condiciones en tu residencia."}
+                ? "Get a verified, binding proposal with physical material samples, laser measurements, and timeline commitments."
+                : "Obtén una propuesta formal y vinculante con muestras físicas de material, mediciones láser y cronograma exacto."}
             </p>
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
@@ -242,13 +225,13 @@ export default function EstimatorPage() {
                 className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
-                <ArrowRight size={15} weight="bold" />
+                <ArrowRight size={16} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
                 className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                <Phone size={15} className="text-[#B85D3B]" />
+                <Phone size={16} className="text-[#B85D3B]" />
                 <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>

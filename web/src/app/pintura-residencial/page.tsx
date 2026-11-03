@@ -3,9 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
-import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
-import { CraftChronology } from "@/components/architectural/CraftChronology";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { PaintSimulatorLab } from "@/components/workbench/PaintSimulatorLab";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
@@ -21,12 +18,11 @@ import {
 } from "@phosphor-icons/react";
 
 export default function ResidentialPaintingPage() {
-  const { locale, t, setActiveRoom } = useRenovo();
+  const { locale, setActiveRoom } = useRenovo();
 
   React.useEffect(() => {
     setActiveRoom("entryway");
   }, [setActiveRoom]);
-
 
   const protocols = [
     {
@@ -68,32 +64,32 @@ export default function ResidentialPaintingPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>03 · {locale === "en" ? "CASA RENOVO GRAND THRESHOLD" : "CASA RENOVO · EL GRAN UMBRAL"}</span>
+                  <span>03 · {locale === "en" ? "CASA RENOVO ARCHITECTURAL COATINGS" : "CASA RENOVO · PINTURA ARQUITECTÓNICA"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
-                  <ShieldCheck size={14} weight="fill" />
-                  <span>{locale === "en" ? "Festool HEPA Dustless · UV Solar Armor" : "Lijado HEPA sin Polvo · Filtro UV Solar"}</span>
+                  <Sun size={14} weight="fill" />
+                  <span>{locale === "en" ? "Desert UV Tested · HEPA Dustless" : "Filtro UV para Arizona · Cero Polvo HEPA"}</span>
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Architectural Residential Coatings & Exterior UV Armor."
-                  : "Pintura Arquitectónica Residencial y Blindaje Exterior UV."}
+                  ? "Architectural Residential & Desert UV Exterior Coatings."
+                  : "Pintura Residencial Fina y Protección UV para Exteriores."}
               </h1>
 
               <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
-                  ? "We banish rough brush marks and peeling paint. Using 99.97% HEPA dustless surface preparation, velvet scrubbable zero-VOC interior wall enamels, and elastomeric solar shields that resist 115°F Arizona summers without fading or cracking."
-                  : "Eliminamos las marcas de brocha y descarapalamientos. Aplicamos preparación con extracción HEPA al 99.97%, esmaltes aterciopelados lavables para muros y escudos elastoméricos resistentes a los 45°C del desierto sonorense."}
+                  ? "Hospital-grade HEPA extraction sanding, zero-VOC interior velvet enamels, and heavy-body elastomeric acrylics engineered to withstand 115°F Arizona solar radiation without chalking or fading."
+                  : "Lijado con aspiración sellada HEPA, esmaltes aterciopelados 0-VOC para interiores y recubrimientos elastoméricos de alto espesor diseñados para resistir más de 45°C de calor desértico sin decoloración."}
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
                 <Link
-                  href="/contacto"
+                  href="/cotizador"
                   className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
                 >
-                  <span>{locale === "en" ? "Book On-Site Evaluation" : "Agendar Evaluación en Sitio"}</span>
+                  <span>{locale === "en" ? "Instant Painting Estimator" : "Cotizar Proyecto de Pintura"}</span>
                   <ArrowRight size={16} weight="bold" />
                 </Link>
 
@@ -111,19 +107,19 @@ export default function ResidentialPaintingPage() {
                 <div className="space-y-0.5">
                   <div className="text-xs font-mono font-bold text-[#B85D3B]">99.97% {locale === "en" ? "HEPA" : "HEPA"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Hospital-grade air filtration in home" : "Extracción de polvo sin contaminar"}
+                    {locale === "en" ? "Hospital-grade dust containment" : "Cero polvo en tu residencia"}
                   </div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">UV-SHIELD</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">100% {locale === "en" ? "UV REFLECT" : "REFLECTANTE"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Non-fading cross-linked exterior acrylics" : "Cero decoloración bajo el sol de AZ"}
+                    {locale === "en" ? "Resists 115°F desert oxidation" : "Inmune al sol intenso de Arizona"}
                   </div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">10-15 {locale === "en" ? "YEARS" : "AÑOS"}</div>
+                  <div className="text-xs font-mono font-bold text-[#B85D3B]">0-VOC {locale === "en" ? "SAFE" : "SEGURO"}</div>
                   <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
-                    {locale === "en" ? "Long-term performance guarantee" : "Durabilidad comprobada en el Valle"}
+                    {locale === "en" ? "Odorless family & pet safe" : "Sin olor, seguro para familias"}
                   </div>
                 </div>
               </div>
@@ -134,8 +130,8 @@ export default function ResidentialPaintingPage() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    src="/assets/before-after/pair-02-double-door-after.jpg"
-                    alt="Renovo Exterior Portico Restoration"
+                    src="/assets/painting-interior/interior-01.jpg"
+                    alt="Renovo Architectural Painting Showcase"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
@@ -143,24 +139,24 @@ export default function ResidentialPaintingPage() {
 
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                   <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
-                    Paradise Valley Portico
+                    Arcadia Residence
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
-                    UV Marine 2K Finish
+                    Velvet Matte Washable
                   </span>
                 </div>
 
                 <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#FCFAF7]/95 backdrop-blur-md border border-[#DFD6C6] text-[#1A1410] shadow-lg space-y-1.5">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-serif font-semibold text-[#1A1410]">
-                      {locale === "en" ? "Solid Double Door Restoration" : "Restauración de Puertas Dobles"}
+                      {locale === "en" ? "Interior Velvet Ceiling & Trim" : "Plafones Aterciopelados y Molduras"}
                     </span>
-                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO UV ARMOR</span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO COATINGS</span>
                   </div>
                   <p className="text-[11px] text-[#3D3228] leading-snug">
                     {locale === "en"
-                      ? "Restored with penetrating marine oil and UV-blocking elastomeric topcoats that expand with diurnal desert temperature shifts."
-                      : "Tratadas con aceites marinos y esmaltes elastoméricos con filtro UV que soportan el choque térmico día/noche."}
+                      ? "Seamless light dispersion with zero brush lap marks. High-adhesion urethane enamel on casing and baseboards."
+                      : "Dispersión de luz perfecta sin marcas de empalme. Esmaltes de poliuretano de alta resistencia en zoclos y molduras."}
                   </p>
                 </div>
               </div>
@@ -169,10 +165,7 @@ export default function ResidentialPaintingPage() {
         </div>
       </section>
 
-      {/* 2. THE ARIZONA DESERT LIGHT ENGINE (Simulating 2700K, 5500K, 3000K Lighting) */}
-      <DesertLightEngine />
-
-      {/* 3. CRAFTSMANSHIP & PREPARATION PROTOCOLS */}
+      {/* 2. CRAFTSMANSHIP & PREPARATION PROTOCOLS */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-14 space-y-3">
@@ -221,10 +214,7 @@ export default function ResidentialPaintingPage() {
         </div>
       </section>
 
-      {/* 4. THE 7-STAGE CRAFT CHRONOLOGY */}
-      <CraftChronology />
-
-      {/* 5. INTERACTIVE PAINT & FINISH SIMULATOR */}
+      {/* 3. INTERACTIVE PAINT & FINISH SIMULATOR */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl mb-12 space-y-3">
@@ -250,21 +240,18 @@ export default function ResidentialPaintingPage() {
         </div>
       </section>
 
-      {/* 6. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 7. REAL PHOENIX RESIDENTIAL PORTFOLIO */}
+      {/* 4. REAL PAINTING & FINISHES ARCHIVE */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-2xl mb-12 space-y-3">
+          <div className="mb-12 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
               <ShieldCheck size={14} />
-              <span>{locale === "en" ? "Verified Portfolio" : "Obras Verificadas en Phoenix"}</span>
+              <span>{locale === "en" ? "Portfolio Archive" : "Archivo de Obras"}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
-                ? "Recent Interior & Exterior Commissions"
-                : "Proyectos Recientes de Pintura Residencial"}
+                ? "Completed Coatings Across the Valley"
+                : "Proyectos Realizados en el Valle"}
             </h2>
           </div>
           <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
@@ -273,7 +260,7 @@ export default function ResidentialPaintingPage() {
         </div>
       </section>
 
-      {/* 8. GRAND CONSULTATION CTA */}
+      {/* 5. CONSULTATION CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
         <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
@@ -281,12 +268,12 @@ export default function ResidentialPaintingPage() {
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410]">
               {locale === "en"
                 ? "Schedule an Architectural Color Evaluation"
-                : "Agenda una Evaluación de Color en Sitio"}
+                : "Agenda una Evaluación de Color y Muros"}
             </h2>
             <p className="text-base text-[#3D3228] font-normal">
               {locale === "en"
-                ? "Raul Burgos will evaluate your residence in person, conduct moisture testing, and bring physical large-format color boards to test under your home's natural daylight."
-                : "Raul Burgos evaluará tu residencia personalmente, realizará pruebas de humedad y llevará muestras de gran formato para analizarlas bajo la luz natural de tus espacios."}
+                ? "We test moisture, evaluate substrate adhesion, and provide physical oversized color sample cards in your home's natural light."
+                : "Revisamos humedad con higrómetro, evaluamos adherencia y aplicamos muestras de color bajo la luz natural de tus espacios."}
             </p>
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link

@@ -5,13 +5,6 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useRenovo, CasaRoomId } from "@/context/RenovoContext";
 import { COMPANY_INFO, BEFORE_AFTER_PAIRS } from "@/lib/company-data/portfolio";
-import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
-import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
-import { CabinetDecisionMatrix } from "@/components/architectural/CabinetDecisionMatrix";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
-import { CraftChronology } from "@/components/architectural/CraftChronology";
-import { ExplodedCabinetJoinery } from "@/components/architectural/ExplodedCabinetJoinery";
-import { SpatialHomeExperience } from "@/components/architectural/SpatialHomeExperience";
 import {
   Sparkle,
   ArrowRight,
@@ -22,14 +15,15 @@ import {
   MapPin,
   Clock,
   Compass,
-  Palette,
   Hammer,
+  Check,
+  X,
 } from "@phosphor-icons/react";
 
 export default function HomePage() {
   const { locale, t, setActiveRoom } = useRenovo();
 
-  // Scroll-Driven Integral Casa Renovo Observer
+  // Scroll-Driven Integral Casa Renovo Observer for ambient lighting
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -60,9 +54,6 @@ export default function HomePage() {
   // Spotlight Before/After state
   const [activeSpotlightIdx, setActiveSpotlightIdx] = useState(0);
   const [spotlightSliderPos, setSpotlightSliderPos] = useState(50);
-
-  // Interactive Material Preview state
-  const [activeFinish, setActiveFinish] = useState<"white-oak" | "alabaster" | "navy" | "sage">("white-oak");
 
   const heroShowcase = {
     kitchen: {
@@ -96,51 +87,55 @@ export default function HomePage() {
 
   const activeSpotlight = BEFORE_AFTER_PAIRS[activeSpotlightIdx] || BEFORE_AFTER_PAIRS[0];
 
-  const finishDetails = {
-    "white-oak": {
-      nameEn: "Rift-Cut Natural White Oak",
-      nameEs: "Roble Blanco Natural Corte Recto",
-      undertoneEn: "Warm linear grain with matte waterborne protective clear coat",
-      undertoneEs: "Veta lineal cálida protegida con barniz acrílico mate transparente",
-      image: "/assets/blueprints-and-docs/custom-furniture-01.jpg",
-      sheen: "Matte (8% Sheen)",
-      hex: "#C79F67",
+  const chemistryComparisons = [
+    {
+      featureEn: "Coating Chemistry",
+      featureEs: "Tecnología de Recubrimiento",
+      renovoEn: "Industrial 2K Catalyzed Polyurethane Lacquer",
+      renovoEs: "Laca Catalizada Poliuretano 2K de Cabina",
+      standardEn: "Consumer Latex / Wall Paint",
+      standardEs: "Pintura Látex de Muro Tradicional",
     },
-    alabaster: {
-      nameEn: "Navajo Alabaster 2K Lacquer",
-      nameEs: "Laca Alabastro Navajo 2K",
-      undertoneEn: "Warm architectural ivory with velvet factory spray finish",
-      undertoneEs: "Marfil arquitectónico cálido con tersura de cabina industrial",
-      image: "/assets/kitchens/kitchen-05.jpg",
-      sheen: "Satin Velvet (18% Sheen)",
-      hex: "#EDE7DC",
+    {
+      featureEn: "Curing Mechanism",
+      featureEs: "Mecanismo de Curado",
+      renovoEn: "Chemical molecular cross-linking in 24 hours",
+      renovoEs: "Entrecruzamiento químico molecular en 24h",
+      standardEn: "Simple evaporation (remains soft for 30+ days)",
+      standardEs: "Evaporación simple (permanece suave semanas)",
     },
-    navy: {
-      nameEn: "Midnight Indigo Slate 2K",
-      nameEs: "Laca Azul Medianoche 2K",
-      undertoneEn: "Deep grounded navy with rich depth for focal islands and bars",
-      undertoneEs: "Azul profundo con gran cuerpo para islas focales y cavas",
-      image: "/assets/kitchens/kitchen-14.jpg",
-      sheen: "Satin Velvet (20% Sheen)",
-      hex: "#22303C",
+    {
+      featureEn: "Surface Texture",
+      featureEs: "Textura al Tacto",
+      renovoEn: "Factory-smooth velvet spray (zero brush strokes)",
+      renovoEs: "Tersura aterciopelada de fábrica (cero brocha o rodillo)",
+      standardEn: "Visible brush marks, roller orange-peel stipple",
+      standardEs: "Marcas visibles de brocha y piel de naranja",
     },
-    sage: {
-      nameEn: "Botanical Desert Sage 2K",
-      nameEs: "Laca Verde Salvia Botánica 2K",
-      undertoneEn: "Organic desert olive-sage inspired by Arizona flora",
-      undertoneEs: "Salvia olivo orgánico inspirado en la flora de Arizona",
-      image: "/assets/painting-interior/interior-03.jpg",
-      sheen: "Low Lustre (15% Sheen)",
-      hex: "#3D5A45",
+    {
+      featureEn: "Heat & Moisture Resistance",
+      featureEs: "Resistencia a Humedad y Grasa",
+      renovoEn: "Impervious KCMA-tested barrier against boiling grease & steam",
+      renovoEs: "Barrera impermeable certificada KCMA contra vapor y grasa",
+      standardEn: "Softens, bubbles, and peels near stoves and sinks",
+      standardEs: "Se ablanda y despega cerca de tarjas y estufas",
     },
-  };
+    {
+      featureEn: "Expected Durability",
+      featureEs: "Vida Útil Comprobada",
+      renovoEn: "10 to 15+ years of active family performance",
+      renovoEs: "10 a 15+ años de durabilidad de uso diario",
+      standardEn: "Chips and wears away in 12 to 18 months",
+      standardEs: "Se desportilla y desgasta en 12 a 18 meses",
+    },
+  ];
 
   return (
     <div className="w-full bg-[#F4EFE6] text-[#261F1A] selection:bg-[#B85D3B] selection:text-[#FCFAF7]">
       {/* =====================================================================
           1. CINEMATIC LUXURY HERO (Sonoran Mineral Canvas, Warm Earth & Clay)
       ===================================================================== */}
-      <section data-casa-room="kitchen" className="relative min-h-[90vh] lg:min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#EFE8DD] border-b border-[#DFD6C6]">
+      <section data-casa-room="kitchen" className="relative min-h-[90vh] lg:min-h-[94vh] flex items-center justify-center overflow-hidden bg-[#EFE8DD] border-b border-[#DFD6C6]">
         {/* Atmospheric Background with soft natural veil */}
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
@@ -167,7 +162,7 @@ export default function HomePage() {
         {/* Ambient Warm Mineral Sunlight Diffusion */}
         <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#B85D3B]/10 blur-[150px] rounded-full" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-24 lg:py-32 w-full">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-24 lg:py-28 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left 7 Columns: Editorial Headline & Actions */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
@@ -228,7 +223,7 @@ export default function HomePage() {
             {/* Right 5 Columns: Floating Interactive Showcase Card */}
             <div className="lg:col-span-5">
               <div className="p-3 sm:p-4 rounded-3xl bg-[#FCFAF7]/95 border border-[#DFD6C6] backdrop-blur-xl shadow-xl space-y-3">
-                {/* Mode Selector Tabs (Refined Warm Pill Switcher) */}
+                {/* Mode Selector Tabs */}
                 <div className="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-center">
                   {(
                     [
@@ -466,17 +461,6 @@ export default function HomePage() {
         </div>
       </section>
 
-            {/* =====================================================================
-          EXCLUSIVE FEATURE 00: SPATIAL RESIDENTIAL TOUR (Casa Renovo)
-          Scroll-driven room-by-room experience with live color & desert lighting
-      ===================================================================== */}
-      <SpatialHomeExperience />
-
-      {/* =====================================================================
-          EXCLUSIVE FEATURE 01: THE ARCHITECTURAL DRAFTING TABLE
-      ===================================================================== */}
-      <ArchitecturalDraftingTable />
-
       {/* =====================================================================
           3. FEATURED TRANSFORMATION SPOTLIGHT (Seamless Before / After Reveal)
       ===================================================================== */}
@@ -608,29 +592,76 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
-          EXCLUSIVE FEATURE 06: EXPLODED CABINET ANATOMY & JOINERY
+          4. THE 2K CHEMICAL CHEMISTRY ADVANTAGE (Clear Comparison Table)
       ===================================================================== */}
-      <ExplodedCabinetJoinery />
+      <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="max-w-3xl mb-14 space-y-3">
+            <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
+              {locale === "en" ? "FACTORY SCIENCE & CHEMICAL INTEGRITY" : "CIENCIA DE FÁBRICA Y QUÍMICA 2K"}
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
+              {locale === "en"
+                ? "Why True 2K Polyurethane Outlasts Standard House Paint."
+                : "¿Por Qué el Poliuretano Catalizado 2K Supera a la Pintura Común?"}
+            </h2>
+            <p className="text-base text-[#3D3228] font-normal leading-relaxed">
+              {locale === "en"
+                ? "Most contractors apply consumer wall latex with a brush or consumer sprayer. We formulate two-component catalyzed polyurethane in temperature-controlled spray booths for molecular cross-linking."
+                : "La mayoría de los contratistas aplican pintura látex con brocha o rodillo. Nosotros formulamos poliuretano catalizado de dos componentes en cabina controlada para un entrecruzamiento molecular absoluto."}
+            </p>
+          </div>
 
-      {/* =====================================================================
-          EXCLUSIVE FEATURE 02: THE ARIZONA DESERT LIGHT ENGINE
-      ===================================================================== */}
-      <DesertLightEngine />
-
-      {/* =====================================================================
-          EXCLUSIVE FEATURE 03: CABINET DECISION MATRIX (Refacing vs. Custom)
-      ===================================================================== */}
-      <CabinetDecisionMatrix />
-
-      {/* =====================================================================
-          EXCLUSIVE FEATURE 05: THE 7-STAGE CRAFT CHRONOLOGY (Shop Documentary)
-      ===================================================================== */}
-      <CraftChronology />
+          <div className="rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-[#DFD6C6] bg-[#F4EFE6]">
+                    <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#3D3228]">
+                      {locale === "en" ? "Performance Parameter" : "Parámetro de Rendimiento"}
+                    </th>
+                    <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#B85D3B] bg-[#B85D3B]/5 border-x border-[#DFD6C6]">
+                      <div className="flex items-center gap-2">
+                        <Sparkle size={15} weight="fill" />
+                        <span>{locale === "en" ? "Renovo 2K Factory Coating" : "Renovo Laca Catalizada 2K"}</span>
+                      </div>
+                    </th>
+                    <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#3D3228]">
+                      {locale === "en" ? "Standard House Painter Latex" : "Pintura Látex de Brocha Común"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#DFD6C6] text-xs sm:text-sm">
+                  {chemistryComparisons.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-[#F4EFE6]/50 transition-colors">
+                      <td className="p-5 sm:p-6 font-serif font-semibold text-[#1A1410] w-1/4">
+                        {locale === "en" ? row.featureEn : row.featureEs}
+                      </td>
+                      <td className="p-5 sm:p-6 text-[#261F1A] font-medium bg-[#B85D3B]/5 border-x border-[#DFD6C6] w-3/8">
+                        <div className="flex items-start gap-2.5">
+                          <CheckCircle size={18} className="text-[#B85D3B] shrink-0 mt-0.5" weight="fill" />
+                          <span>{locale === "en" ? row.renovoEn : row.renovoEs}</span>
+                        </div>
+                      </td>
+                      <td className="p-5 sm:p-6 text-[#5A4D42] w-3/8">
+                        <div className="flex items-start gap-2.5">
+                          <X size={18} className="text-[#A34E2F] shrink-0 mt-0.5" />
+                          <span>{locale === "en" ? row.standardEn : row.standardEs}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =====================================================================
           5. THE RAUL BURGOS STORY & PHOENIX WORKSHOP (Soulful Heritage)
       ===================================================================== */}
-      <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
+      <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Story */}
@@ -710,12 +741,7 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
-          EXCLUSIVE FEATURE 04: ATELIER SAMPLE BOX CONCIERGE (Curated Kit)
-      ===================================================================== */}
-      <SampleBoxConcierge />
-
-      {/* =====================================================================
-          6. GRAND CONSULTATION CALL TO ACTION (Deep Roasted Walnut Anchor)
+          6. GRAND CONSULTATION CALL TO ACTION (Warm Terracotta & Ivory Anchor)
       ===================================================================== */}
       <section data-casa-room="patio" className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
         {/* Soft Terracotta Glow */}

@@ -33,11 +33,13 @@ export function RealPortfolioShowcase({
         return INTERIOR_PAINTING_IMAGES;
       case "exterior":
         return EXTERIOR_PAINTING_IMAGES;
+      default:
+        return INTERIOR_PAINTING_IMAGES;
     }
   };
 
-  const activeImages = getActiveImages();
-  const currentImg = activeImages[selectedIdx] || activeImages[0];
+  const activeImages = getActiveImages() || INTERIOR_PAINTING_IMAGES || [];
+  const currentImg = (activeImages && activeImages.length > 0) ? (activeImages[selectedIdx] || activeImages[0]) : null;
 
   return (
     <div className="rounded-3xl border border-[#DFD6C6] bg-[#FCFAF7] p-6 sm:p-8 shadow-xl text-[#261F1A]">

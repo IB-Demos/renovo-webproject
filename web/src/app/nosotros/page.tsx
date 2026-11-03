@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { CraftChronology } from "@/components/architectural/CraftChronology";
-import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -363,10 +362,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. ATELIER SAMPLE BOX CONCIERGE */}
-      <SampleBoxConcierge />
-
-      {/* 7. WORKSHOP & SERVICE REGION */}
+      {/* 6. WORKSHOP & SERVICE REGION */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
