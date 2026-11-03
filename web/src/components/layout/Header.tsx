@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { useRenovo } from "@/context/RenovoContext";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
-  Phone,
   BookmarkSimple,
   List,
   X,
@@ -46,36 +45,36 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#F4EFE6]/92 backdrop-blur-xl border-b border-[#E0D7C8] text-[#261F1A] transition-all">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-20 sm:h-24 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 w-full bg-[#F4EFE6]/95 backdrop-blur-xl border-b border-[#E0D7C8] text-[#261F1A] transition-all">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-18 flex items-center justify-between gap-4">
         {/* =====================================================================
-            1. BRAND LOGO (Clean, high-end atelier proportions)
+            1. BRAND LOGO (Compact, elegant proportions)
         ===================================================================== */}
         <Link
           href="/"
-          className="interactive-control flex items-center gap-3 group focus-visible:rounded-md py-1 shrink-0"
+          className="interactive-control flex items-center gap-2.5 group focus-visible:rounded-md py-1 shrink-0"
         >
           <img
             src={COMPANY_INFO.logoPath}
             alt="Renovo Painting Solutions"
-            className="h-14 sm:h-16 w-auto object-contain outline-none drop-shadow-sm"
+            className="h-10 sm:h-11 w-auto object-contain outline-none drop-shadow-xs"
           />
-          <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-3 leading-tight">
-            <span className="text-xs tracking-[0.2em] text-[#B85D3B] font-serif font-bold uppercase">
+          <div className="hidden sm:flex flex-col border-l border-[#D6CCBC] pl-2.5 leading-tight">
+            <span className="text-[10px] tracking-[0.2em] text-[#B85D3B] font-serif font-bold uppercase">
               Phoenix, AZ
             </span>
-            <span className="text-xs text-[#3D3228] tracking-wider uppercase font-serif font-semibold">
+            <span className="text-[11px] text-[#3D3228] tracking-wider uppercase font-serif font-semibold">
               Painting Solutions
             </span>
           </div>
         </Link>
 
         {/* =====================================================================
-            2. DESKTOP CURATED NAVIGATION (Streamlined to 5 single-line links)
+            2. STREAMLINED DESKTOP NAVIGATION (4 Clean Core Sections)
         ===================================================================== */}
         <nav
           aria-label="Main Corporate Navigation"
-          className="hidden lg:flex items-center gap-6 xl:gap-8"
+          className="hidden lg:flex items-center gap-7 xl:gap-8"
         >
           {/* Disciplines Dropdown */}
           <div
@@ -85,17 +84,17 @@ export function Header() {
           >
             <button
               type="button"
-              className={`interactive-control py-2 text-[15px] font-semibold tracking-normal inline-flex items-center gap-1.5 transition-colors font-serif ${
+              className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal inline-flex items-center gap-1 transition-colors ${
                 pathname?.startsWith("/cocinas") ||
                 pathname?.startsWith("/muebles") ||
                 pathname?.startsWith("/pintura")
-                  ? "text-[#B85D3B] font-semibold"
+                  ? "text-[#B85D3B]"
                   : "text-[#261F1A] hover:text-[#B85D3B]"
               }`}
             >
               <span>{t.nav.services}</span>
               <CaretDown
-                size={12}
+                size={11}
                 className={`transition-transform duration-200 text-[#B85D3B] ${
                   disciplinesOpen ? "rotate-180" : ""
                 }`}
@@ -132,24 +131,24 @@ export function Header() {
             </AnimatePresence>
           </div>
 
-          {/* Transformations */}
+          {/* Transformations / Portfolio */}
           <Link
             href="/transformaciones"
-            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
+            className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal transition-colors ${
               pathname?.startsWith("/transformaciones")
-                ? "text-[#B85D3B] font-semibold"
+                ? "text-[#B85D3B]"
                 : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.transformations}
           </Link>
 
-          {/* Materials */}
+          {/* Materials Catalog */}
           <Link
             href="/catalogo"
-            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
+            className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal transition-colors ${
               pathname?.startsWith("/catalogo")
-                ? "text-[#B85D3B] font-semibold"
+                ? "text-[#B85D3B]"
                 : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
@@ -159,52 +158,40 @@ export function Header() {
           {/* Studio & Estimator */}
           <Link
             href="/studio-interactivo"
-            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
+            className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal transition-colors ${
               pathname?.startsWith("/studio-interactivo") || pathname?.startsWith("/cotizador")
-                ? "text-[#B85D3B] font-semibold"
+                ? "text-[#B85D3B]"
                 : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
           >
             {t.nav.studio}
           </Link>
-
-          {/* Atelier Heritage */}
-          <Link
-            href="/nosotros"
-            className={`interactive-control py-2 text-[15px] font-semibold tracking-normal transition-colors font-serif ${
-              pathname?.startsWith("/nosotros")
-                ? "text-[#B85D3B] font-semibold"
-                : "text-[#261F1A] hover:text-[#B85D3B]"
-            }`}
-          >
-            {t.nav.about}
-          </Link>
         </nav>
 
         {/* =====================================================================
-            3. RIGHT ACTIONS (Prominent Design Selections, Language, CTA)
+            3. RIGHT ACTIONS (Compact, quiet luxury: selections, lang, CTA)
         ===================================================================== */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5">
-          {/* Design Selections Button (Prominent, High-Visibility Labeled Pill) */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Design Selections Pill (Compact, clear & accessible) */}
           <button
             type="button"
             onClick={() => setIsDrawerOpen(true)}
             aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
             title={t.sampleDrawer.title}
-            className="interactive-control flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full border border-[#DFD6C6] bg-[#FCFAF7] hover:border-[#B85D3B] hover:bg-[#F4EFE6] text-[#261F1A] transition-all shadow-xs active:scale-98"
+            className="interactive-control flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full border border-[#DFD6C6] bg-[#FCFAF7] hover:border-[#B85D3B] hover:bg-[#F4EFE6] text-[#261F1A] transition-all shadow-xs"
           >
             <BookmarkSimple
-              size={15}
+              size={14}
               weight="fill"
               className={samples.length > 0 ? "text-[#B85D3B]" : "text-[#8C7E70]"}
             />
-            <span className="text-xs font-serif font-semibold tracking-tight">
-              {locale === "en" ? "Design Selections" : "Selecciones"}
+            <span className="hidden sm:inline text-xs font-serif font-semibold">
+              {locale === "en" ? "Selections" : "Selecciones"}
             </span>
             <span
-              className={`min-w-[19px] h-[19px] px-1 rounded-full text-[10px] font-mono font-bold flex items-center justify-center transition-colors ${
+              className={`min-w-[17px] h-[17px] px-1 rounded-full text-[10px] font-mono font-bold flex items-center justify-center transition-colors ${
                 samples.length > 0
-                  ? "bg-[#B85D3B] text-[#FCFAF7] shadow-xs"
+                  ? "bg-[#B85D3B] text-[#FCFAF7]"
                   : "bg-[#EAE2D5] text-[#54463A]"
               }`}
             >
@@ -216,24 +203,24 @@ export function Header() {
           <div
             role="group"
             aria-label={t.meta.bilingualNotice}
-            className="flex items-center text-xs font-serif tracking-wider text-[#4A3E34] px-1"
+            className="flex items-center text-xs font-serif tracking-wider text-[#4A3E34]"
           >
             <button
               type="button"
               onClick={() => setLocale("en")}
               aria-pressed={locale === "en"}
-              className={`interactive-control py-1 transition-colors ${
+              className={`interactive-control py-1 px-1 transition-colors ${
                 locale === "en" ? "text-[#B85D3B] font-bold" : "hover:text-[#261F1A]"
               }`}
             >
               EN
             </button>
-            <span className="mx-1 opacity-40">/</span>
+            <span className="opacity-40">/</span>
             <button
               type="button"
               onClick={() => setLocale("es")}
               aria-pressed={locale === "es"}
-              className={`interactive-control py-1 transition-colors ${
+              className={`interactive-control py-1 px-1 transition-colors ${
                 locale === "es" ? "text-[#B85D3B] font-bold" : "hover:text-[#261F1A]"
               }`}
             >
@@ -241,19 +228,10 @@ export function Header() {
             </button>
           </div>
 
-          {/* Desktop Phone */}
-          <a
-            href={COMPANY_INFO.phoneHref}
-            className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-[#4A3E34] hover:text-[#B85D3B] font-serif transition-colors"
-          >
-            <Phone size={13} className="text-[#B85D3B]" />
-            <span>{COMPANY_INFO.phoneDisplay}</span>
-          </a>
-
-          {/* Consultation CTA in Terracotta */}
+          {/* Consultation CTA */}
           <Link
             href="/contacto"
-            className="interactive-control hidden md:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
+            className="interactive-control hidden md:inline-flex items-center justify-center min-h-[36px] px-4 py-1.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase transition-all shadow-xs"
           >
             {t.nav.bookConsult}
           </Link>
@@ -264,15 +242,15 @@ export function Header() {
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-            className="interactive-control lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D6CCBC] bg-[#FCFAF7] text-[#261F1A] hover:bg-[#EAE2D5] transition-colors"
+            className="interactive-control lg:hidden flex h-9 w-9 items-center justify-center rounded-xl border border-[#D6CCBC] bg-[#FCFAF7] text-[#261F1A] hover:bg-[#EAE2D5] transition-colors"
           >
-            {mobileMenuOpen ? <X size={20} /> : <List size={20} />}
+            {mobileMenuOpen ? <X size={18} /> : <List size={18} />}
           </button>
         </div>
       </div>
 
       {/* =====================================================================
-          4. MOBILE CURATED ACCORDION MENU
+          4. MOBILE COMPACT ACCORDION MENU
       ===================================================================== */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -281,37 +259,35 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden border-t border-[#E0D7C8] bg-[#F4EFE6] px-4 py-6 space-y-4 shadow-2xl"
+            className="lg:hidden border-t border-[#E0D7C8] bg-[#F4EFE6] px-4 py-5 space-y-3.5 shadow-2xl"
           >
-            {/* Featured Mobile Design Selections Card */}
+            {/* Design Selections Mobile Row */}
             <button
               type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 setIsDrawerOpen(true);
               }}
-              className="interactive-control w-full p-3 rounded-2xl bg-[#FCFAF7] border border-[#B85D3B]/40 hover:border-[#B85D3B] flex items-center justify-between text-left shadow-xs transition-all"
+              className="interactive-control w-full p-2.5 rounded-xl bg-[#FCFAF7] border border-[#B85D3B]/40 hover:border-[#B85D3B] flex items-center justify-between text-left shadow-xs transition-all"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#B85D3B]/10 flex items-center justify-center text-[#B85D3B]">
-                  <BookmarkSimple size={16} weight="fill" />
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-[#B85D3B]/10 flex items-center justify-center text-[#B85D3B]">
+                  <BookmarkSimple size={15} weight="fill" />
                 </div>
                 <div>
                   <div className="text-xs font-serif font-semibold text-[#1A1410]">
                     {locale === "en" ? "Your Design Selections" : "Tus Selecciones de Diseño"}
                   </div>
-                  <div className="text-[10px] text-[#54463A] font-serif">
-                    {locale === "en" ? "Saved woods, profiles & 2K lacquers" : "Maderas, perfiles y lacas 2K guardadas"}
-                  </div>
                 </div>
               </div>
-              <span className="px-2 py-0.5 rounded-full bg-[#B85D3B] text-[#FCFAF7] text-xs font-mono font-bold">
+              <span className="px-2 py-0.5 rounded-full bg-[#B85D3B] text-[#FCFAF7] text-[11px] font-mono font-bold">
                 {samples.length}
               </span>
             </button>
 
+            {/* Disciplines */}
             <div className="space-y-1">
-              <span className="text-[10px] uppercase font-serif tracking-widest text-[#B85D3B] font-bold px-3 block">
+              <span className="text-[10px] uppercase font-serif tracking-widest text-[#B85D3B] font-bold px-2 block">
                 {t.nav.services}
               </span>
               {disciplines.map((item) => (
@@ -319,59 +295,54 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
+                  className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
                 >
                   {locale === "en" ? item.titleEn : item.titleEs}
                 </Link>
               ))}
             </div>
 
+            {/* Core Links */}
             <div className="pt-2 border-t border-[#E0D7C8] space-y-1">
               <Link
                 href="/transformaciones"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
+                className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.transformations}
               </Link>
               <Link
                 href="/catalogo"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
+                className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.catalog}
               </Link>
               <Link
                 href="/studio-interactivo"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
+                className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.studio}
               </Link>
               <Link
                 href="/nosotros"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
+                className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.about}
               </Link>
             </div>
 
-            <div className="pt-4 border-t border-[#E0D7C8] flex flex-col gap-3">
+            {/* Consultation CTA */}
+            <div className="pt-3 border-t border-[#E0D7C8]">
               <Link
                 href="/contacto"
                 onClick={() => setMobileMenuOpen(false)}
-                className="interactive-control flex items-center justify-center min-h-[46px] w-full rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase shadow-sm"
+                className="interactive-control flex items-center justify-center min-h-[42px] w-full rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase shadow-xs"
               >
                 {t.nav.bookConsult}
               </Link>
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="interactive-control flex items-center justify-center gap-2 min-h-[44px] w-full rounded-full border border-[#DFD6C6] bg-[#FCFAF7] text-xs font-serif text-[#261F1A]"
-              >
-                <Phone size={14} className="text-[#B85D3B]" />
-                <span>{COMPANY_INFO.phoneDisplay}</span>
-              </a>
             </div>
           </motion.div>
         )}
