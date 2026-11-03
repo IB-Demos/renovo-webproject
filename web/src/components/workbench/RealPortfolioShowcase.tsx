@@ -39,7 +39,7 @@ export function RealPortfolioShowcase({
   };
 
   const activeImages = getActiveImages() || INTERIOR_PAINTING_IMAGES || [];
-  const currentImg = (activeImages && activeImages.length > 0) ? (activeImages[selectedIdx] || activeImages[0]) : null;
+  const currentImg = (activeImages && activeImages.length > 0) ? (activeImages[selectedIdx] || activeImages[0]) : "";
 
   return (
     <div className="rounded-3xl border border-[#DFD6C6] bg-[#FCFAF7] p-6 sm:p-8 shadow-xl text-[#261F1A]">

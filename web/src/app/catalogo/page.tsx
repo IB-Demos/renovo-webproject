@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { MaterialCatalogGrid } from "@/components/workbench/MaterialCatalogGrid";
+import { MaterialOnboardingGuide } from "@/components/workbench/MaterialOnboardingGuide";
 import { SampleBoxConcierge } from "@/components/architectural/SampleBoxConcierge";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
@@ -13,6 +14,7 @@ import {
   Package,
   Phone,
   CheckCircle,
+  Question,
 } from "@phosphor-icons/react";
 
 export default function CatalogPage() {
@@ -66,11 +68,19 @@ export default function CatalogPage() {
                 </button>
 
                 <a
-                  href={COMPANY_INFO.phoneHref}
-                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                  href="#guia-materiales"
+                  className="interactive-control min-h-[52px] px-6 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
                 >
-                  <Phone size={16} className="text-[#B85D3B]" />
-                  <span>{locale === "en" ? "Call Raul Burgos" : "Llamar a Raul Burgos"}: {COMPANY_INFO.phoneDisplay}</span>
+                  <Question size={16} className="text-[#B85D3B]" />
+                  <span>{locale === "en" ? "How Does This Work?" : "¿Cómo Funciona Esta Sección?"}</span>
+                </a>
+
+                <a
+                  href={COMPANY_INFO.phoneHref}
+                  className="interactive-control min-h-[52px] px-6 py-3.5 rounded-full border border-transparent hover:border-[#DFD6C6] text-[#3D3228] hover:text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-1.5 w-full sm:w-auto transition-colors"
+                >
+                  <Phone size={15} className="text-[#B85D3B]" />
+                  <span>{COMPANY_INFO.phoneDisplay}</span>
                 </a>
               </div>
 
@@ -138,24 +148,30 @@ export default function CatalogPage() {
       </section>
 
       {/* 2. THE MATERIAL CATALOG GRID */}
-      <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="mb-12 max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-              <Sparkle size={14} />
-              <span>{locale === "en" ? "Curated Finishes" : "Paletas y Muestras de Taller"}</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
-              {locale === "en" ? "Architectural Palette" : "Selección de Ebanistería y Color"}
-            </h2>
-            <p className="text-base text-[#3D3228] font-normal">
-              {locale === "en"
-                ? "Every swatch represents a physical material in our Phoenix workshop. Click 'Pin to Tray' to compile your palette."
-                : "Cada muestra corresponde a materiales reales en nuestro taller de Phoenix. Haz clic en 'Guardar' para armar tu paleta."}
-            </p>
-          </div>
+      <section className="py-16 lg:py-24 border-b border-[#DFD6C6] bg-[#F4EFE6]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-16">
+          {/* VISUAL ONBOARDING & CURATED PRESET PALETTES */}
+          <MaterialOnboardingGuide />
 
-          <MaterialCatalogGrid />
+          {/* CATALOG EXPLORATION INTRO & GRID */}
+          <div className="pt-6 border-t border-[#DFD6C6]">
+            <div className="mb-10 max-w-2xl space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
+                <Sparkle size={14} />
+                <span>{locale === "en" ? "Interactive Swatch Library" : "Biblioteca Interactiva de Acabados"}</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-serif text-[#261F1A]">
+                {locale === "en" ? "Explore Individual Finishes" : "Explora Acabados Individuales"}
+              </h2>
+              <p className="text-base text-[#3D3228] font-normal">
+                {locale === "en"
+                  ? "Every swatch represents a physical material in our Phoenix workshop. Click 'Pin to Tray' to compile your custom specification."
+                  : "Cada muestra corresponde a materiales reales en nuestro taller de Phoenix. Haz clic en 'Guardar' para agregarla a tu bandeja."}
+              </p>
+            </div>
+
+            <MaterialCatalogGrid />
+          </div>
         </div>
       </section>
 
