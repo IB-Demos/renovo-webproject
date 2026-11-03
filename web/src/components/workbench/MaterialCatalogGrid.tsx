@@ -7,12 +7,12 @@ import {
   ARCHITECTURAL_PIGMENTS,
   SHEEN_SPECS,
 } from "@/lib/catalog-data/specs";
-import { PushPin, Check, Sparkle } from "@phosphor-icons/react";
+import { PushPin, Check, Sparkle, BookmarkSimple, ArrowRight } from "@phosphor-icons/react";
 
 type FilterCategory = "all" | "profiles" | "coatings" | "systems";
 
 export function MaterialCatalogGrid() {
-  const { locale, t, addSample, removeSample, isInTray } = useRenovo();
+  const { locale, t, addSample, removeSample, isInTray, samples, setIsDrawerOpen } = useRenovo();
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
 
   const toggleItem = (item: {
@@ -31,7 +31,35 @@ export function MaterialCatalogGrid() {
   };
 
   return (
-    <div className="space-y-12 text-[#261F1A]">
+    <div className="space-y-8 text-[#261F1A]">
+      {/* Active Selections Indicator Banner */}
+      {samples.length > 0 && (
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#EFE8DD] border border-[#B85D3B]/40 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-[#B85D3B] text-white flex items-center justify-center shrink-0">
+              <BookmarkSimple size={16} weight="fill" />
+            </div>
+            <div>
+              <div className="text-sm font-serif font-semibold text-[#1A1410]">
+                {locale === "en" ? "Design Selections Active" : "Selecciones de Diseño Activas"}
+              </div>
+              <div className="text-xs text-[#54463A] font-serif">
+                {locale === "en"
+                  ? `You have ${samples.length} finish${samples.length === 1 ? "" : "es"} saved in your design schedule.`
+                  : `Tienes ${samples.length} acabado${samples.length === 1 ? "" : "s"} guardado${samples.length === 1 ? "" : "s"} en tu mesa de diseño.`}
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setIsDrawerOpen(true)}
+            className="interactive-control px-5 py-2.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider flex items-center gap-2 shadow-xs transition-colors"
+          >
+            <span>{locale === "en" ? "View My Selections" : "Ver Mis Selecciones"}</span>
+            <ArrowRight size={13} weight="bold" />
+          </button>
+        </div>
+      )}
       {/* Category Pills Filter Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#DFD6C6] pb-6">
         <div className="flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#B85D3B] font-mono">

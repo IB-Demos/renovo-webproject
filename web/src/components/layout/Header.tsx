@@ -13,7 +13,6 @@ import {
   X,
   CaretDown,
   ArrowRight,
-  Sparkle,
 } from "@phosphor-icons/react";
 
 export function Header() {
@@ -183,14 +182,41 @@ export function Header() {
         </nav>
 
         {/* =====================================================================
-            3. RIGHT ACTIONS (Refined, quiet luxury: language, tray, CTA)
+            3. RIGHT ACTIONS (Prominent Design Selections, Language, CTA)
         ===================================================================== */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2.5 sm:gap-3.5">
+          {/* Design Selections Button (Prominent, High-Visibility Labeled Pill) */}
+          <button
+            type="button"
+            onClick={() => setIsDrawerOpen(true)}
+            aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
+            title={t.sampleDrawer.title}
+            className="interactive-control flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full border border-[#DFD6C6] bg-[#FCFAF7] hover:border-[#B85D3B] hover:bg-[#F4EFE6] text-[#261F1A] transition-all shadow-xs active:scale-98"
+          >
+            <BookmarkSimple
+              size={15}
+              weight="fill"
+              className={samples.length > 0 ? "text-[#B85D3B]" : "text-[#8C7E70]"}
+            />
+            <span className="text-xs font-serif font-semibold tracking-tight">
+              {locale === "en" ? "Design Selections" : "Selecciones"}
+            </span>
+            <span
+              className={`min-w-[19px] h-[19px] px-1 rounded-full text-[10px] font-mono font-bold flex items-center justify-center transition-colors ${
+                samples.length > 0
+                  ? "bg-[#B85D3B] text-[#FCFAF7] shadow-xs"
+                  : "bg-[#EAE2D5] text-[#54463A]"
+              }`}
+            >
+              {samples.length}
+            </span>
+          </button>
+
           {/* Minimalist Language Switcher */}
           <div
             role="group"
             aria-label={t.meta.bilingualNotice}
-            className="flex items-center text-xs font-serif tracking-wider text-[#4A3E34]"
+            className="flex items-center text-xs font-serif tracking-wider text-[#4A3E34] px-1"
           >
             <button
               type="button"
@@ -202,7 +228,7 @@ export function Header() {
             >
               EN
             </button>
-            <span className="mx-1.5 opacity-40">/</span>
+            <span className="mx-1 opacity-40">/</span>
             <button
               type="button"
               onClick={() => setLocale("es")}
@@ -215,26 +241,6 @@ export function Header() {
             </button>
           </div>
 
-          {/* Design Tray Bookmark Trigger (Icon-only with luxury badge count) */}
-          <button
-            type="button"
-            onClick={() => setIsDrawerOpen(true)}
-            aria-label={`${t.sampleDrawer.title} (${samples.length} items)`}
-            title={t.sampleDrawer.title}
-            className="interactive-control relative p-2 rounded-full text-[#3D3228] hover:text-[#B85D3B] hover:bg-[#EAE2D5] transition-colors"
-          >
-            <BookmarkSimple
-              size={18}
-              weight={samples.length > 0 ? "fill" : "regular"}
-              className={samples.length > 0 ? "text-[#B85D3B]" : ""}
-            />
-            {samples.length > 0 && (
-              <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-[#B85D3B] text-white text-[9px] font-bold font-serif flex items-center justify-center">
-                {samples.length}
-              </span>
-            )}
-          </button>
-
           {/* Desktop Phone */}
           <a
             href={COMPANY_INFO.phoneHref}
@@ -244,10 +250,10 @@ export function Header() {
             <span>{COMPANY_INFO.phoneDisplay}</span>
           </a>
 
-          {/* Refined Consultation CTA in Terracotta */}
+          {/* Consultation CTA in Terracotta */}
           <Link
             href="/contacto"
-            className="interactive-control hidden sm:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
+            className="interactive-control hidden md:inline-flex items-center justify-center min-h-[38px] px-4 sm:px-5 py-2 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase transition-all duration-200 active:scale-98 shadow-sm"
           >
             {t.nav.bookConsult}
           </Link>
@@ -277,6 +283,33 @@ export function Header() {
             transition={{ duration: 0.2 }}
             className="lg:hidden border-t border-[#E0D7C8] bg-[#F4EFE6] px-4 py-6 space-y-4 shadow-2xl"
           >
+            {/* Featured Mobile Design Selections Card */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsDrawerOpen(true);
+              }}
+              className="interactive-control w-full p-3 rounded-2xl bg-[#FCFAF7] border border-[#B85D3B]/40 hover:border-[#B85D3B] flex items-center justify-between text-left shadow-xs transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#B85D3B]/10 flex items-center justify-center text-[#B85D3B]">
+                  <BookmarkSimple size={16} weight="fill" />
+                </div>
+                <div>
+                  <div className="text-xs font-serif font-semibold text-[#1A1410]">
+                    {locale === "en" ? "Your Design Selections" : "Tus Selecciones de Diseño"}
+                  </div>
+                  <div className="text-[10px] text-[#54463A] font-serif">
+                    {locale === "en" ? "Saved woods, profiles & 2K lacquers" : "Maderas, perfiles y lacas 2K guardadas"}
+                  </div>
+                </div>
+              </div>
+              <span className="px-2 py-0.5 rounded-full bg-[#B85D3B] text-[#FCFAF7] text-xs font-mono font-bold">
+                {samples.length}
+              </span>
+            </button>
+
             <div className="space-y-1">
               <span className="text-[10px] uppercase font-serif tracking-widest text-[#B85D3B] font-bold px-3 block">
                 {t.nav.services}
@@ -304,39 +337,39 @@ export function Header() {
               <Link
                 href="/catalogo"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.catalog}
               </Link>
               <Link
                 href="/studio-interactivo"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.studio}
               </Link>
               <Link
                 href="/nosotros"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-white text-sm font-serif font-medium text-[#1F1A16] transition-colors"
+                className="block px-3 py-2.5 rounded-xl hover:bg-[#FCFAF7] text-sm font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.about}
               </Link>
             </div>
 
-            <div className="pt-4 border-t border-[#E7E0D5] flex flex-col gap-3">
+            <div className="pt-4 border-t border-[#E0D7C8] flex flex-col gap-3">
               <Link
                 href="/contacto"
                 onClick={() => setMobileMenuOpen(false)}
-                className="interactive-control flex items-center justify-center min-h-[46px] w-full rounded-full bg-[var(--gold)] hover:bg-[var(--gold-hover)] text-white text-xs font-serif font-semibold tracking-wider uppercase shadow-sm"
+                className="interactive-control flex items-center justify-center min-h-[46px] w-full rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold tracking-wider uppercase shadow-sm"
               >
                 {t.nav.bookConsult}
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control flex items-center justify-center gap-2 min-h-[44px] w-full rounded-full border border-[#DDD6C9] bg-white text-xs font-serif text-[#1F1A16]"
+                className="interactive-control flex items-center justify-center gap-2 min-h-[44px] w-full rounded-full border border-[#DFD6C6] bg-[#FCFAF7] text-xs font-serif text-[#261F1A]"
               >
-                <Phone size={14} className="text-[var(--gold)]" />
+                <Phone size={14} className="text-[#B85D3B]" />
                 <span>{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>

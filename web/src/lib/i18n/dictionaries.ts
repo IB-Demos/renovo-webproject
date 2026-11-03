@@ -122,7 +122,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       estimator: "Scope Estimator",
       about: "Atelier",
       contact: "Contact",
-      sampleTray: "Tray",
+      sampleTray: "Design Selections",
       bookConsult: "Consultation",
     },
     hero: {
@@ -227,7 +227,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       estimator: "Cotizador",
       about: "Taller",
       contact: "Contacto",
-      sampleTray: "Muestras",
+      sampleTray: "Selecciones de Diseño",
       bookConsult: "Consulta",
     },
     hero: {

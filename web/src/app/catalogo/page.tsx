@@ -62,7 +62,7 @@ export default function CatalogPage() {
                   className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
                 >
                   <BookmarkSimple size={16} weight="bold" />
-                  <span>{locale === "en" ? "Review Sample Tray" : "Ver Bandeja de Muestras"} ({samples.length})</span>
+                  <span>{locale === "en" ? "View Design Selections" : "Ver Selecciones de Diseño"} ({samples.length})</span>
                 </button>
 
                 <a
