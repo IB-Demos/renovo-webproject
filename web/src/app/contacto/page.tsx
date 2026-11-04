@@ -16,12 +16,16 @@ import {
 } from "@phosphor-icons/react";
 
 export default function ContactPage() {
-  const {  locale , setActiveRoom } = useRenovo();
+  const { locale, setActiveRoom, samples } = useRenovo();
 
   React.useEffect(() => {
     setActiveRoom("patio");
   }, [setActiveRoom]);
+
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,9 +36,39 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          samples,
+          source: "contact-page",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send consultation request.");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      setErrorMessage(
+        err?.message ||
+          (locale === "en"
+            ? "Could not send inquiry. Please call Raul directly at (602) 550-4369."
+            : "No se pudo enviar la consulta. Por favor llama a Raul al (602) 550-4369.")
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -427,12 +461,28 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-4 rounded-xl bg-red-100/80 border border-red-300 text-red-800 text-xs font-serif leading-relaxed">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     <button
                       type="submit"
-                      className="interactive-control w-full min-h-[52px] px-8 py-3.5 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
+                      disabled={isSubmitting}
+                      className="interactive-control w-full min-h-[52px] px-8 py-3.5 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
                     >
-                      <PaperPlaneTilt size={18} weight="fill" />
-                      <span>{locale === "en" ? "Submit Consultation Request" : "Enviar Solicitud de Consulta"}</span>
+                      {isSubmitting ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>{locale === "en" ? "Sending Request..." : "Enviando Solicitud..."}</span>
+                        </>
+                      ) : (
+                        <>
+                          <PaperPlaneTilt size={18} weight="fill" />
+                          <span>{locale === "en" ? "Submit Consultation Request" : "Enviar Solicitud de Consulta"}</span>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}
