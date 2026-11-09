@@ -24,6 +24,7 @@ export async function POST(request: Request) {
       message = "",
       samples = [],
       source = "contact-page",
+      subject,
     } = body;
 
     if (!name || !email || !phone) {
@@ -88,35 +89,45 @@ export async function POST(request: Request) {
       `
         : "";
 
-    // 1. Send Internal Workshop Notification Email
+    const isErasureRequest = subject === "DATA_ERASURE_REQUEST";
+
+    // 1. Send Internal Workshop Notification Email to Raul
+    const internalSubject = isErasureRequest
+      ? `[URGENTE: Solicitud de Eliminación de Datos] ${name} - ${email || phone}`
+      : `[Nueva Consulta Renovo] ${name} - ${serviceDisplay.split("/")[0].trim()} (${location})`;
+
     const internalEmail = await resend.emails.send({
       from: fromAddress,
       to: toAddress.split(",").map((s) => s.trim()),
-      subject: `[Nueva Consulta Renovo] ${name} - ${serviceDisplay.split("/")[0].trim()} (${location})`,
+      subject: internalSubject,
       html: `
         <!DOCTYPE html>
         <html>
         <head>
           <meta charset="utf-8" />
-          <title>Nueva Consulta Renovo</title>
+          <title>${isErasureRequest ? "Solicitud de Eliminación de Datos" : "Nueva Consulta Renovo"}</title>
         </head>
         <body style="margin: 0; padding: 24px; font-family: Georgia, serif; background-color: #F4EFE6; color: #1A1410;">
           <div style="max-width: 620px; margin: 0 auto; background-color: #FCFAF7; border: 1px solid #DFD6C6; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
             
             <!-- HEADER -->
-            <div style="background-color: #1A1410; padding: 24px 32px; border-bottom: 3px solid #C59B27;">
+            <div style="background-color: ${isErasureRequest ? "#7A1C1C" : "#1A1410"}; padding: 24px 32px; border-bottom: 3px solid #C59B27;">
               <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #C59B27; font-family: monospace; display: block; margin-bottom: 6px;">
-                RENOVO PAINTING SOLUTIONS · ARCHITECTURAL INQUIRY
+                RENOVO PAINTING SOLUTIONS · ${isErasureRequest ? "PRIVACY COMPLIANCE" : "ARCHITECTURAL INQUIRY"}
               </span>
-              <h1 style="margin: 0; color: #FCFAF7; font-size: 24px; font-weight: normal; font-family: Georgia, serif;">
-                Nueva Solicitud de Consulta en Sitio
+              <h1 style="margin: 0; color: #FCFAF7; font-size: 22px; font-weight: normal; font-family: Georgia, serif;">
+                ${isErasureRequest ? "Solicitud de Eliminación de Datos Personales" : "Nueva Solicitud de Consulta en Sitio"}
               </h1>
             </div>
 
             <!-- CONTENT -->
             <div style="padding: 32px;">
               <p style="font-size: 15px; line-height: 1.6; color: #3D3228; margin: 0 0 24px;">
-                Se ha recibido una nueva solicitud a través del sitio web para el taller de Phoenix. A continuación los detalles del cliente:
+                ${
+                  isErasureRequest
+                    ? "Un usuario ha solicitado formalmente la eliminación y olvido de sus datos personales a través de la Política de Privacidad de renovoaz.com:"
+                    : "Se ha recibido una nueva solicitud a través del sitio web para el taller de Phoenix. A continuación los detalles del cliente:"
+                }
               </p>
 
               <!-- CLIENT CARD -->
@@ -197,12 +208,13 @@ export async function POST(request: Request) {
       `,
     });
 
-    // 2. Also send Client Confirmation Email
-    try {
-      await resend.emails.send({
-        from: fromAddress,
-        to: email,
-        subject: `Your Renovo Consultation Request has been Received / Solicitud Recibida`,
+    // 2. Also send Client Confirmation Email (skip for internal data erasure requests)
+    if (!isErasureRequest && email && !email.includes("no-email@request.com")) {
+      try {
+        await resend.emails.send({
+          from: fromAddress,
+          to: email,
+          subject: `Your Renovo Consultation Request has been Received / Solicitud Recibida`,
         html: `
           <!DOCTYPE html>
           <html>
@@ -255,6 +267,7 @@ export async function POST(request: Request) {
       // Don't fail the submission if customer confirmation email has issues
       console.warn("Client confirmation email could not be sent:", clientEmailErr);
     }
+  }
 
     return NextResponse.json({
       success: true,
