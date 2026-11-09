@@ -349,33 +349,35 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <div className="p-8 sm:p-10 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
                 {submitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-[#B85D3B]/15 border border-[#B85D3B] text-[#B85D3B] flex items-center justify-center mx-auto">
-                      <CheckCircle size={36} weight="fill" />
+                  <div className="py-12 text-center space-y-5">
+                    <div className="w-20 h-20 rounded-full bg-[#B85D3B]/15 border-2 border-[#B85D3B] text-[#B85D3B] flex items-center justify-center mx-auto shadow-sm">
+                      <CheckCircle size={44} weight="fill" />
                     </div>
-                    <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
+                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1410]">
                       {locale === "en" ? "Thank You. Consultation Requested!" : "¡Gracias! Tu Solicitud ha Sido Recibida"}
                     </h3>
-                    <p className="text-sm text-[#3D3228] max-w-md mx-auto leading-relaxed font-serif">
+                    <p className="text-base sm:text-lg text-[#261F1A] max-w-md mx-auto leading-relaxed font-normal">
                       {locale === "en"
                         ? `Raul Burgos or our senior estimator will review your project details and contact you at ${formData.phone || formData.email || "your provided contact"} within one business day.`
                         : `Raul Burgos o nuestro especialista revisará los detalles de tu proyecto y se comunicará contigo en menos de un día hábil.`}
                     </p>
-                    <button
-                      type="button"
-                      onClick={() => setSubmitted(false)}
-                      className="interactive-control px-6 py-2.5 rounded-full border border-[#DFD6C6] text-xs font-serif font-semibold uppercase tracking-wider text-[#261F1A] hover:bg-[#EAE2D5] transition-colors"
-                    >
-                      {locale === "en" ? "Send Another Message" : "Enviar Otra Consulta"}
-                    </button>
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={() => setSubmitted(false)}
+                        className="interactive-control px-7 py-3 rounded-full border-2 border-[#DFD6C6] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-sm sm:text-base font-serif font-bold uppercase tracking-wider text-[#1A1410] hover:border-[#1A1410] transition-colors shadow-xs"
+                      >
+                        {locale === "en" ? "Send Another Message" : "Enviar Otra Consulta"}
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
+                      <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1410]">
                         {locale === "en" ? "Request an On-Site Consultation" : "Solicita una Evaluación en Sitio"}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#3D3228] font-serif">
+                      <p className="text-sm sm:text-base text-[#261F1A] font-normal leading-relaxed">
                         {locale === "en"
                           ? "Fill in your project details below and we will prepare tailored recommendations before we speak."
                           : "Completa los datos de tu proyecto y prepararemos recomendaciones a medida antes de conversar."}
@@ -383,8 +385,8 @@ export default function ContactPage() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "Full Name *" : "Nombre Completo *"}
                         </label>
                         <input
@@ -393,12 +395,12 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder={locale === "en" ? "e.g. Eleanor Vance" : "ej. Carlos Mendoza"}
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B] placeholder-[#6E6053] font-medium"
                         />
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "Phone Number *" : "Teléfono de Contacto *"}
                         </label>
                         <input
@@ -407,14 +409,14 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="(602) 000-0000"
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B] placeholder-[#6E6053] font-medium"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "Email Address *" : "Correo Electrónico *"}
                         </label>
                         <input
@@ -423,18 +425,18 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="client@example.com"
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B] placeholder-[#6E6053] font-medium"
                         />
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "Primary Service *" : "Servicio de Interés *"}
                         </label>
                         <select
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] font-medium"
                         >
                           <option value="kitchens">
                             {locale === "en" ? "Custom Kitchens & Cabinetry" : "Cocinas a Medida y Gabinetes"}
@@ -453,8 +455,8 @@ export default function ContactPage() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "City / Neighborhood" : "Ciudad o Zona"}
                         </label>
                         <input
@@ -462,18 +464,18 @@ export default function ContactPage() {
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                           placeholder="e.g. Paradise Valley, Scottsdale, Peoria"
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B] placeholder-[#6E6053] font-medium"
                         />
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                      <div className="space-y-2">
+                        <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                           {locale === "en" ? "Estimated Timeline" : "Tiempo Estimado"}
                         </label>
                         <select
                           value={formData.timeline}
                           onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif"
+                          className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] font-medium"
                         >
                           <option value="immediate">
                             {locale === "en" ? "Immediate (Next 1-2 Weeks)" : "Inmediato (Próximas 1-2 semanas)"}
@@ -488,8 +490,8 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-serif uppercase tracking-wider text-[#3D3228] font-semibold">
+                    <div className="space-y-2">
+                      <label className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                         {locale === "en" ? "Project Vision & Details" : "Detalles del Proyecto"}
                       </label>
                       <textarea
@@ -501,12 +503,12 @@ export default function ContactPage() {
                             ? "Tell us about your kitchen, square footage, wood preferences (White Oak, Walnut), or color inspirations..."
                             : "Cuéntanos sobre tu cocina, medidas aproximadas, maderas de interés (Roble, Nogal) o paleta de colores..."
                         }
-                        className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-sm text-[#261F1A] focus:outline-none focus:border-[#B85D3B] font-serif placeholder-[#948678]"
+                        className="w-full px-4 py-3.5 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base text-[#1A1410] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B] placeholder-[#6E6053] font-medium"
                       />
                     </div>
 
                     {errorMessage && (
-                      <div className="p-4 rounded-xl bg-red-100/80 border border-red-300 text-red-800 text-xs font-serif leading-relaxed">
+                      <div className="p-4 rounded-xl bg-red-100/80 border border-red-300 text-red-900 text-sm font-medium leading-relaxed">
                         {errorMessage}
                       </div>
                     )}
@@ -514,7 +516,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="interactive-control w-full min-h-[52px] px-8 py-3.5 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
+                      className="interactive-control w-full min-h-[56px] px-8 py-4 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-60 disabled:cursor-not-allowed text-white text-base sm:text-lg font-serif font-bold uppercase tracking-wider flex items-center justify-center gap-3 shadow-xl transition-all hover:scale-[1.01]"
                     >
                       {isSubmitting ? (
                         <>

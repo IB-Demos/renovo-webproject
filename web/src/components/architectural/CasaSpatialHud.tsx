@@ -62,13 +62,13 @@ export function CasaSpatialHud() {
             />
 
             {/* Room Identifier */}
-            <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-serif">
-              <span className="text-[#C59B27] font-bold font-mono text-[10px]">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-serif">
+              <span className="text-[#FCD34D] font-bold font-mono text-xs">
                 {currentRoom.number}
               </span>
-              <span className="font-semibold hidden sm:inline">{currentRoom.tag[locale].split(" ")[0]}</span>
-              <span className="text-[#8C7A6B] hidden sm:inline">·</span>
-              <span className="text-[10px] sm:text-[11px] text-[#E0D7CC] font-mono">{currentLighting.kelvin}</span>
+              <span className="font-bold hidden sm:inline text-white">{currentRoom.tag[locale].split(" ")[0]}</span>
+              <span className="text-[#C59B27] hidden sm:inline font-bold">·</span>
+              <span className="text-xs text-[#FCFAF7] font-mono font-medium">{currentLighting.kelvin}</span>
             </div>
 
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[#C59B27] group-hover:bg-[#B85D3B] group-hover:text-white transition-colors">

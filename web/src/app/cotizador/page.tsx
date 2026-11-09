@@ -50,23 +50,23 @@ export default function EstimatorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* LEFT 7 COLS: COMMERCIAL INTRO */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-xs font-mono uppercase tracking-wider font-bold shadow-xs">
                   <span>{locale === "en" ? "OFFICIAL PROPOSAL & QUOTE REQUEST · PHOENIX" : "SOLICITUD OFICIAL DE COTIZACIÓN · PHOENIX"}</span>
                 </span>
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
-                  <FilePdf size={14} weight="fill" />
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-xs font-serif font-bold uppercase tracking-wider shadow-xs">
+                  <FilePdf size={16} weight="fill" />
                   <span>{locale === "en" ? "Official Project Proposal (PDF)" : "Propuesta Formal de Proyecto (PDF)"}</span>
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
                   ? "Request a Formal Project Proposal with Photos & Scope."
                   : "Solicita tu Propuesta de Proyecto con Fotos y Medidas."}
               </h1>
 
-              <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-[#261F1A] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
                   ? "Tell us what you want to accomplish: custom kitchen cabinets, 2K factory spray, cabinet refacing (door replacement), or residential painting. Upload current photos and get an executive PDF proposal delivered straight to Raul Burgos."
                   : "Cuéntanos qué deseas realizar: desde construir tu cocina desde cero y pintar gabinetes con laca 2K, hasta cabinet refacing (cambio de puertas y frentes) o pintura residencial. Sube fotos de tu espacio y recibe una propuesta corporativa en PDF enviada directo a Raul Burgos."}
@@ -75,38 +75,38 @@ export default function EstimatorPage() {
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
                 <a
                   href="#quote-form-section"
-                  className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
+                  className="interactive-control min-h-[54px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-sm sm:text-base font-serif font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2.5 shadow-xl w-full sm:w-auto transition-all hover:scale-[1.02]"
                 >
                   <span>{locale === "en" ? "Start Proposal Request Below" : "Llenar Solicitud Abajo"}</span>
-                  <ArrowRight size={16} weight="bold" />
+                  <ArrowRight size={18} weight="bold" />
                 </a>
 
                 <a
                   href={COMPANY_INFO.phoneHref}
-                  className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif font-semibold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
+                  className="interactive-control min-h-[54px] px-7 py-3.5 rounded-full border-2 border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-sm sm:text-base font-serif font-bold inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-xs transition-colors"
                 >
-                  <Phone size={16} className="text-[#B85D3B]" />
+                  <Phone size={18} weight="bold" className="text-[#B85D3B]" />
                   <span>{locale === "en" ? "Direct Line" : "Línea Directa"}: {COMPANY_INFO.phoneDisplay}</span>
                 </a>
               </div>
 
               {/* Trust Indicators */}
-              <div className="pt-4 border-t border-[#DFD6C6] grid grid-cols-3 gap-3 text-left">
-                <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">100% {locale === "en" ? "HONEST" : "HONESTO"}</div>
-                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+              <div className="pt-5 border-t border-[#DFD6C6] grid grid-cols-3 gap-3.5 text-left">
+                <div className="space-y-1">
+                  <div className="text-xs sm:text-sm font-mono font-bold text-[#9E3E20]">100% {locale === "en" ? "HONEST" : "HONESTO"}</div>
+                  <div className="text-xs sm:text-sm font-serif font-semibold text-[#1A1410] leading-snug">
                     {locale === "en" ? "Zero surprise hidden fees" : "Cero cargos ocultos imprevistos"}
                   </div>
                 </div>
-                <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">24H {locale === "en" ? "QUOTE" : "COTIZACIÓN"}</div>
-                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                <div className="space-y-1">
+                  <div className="text-xs sm:text-sm font-mono font-bold text-[#9E3E20]">24H {locale === "en" ? "QUOTE" : "COTIZACIÓN"}</div>
+                  <div className="text-xs sm:text-sm font-serif font-semibold text-[#1A1410] leading-snug">
                     {locale === "en" ? "Formal quote after in-home visit" : "Propuesta formal en 24 horas"}
                   </div>
                 </div>
-                <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-bold text-[#B85D3B]">2K {locale === "en" ? "INCLUDED" : "INCLUIDO"}</div>
-                  <div className="text-[11px] font-serif text-[#3D3228] leading-tight">
+                <div className="space-y-1">
+                  <div className="text-xs sm:text-sm font-mono font-bold text-[#9E3E20]">2K {locale === "en" ? "INCLUDED" : "INCLUIDO"}</div>
+                  <div className="text-xs sm:text-sm font-serif font-semibold text-[#1A1410] leading-snug">
                     {locale === "en" ? "Industrial coating always standard" : "Laca 2K de fábrica por defecto"}
                   </div>
                 </div>
@@ -194,7 +194,7 @@ export default function EstimatorPage() {
                 <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
                   {locale === "en" ? p.titleEn : p.titleEs}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#261F1A] leading-relaxed font-normal">
                   {locale === "en" ? p.descEn : p.descEs}
                 </p>
               </div>
@@ -207,12 +207,12 @@ export default function EstimatorPage() {
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410]">
+            <h2 className="text-3xl sm:text-5xl font-bold font-serif text-[#1A1410]">
               {locale === "en"
                 ? "Book Your In-Home Evaluation"
                 : "Agenda tu Evaluación en Sitio"}
             </h2>
-            <p className="text-base text-[#3D3228] font-normal">
+            <p className="text-base sm:text-lg text-[#261F1A] font-normal leading-relaxed">
               {locale === "en"
                 ? "Get a verified, binding proposal with physical material samples, laser measurements, and timeline commitments."
                 : "Obtén una propuesta formal y vinculante con muestras físicas de material, mediciones láser y cronograma exacto."}
@@ -220,16 +220,16 @@ export default function EstimatorPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contacto"
-                className="interactive-control min-h-[50px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto"
+                className="interactive-control min-h-[54px] px-8 py-4 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-sm sm:text-base font-serif font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2.5 shadow-xl w-full sm:w-auto hover:scale-[1.02] transition-all"
               >
                 <span>{locale === "en" ? "Book an On-Site Consultation" : "Agendar Consulta en Sitio"}</span>
-                <ArrowRight size={16} weight="bold" />
+                <ArrowRight size={18} weight="bold" />
               </Link>
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="interactive-control min-h-[50px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-xs font-serif inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="interactive-control min-h-[54px] px-8 py-4 rounded-full border-2 border-[#DFD6C6] hover:border-[#1A1410] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#1A1410] text-sm sm:text-base font-serif font-bold inline-flex items-center justify-center gap-2.5 w-full sm:w-auto shadow-xs transition-colors"
               >
-                <Phone size={16} className="text-[#B85D3B]" />
+                <Phone size={18} weight="bold" className="text-[#B85D3B]" />
                 <span className="font-serif tabular-nums">{COMPANY_INFO.phoneDisplay}</span>
               </a>
             </div>
