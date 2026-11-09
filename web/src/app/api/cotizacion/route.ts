@@ -94,20 +94,21 @@ export async function POST(request: Request) {
     if (apiKey) {
       const resend = new Resend(apiKey);
       const fromAddress =
-        process.env.RESEND_FROM_EMAIL || "Renovo Painting Solutions <consultas@haganesoft.com>";
+        process.env.RESEND_FROM_EMAIL || "Renovo Painting Solutions <quotes@renovoaz.com>";
       const toAddress =
         process.env.RESEND_NOTIFICATION_EMAIL || "raul@renovoaz.com";
 
       // 1. Notification Email to Raul Burgos with PDF Attached
-      await resend.emails.send({
-        from: fromAddress,
-        to: [toAddress],
-        replyTo: email,
-        subject:
-          locale === "es"
-            ? `[Nueva Propuesta de Proyecto] ${name} · ${serviceTitle} (${quoteId})`
-            : `[New Project Proposal Request] ${name} · ${serviceTitle} (${quoteId})`,
-        html: `
+      try {
+        await resend.emails.send({
+          from: fromAddress,
+          to: [toAddress],
+          replyTo: email,
+          subject:
+            locale === "es"
+              ? `[Nueva Propuesta de Proyecto] ${name} · ${serviceTitle} (${quoteId})`
+              : `[New Project Proposal Request] ${name} · ${serviceTitle} (${quoteId})`,
+          html: `
           <!DOCTYPE html>
           <html>
           <body style="font-family: Georgia, serif; background-color: #F4EFE6; padding: 24px; color: #1A1410;">
@@ -176,13 +177,16 @@ export async function POST(request: Request) {
           </body>
           </html>
         `,
-        attachments: [
-          {
-            filename: pdfFilename,
-            content: pdfBuffer,
-          },
-        ],
-      });
+          attachments: [
+            {
+              filename: pdfFilename,
+              content: pdfBuffer,
+            },
+          ],
+        });
+      } catch (raulEmailErr) {
+        console.warn("Could not dispatch notification email to Raul:", raulEmailErr);
+      }
 
       // 2. Courtesy Confirmation Email to Client with the PDF Attached
       try {
