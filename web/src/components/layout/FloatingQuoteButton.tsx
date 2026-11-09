@@ -28,7 +28,7 @@ export function FloatingQuoteButton() {
           exit={{ opacity: 0, y: 16, scale: 0.94 }}
           transition={{ duration: 0.25 }}
           className={`fixed right-4 sm:right-6 z-40 transition-all duration-300 ${
-            hasSavedSamples ? "bottom-[84px]" : "bottom-5 sm:bottom-6"
+            hasSavedSamples ? "bottom-[142px]" : "bottom-[80px] sm:bottom-[86px]"
           }`}
         >
           <Link
