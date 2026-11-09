@@ -94,7 +94,7 @@ export async function POST(request: Request) {
     if (apiKey) {
       const resend = new Resend(apiKey);
       const fromAddress =
-        process.env.RESEND_FROM_EMAIL || "Renovo Painting Solutions <quotes@renovoaz.com>";
+        process.env.RESEND_FROM_EMAIL || "Renovo Painting Solutions <contact@renovoaz.com>";
       const toAddress =
         process.env.RESEND_NOTIFICATION_EMAIL || "raul@renovoaz.com";
 

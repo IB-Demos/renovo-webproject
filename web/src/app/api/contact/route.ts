@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     const fromAddress =
       process.env.RESEND_FROM_EMAIL ||
-      "Renovo Painting Solutions <quotes@renovoaz.com>";
+      "Renovo Painting Solutions <contact@renovoaz.com>";
 
     // Notification target (Raul and Renovo team)
     const toAddress =
