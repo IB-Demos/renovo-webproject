@@ -43,45 +43,7 @@ export async function POST(request: Request) {
     const trimmedMsg = String(message).trim();
     const activeLocale = locale === "es" ? "es" : "en";
 
-    // 1. IF MAKE.COM WEBHOOK IS CONFIGURED, CALL MAKE.COM
-    const makeWebhookUrl = process.env.MAKE_CHATBOT_WEBHOOK_URL;
-    if (makeWebhookUrl && makeWebhookUrl.startsWith("http")) {
-      try {
-        const makeRes = await fetch(makeWebhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            message: trimmedMsg,
-            history,
-            locale: activeLocale,
-            language: activeLocale === "es" ? "Spanish" : "English",
-            languageCode: activeLocale === "es" ? "es-MX" : "en-US",
-            leadInfo: leadInfo || {
-              name: "",
-              phone: "",
-              email: "",
-              notes: "",
-            },
-            timestamp: new Date().toISOString(),
-          }),
-        });
-
-        if (makeRes.ok) {
-          const makeData = await makeRes.json().catch(() => null);
-          if (makeData && (makeData.reply || makeData.message)) {
-            return NextResponse.json({
-              reply: makeData.reply || makeData.message,
-              leadCaptured: Boolean(makeData.leadCaptured),
-              source: "make.com",
-            });
-          }
-        }
-      } catch (makeErr) {
-        console.warn("Make.com webhook error, falling back to local engine:", makeErr);
-      }
-    }
-
-    // 2. LEAD DISPATCH VIA RESEND (If user supplied contact details)
+    // 1. LEAD DISPATCH VIA RESEND (Guaranteed direct notification to Raul whenever contact info is provided)
     let leadCaptured = false;
     if (leadInfo && (leadInfo.phone || leadInfo.email)) {
       try {
@@ -110,7 +72,7 @@ export async function POST(request: Request) {
                     <li><strong>Detalles de la Consulta:</strong> ${leadInfo.notes || trimmedMsg || "Consulta general"}</li>
                     <li><strong>Idioma del usuario:</strong> ${activeLocale.toUpperCase()}</li>
                   </ul>
-                  <p style="font-size: 12px; color: #7A6E63; margin-top: 20px; border-top: 1px solid #DFD6C6; pt: 10px;">
+                  <p style="font-size: 12px; color: #7A6E63; margin-top: 20px; border-top: 1px solid #DFD6C6; padding-top: 10px;">
                     Enviado desde el Asistente Concierge de Renovo (Shangri La Rd Workshop).
                   </p>
                 </div>
@@ -120,7 +82,45 @@ export async function POST(request: Request) {
           leadCaptured = true;
         }
       } catch (emailErr) {
-        console.warn("Could not dispatch chatbot lead email:", emailErr);
+        console.warn("Could not dispatch chatbot lead email via Resend:", emailErr);
+      }
+    }
+
+    // 2. IF MAKE.COM WEBHOOK IS CONFIGURED, CALL MAKE.COM
+    const makeWebhookUrl = process.env.MAKE_CHATBOT_WEBHOOK_URL;
+    if (makeWebhookUrl && makeWebhookUrl.startsWith("http")) {
+      try {
+        const makeRes = await fetch(makeWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: trimmedMsg,
+            history,
+            locale: activeLocale,
+            language: activeLocale === "es" ? "Spanish" : "English",
+            languageCode: activeLocale === "es" ? "es-MX" : "en-US",
+            leadInfo: leadInfo || {
+              name: "",
+              phone: "",
+              email: "",
+              notes: "",
+            },
+            timestamp: new Date().toISOString(),
+          }),
+        });
+
+        if (makeRes.ok) {
+          const makeData = await makeRes.json().catch(() => null);
+          if (makeData && (makeData.reply || makeData.message)) {
+            return NextResponse.json({
+              reply: makeData.reply || makeData.message,
+              leadCaptured: leadCaptured || Boolean(makeData.leadCaptured),
+              source: "make.com",
+            });
+          }
+        }
+      } catch (makeErr) {
+        console.warn("Make.com webhook error, falling back to local engine:", makeErr);
       }
     }
 
