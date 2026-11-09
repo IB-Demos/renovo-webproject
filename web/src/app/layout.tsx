@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SampleTrayDrawer } from "@/components/layout/SampleTrayDrawer";
 import { CasaAtmosphereCanvas } from "@/components/architectural/CasaAtmosphereCanvas";
 import { CasaSpatialHud } from "@/components/architectural/CasaSpatialHud";
+import { FloatingQuoteButton } from "@/components/layout/FloatingQuoteButton";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({
           <Footer />
           <SampleTrayDrawer />
           <CasaSpatialHud />
+          <FloatingQuoteButton />
         </RenovoProvider>
       </body>
     </html>
