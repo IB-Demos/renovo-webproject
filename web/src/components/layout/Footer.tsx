@@ -178,11 +178,48 @@ export function Footer() {
                   <svg className="w-3.5 h-3.5 fill-[#D32323]" viewBox="0 0 24 24">
                     <path d="M12.003 0c-.39 0-.745.242-.892.607l-1.895 4.708a.959.959 0 0 0 .42 1.185l4.382 2.53a.96.96 0 0 0 1.26-.353l2.42-4.47a.958.958 0 0 0-.324-1.218L13.23.473a.965.965 0 0 0-.726-.473h-.5zM8.38 8.65a.96.96 0 0 0-1.23-.448L2.49 10.37a.958.958 0 0 0-.528 1.15l1.045 4.966c.094.446.49.76.945.753a.96.96 0 0 0 .452-.116l4.57-2.17a.959.959 0 0 0 .49-1.157l-1.084-5.146zm8.852.793a.959.959 0 0 0-.877.568l-2.03 4.652a.96.96 0 0 0 .463 1.168l4.49 2.332a.96.96 0 0 0 1.25-.4l2.25-4.557a.958.958 0 0 0-.363-1.206l-4.14-2.274a.966.966 0 0 0-.443-.283h-.6zm-5.717 6.42a.96.96 0 0 0-1.253.376l-2.348 4.507a.958.958 0 0 0 .34 1.213l4.184 2.193c.153.08.322.12.49.12.37 0 .72-.212.877-.56l1.968-4.678a.96.96 0 0 0-.437-1.18l-3.82-1.99z" />
                   </svg>
-                  <span>Yelp (5★)</span>
+                  <span>{locale === "en" ? "Verified Reviews on Yelp" : "Reseñas Verificadas en Yelp"}</span>
                 </a>
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Legal & Compliance Links */}
+        <div className="pt-8 pb-4 border-t border-[#3A2E26] flex flex-wrap items-center justify-between gap-4 text-xs text-[#A69B8F]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/privacidad" className="hover:text-[var(--gold)] transition-colors">
+              {locale === "en" ? "Privacy Policy" : "Política de Privacidad"}
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/terminos" className="hover:text-[var(--gold)] transition-colors">
+              {locale === "en" ? "Terms & Conditions" : "Términos y Condiciones"}
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/reembolsos" className="hover:text-[var(--gold)] transition-colors">
+              {locale === "en" ? "Warranty & Refunds" : "Garantía y Reembolsos"}
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/cookies" className="hover:text-[var(--gold)] transition-colors">
+              {locale === "en" ? "Cookie Policy" : "Política de Cookies"}
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/licencias" className="hover:text-[var(--gold)] transition-colors">
+              {locale === "en" ? "Licenses & Credits" : "Licencias y Atribución"}
+            </Link>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new Event("renovo-open-cookie-banner"));
+              }
+            }}
+            className="hover:text-[var(--gold)] text-[#C9BFB2] underline underline-offset-2 transition-colors cursor-pointer text-xs"
+          >
+            {locale === "en" ? "Cookie Settings" : "Configuración de Cookies"}
+          </button>
         </div>
 
         {/* Bottom Craft Stamp & Agency Attribution */}

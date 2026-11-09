@@ -9,6 +9,7 @@ import { CasaAtmosphereCanvas } from "@/components/architectural/CasaAtmosphereC
 import { CasaSpatialHud } from "@/components/architectural/CasaSpatialHud";
 import { FloatingQuoteButton } from "@/components/layout/FloatingQuoteButton";
 import { RenovoChatbot } from "@/components/chat/RenovoChatbot";
+import { CookieConsentBanner } from "@/components/legal/CookieConsentBanner";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -84,6 +85,12 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${playfair.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--fg)] selection:bg-[var(--accent)] selection:text-white">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#B85D3B] focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none text-sm font-medium"
+        >
+          Skip to main content / Saltar al contenido principal
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
@@ -91,12 +98,13 @@ export default function RootLayout({
         <RenovoProvider>
           <CasaAtmosphereCanvas />
           <Header />
-          <main className="flex-1 relative z-10">{children}</main>
+          <main id="main-content" className="flex-1 relative z-10">{children}</main>
           <Footer />
           <SampleTrayDrawer />
           <CasaSpatialHud />
           <FloatingQuoteButton />
           <RenovoChatbot />
+          <CookieConsentBanner />
         </RenovoProvider>
       </body>
     </html>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
@@ -50,6 +51,7 @@ export function QuoteRequestSystem() {
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [cityOrZip, setCityOrZip] = useState<string>("");
+  const [privacyAccepted, setPrivacyAccepted] = useState<boolean>(false);
 
   // Photos State
   const [photos, setPhotos] = useState<UploadedPhotoPreview[]>([]);
@@ -454,6 +456,15 @@ export function QuoteRequestSystem() {
         locale === "en"
           ? "Please provide your full name, phone number, and email address."
           : "Por favor proporciona tu nombre completo, teléfono y correo electrónico."
+      );
+      return;
+    }
+
+    if (!privacyAccepted) {
+      setErrorMessage(
+        locale === "en"
+          ? "Please accept the Privacy Policy and Terms to proceed."
+          : "Por favor acepta la Política de Privacidad y Términos para continuar."
       );
       return;
     }
@@ -1509,6 +1520,46 @@ export function QuoteRequestSystem() {
               );
             })}
           </div>
+        </div>
+
+        {/* Explicit Privacy & Anti-Spam Consent Checkbox */}
+        <div className="pt-2">
+          <label className="flex items-start gap-3 cursor-pointer group text-xs sm:text-sm text-[#DFD6C6]">
+            <input
+              type="checkbox"
+              required
+              checked={privacyAccepted}
+              onChange={(e) => setPrivacyAccepted(e.target.checked)}
+              className="mt-1 h-4 w-4 rounded border-[#4A3B30] bg-[#261E18] text-[#B85D3B] focus:ring-[#B85D3B] focus:ring-offset-0 cursor-pointer"
+            />
+            <span className="leading-snug">
+              {locale === "en" ? (
+                <>
+                  I agree to the{" "}
+                  <Link href="/privacidad" target="_blank" className="text-[#E5B537] underline hover:text-white">
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/terminos" target="_blank" className="text-[#E5B537] underline hover:text-white">
+                    Terms & Conditions
+                  </Link>
+                  . Renovo will only use your contact details to review your project and coordinate your consultation with Raul Burgos. Zero third-party data sharing.
+                </>
+              ) : (
+                <>
+                  Acepto la{" "}
+                  <Link href="/privacidad" target="_blank" className="text-[#E5B537] underline hover:text-white">
+                    Política de Privacidad
+                  </Link>{" "}
+                  y los{" "}
+                  <Link href="/terminos" target="_blank" className="text-[#E5B537] underline hover:text-white">
+                    Términos y Condiciones
+                  </Link>
+                  . Renovo solo utilizará tus datos para que el maestro Raul Burgos revise tu proyecto y coordine tu cotización. Cero spam, nunca vendemos tu información.
+                </>
+              )}
+            </span>
+          </label>
         </div>
 
         {/* Submit Button */}

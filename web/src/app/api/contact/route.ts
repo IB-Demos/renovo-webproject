@@ -239,6 +239,12 @@ export async function POST(request: Request) {
                   Warm regards,<br />
                   <strong style="color: #1A1410;">The Renovo Team</strong>
                 </p>
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #DFD6C6; font-size: 11px; color: #7A6E63; line-height: 1.5; font-family: sans-serif;">
+                  <p style="margin: 0 0 6px;">Renovo Painting Solutions LLC · 2231 W Shangri La Rd, Ste K-L, Phoenix, AZ 85029 · ROC Licensed & Insured</p>
+                  <p style="margin: 0;">
+                    To manage your communication preferences or request total data deletion, visit our <a href="https://www.renovoaz.com/privacidad#baja-comunicaciones" style="color: #B85D3B; text-decoration: underline;">Privacy Policy</a> or reply to this email with "Unsubscribe".
+                  </p>
+                </div>
               </div>
             </div>
           </body>

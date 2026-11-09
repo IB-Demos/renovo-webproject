@@ -227,6 +227,12 @@ export async function POST(request: Request) {
                     Atentamente,<br>
                     <strong>Raul Burgos & Equipo Renovo</strong>
                   </p>
+                  <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #DFD6C6; font-size: 11px; color: #7A6E63; line-height: 1.5;">
+                    <p style="margin: 0 0 6px;">Renovo Painting Solutions LLC · 2231 W Shangri La Rd, Ste K-L, Phoenix, AZ 85029 · Licencia ROC & Asegurado</p>
+                    <p style="margin: 0;">
+                      Recibes este correo porque solicitaste una propuesta formal en renovoaz.com. Si deseas darte de baja de futuras comunicaciones o solicitar la eliminación total de tus datos, haz <a href="https://www.renovoaz.com/privacidad#baja-comunicaciones" style="color: #B85D3B; text-decoration: underline;">clic aquí</a> o responde con la palabra "Baja".
+                    </p>
+                  </div>
                 </div>
               </div>
             </body>
@@ -262,6 +268,12 @@ export async function POST(request: Request) {
                     Warm regards,<br>
                     <strong>Raul Burgos & The Renovo Craftsmen</strong>
                   </p>
+                  <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #DFD6C6; font-size: 11px; color: #7A6E63; line-height: 1.5;">
+                    <p style="margin: 0 0 6px;">Renovo Painting Solutions LLC · 2231 W Shangri La Rd, Ste K-L, Phoenix, AZ 85029 · ROC Licensed & Fully Insured</p>
+                    <p style="margin: 0;">
+                      You received this email because you requested a formal project proposal on renovoaz.com. If you wish to unsubscribe or request full data erasure, please <a href="https://www.renovoaz.com/privacidad#baja-comunicaciones" style="color: #B85D3B; text-decoration: underline;">click here</a> or reply to this message with "Unsubscribe".
+                    </p>
+                  </div>
                 </div>
               </div>
             </body>
