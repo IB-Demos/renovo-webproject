@@ -46,7 +46,7 @@ export function FloatingQuoteButton() {
 
             <div className="flex flex-col text-left">
               <span className="text-[8px] sm:text-[9px] font-mono font-bold tracking-wider uppercase text-[#C59B27] leading-none hidden sm:block">
-                {locale === "en" ? "PDF PROPOSAL" : "PROPUESTA PDF"}
+                {locale === "en" ? "OFFICIAL ESTIMATE" : "PRESUPUESTO FORMAL"}
               </span>
               <span className="text-xs sm:text-sm font-serif font-semibold tracking-tight text-[#FCFAF7] leading-tight">
                 <span className="sm:hidden">{locale === "en" ? "Quote (PDF)" : "Cotizar (PDF)"}</span>

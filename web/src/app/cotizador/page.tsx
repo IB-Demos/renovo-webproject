@@ -56,7 +56,7 @@ export default function EstimatorPage() {
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <FilePdf size={14} weight="fill" />
-                  <span>{locale === "en" ? "Corporate PDF Document Included" : "Generación de Documento PDF Corporativo"}</span>
+                  <span>{locale === "en" ? "Official Project Proposal (PDF)" : "Propuesta Formal de Proyecto (PDF)"}</span>
                 </span>
               </div>
 

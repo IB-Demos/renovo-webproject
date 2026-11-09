@@ -314,6 +314,7 @@ export function QuoteRequestSystem() {
       setIsSubmitting(true);
 
       const formData = new FormData();
+      formData.append("locale", locale);
       formData.append("name", name.trim());
       formData.append("email", email.trim());
       formData.append("phone", phone.trim());
@@ -404,7 +405,10 @@ export function QuoteRequestSystem() {
     const linkSource = `data:application/pdf;base64,${submittedData.pdfBase64}`;
     const downloadLink = document.createElement("a");
     downloadLink.href = linkSource;
-    downloadLink.download = `Renovo-Proposal-${submittedData.quoteId}.pdf`;
+    downloadLink.download =
+      locale === "en"
+        ? `Renovo-Proposal-${submittedData.quoteId}.pdf`
+        : `Renovo-Propuesta-${submittedData.quoteId}.pdf`;
     downloadLink.click();
   };
 
@@ -426,12 +430,12 @@ export function QuoteRequestSystem() {
             <h2 className="text-2xl sm:text-4xl font-serif font-semibold text-[#1A1410]">
               {locale === "en"
                 ? "Your Official Project Proposal is Ready."
-                : "Tu Solicitud de Proyecto ha Sido Generada."}
+                : "Tu Propuesta de Proyecto ha Sido Generada."}
             </h2>
             <p className="text-sm sm:text-base text-[#54463A] max-w-2xl mx-auto leading-relaxed">
               {locale === "en"
-                ? "We compiled your specifications, measurements, and photos into a corporate PDF document and dispatched a copy directly to raul@renovoaz.com. You can download your official copy below."
-                : "Hemos integrado tus especificaciones, medidas y fotos en un documento PDF corporativo y enviamos una copia a raul@renovoaz.com. Puedes descargar tu copia oficial aquí mismo."}
+                ? "We compiled your specifications, measurements, and photos into an official Renovo proposal document and dispatched a copy directly to raul@renovoaz.com. You can download your copy below."
+                : "Integramos tus especificaciones, medidas y fotos en un documento oficial de propuesta Renovo y enviamos una copia a raul@renovoaz.com. Puedes descargar tu copia oficial aquí mismo."}
             </p>
           </div>
 
@@ -453,7 +457,7 @@ export function QuoteRequestSystem() {
               className="interactive-control min-h-[50px] sm:min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2.5 shadow-xl w-full sm:w-auto transition-transform hover:scale-[1.02]"
             >
               <DownloadSimple size={18} weight="bold" />
-              <span>{locale === "en" ? "Download Corporate PDF" : "Descargar PDF Corporativo"}</span>
+              <span>{locale === "en" ? "Download Proposal (PDF)" : "Descargar Propuesta (PDF)"}</span>
             </button>
 
             <a
@@ -1127,14 +1131,14 @@ export function QuoteRequestSystem() {
             className="interactive-control w-full min-h-[54px] px-8 py-4 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-60 text-white text-xs sm:text-sm font-serif font-semibold uppercase tracking-wider flex items-center justify-center gap-3 shadow-2xl transition-all"
           >
             {isSubmitting ? (
-              <span>{locale === "en" ? "Compiling Corporate PDF & Sending..." : "Compilando PDF Corporativo y Enviando..."}</span>
+              <span>{locale === "en" ? "Compiling Project Proposal & Sending..." : "Compilando Propuesta de Proyecto y Enviando..."}</span>
             ) : (
               <>
                 <FilePdf size={20} weight="fill" />
                 <span>
                   {locale === "en"
-                    ? "Generate Corporate Proposal & Send to Raul"
-                    : "Generar Propuesta Corporativa y Enviar a Raul"}
+                    ? "Generate Project Proposal & Send to Raul"
+                    : "Generar Propuesta de Proyecto y Enviar a Raul"}
                 </span>
                 <ArrowRight size={16} weight="bold" />
               </>
@@ -1142,8 +1146,8 @@ export function QuoteRequestSystem() {
           </button>
           <p className="text-[11px] text-[#A69B8F] text-center mt-2.5">
             {locale === "en"
-              ? "Creates an official Renovo PDF specification with your photos and dispatches a copy directly to raul@renovoaz.com."
-              : "Genera el PDF oficial de Renovo con tus fotos adjuntas y envía una copia directamente a raul@renovoaz.com."}
+              ? "Creates an official Renovo proposal specification with your photos and dispatches a copy directly to raul@renovoaz.com."
+              : "Genera la propuesta formal de Renovo con tus fotos adjuntas y envía una copia directamente a raul@renovoaz.com."}
           </p>
         </div>
       </div>
