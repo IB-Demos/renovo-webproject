@@ -136,28 +136,34 @@ export function QuoteRequestSystem() {
       id: "satin-2k",
       labelEn: "2K Catalyzed Polyurethane Satin (18% Sheen - Recommended)",
       labelEs: "Laca 2K Catalizada Satinada (18% de brillo - Recomendada)",
-      descEn: "Silky velvet touch, non-reflective, highly resistant to cooking grease and boiling steam.",
-      descEs: "Tacto aterciopelado terso, no refleja huellas, altamente resistente a vapor y grasa caliente.",
-      badgeEn: "Most Popular",
-      badgeEs: "La más elegida",
+      descEn: "Silky velvet touch with soft ambient light reflection. Highly resistant to cooking grease and steam.",
+      descEs: "Tacto aterciopelado terso con suave reflejo de luz. Altamente resistente a grasa y vapor caliente.",
+      badgeEn: "Most Requested in Phoenix",
+      badgeEs: "La más solicitada en Phoenix",
+      sheenBadge: "18% Satin",
+      image: "/assets/kitchens/kitchen-02.jpg",
     },
     {
       id: "matte-velvet",
       labelEn: "2K Ultra-Matte Architectural Finish (5% Sheen)",
       labelEs: "Laca 2K Ultra-Mate Arquitectónica (5% de brillo)",
-      descEn: "Sophisticated flat European appearance with full molecular surface protection.",
-      descEs: "Aspecto plano contemporáneo europeo con sellado molecular impermeable.",
-      badgeEn: "Modern Aesthetic",
-      badgeEs: "Estilo Moderno",
+      descEn: "Sophisticated flat European appearance with zero glare and complete molecular surface protection.",
+      descEs: "Aspecto plano contemporáneo europeo sin reflejos y con sellado molecular impermeable.",
+      badgeEn: "Modern European Aesthetic",
+      badgeEs: "Estilo Moderno Europeo",
+      sheenBadge: "5% Ultra-Matte",
+      image: "/assets/kitchens/kitchen-14.jpg",
     },
     {
       id: "wood-stain",
       labelEn: "Natural Hardwood Clear Coat / Wood Stain (White Oak, Walnut)",
       labelEs: "Tinte y Sellador Transparente para Madera Noble (Roble, Nogal)",
-      descEn: "Reveals deep natural grain character with non-yellowing UV barrier.",
-      descEs: "Realza la veta natural de la madera con filtro UV que previene el amarilleamiento.",
-      badgeEn: "Organic Warmth",
-      badgeEs: "Calidez Orgánica",
+      descEn: "Reveals deep natural grain character in solid hardwoods with a non-yellowing industrial UV barrier.",
+      descEs: "Realza la veta viva de maderas macizas con filtro UV industrial que previene el amarilleamiento.",
+      badgeEn: "Organic Hardwood Character",
+      badgeEs: "Carácter de Madera Maciza",
+      sheenBadge: "Natural Grain",
+      image: "/assets/blueprints-and-docs/custom-furniture-02.jpg",
     },
   ];
 
@@ -729,43 +735,77 @@ export function QuoteRequestSystem() {
         </div>
 
         <div className="space-y-6">
-          {/* Finish Grade Selector */}
+          {/* Visual Finish Grade Selector with Photography Cards */}
           <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-[#3D3228] mb-2.5 font-semibold">
-              {locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo"}
-            </label>
-            <div className="space-y-2.5">
-              {finishOptions.map((f) => (
-                <label
-                  key={f.id}
-                  className={`p-3.5 sm:p-4 rounded-2xl border flex items-start gap-3 cursor-pointer transition-all ${
-                    finishType === f.id
-                      ? "border-[#B85D3B] bg-[#F4EFE6] shadow-xs"
-                      : "border-[#DFD6C6] bg-[#FCFAF7] hover:bg-[#F9F6F0]"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="finishType"
-                    checked={finishType === f.id}
-                    onChange={() => setFinishType(f.id)}
-                    className="mt-1 text-[#B85D3B] focus:ring-[#B85D3B]"
-                  />
-                  <div className="space-y-0.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs sm:text-sm font-serif font-bold text-[#1A1410]">
-                        {locale === "en" ? f.labelEn : f.labelEs}
-                      </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#EAE2D5] text-[#54463A] font-semibold">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-1">
+              <label className="block text-xs font-mono uppercase tracking-wider text-[#3D3228] font-semibold">
+                {locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo"}
+              </label>
+              <span className="text-[11px] font-serif text-[#7A6E63]">
+                {locale === "en" ? "Touch a finish card to select" : "Toca una tarjeta para elegir acabado"}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+              {finishOptions.map((f) => {
+                const isSelected = finishType === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setFinishType(f.id)}
+                    className={`interactive-control text-left rounded-2xl overflow-hidden border-2 transition-all flex flex-col justify-between group ${
+                      isSelected
+                        ? "border-[#B85D3B] bg-[#F4EFE6] shadow-md ring-1 ring-[#B85D3B]"
+                        : "border-[#DFD6C6] bg-[#FCFAF7] hover:border-[#B85D3B]/50 hover:bg-[#F9F6F0]"
+                    }`}
+                  >
+                    {/* Visual Photography Header */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/10">
+                      <img
+                        src={f.image}
+                        alt={locale === "en" ? f.labelEn : f.labelEs}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+
+                      {/* Sheen Badge & Check Indicator */}
+                      <div className="absolute top-2.5 inset-x-2.5 flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#C59B27] border border-white/10">
+                          {f.sheenBadge}
+                        </span>
+                        <div
+                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shadow-md transition-colors ${
+                            isSelected
+                              ? "border-[#B85D3B] bg-[#B85D3B] text-white"
+                              : "border-white/60 bg-black/40 text-transparent"
+                          }`}
+                        >
+                          {isSelected && <Check size={14} weight="bold" />}
+                        </div>
+                      </div>
+
+                      {/* Bottom Tag over image */}
+                      <div className="absolute bottom-2 left-2.5 text-[11px] font-serif text-white/95 font-semibold drop-shadow-xs">
                         {locale === "en" ? f.badgeEn : f.badgeEs}
-                      </span>
+                      </div>
                     </div>
-                    <span className="text-xs text-[#54463A] block">
-                      {locale === "en" ? f.descEn : f.descEs}
-                    </span>
-                  </div>
-                </label>
-              ))}
+
+                    {/* Content */}
+                    <div className="p-3.5 sm:p-4 space-y-1.5 flex-1 flex flex-col justify-between">
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-serif font-bold text-[#1A1410] leading-snug">
+                          {locale === "en" ? f.labelEn : f.labelEs}
+                        </h4>
+                        <p className="text-xs text-[#54463A] leading-relaxed">
+                          {locale === "en" ? f.descEn : f.descEs}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
