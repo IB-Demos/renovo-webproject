@@ -96,10 +96,12 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
       height: logoH,
     });
 
+    const headerTagline = data.service === "paint-house"
+      ? (isEn ? "RESIDENTIAL ARCHITECTURAL PAINTING & DESERT UV PROTECTION" : "PINTURA RESIDENCIAL ARQUITECTÓNICA & PROTECCIÓN UV DESÉRTICA")
+      : (isEn ? "ARCHITECTURAL CABINETRY & FACTORY 2K COATINGS" : "EBANISTERÍA ARQUITECTÓNICA & PINTURA FINA 2K");
+
     page1.drawText(
-      isEn
-        ? "ARCHITECTURAL CABINETRY & FACTORY 2K COATINGS"
-        : "EBANISTERÍA ARQUITECTÓNICA & PINTURA FINA 2K",
+      headerTagline,
       {
         x: 38,
         y: height - 72,
@@ -125,9 +127,9 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
       color: cWhite,
     });
     page1.drawText(
-      isEn
-        ? "ARCHITECTURAL CABINETRY & FACTORY 2K COATINGS · PHOENIX, AZ"
-        : "EBANISTERÍA ARQUITECTÓNICA & PINTURA FINA 2K · PHOENIX, AZ",
+      data.service === "paint-house"
+        ? (isEn ? "RESIDENTIAL ARCHITECTURAL PAINTING · PHOENIX, AZ" : "PINTURA RESIDENCIAL ARQUITECTÓNICA · PHOENIX, AZ")
+        : (isEn ? "ARCHITECTURAL CABINETRY & FACTORY 2K COATINGS · PHOENIX, AZ" : "EBANISTERÍA ARQUITECTÓNICA & PINTURA FINA 2K · PHOENIX, AZ"),
       {
         x: 38,
         y: height - 56,
@@ -442,9 +444,13 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
     borderWidth: 0.5,
   });
   page1.drawText(
-    isEn
-      ? "2K Catalyzed Chemistry Included: Chemical cross-link protection against cooking grease & boiling steam."
-      : "Laca 2K Catalizada Incluida: Resistencia química garantizada contra vapor hirviendo y grasa caliente.",
+    data.service === "paint-house"
+      ? (isEn
+          ? "Desert UV Shield & HEPA Dustless Prep: 100% elastomeric solar barrier & clean indoor air."
+          : "Blindaje UV y Preparación HEPA Incluida: Barrera elastomérica contra el sol y pintura interior sin polvo.")
+      : (isEn
+          ? "2K Catalyzed Chemistry Included: Chemical cross-link protection against cooking grease & boiling steam."
+          : "Laca 2K Catalizada Incluida: Resistencia química garantizada contra vapor hirviendo y grasa caliente."),
     {
       x: 58,
       y: currentY - 158,
@@ -492,13 +498,17 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
         },
         {
           num: "02",
-          title: "Physical Material Samples & Sheen Review",
-          desc: "Touch real 2K sprayed sample blocks and solid hardwood boards directly in your home's natural light.",
+          title: data.service === "paint-house" ? "Color Palette Consultation & Sheen Review" : "Physical Material Samples & Sheen Review",
+          desc: data.service === "paint-house"
+            ? "Review physical Sherwin-Williams/Benjamin Moore color drawdowns directly in your home's natural light."
+            : "Touch real 2K sprayed sample blocks and solid hardwood boards directly in your home's natural light.",
         },
         {
           num: "03",
           title: "Binding Fixed-Price Investment Proposal",
-          desc: "Complete hardware, Blum soft-close runners, off-site spray booth, and containment are finalized with zero hidden fees.",
+          desc: data.service === "paint-house"
+            ? "Complete elastomeric crack sealing, full surface containment, and premium paint specifications with zero hidden fees."
+            : "Complete hardware, Blum soft-close runners, off-site spray booth, and containment are finalized with zero hidden fees.",
         },
       ]
     : [
@@ -509,13 +519,17 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
         },
         {
           num: "02",
-          title: "Revisión de Muestras Físicas y Acabado",
-          desc: "Revisa en mano muestras de laca 2K y maderas macizas bajo la iluminación real de tu hogar.",
+          title: data.service === "paint-house" ? "Revisión de Muestras de Color y Grado de Brillo" : "Revisión de Muestras Físicas y Acabado",
+          desc: data.service === "paint-house"
+            ? "Revisa muestras físicas de color Sherwin-Williams/Benjamin Moore bajo la iluminación real de tu hogar."
+            : "Revisa en mano muestras de laca 2K y maderas macizas bajo la iluminación real de tu hogar.",
         },
         {
           num: "03",
           title: "Propuesta Vinculante de Precio Fijo",
-          desc: "Herrajes Blum de cierre suave, cabina industrial y sellado de casa se especifican con cero cargos sorpresa.",
+          desc: data.service === "paint-house"
+            ? "Sellado elastomérico de grietas, encintado hermético y especificación exacta de pinturas con cero cargos sorpresa."
+            : "Herrajes Blum de cierre suave, cabina industrial y sellado de casa se especifican con cero cargos sorpresa.",
         },
       ];
 
@@ -573,9 +587,13 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
   });
 
   page1.drawText(
-    isEn
-      ? "\"At Renovo, we treat cabinetry as generational furniture. You work directly with me from day one.\" - Raul Burgos"
-      : "\"En Renovo tratamos los gabinetes como muebles para toda la vida. Tratas directamente conmigo desde el día uno.\" - Raul Burgos",
+    data.service === "paint-house"
+      ? (isEn
+          ? "\"At Renovo, we treat your home like our own—delivering sharp lines, full furniture protection, and desert UV durability.\" - Raul Burgos"
+          : "\"En Renovo cuidamos tu hogar como el nuestro: líneas perfectas, protección total de tus muebles y blindaje UV duradero.\" - Raul Burgos")
+      : (isEn
+          ? "\"At Renovo, we treat cabinetry as generational furniture. You work directly with me from day one.\" - Raul Burgos"
+          : "\"En Renovo tratamos los gabinetes como muebles para toda la vida. Tratas directamente conmigo desde el día uno.\" - Raul Burgos"),
     {
       x: 50,
       y: currentY - 18,

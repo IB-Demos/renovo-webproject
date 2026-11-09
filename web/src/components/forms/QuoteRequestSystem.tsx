@@ -131,9 +131,9 @@ export function QuoteRequestSystem() {
   ];
 
   // =========================================================================
-  // FINISH OPTIONS WITH VISUAL DESCRIPTIONS
+  // FINISH OPTIONS: CABINETRY (2K CATALYZED) VS RESIDENTIAL HOUSE PAINTING
   // =========================================================================
-  const finishOptions = [
+  const cabinetFinishOptions = [
     {
       id: "satin-2k",
       labelEn: "2K Catalyzed Polyurethane Satin (18% Sheen - Recommended)",
@@ -169,8 +169,47 @@ export function QuoteRequestSystem() {
     },
   ];
 
+  const houseFinishOptions = [
+    {
+      id: "exterior-uv-shield",
+      labelEn: "100% Acrylic Elastomeric UV Shield (Exterior Stucco & Fascia)",
+      labelEs: "Blindaje UV Elastomérico 100% Acrílico (Estuco y Fascia Exterior)",
+      descEn: "Sherwin-Williams Loxon/Duration. Bridges hairline stucco cracks, flexes through 115°F+ desert heat, and repels monsoons.",
+      descEs: "Sherwin-Williams Loxon/Duration. Sella microfisuras en estuco, tolera dilatación térmica del calor extremo (46°C+) y resiste lluvias monzónicas.",
+      badgeEn: "Arizona Heat & UV Formula",
+      badgeEs: "Especial Clima de Arizona",
+      sheenBadge: "Flat / Satin Exterior",
+      image: "/assets/painting-exterior/exterior-01.jpg",
+    },
+    {
+      id: "interior-emerald-washable",
+      labelEn: "Zero-VOC Washable Luxury Interior (Emerald / Regal Select)",
+      labelEs: "Pintura Interior Lavable Cero COV (Emerald / Regal Select)",
+      descEn: "Velvety scrub-resistant finish for living areas and bedrooms. Dustless HEPA mechanical sanding for pristine indoor air.",
+      descEs: "Acabado aterciopelado lavable y resistente al roce para salas y recámaras. Lijado HEPA libre de polvo en suspensión.",
+      badgeEn: "Dustless HEPA Prep",
+      badgeEs: "Sin Polvo HEPA",
+      sheenBadge: "Eggshell / Velvet Interior",
+      image: "/assets/painting-interior/interior-01.jpg",
+    },
+    {
+      id: "trim-urethane-enamel",
+      labelEn: "Urethane Architectural Enamel (Baseboards, Doors & Trim)",
+      labelEs: "Esmalte Uretano Arquitectónico (Molduras, Puertas y Rodapiés)",
+      descEn: "Furniture-grade hardness on interior doors, casings, and baseboards with ultra-smooth leveling and zero brush marks.",
+      descEs: "Dureza de ebanistería en marcos, rodapiés, molduras arquitectónicas y zócalos con tacto ultra terso y sin marcas de brocha.",
+      badgeEn: "High-Traffic Impact Guard",
+      badgeEs: "Resistencia a Golpes",
+      sheenBadge: "Semi-Gloss / Satin Trim",
+      image: "/assets/painting-interior/interior-03.jpg",
+    },
+  ];
+
+  const activeFinishOptions = service === "paint-house" ? houseFinishOptions : cabinetFinishOptions;
+  const allFinishOptions = [...cabinetFinishOptions, ...houseFinishOptions];
+
   // Popular Color Swatches with Exact Hex Codes
-  const colorSwatches = [
+  const cabinetColorSwatches = [
     {
       nameEn: "Sherwin-Williams Alabaster (SW 7008)",
       nameEs: "Sherwin-Williams Alabaster (SW 7008)",
@@ -221,6 +260,60 @@ export function QuoteRequestSystem() {
       labelEs: "Madera Nogal Intensa",
     },
   ];
+
+  const houseColorSwatches = [
+    {
+      nameEn: "Sherwin-Williams Pure White (SW 7005)",
+      nameEs: "Sherwin-Williams Pure White (SW 7005)",
+      hex: "#F4F2EB",
+      labelEn: "Crisp Trim & Ceilings",
+      labelEs: "Molduras y Techos",
+    },
+    {
+      nameEn: "Sherwin-Williams Alabaster (SW 7008)",
+      nameEs: "Sherwin-Williams Alabaster (SW 7008)",
+      hex: "#EDEAE0",
+      labelEn: "Warm Modern White",
+      labelEs: "Blanco Cálido Muros",
+    },
+    {
+      nameEn: "Sherwin-Williams Accessible Beige (SW 7036)",
+      nameEs: "Sherwin-Williams Accessible Beige (SW 7036)",
+      hex: "#D1C7B7",
+      labelEn: "Classic Sonoran Neutral",
+      labelEs: "Neutro Desértico Clásico",
+    },
+    {
+      nameEn: "Sherwin-Williams Agreeable Gray (SW 7029)",
+      nameEs: "Sherwin-Williams Agreeable Gray (SW 7029)",
+      hex: "#D1CBC1",
+      labelEn: "Interior Greige",
+      labelEs: "Greige Luminoso Interior",
+    },
+    {
+      nameEn: "Sherwin-Williams Iron Ore (SW 7069)",
+      nameEs: "Sherwin-Williams Iron Ore (SW 7069)",
+      hex: "#434342",
+      labelEn: "Modern Fascia & Accent",
+      labelEs: "Acento Fascia y Puertas",
+    },
+    {
+      nameEn: "Sherwin-Williams Desert Sand / Tan",
+      nameEs: "Sherwin-Williams Arena del Desierto",
+      hex: "#C2A888",
+      labelEn: "Stucco Exterior Earth",
+      labelEs: "Estuco Exterior Sonorense",
+    },
+    {
+      nameEn: "Benjamin Moore Hale Navy (HC-154)",
+      nameEs: "Benjamin Moore Hale Navy (HC-154)",
+      hex: "#2C3947",
+      labelEn: "Front Door & Accent Walls",
+      labelEs: "Puerta Principal y Muros Acento",
+    },
+  ];
+
+  const activeColorSwatches = service === "paint-house" ? houseColorSwatches : cabinetColorSwatches;
 
   // Timeline choices strictly localized
   const timelineOptions = [
@@ -297,6 +390,19 @@ export function QuoteRequestSystem() {
     });
   };
 
+  const handleServiceSelect = (newServiceId: string) => {
+    setService(newServiceId);
+    if (newServiceId === "paint-house") {
+      setFinishType("exterior-uv-shield");
+    } else if (
+      finishType === "exterior-uv-shield" ||
+      finishType === "interior-emerald-washable" ||
+      finishType === "trim-urethane-enamel"
+    ) {
+      setFinishType("satin-2k");
+    }
+  };
+
   const selectedServiceObj = services.find((s) => s.id === service) || services[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -363,12 +469,12 @@ export function QuoteRequestSystem() {
             : "A definir con muestras físicas de taller")
       );
 
-      const selectedFinish = finishOptions.find((f) => f.id === finishType);
+      const selectedFinish = allFinishOptions.find((f) => f.id === finishType);
       formData.append(
         "finishType",
         locale === "en"
-          ? selectedFinish?.labelEn || "2K Catalyzed Industrial Lacquer"
-          : selectedFinish?.labelEs || "Laca 2K Catalizada Industrial"
+          ? selectedFinish?.labelEn || (service === "paint-house" ? "100% Acrylic Elastomeric UV Shield" : "2K Catalyzed Industrial Lacquer")
+          : selectedFinish?.labelEs || (service === "paint-house" ? "Blindaje UV Elastomérico 100% Acrílico" : "Laca 2K Catalizada Industrial")
       );
       const selectedTimeline = timelineOptions.find((t) => t.id === timelineId) || timelineOptions[2];
       formData.append(
@@ -606,7 +712,7 @@ export function QuoteRequestSystem() {
               <button
                 key={item.id}
                 type="button"
-                onClick={() => setService(item.id)}
+                onClick={() => handleServiceSelect(item.id)}
                 className={`interactive-control text-left rounded-2xl overflow-hidden border-2 transition-all flex flex-col justify-between group ${
                   isSelected
                     ? "border-[#B85D3B] bg-[#F4EFE6] shadow-md ring-1 ring-[#B85D3B]"
@@ -816,7 +922,9 @@ export function QuoteRequestSystem() {
               {locale === "en" ? "STEP 3 OF 4 · COLORS & FINISH" : "PASO 3 DE 4 · COLORES Y ACABADOS"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1410] tracking-tight">
-              {locale === "en" ? "Desired Colors & Chemistry Grade" : "Colores y Acabados Deseados"}
+              {service === "paint-house"
+                ? (locale === "en" ? "Desired Paint Colors & Coating Grade" : "Colores y Grado de Pintura Deseados")
+                : (locale === "en" ? "Desired Colors & Chemistry Grade" : "Colores y Acabados Deseados")}
             </h2>
           </div>
           <span className="text-xs sm:text-sm font-serif font-bold text-[#8C3B1E]">
@@ -832,7 +940,7 @@ export function QuoteRequestSystem() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-1">
               <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                 {service === "paint-house"
-                  ? (locale === "en" ? "Architectural Paint Sheen / Protection Level" : "Grado de Brillo y Nivel de Protección")
+                  ? (locale === "en" ? "Architectural Paint Sheen & Protection Grade" : "Grado de Brillo y Nivel de Protección Arquitectónica")
                   : (locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo")}
               </label>
               <span className="text-xs font-serif font-medium text-[#4A3E34]">
@@ -841,7 +949,7 @@ export function QuoteRequestSystem() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-              {finishOptions.map((f) => {
+              {activeFinishOptions.map((f) => {
                 const isSelected = finishType === f.id;
                 return (
                   <button
@@ -906,18 +1014,22 @@ export function QuoteRequestSystem() {
           {/* Visual Interactive Color Swatches */}
           <div>
             <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] mb-2 font-bold">
-              {locale === "en"
-                ? "Desired Paint Color or Natural Wood Tone"
-                : "Color de Pintura o Tono de Madera Deseado"}
+              {service === "paint-house"
+                ? (locale === "en" ? "Desired Paint Colors (Walls, Stucco, Trim)" : "Colores de Pintura Deseados (Muros, Estuco, Molduras)")
+                : (locale === "en" ? "Desired Paint Color or Natural Wood Tone" : "Color de Pintura o Tono de Madera Deseado")}
             </label>
             <input
               type="text"
               value={desiredColors}
               onChange={(e) => setDesiredColors(e.target.value)}
               placeholder={
-                locale === "en"
-                  ? "e.g. SW Alabaster on perimeters, Natural White Oak on the island"
-                  : "ej. Alabaster de Sherwin-Williams en muros, Roble Claro en la isla"
+                service === "paint-house"
+                  ? (locale === "en"
+                    ? "e.g. SW Pure White on exterior trim, Desert Sand on stucco, Agreeable Gray in living room"
+                    : "ej. SW Pure White en molduras exteriores, Arena en estuco, Agreeable Gray en sala")
+                  : (locale === "en"
+                    ? "e.g. SW Alabaster on perimeters, Natural White Oak on the island"
+                    : "ej. Alabaster de Sherwin-Williams en muros, Roble Claro en la isla")
               }
               className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base font-medium text-[#1A1410] placeholder-[#6E6053] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B]"
             />
@@ -925,10 +1037,12 @@ export function QuoteRequestSystem() {
             {/* Clickable Visual Swatch Pills with Real Colors */}
             <div className="pt-3">
               <span className="text-xs sm:text-sm font-mono text-[#2B231D] uppercase tracking-wider block mb-2 font-bold">
-                {locale === "en" ? "Popular Designer Palettes in Phoenix (Tap to Select):" : "Paletas Populares en Phoenix (Toca para Seleccionar):"}
+                {service === "paint-house"
+                  ? (locale === "en" ? "Architectural Color Palettes in Phoenix (Tap to Select):" : "Paletas Arquitectónicas en Phoenix (Toca para Seleccionar):")
+                  : (locale === "en" ? "Popular Designer Palettes in Phoenix (Tap to Select):" : "Paletas Populares en Phoenix (Toca para Seleccionar):")}
               </span>
               <div className="flex flex-wrap gap-2.5">
-                {colorSwatches.map((swatch, idx) => {
+                {activeColorSwatches.map((swatch, idx) => {
                   const activeName = locale === "en" ? swatch.nameEn : swatch.nameEs;
                   const isSelected = desiredColors.includes(activeName);
                   return (
@@ -960,18 +1074,26 @@ export function QuoteRequestSystem() {
           {/* Notes */}
           <div>
             <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] mb-2 font-bold">
-              {locale === "en"
-                ? "Additional Notes or Preferences (Hardware, Hinges, Deadlines)"
-                : "Notas Adicionales o Detalles (Herrajes, Bisagras, Fechas Clave)"}
+              {service === "paint-house"
+                ? (locale === "en"
+                  ? "Additional Project Details (Stucco cracks, HOA color rules, high ceilings, deadlines)"
+                  : "Detalles Adicionales (Grietas en estuco, HOA, techos doble altura, fechas clave)")
+                : (locale === "en"
+                  ? "Additional Notes or Preferences (Hardware, Hinges, Deadlines)"
+                  : "Notas Adicionales o Detalles (Herrajes, Bisagras, Fechas Clave)")}
             </label>
             <textarea
               rows={3}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder={
-                locale === "en"
-                  ? "Tell Raul about specific hardware pulls, pet safety, or target completion dates."
-                  : "Indica cualquier requerimiento: cambio de jaladeras, cuidado con mascotas o fechas límite."
+                service === "paint-house"
+                  ? (locale === "en"
+                    ? "Tell Raul about HOA guidelines, high vaulted ceilings, or target completion dates."
+                    : "Indica si requieres sellado de grietas por monzón, aprobación de HOA o protección especial de pisos.")
+                  : (locale === "en"
+                    ? "Tell Raul about specific hardware pulls, pet safety, or target completion dates."
+                    : "Indica cualquier requerimiento: cambio de jaladeras, cuidado con mascotas o fechas límite.")
               }
               className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base font-medium text-[#1A1410] placeholder-[#6E6053] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B]"
             />
@@ -999,46 +1121,90 @@ export function QuoteRequestSystem() {
 
         <div className="space-y-4">
           <p className="text-sm sm:text-base text-[#261F1A] font-normal leading-relaxed">
-            {locale === "en"
-              ? "Photos allow master craftsman Raul Burgos to immediately evaluate your door profiles, corner angles, and box conditions to prepare a firm proposal."
-              : "Las fotos permiten a Raul Burgos evaluar perfiles de puertas, condiciones de los marcos y ángulos para entregarte una propuesta rápida y firme."}
+            {service === "paint-house"
+              ? (locale === "en"
+                ? "Photos allow master craftsman Raul Burgos to immediately evaluate exterior stucco surfaces, fascia weathering, wall conditions, and ceiling heights to prepare a precise proposal."
+                : "Las fotos permiten a Raul Burgos evaluar el estado del estuco exterior, desgaste en aleros y fascia, altura de techos y estado de muros para entregarte una propuesta precisa y firme.")
+              : (locale === "en"
+                ? "Photos allow master craftsman Raul Burgos to immediately evaluate your door profiles, corner angles, and box conditions to prepare a firm proposal."
+                : "Las fotos permiten a Raul Burgos evaluar perfiles de puertas, condiciones de los marcos y ángulos para entregarte una propuesta rápida y firme.")}
           </p>
 
           {/* Photography Tips Card */}
           <div className="p-4 sm:p-5 rounded-2xl bg-[#F4EFE6] border-2 border-[#DFD6C6] grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-sm">
-            <div className="flex items-start gap-2.5">
-              <span className="text-lg">📸</span>
-              <div className="space-y-0.5">
-                <strong className="block text-[#1A1410] font-bold">
-                  {locale === "en" ? "1. Overall View:" : "1. Vista General:"}
-                </strong>
-                <span className="text-[#2B231D] font-normal leading-snug">
-                  {locale === "en" ? "Capture full room showing upper & lower boxes." : "Muestra la cocina completa con gabinetes altos y bajos."}
-                </span>
-              </div>
-            </div>
-            <div className="flex items-start gap-2.5">
-              <span className="text-lg">🔍</span>
-              <div className="space-y-0.5">
-                <strong className="block text-[#1A1410] font-bold">
-                  {locale === "en" ? "2. Door Close-Up:" : "2. Detalle de Puerta:"}
-                </strong>
-                <span className="text-[#2B231D] font-normal leading-snug">
-                  {locale === "en" ? "Show current door profiles, grain, and hinges." : "Acércate a un marco o puerta para ver molduras y bisagras."}
-                </span>
-              </div>
-            </div>
-            <div className="flex items-start gap-2.5">
-              <span className="text-lg">💡</span>
-              <div className="space-y-0.5">
-                <strong className="block text-[#1A1410] font-bold">
-                  {locale === "en" ? "3. Inspiration (Optional):" : "3. Inspiración (Opcional):"}
-                </strong>
-                <span className="text-[#2B231D] font-normal leading-snug">
-                  {locale === "en" ? "Upload dream finishes or colors you like." : "Adjunta fotos de cocinas o tonos que te gusten."}
-                </span>
-              </div>
-            </div>
+            {service === "paint-house" ? (
+              <>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">🏡</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "1. Elevations / Full Room:" : "1. Fachada o Habitación:"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Capture full exterior elevations or wide room views." : "Fotografía las elevaciones exteriores o vistas amplias de habitaciones."}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">🔍</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "2. Stucco / Drywall Wear:" : "2. Grietas o Desgaste:"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Show stucco hairline cracks, peeling paint, or drywall repairs." : "Acércate a fisuras en el estuco, pintura descarapelada o parches."}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">📐</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "3. Trim & Ceilings:" : "3. Techos y Molduras:"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Show vaulted ceilings, wood fascia, or accent areas." : "Muestra techos altos, molduras, aleros o muros de acento."}
+                    </span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">📸</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "1. Overall View:" : "1. Vista General:"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Capture full room showing upper & lower boxes." : "Muestra la cocina completa con gabinetes altos y bajos."}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">🔍</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "2. Door Close-Up:" : "2. Detalle de Puerta:"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Show current door profiles, grain, and hinges." : "Acércate a un marco o puerta para ver molduras y bisagras."}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-lg">💡</span>
+                  <div className="space-y-0.5">
+                    <strong className="block text-[#1A1410] font-bold">
+                      {locale === "en" ? "3. Inspiration (Optional):" : "3. Inspiración (Opcional):"}
+                    </strong>
+                    <span className="text-[#2B231D] font-normal leading-snug">
+                      {locale === "en" ? "Upload dream finishes or colors you like." : "Adjunta fotos de cocinas o tonos que te gusten."}
+                    </span>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
 
           {/* Upload Dropzone */}
