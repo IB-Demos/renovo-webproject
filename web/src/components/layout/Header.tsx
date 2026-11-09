@@ -155,11 +155,23 @@ export function Header() {
             {t.nav.catalog}
           </Link>
 
-          {/* Studio & Estimator */}
+          {/* Quote Request System */}
+          <Link
+            href="/cotizador"
+            className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal transition-colors ${
+              pathname?.startsWith("/cotizador")
+                ? "text-[#B85D3B]"
+                : "text-[#261F1A] hover:text-[#B85D3B]"
+            }`}
+          >
+            {t.nav.estimator}
+          </Link>
+
+          {/* Interactive Design Studio */}
           <Link
             href="/studio-interactivo"
             className={`interactive-control py-2 text-sm font-serif font-semibold tracking-normal transition-colors ${
-              pathname?.startsWith("/studio-interactivo") || pathname?.startsWith("/cotizador")
+              pathname?.startsWith("/studio-interactivo")
                 ? "text-[#B85D3B]"
                 : "text-[#261F1A] hover:text-[#B85D3B]"
             }`}
@@ -317,6 +329,13 @@ export function Header() {
                 className="block px-2.5 py-2 rounded-lg hover:bg-[#FCFAF7] text-xs font-serif font-medium text-[#261F1A] transition-colors"
               >
                 {t.nav.catalog}
+              </Link>
+              <Link
+                href="/cotizador"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-2.5 py-2 rounded-lg bg-[#EAE2D5] font-serif text-xs font-semibold text-[#B85D3B] transition-colors"
+              >
+                {t.nav.estimator} (PDF)
               </Link>
               <Link
                 href="/studio-interactivo"

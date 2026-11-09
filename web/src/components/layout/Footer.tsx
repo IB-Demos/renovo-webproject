@@ -141,7 +141,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/cotizador" className="interactive-control hover:text-[var(--gold)] text-[#E8E1D5] inline-block py-1">
-                  {locale === "en" ? "Project Cost Estimator" : "Cotizador en Línea"}
+                  {locale === "en" ? "Proposal & Quote Request (PDF)" : "Solicitar Cotización (PDF)"}
                 </Link>
               </li>
               <li>

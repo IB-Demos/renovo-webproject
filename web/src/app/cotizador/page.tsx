@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
-import { ParametricScopeEstimator } from "@/components/workbench/ParametricScopeEstimator";
+import { QuoteRequestSystem } from "@/components/forms/QuoteRequestSystem";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -11,7 +11,7 @@ import {
   Phone,
   ShieldCheck,
   CheckCircle,
-  Calculator,
+  FilePdf,
 } from "@phosphor-icons/react";
 
 export default function EstimatorPage() {
@@ -52,32 +52,32 @@ export default function EstimatorPage() {
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
-                  <span>{locale === "en" ? "TRANSPARENT PROJECT PRICING · PHOENIX METRO" : "PRECIOS TRANSPARENTES DE PROYECTO · PHOENIX"}</span>
+                  <span>{locale === "en" ? "OFFICIAL PROPOSAL & QUOTE REQUEST · PHOENIX" : "SOLICITUD OFICIAL DE COTIZACIÓN · PHOENIX"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
-                  <Calculator size={14} weight="fill" />
-                  <span>{locale === "en" ? "Real Market Pricing · Transparent Scope" : "Precios Reales del Valle · Sin Sorpresas"}</span>
+                  <FilePdf size={14} weight="fill" />
+                  <span>{locale === "en" ? "Corporate PDF Document Included" : "Generación de Documento PDF Corporativo"}</span>
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-serif text-[#1A1410] tracking-tight leading-[1.08]">
                 {locale === "en"
-                  ? "Project Cost Estimator & Transparent Pricing."
-                  : "Estimador de Costo de Proyecto y Precios Transparentes."}
+                  ? "Request a Formal Project Proposal with Photos & Scope."
+                  : "Solicita tu Propuesta de Proyecto con Fotos y Medidas."}
               </h1>
 
               <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
-                  ? "Calculate your investment with complete honesty. Choose your room dimensions, cabinetry door counts, wood species, and finish grades to see realistic, itemized Phoenix market cost ranges."
-                  : "Calcula tu inversión con total honestidad. Selecciona dimensiones, número de puertas, especies de madera y tipo de acabado para obtener rangos reales de costo en el mercado de Phoenix."}
+                  ? "Tell us what you want to accomplish: custom kitchen cabinets, 2K factory spray, cabinet refacing (door replacement), or residential painting. Upload current photos and get an executive PDF proposal delivered straight to Raul Burgos."
+                  : "Cuéntanos qué deseas realizar: desde construir tu cocina desde cero y pintar gabinetes con laca 2K, hasta cabinet refacing (cambio de puertas y frentes) o pintura residencial. Sube fotos de tu espacio y recibe una propuesta corporativa en PDF enviada directo a Raul Burgos."}
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
                 <a
-                  href="#calculator-section"
+                  href="#quote-form-section"
                   className="interactive-control min-h-[52px] px-8 py-3.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto transition-all"
                 >
-                  <span>{locale === "en" ? "Configure Scope Below" : "Configurar Proyecto Abajo"}</span>
+                  <span>{locale === "en" ? "Start Proposal Request Below" : "Llenar Solicitud Abajo"}</span>
                   <ArrowRight size={16} weight="bold" />
                 </a>
 
@@ -153,10 +153,10 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      {/* 2. PARAMETRIC SCOPE ESTIMATOR ENGINE */}
-      <section id="calculator-section" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
+      {/* 2. PROJECT PROPOSAL & QUOTE REQUEST FORM */}
+      <section id="quote-form-section" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <ParametricScopeEstimator />
+          <QuoteRequestSystem />
         </div>
       </section>
 
