@@ -335,7 +335,7 @@ export function Header() {
             </div>
 
             {/* Consultation CTA */}
-            <div className="pt-3 border-t border-[#E0D7C8]">
+            <div className="pt-3 border-t border-[#E0D7C8] space-y-2.5">
               <Link
                 href="/contacto"
                 onClick={() => setMobileMenuOpen(false)}
@@ -343,6 +343,33 @@ export function Header() {
               >
                 {t.nav.bookConsult}
               </Link>
+              <div className="flex items-center justify-center gap-4 pt-1 text-xs text-[#54463A]">
+                <a
+                  href={COMPANY_INFO.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-[#B85D3B] py-1"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+                <span>·</span>
+                <a
+                  href={COMPANY_INFO.yelpUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-[#D32323] py-1"
+                >
+                  <svg className="w-3.5 h-3.5 fill-[#D32323]" viewBox="0 0 24 24">
+                    <path d="M12.003 0c-.39 0-.745.242-.892.607l-1.895 4.708a.959.959 0 0 0 .42 1.185l4.382 2.53a.96.96 0 0 0 1.26-.353l2.42-4.47a.958.958 0 0 0-.324-1.218L13.23.473a.965.965 0 0 0-.726-.473h-.5zM8.38 8.65a.96.96 0 0 0-1.23-.448L2.49 10.37a.958.958 0 0 0-.528 1.15l1.045 4.966c.094.446.49.76.945.753a.96.96 0 0 0 .452-.116l4.57-2.17a.959.959 0 0 0 .49-1.157l-1.084-5.146zm8.852.793a.959.959 0 0 0-.877.568l-2.03 4.652a.96.96 0 0 0 .463 1.168l4.49 2.332a.96.96 0 0 0 1.25-.4l2.25-4.557a.958.958 0 0 0-.363-1.206l-4.14-2.274a.966.966 0 0 0-.443-.283h-.6zm-5.717 6.42a.96.96 0 0 0-1.253.376l-2.348 4.507a.958.958 0 0 0 .34 1.213l4.184 2.193c.153.08.322.12.49.12.37 0 .72-.212.877-.56l1.968-4.678a.96.96 0 0 0-.437-1.18l-3.82-1.99z" />
+                  </svg>
+                  <span>Yelp Reviews</span>
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

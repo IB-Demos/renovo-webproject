@@ -19,6 +19,9 @@ export const COMPANY_INFO = {
   logoPath: "/assets/brand/renovo-logo-negro.png",
   wordpressOrigin: "https://cabinetryaz.wordpress.com/",
   googleMapsUrl: "https://maps.google.com/?q=2231+W+Shangri+La+Rd,+Phoenix,+AZ+85029",
+  instagramUrl: "https://www.instagram.com/renovopainting/",
+  instagramHandle: "@renovopainting",
+  yelpUrl: "https://www.yelp.com/biz/renovo-painting-solutions-phoenix",
 };
 
 export interface BeforeAfterPair {
