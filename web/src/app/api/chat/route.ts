@@ -54,7 +54,14 @@ export async function POST(request: Request) {
             message: trimmedMsg,
             history,
             locale: activeLocale,
-            leadInfo,
+            language: activeLocale === "es" ? "Spanish" : "English",
+            languageCode: activeLocale === "es" ? "es-MX" : "en-US",
+            leadInfo: leadInfo || {
+              name: "",
+              phone: "",
+              email: "",
+              notes: "",
+            },
             timestamp: new Date().toISOString(),
           }),
         });
