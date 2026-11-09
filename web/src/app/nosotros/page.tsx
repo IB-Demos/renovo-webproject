@@ -26,7 +26,7 @@ export default function AboutPage() {
   const milestones = [
     {
       year: "2014",
-      titleEn: "Atelier Founded in Phoenix",
+      titleEn: "Workshop Founded in Phoenix",
       titleEs: "Fundación del Taller en Phoenix",
       descEn: "Raul Burgos established the workshop to bring true European-level furniture joinery and factory finishing to Arizona homeowners.",
       descEs: "Raul Burgos fundó el taller con la visión de traer ebanistería fina de nivel europeo y acabados de fábrica a los hogares de Arizona.",
@@ -47,8 +47,8 @@ export default function AboutPage() {
     },
     {
       year: "2024+",
-      titleEn: "The Premier Luxury Phoenix Studio",
-      titleEs: "El Estudio de Referencia en Phoenix",
+      titleEn: "Independent Phoenix Cabinetry & Millwork Workshop",
+      titleEs: "Taller Independiente de Ebanistería y Lacas en Phoenix",
       descEn: "Operating from our 2231 W Shangri La Rd workshop, serving Paradise Valley, Scottsdale, Arcadia, and the entire Valley of the Sun.",
       descEs: "Operando desde nuestro taller en Shangri La Rd, sirviendo a Paradise Valley, Scottsdale, Arcadia y todo el Valle del Sol.",
     },
@@ -104,16 +104,13 @@ export default function AboutPage() {
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
-
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* LEFT 7 COLS: FOUNDER STORY */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>04 · {locale === "en" ? "CASA RENOVO WORKSHOP HERITAGE" : "CASA RENOVO · MAESTRÍA DE TALLER"}</span>
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span>{locale === "en" ? "CRAFTED IN PHOENIX · OVER 10 YEARS" : "EBANISTERÍA EN PHOENIX · MÁS DE 10 AÑOS"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Certificate size={14} weight="fill" />

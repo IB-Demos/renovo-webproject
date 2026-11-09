@@ -76,8 +76,8 @@ const SPATIAL_ROOMS: RoomSpace[] = [
       es: "Cocina de Autor e Isla Central",
     },
     title: {
-      en: "The Culinary Atelier",
-      es: "El Taller Culinario",
+      en: "Custom Kitchens & Cabinetry",
+      es: "Cocinas a Medida y Gabinetes",
     },
     subtitle: {
       en: "Custom Cabinetry, 2K Factory Lacquers & Island Focal Points",
@@ -206,8 +206,8 @@ const SPATIAL_ROOMS: RoomSpace[] = [
       es: "Sala de Estar y Ebanistería Fina",
     },
     title: {
-      en: "The Arched Oak Sanctuary",
-      es: "El Santuario de Encino Arqueado",
+      en: "Arched Built-Ins & Millwork",
+      es: "Libreros Arqueados y Ebanistería",
     },
     subtitle: {
       en: "Twin Arched Fireplace Bookcases, Floating Credenzas & Concealed LED",
@@ -336,8 +336,8 @@ const SPATIAL_ROOMS: RoomSpace[] = [
       es: "Pórtico y Entrada Monumental",
     },
     title: {
-      en: "The Grand Threshold",
-      es: "El Gran Umbral de Bienvenida",
+      en: "Custom Front Doors & Entryways",
+      es: "Puertas de Entrada y Pórticos",
     },
     subtitle: {
       en: "Solid Double Doors, Portico Ceilings & High-End Hardware",
@@ -466,8 +466,8 @@ const SPATIAL_ROOMS: RoomSpace[] = [
       es: "Patio Cubierto y Veranda Exterior",
     },
     title: {
-      en: "The Desert Living Pavilion",
-      es: "El Pabellón Exterior Sonorense",
+      en: "Outdoor Living & Weathered Woods",
+      es: "Pabellón Exterior y Maderas",
     },
     subtitle: {
       en: "Tongue-and-Groove Ceilings, Stucco Restorations & Exterior Bar Finishes",
@@ -949,8 +949,8 @@ export function SpatialHomeExperience() {
                       aria-label={spot.title[locale]}
                       className="group relative flex items-center justify-center p-2 focus:outline-none"
                     >
-                      {/* Pulsing beacon ring */}
-                      <span className="absolute h-8 w-8 rounded-full bg-[#B85D3B]/40 animate-ping" />
+                      {/* Architectural beacon ring */}
+                      <span className="absolute h-7 w-7 rounded-full bg-[#B85D3B]/20 ring-1 ring-[#B85D3B]/40 group-hover:scale-125 transition-transform duration-300" />
                       <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-[#B85D3B] text-[#FCFAF7] border-2 border-[#FCFAF7] shadow-lg group-hover:scale-110 transition-transform">
                         <Eye size={12} weight="bold" />
                       </span>

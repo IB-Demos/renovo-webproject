@@ -30,6 +30,7 @@ export function ParametricScopeEstimator() {
   const [postalCode, setPostalCode] = useState<string>("");
   const [touched, setTouched] = useState<{ name?: boolean; email?: boolean; zip?: boolean }>({});
   const [submittedSpecCode, setSubmittedSpecCode] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
   // Parametric calculation engine
   const computeEstimate = () => {
@@ -65,7 +66,7 @@ export function ParametricScopeEstimator() {
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clientEmail.trim());
   const isZipValid = postalCode.trim().length >= 4;
 
-  const handleLockSpec = (e: React.FormEvent) => {
+  const handleLockSpec = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ name: true, email: true, zip: true });
     if (!isNameValid || !isEmailValid || !isZipValid) {
@@ -73,6 +74,28 @@ export function ParametricScopeEstimator() {
     }
     const code = `RNV-${discipline === "cabinetry" ? "CAB" : "PNT"}-${doorsCount}${drawersCount}-${grade.slice(0, 3).toUpperCase()}`;
     setSubmittedSpecCode(code);
+
+    try {
+      setIsSending(true);
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: projectName,
+          email: clientEmail,
+          phone: postalCode,
+          location: `Zip / Area: ${postalCode}`,
+          service: discipline === "cabinetry" ? "kitchens" : "painting",
+          timeline: "1-2-months",
+          message: `Estimate Calculation (${code}):\n- Investment Range: $${low.toLocaleString()} - $${high.toLocaleString()}\n- Estimated Turnaround: ${days} working days\n- Discipline: ${discipline}\n- Doors: ${doorsCount}, Drawers: ${drawersCount}\n- Wall Area: ${paintSqFt} sq ft\n- Specification Tier: ${grade}`,
+          source: "scope-estimator",
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to forward estimate to contact API:", err);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const scrollToForm = () => {
@@ -456,10 +479,15 @@ export function ParametricScopeEstimator() {
 
                 <button
                   type="submit"
-                  className="interactive-control w-full min-h-[48px] px-6 py-3 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
+                  disabled={isSending}
+                  className="interactive-control w-full min-h-[48px] px-6 py-3 rounded-xl bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-70 text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
                 >
                   <Sparkle size={16} weight="fill" />
-                  <span>{t.estimatorSection.exportSpecCta}</span>
+                  <span>
+                    {isSending
+                      ? (locale === "en" ? "Transmitting..." : "Enviando...")
+                      : t.estimatorSection.exportSpecCta}
+                  </span>
                 </button>
               </form>
             )}

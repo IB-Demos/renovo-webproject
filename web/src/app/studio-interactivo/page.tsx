@@ -125,16 +125,13 @@ function InteractiveStudioContent() {
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HEADER BANNER */}
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#C59B27]/10 rounded-full blur-[140px]" />
-
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* LEFT 7 COLS: COMMERCIAL ATELIER INTRO */}
+            {/* LEFT 7 COLS: COMMERCIAL INTRO */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>{locale === "en" ? "DIGITAL ARCHITECTURAL WORKBENCH" : "MESA DE TRABAJO ARQUITECTÓNICA"}</span>
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span>{locale === "en" ? "ARCHITECTURAL DESIGN STUDIO · PHOENIX, AZ" : "ESTUDIO DE DISEÑO ARQUITECTÓNICO · PHOENIX"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Sparkle size={14} weight="fill" />
@@ -150,8 +147,8 @@ function InteractiveStudioContent() {
 
               <p className="text-base sm:text-lg text-[#3D3228] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
-                  ? "Our proprietary digital atelier puts custom woodcrafting and industrial 2K finishes at your fingertips. Simulate natural desert light from 2700K to 5500K, review exploded joinery, test colorimetry, and estimate investment with absolute clarity."
-                  : "Nuestro estudio digital pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Simula la luz solar de Arizona de 2700K a 5500K, examina ensambles, prueba pigmentos y calcula tu presupuesto con total claridad."}
+                  ? "Our interactive design studio puts custom woodcrafting and industrial 2K finishes at your fingertips. Simulate natural desert light from 2700K to 5500K, review exploded joinery, test colorimetry, and estimate investment with absolute clarity."
+                  : "Nuestro estudio de diseño interactivo pone la ebanistería a medida y los acabados catalizados 2K a tu alcance. Simula la luz solar de Arizona de 2700K a 5500K, examina ensambles, prueba pigmentos y calcula tu presupuesto con total claridad."}
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
@@ -210,7 +207,7 @@ function InteractiveStudioContent() {
 
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                   <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
-                    Phoenix Digital Atelier
+                    Phoenix Design Studio
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
                     Interactive Suite
@@ -305,7 +302,6 @@ function InteractiveStudioContent() {
 
       {/* 4. CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
-        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
             <h3 className="text-3xl sm:text-5xl font-serif font-semibold text-[#1A1410]">
@@ -344,7 +340,7 @@ export default function InteractiveStudioPage() {
     <Suspense
       fallback={
         <div className="min-h-[60vh] flex items-center justify-center bg-[#F4EFE6] text-[#3D3228] font-serif text-sm">
-          Loading Renovo Digital Atelier...
+          Loading Renovo Interactive Studio...
         </div>
       }
     >

@@ -100,7 +100,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/studio-interactivo" className="interactive-control hover:text-[var(--gold)] text-[#E8E1D5] inline-block py-1">
-                  {locale === "en" ? "Interactive Design Atelier" : "Estudio Interactivo"}
+                  {locale === "en" ? "Interactive Design Studio" : "Estudio Interactivo"}
                 </Link>
               </li>
               <li>

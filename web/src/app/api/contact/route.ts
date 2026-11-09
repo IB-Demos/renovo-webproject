@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     // Notification target (Raul and Renovo team)
     const toAddress =
-      process.env.RESEND_NOTIFICATION_EMAIL || "contact@renovoaz.com";
+      process.env.RESEND_NOTIFICATION_EMAIL || "raul@renovoaz.com";
 
     // Format human-friendly service names
     const serviceLabels: Record<string, string> = {

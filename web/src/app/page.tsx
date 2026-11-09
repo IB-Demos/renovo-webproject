@@ -159,20 +159,17 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#EFE8DD] via-[#EFE8DD]/40 to-transparent" />
         </div>
 
-        {/* Ambient Warm Mineral Sunlight Diffusion */}
-        <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#B85D3B]/10 blur-[150px] rounded-full" />
-
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-24 lg:py-28 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left 7 Columns: Editorial Headline & Actions */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               {/* Minimalist Heritage Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7]/90 border border-[#DFD6C6] backdrop-blur-md shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7]/90 border border-[#DFD6C6] shadow-xs">
                 <Sparkle size={13} className="text-[#B85D3B]" weight="fill" />
                 <span className="text-xs sm:text-sm uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
                   {locale === "en"
-                    ? "PHOENIX, ARIZONA · BESPOKE ATELIER"
-                    : "PHOENIX, ARIZONA · TALLER DE AUTOR"}
+                    ? "PHOENIX, ARIZONA · HANDCRAFTED CABINETRY & FINISHES"
+                    : "PHOENIX, ARIZONA · EBANISTERÍA Y ACABADOS DE AUTOR"}
                 </span>
               </div>
 
@@ -207,7 +204,7 @@ export default function HomePage() {
                   className="interactive-control min-h-[52px] px-7 py-3.5 rounded-full border border-[#DFD6C6] hover:border-[#261F1A] bg-[#FCFAF7] hover:bg-[#F4EFE6] text-[#261F1A] text-sm font-medium flex items-center justify-center gap-2 transition-all duration-200 shadow-xs w-full sm:w-auto"
                 >
                   <Compass size={17} className="text-[#B85D3B]" />
-                  <span>{locale === "en" ? "Interactive Design Atelier" : "Estudio Interactivo"}</span>
+                  <span>{locale === "en" ? "Interactive Design Studio" : "Estudio Interactivo"}</span>
                 </Link>
 
                 <a
@@ -376,7 +373,7 @@ export default function HomePage() {
                   href="/cocinas-y-gabinetes"
                   className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
                 >
-                  <span>{locale === "en" ? "Explore Kitchens & Atelier" : "Ver Cocinas y Estudio"}</span>
+                  <span>{locale === "en" ? "Explore Kitchens & Cabinetry" : "Ver Cocinas y Gabinetes"}</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>
@@ -744,9 +741,6 @@ export default function HomePage() {
           6. GRAND CONSULTATION CALL TO ACTION (Warm Terracotta & Ivory Anchor)
       ===================================================================== */}
       <section data-casa-room="patio" className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">
-        {/* Soft Terracotta Glow */}
-        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
-
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-xs font-serif uppercase tracking-widest text-[#B85D3B] font-bold shadow-xs">

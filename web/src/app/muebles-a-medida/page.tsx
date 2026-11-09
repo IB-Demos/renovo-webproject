@@ -19,16 +19,13 @@ export default function CustomFurniturePage() {
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#C59B27]/10 rounded-full blur-[140px]" />
-
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* LEFT 7 COLS: COMMERCIAL STORYTELLING */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>02 · {locale === "en" ? "CASA RENOVO ARCHED SANCTUARY" : "CASA RENOVO · SANTUARIO DE ENCINO"}</span>
+                  <span>{locale === "en" ? "RENOVO MILLWORK · PHOENIX WORKSHOP" : "EBANISTERÍA RENOVO · TALLER EN PHOENIX"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Compass size={14} weight="fill" />
@@ -173,7 +170,6 @@ export default function CustomFurniturePage() {
 
       {/* 4. GRAND CONSULTATION CTA */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] text-center relative overflow-hidden">
-        <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#B85D3B]/10 blur-[130px] rounded-full" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#1A1410]">

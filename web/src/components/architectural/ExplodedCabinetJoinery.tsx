@@ -365,7 +365,7 @@ export function ExplodedCabinetJoinery() {
                   <line x1="120" y1="84" x2="480" y2="84" stroke="#C79F67" strokeWidth="1.5" />
                 </g>
 
-                {/* Pulsing Hotspot on Active Element */}
+                {/* Highlight Callout on Active Element */}
                 <circle
                   cx={currentLayer.svgHighlightCoords.cx}
                   cy={currentLayer.svgHighlightCoords.cy}
@@ -373,7 +373,6 @@ export function ExplodedCabinetJoinery() {
                   fill="rgba(199, 159, 103, 0.15)"
                   stroke="#C79F67"
                   strokeWidth="1.5"
-                  className="animate-pulse"
                 />
                 <circle
                   cx={currentLayer.svgHighlightCoords.cx}
@@ -422,7 +421,7 @@ export function ExplodedCabinetJoinery() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 text-xs font-serif text-white/90">
-                {locale === "en" ? "Real Renovo Atelier Build" : "Fabricación Real de Renovo"}
+                {locale === "en" ? "Real Renovo Workshop Build" : "Fabricación Real de Renovo"}
               </div>
             </div>
 

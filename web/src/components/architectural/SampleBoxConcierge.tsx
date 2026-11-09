@@ -167,8 +167,8 @@ export function SampleBoxConcierge() {
               <Package size={15} />
               <span>
                 {locale === "en"
-                  ? "Atelier Sample Box Concierge · Physical Materials at Your Door"
-                  : "Caja de Muestras Físicas de Taller · En tu Residencia"}
+                  ? "Physical Material Sample Kit · Delivered to Your Door"
+                  : "Muestras Físicas de Taller · En tu Residencia"}
               </span>
             </div>
 
@@ -416,9 +416,6 @@ export function SampleBoxConcierge() {
           {/* Right 5 Columns: The Physical Box Rendering & Concierge Order */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 sm:p-8 rounded-3xl bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl relative overflow-hidden space-y-6 text-[#261F1A]">
-              {/* Subtle Atelier Box Glow */}
-              <div className="pointer-events-none absolute -top-16 -right-16 w-52 h-52 bg-[#B85D3B]/10 blur-[80px] rounded-full" />
-
               <div className="flex items-center justify-between border-b border-[#DFD6C6] pb-4">
                 <div>
                   <span className="text-xs font-serif italic text-[#B85D3B] block">
@@ -436,7 +433,7 @@ export function SampleBoxConcierge() {
               {/* Physical Presentation Box Simulation (Tactile wooden tray with 4 slots) */}
               <div className="p-4 rounded-2xl bg-[#EAE2D5] border-2 border-[#DFD6C6] shadow-inner space-y-3">
                 <div className="flex items-center justify-between text-[11px] text-[#7A6E63] font-serif border-b border-[#DFD6C6] pb-2">
-                  <span>ATELIER SPECIMEN TRAY</span>
+                  <span>RENOVO SPECIMEN TRAY</span>
                   <span>PHOENIX, AZ · 4 SLOTS</span>
                 </div>
 

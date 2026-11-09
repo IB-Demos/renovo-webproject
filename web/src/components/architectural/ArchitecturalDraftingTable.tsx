@@ -875,7 +875,7 @@ export function ArchitecturalDraftingTable() {
                 <CheckCircle size={16} weight="fill" />
                 <span>
                   {locale === "en"
-                    ? "The Renovo Atelier Standard"
+                    ? "The Renovo Workshop Standard"
                     : "El Estándar de Taller Renovo"}
                 </span>
               </div>

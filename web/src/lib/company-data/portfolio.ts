@@ -6,7 +6,7 @@ export const COMPANY_INFO = {
   director: "Raul Burgos",
   phoneDisplay: "(602) 550-4369",
   phoneHref: "tel:+16025504369",
-  emailGeneral: "contact@renovoaz.com",
+  emailGeneral: "raul@renovoaz.com",
   emailDirector: "raul@renovoaz.com",
   address: {
     street: "2231 W Shangri La Rd, Ste K-L",

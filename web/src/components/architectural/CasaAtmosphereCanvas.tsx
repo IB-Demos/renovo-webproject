@@ -17,25 +17,7 @@ export function CasaAtmosphereCanvas() {
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-all duration-1000 ease-out"
     >
       {/* ===================================================================
-          1. DYNAMIC COLOR PIGMENT RADIAL GLOW
-          Gentle ambient architectural tint reflecting the active room's pigment
-      =================================================================== */}
-      <div
-        className="absolute -top-[15%] -left-[10%] w-[80vw] h-[70vh] rounded-full blur-[140px] opacity-25 sm:opacity-30 transition-colors duration-1000"
-        style={{
-          backgroundColor: currentColorHex,
-        }}
-      />
-
-      <div
-        className="absolute top-[40%] -right-[15%] w-[70vw] h-[60vh] rounded-full blur-[160px] opacity-20 sm:opacity-25 transition-colors duration-1000"
-        style={{
-          backgroundColor: currentColorHex,
-        }}
-      />
-
-      {/* ===================================================================
-          2. DESERT KELVIN LIGHTING OVERLAY (Dawn, Noon, Sunset, Night)
+          1. DESERT KELVIN LIGHTING OVERLAY (Dawn, Noon, Sunset, Night)
       =================================================================== */}
       <div
         className="absolute inset-0 transition-all duration-1000"

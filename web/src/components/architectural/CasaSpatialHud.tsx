@@ -55,16 +55,11 @@ export function CasaSpatialHud() {
             className="interactive-control group flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-[#1A1410]/95 text-[#FCFAF7] backdrop-blur-md border border-[#C59B27]/40 shadow-2xl hover:border-[#C59B27] hover:scale-[1.02] transition-all"
             title={locale === "en" ? "Explore Casa Renovo Atmosphere" : "Controlar Atmósfera Casa Renovo"}
           >
-            {/* Color Dot with glowing ring */}
+            {/* Color Dot with crisp outline */}
             <span
-              className="relative flex h-3 w-3 rounded-full border border-white/40 shadow-xs"
+              className="relative flex h-3 w-3 rounded-full border border-white/60 shadow-xs"
               style={{ backgroundColor: currentColorHex }}
-            >
-              <span
-                className="absolute -inset-1 rounded-full opacity-40 animate-ping"
-                style={{ backgroundColor: currentColorHex }}
-              />
-            </span>
+            />
 
             {/* Room Identifier */}
             <div className="flex items-center gap-1.5 text-xs font-serif">
@@ -100,10 +95,10 @@ export function CasaSpatialHud() {
                 </span>
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#B85D3B] font-bold">
-                    CASA RENOVO · SPATIAL HUD
+                    {locale === "en" ? "DAYLIGHT & FINISH SIMULATOR" : "SIMULADOR DE LUZ Y ACABADOS"}
                   </div>
                   <h3 className="text-xs font-serif font-semibold text-[#1A1410]">
-                    {locale === "en" ? "Ambient Home Atmosphere" : "Atmósfera Integral de la Casa"}
+                    {locale === "en" ? "Arizona Natural Daylight" : "Luz Natural de Arizona"}
                   </h3>
                 </div>
               </div>

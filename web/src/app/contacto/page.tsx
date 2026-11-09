@@ -102,16 +102,13 @@ export default function ContactPage() {
     <div className="w-full bg-[#F4EFE6] text-[#261F1A]">
       {/* 1. EDITORIAL HERO BANNER */}
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-[#DFD6C6] bg-[#EAE2D5]">
-        <div className="pointer-events-none absolute -top-24 -right-24 w-[600px] h-[600px] bg-[#B85D3B]/10 rounded-full blur-[140px]" />
-
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* LEFT 7 COLS: COMMERCIAL CONSULTATION HOOK */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1410] text-[#FCFAF7] border border-[#C59B27]/40 text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                  <span>04 · {locale === "en" ? "CASA RENOVO PRIVATE CONSULTATION" : "CASA RENOVO · CONSULTA EN SITIO"}</span>
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xs">
+                  <span>{locale === "en" ? "PRIVATE CONSULTATION · RAUL BURGOS" : "CONSULTA PERSONAL · RAUL BURGOS"}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-[11px] font-serif font-bold uppercase tracking-wider shadow-xs">
                   <Clock size={14} weight="fill" />
@@ -178,7 +175,7 @@ export default function ContactPage() {
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src="/assets/painting-exterior/exterior-01.jpg"
-                    alt="Renovo Phoenix Consultation and Atelier"
+                    alt="Renovo Phoenix Consultation and Workshop"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />

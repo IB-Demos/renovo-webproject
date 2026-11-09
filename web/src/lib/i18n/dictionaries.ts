@@ -120,7 +120,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       studio: "Studio & Estimator",
       catalog: "Materials",
       estimator: "Scope Estimator",
-      about: "Atelier",
+      about: "Workshop",
       contact: "Contact",
       sampleTray: "Design Selections",
       bookConsult: "Consultation",
