@@ -50,8 +50,8 @@ export function RenovoChatbot() {
 
   const initialWelcome =
     chatLocale === "es"
-      ? "¡Hola! Soy el asistente virtual del taller de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Cabinet Refacing**, el esmaltado de fábrica con **Laca 2K Catalizada** o deseas coordinar una **medición en sitio sin costo** con Raul Burgos?"
-      : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Cabinet Refacing**, our factory-booth **2K Catalyzed Finishes**, or would you like to schedule a **free in-home laser measurement** with Raul Burgos?";
+      ? "¡Hola! Soy el asistente de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Pintura Residencial (Interior y Exterior)**, **Cabinet Refacing** o nuestro esmaltado de gabinetes con **Laca 2K Catalizada**?"
+      : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Interior & Exterior House Painting**, **Cabinet Refacing**, or our factory-booth **2K Catalyzed Finishes**?";
 
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -70,8 +70,8 @@ export function RenovoChatbot() {
         role: "assistant",
         content:
           chatLocale === "es"
-            ? "¡Hola! Soy el asistente virtual del taller de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Cabinet Refacing**, el esmaltado de fábrica con **Laca 2K Catalizada** o deseas coordinar una **medición en sitio sin costo** con Raul Burgos?"
-            : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Cabinet Refacing**, our factory-booth **2K Catalyzed Finishes**, or would you like to schedule a **free in-home laser measurement** with Raul Burgos?",
+            ? "¡Hola! Soy el asistente de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Pintura Residencial (Interior y Exterior)**, **Cabinet Refacing** o nuestro esmaltado de gabinetes con **Laca 2K Catalizada**?"
+            : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Interior & Exterior House Painting**, **Cabinet Refacing**, or our factory-booth **2K Catalyzed Finishes**?",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       },
     ]);
@@ -108,16 +108,16 @@ export function RenovoChatbot() {
   const quickPrompts =
     chatLocale === "es"
       ? [
+          { label: "Pintura Exterior & Estuco", query: "¿Cómo preparan y pintan el estuco exterior para protegerlo del calor de Arizona?" },
+          { label: "Pintura Interior sin Polvo", query: "¿Cómo funciona su sistema de pintura interior con lijado libre de polvo HEPA?" },
           { label: "¿Refacing o Cocina Nueva?", query: "¿Cuál es la diferencia entre Cabinet Refacing y hacer una cocina nueva?" },
-          { label: "¿Qué es la Laca 2K?", query: "¿Por qué usan laca catalizada 2K y en qué se diferencia de la pintura tradicional?" },
-          { label: "¿Dónde está su taller?", query: "¿Dónde está ubicado su taller en Phoenix y qué zonas atienden?" },
-          { label: "Pedir cotización a Raul", query: "Quiero solicitar una cotización con Raul Burgos para mis gabinetes." },
+          { label: "Pedir cotización a Raul", query: "Quiero solicitar una cotización con Raul Burgos para mi proyecto." },
         ]
       : [
+          { label: "Exterior Stucco Painting", query: "How do you prep and paint exterior stucco to resist the Arizona sun and heat?" },
+          { label: "Dustless Interior Painting", query: "How does your HEPA dustless interior residential painting work?" },
           { label: "Refacing vs. New Kitchen?", query: "What is the difference between cabinet refacing and full custom replacement?" },
-          { label: "What is 2K Catalyzed finish?", query: "Why do you use 2K catalyzed polyurethane instead of regular paint?" },
-          { label: "Where is the workshop?", query: "Where is your Phoenix workshop located and what areas do you serve?" },
-          { label: "Request a quote with Raul", query: "I would like to request an estimate with Raul Burgos for my cabinets." },
+          { label: "Request a quote with Raul", query: "I would like to request an estimate with Raul Burgos for my home." },
         ];
 
   const handleSendMessage = async (textToSend?: string) => {

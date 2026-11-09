@@ -428,18 +428,18 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
-                    {locale === "en" ? "03 · Fine Residential Finishes" : "03 · Acabados Finos"}
+                    {locale === "en" ? "03 · Fine Residential Painting" : "03 · Pintura Residencial de Autor"}
                   </div>
                 </div>
 
                 <div className="p-6 sm:p-7 space-y-3">
                   <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
-                    {locale === "en" ? "Residential & Exterior Painting" : "Pintura Residencial y Acabados"}
+                    {locale === "en" ? "House Painting: Interior & Exterior" : "Pintura de Casas: Interior y Exterior"}
                   </h3>
                   <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
-                      ? "HEPA dustless surface preparation, velvet interior wall enamels, and UV-shield elastomeric coatings that resist fading under the Arizona sun."
-                      : "Lijado HEPA sin polvo, esmaltes aterciopelados para muros interiores y recubrimientos elastoméricos con filtro UV para el sol de Arizona."}
+                      ? "Hospital-grade HEPA dustless interior sanding, crisp baseboard laser caulk lines, zero-VOC velvet enamels, and heavy-body elastomeric UV coatings designed to endure 115°F+ Arizona solar heat without chalking or peeling."
+                      : "Lijado interior libre de polvo con aspiración Festool grado HEPA, sellado perimetral láser en molduras, esmaltes lavables 0-VOC y blindaje elastomérico contra el sol de más de 45°C en estucos exteriores."}
                   </p>
                 </div>
               </div>
@@ -449,7 +449,7 @@ export default function HomePage() {
                   href="/pintura-residencial"
                   className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
                 >
-                  <span>{locale === "en" ? "Explore Painting & Color" : "Ver Pintura y Color"}</span>
+                  <span>{locale === "en" ? "Explore Interior & Exterior Painting" : "Ver Pintura Interior y Exterior"}</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>

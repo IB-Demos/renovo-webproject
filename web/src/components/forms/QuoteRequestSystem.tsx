@@ -36,6 +36,8 @@ export function QuoteRequestSystem() {
   const [dimensions, setDimensions] = useState<string>("");
   const [doorsEstimate, setDoorsEstimate] = useState<string>("");
   const [drawersEstimate, setDrawersEstimate] = useState<string>("");
+  const [houseScope, setHouseScope] = useState<string>("full-home");
+  const [homeSize, setHomeSize] = useState<string>("1500-2500");
   const [desiredColors, setDesiredColors] = useState<string>("");
   const [finishType, setFinishType] = useState<string>("satin-2k");
   const [timelineId, setTimelineId] = useState<string>("1-3-months");
@@ -330,7 +332,16 @@ export function QuoteRequestSystem() {
 
       // Localized scope summary
       let dimensionsSummary = dimensions.trim();
-      if (doorsEstimate || drawersEstimate) {
+      if (service === "paint-house") {
+        const scopeLabels: Record<string, { en: string; es: string }> = {
+          "exterior-only": { en: "Exterior (Stucco & Trim)", es: "Exterior (Estuco y Fascia)" },
+          "interior-only": { en: "Interior (Walls & Ceilings)", es: "Interior (Muros y Techos)" },
+          "full-home": { en: "Full Home (In/Out)", es: "Casa Completa (Interior y Exterior)" },
+          "specific-rooms": { en: "Specific Rooms", es: "Áreas Específicas" },
+        };
+        const scopeTxt = scopeLabels[houseScope] ? (locale === "en" ? scopeLabels[houseScope].en : scopeLabels[houseScope].es) : houseScope;
+        dimensionsSummary += ` [${locale === "en" ? "Scope" : "Alcance"}: ${scopeTxt}, ${locale === "en" ? "Size" : "Tamaño"}: ${homeSize} sq ft]`;
+      } else if (doorsEstimate || drawersEstimate) {
         if (locale === "en") {
           dimensionsSummary += ` (Approx: ${doorsEstimate || "0"} doors, ${drawersEstimate || "0"} drawers)`;
         } else {
@@ -670,22 +681,87 @@ export function QuoteRequestSystem() {
         <div className="space-y-4">
           <div>
             <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] mb-2 font-bold">
-              {locale === "en"
-                ? "Describe your space layout (Dimensions, L-shape, U-shape, Island size, Linear feet)"
-                : "Describe la distribución del espacio (ej. Cocina en L, isla de 8 pies, dimensiones aproximadas)"}
+              {service === "paint-house"
+                ? (locale === "en" ? "Describe your home painting project (Interior/Exterior, stucco condition, high ceilings, colors)" : "Describe tu proyecto de pintura (Interior/Exterior, estado del estuco, techos altos, colores)")
+                : (locale === "en"
+                  ? "Describe your space layout (Dimensions, L-shape, U-shape, Island size, Linear feet)"
+                  : "Describe la distribución del espacio (ej. Cocina en L, isla de 8 pies, dimensiones aproximadas)")}
             </label>
             <textarea
               rows={3}
               value={dimensions}
               onChange={(e) => setDimensions(e.target.value)}
               placeholder={
-                locale === "en"
-                  ? "e.g. Kitchen is approx 12x14 feet with a center island. Looking to replace all doors and spray fixed frames on site."
-                  : "ej. Cocina de aprox. 12x14 pies con isla central. Queremos cambiar las puertas y pintar los marcos fijos en sitio."
+                service === "paint-house"
+                  ? (locale === "en"
+                    ? "e.g. 2,400 sq ft single-story home. Need full exterior painting with stucco crack sealing, plus living room and hallway interiors."
+                    : "ej. Casa de 2,400 pies cuadrados. Necesito pintura exterior completa con sellado de grietas de estuco, además de sala y pasillos interiores.")
+                  : (locale === "en"
+                    ? "e.g. Kitchen is approx 12x14 feet with a center island. Looking to replace all doors and spray fixed frames on site."
+                    : "ej. Cocina de aprox. 12x14 pies con isla central. Queremos cambiar las puertas y pintar los marcos fijos en sitio.")
               }
               className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base font-medium text-[#1A1410] placeholder-[#6E6053] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B]"
             />
           </div>
+
+          {/* Dedicated House Painting Scope & Size Selector */}
+          {service === "paint-house" && (
+            <div className="pt-2 space-y-4">
+              <div>
+                <span className="text-xs sm:text-sm font-serif text-[#2B231D] block mb-2 font-bold">
+                  {locale === "en" ? "Painting Scope (Select primary area):" : "Alcance de la Pintura (Selecciona el área principal):"}
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {[
+                    { id: "exterior-only", labelEn: "Exterior (Stucco & Trim)", labelEs: "Exterior (Estuco y Fascia)" },
+                    { id: "interior-only", labelEn: "Interior (Walls & Ceilings)", labelEs: "Interior (Muros y Techos)" },
+                    { id: "full-home", labelEn: "Both (Full Home In/Out)", labelEs: "Ambos (Interior y Exterior)" },
+                    { id: "specific-rooms", labelEn: "Specific Rooms / Accents", labelEs: "Áreas Específicas / Acentos" },
+                  ].map((scope) => (
+                    <button
+                      key={scope.id}
+                      type="button"
+                      onClick={() => setHouseScope(scope.id)}
+                      className={`p-3 rounded-xl border text-xs font-serif font-bold text-left transition-all cursor-pointer ${
+                        houseScope === scope.id
+                          ? "border-[#B85D3B] bg-[#FCFAF7] text-[#B85D3B] shadow-xs"
+                          : "border-[#DFD6C6] bg-[#F4EFE6] text-[#2B231D] hover:border-[#1A1410]"
+                      }`}
+                    >
+                      {locale === "en" ? scope.labelEn : scope.labelEs}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs sm:text-sm font-serif text-[#2B231D] block mb-2 font-bold">
+                  {locale === "en" ? "Approximate Home Size (sq ft):" : "Tamaño Aproximado de la Casa:"}
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {[
+                    { id: "under-1500", label: "< 1,500 sq ft" },
+                    { id: "1500-2500", label: "1,500 – 2,500 sq ft" },
+                    { id: "2500-4000", label: "2,500 – 4,000 sq ft" },
+                    { id: "over-4000", label: "4,000+ sq ft" },
+                  ].map((size) => (
+                    <button
+                      key={size.id}
+                      type="button"
+                      onClick={() => setHomeSize(size.id)}
+                      className={`p-2.5 rounded-xl border text-xs font-mono font-bold text-center transition-all cursor-pointer ${
+                        homeSize === size.id
+                          ? "border-[#B85D3B] bg-[#FCFAF7] text-[#B85D3B] shadow-xs"
+                          : "border-[#DFD6C6] bg-[#F4EFE6] text-[#2B231D] hover:border-[#1A1410]"
+                      }`}
+                    >
+                      {size.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Quick Door & Drawer Counts for Cabinetry Work */}
           {(service === "refacing" || service === "cabinets-new" || service === "paint-cabinets") && (
@@ -744,7 +820,9 @@ export function QuoteRequestSystem() {
             </h2>
           </div>
           <span className="text-xs sm:text-sm font-serif font-bold text-[#8C3B1E]">
-            {locale === "en" ? "Catalyzed 2K Industrial Chemistry" : "Lacas Catalizadas 2K Industriales"}
+            {service === "paint-house"
+              ? (locale === "en" ? "Desert UV & HEPA Dustless Architectural Coatings" : "Blindaje UV Desértico y Acabados 0-VOC HEPA")
+              : (locale === "en" ? "Catalyzed 2K Industrial Chemistry" : "Lacas Catalizadas 2K Industriales")}
           </span>
         </div>
 
@@ -753,7 +831,9 @@ export function QuoteRequestSystem() {
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-1">
               <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
-                {locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo"}
+                {service === "paint-house"
+                  ? (locale === "en" ? "Architectural Paint Sheen / Protection Level" : "Grado de Brillo y Nivel de Protección")
+                  : (locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo")}
               </label>
               <span className="text-xs font-serif font-medium text-[#4A3E34]">
                 {locale === "en" ? "Touch a finish card to select" : "Toca una tarjeta para elegir acabado"}
