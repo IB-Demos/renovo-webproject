@@ -161,11 +161,24 @@ export async function POST(request: Request) {
         clearTimeout(timeoutId);
 
         if (makeRes.ok) {
-          const makeData = await makeRes.json().catch(() => null);
-          if (makeData && (makeData.reply || makeData.message)) {
+          const rawResponse = await makeRes.text();
+          let finalReply = "";
+
+          try {
+            const parsed = JSON.parse(rawResponse);
+            finalReply =
+              typeof parsed === "string"
+                ? parsed
+                : parsed.reply || parsed.message || parsed.content || parsed.result || "";
+          } catch {
+            // It is plain text directly returned from Make.com
+            finalReply = rawResponse.trim();
+          }
+
+          if (finalReply && finalReply !== "Accepted" && finalReply !== "OK") {
             return NextResponse.json({
-              reply: makeData.reply || makeData.message,
-              leadCaptured: Boolean(makeData.leadCaptured),
+              reply: finalReply,
+              leadCaptured: Boolean(leadCaptured),
               source: "make.com",
             });
           }
@@ -175,54 +188,72 @@ export async function POST(request: Request) {
       }
     }
 
-    // 4. INTELLIGENT BUILT-IN CRAFTSMAN KNOWLEDGE ENGINE
+    // 4. INTELLIGENT BUILT-IN CRAFTSMAN KNOWLEDGE ENGINE (With Accent Normalization)
+    const cleanMsg = lowerMsg.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     let reply = "";
 
-    // A. EXTERIOR HOUSE PAINTING & DESERT UV PROTECTION
+    // A. DIRECT CONTACT & PHONE NUMBER QUERIES (Raul's phone, call, speaking directly)
+    const isContactQuery =
+      cleanMsg.includes("raul") ||
+      cleanMsg.includes("hablar") ||
+      cleanMsg.includes("llamar") ||
+      cleanMsg.includes("marcar") ||
+      cleanMsg.includes("telefono") ||
+      cleanMsg.includes("numero") ||
+      cleanMsg.includes("celular") ||
+      cleanMsg.includes("contacto") ||
+      cleanMsg.includes("contact") ||
+      cleanMsg.includes("phone") ||
+      cleanMsg.includes("call");
+
+    // B. EXTERIOR HOUSE PAINTING & DESERT UV PROTECTION
     const isExteriorQuery =
-      lowerMsg.includes("exterior") ||
-      lowerMsg.includes("estuco") ||
-      lowerMsg.includes("stucco") ||
-      lowerMsg.includes("fascia") ||
-      lowerMsg.includes("aleros") ||
-      lowerMsg.includes("afuera") ||
-      lowerMsg.includes("fachada") ||
-      lowerMsg.includes("monsoon") ||
-      lowerMsg.includes("calor") ||
-      (lowerMsg.includes("pintar") && lowerMsg.includes("fuera"));
+      cleanMsg.includes("exterior") ||
+      cleanMsg.includes("estuco") ||
+      cleanMsg.includes("stucco") ||
+      cleanMsg.includes("fascia") ||
+      cleanMsg.includes("aleros") ||
+      cleanMsg.includes("afuera") ||
+      cleanMsg.includes("fachada") ||
+      cleanMsg.includes("monsoon") ||
+      cleanMsg.includes("calor") ||
+      (cleanMsg.includes("pintar") && cleanMsg.includes("fuera"));
 
-    // B. INTERIOR HOUSE PAINTING & DUSTLESS RESIDENTIAL
+    // C. INTERIOR HOUSE PAINTING & DUSTLESS RESIDENTIAL
     const isInteriorQuery =
-      lowerMsg.includes("interior") ||
-      lowerMsg.includes("pared") ||
-      lowerMsg.includes("paredes") ||
-      lowerMsg.includes("techo") ||
-      lowerMsg.includes("techos") ||
-      lowerMsg.includes("ceiling") ||
-      lowerMsg.includes("drywall") ||
-      lowerMsg.includes("yeso") ||
-      lowerMsg.includes("cuarto") ||
-      lowerMsg.includes("recamara") ||
-      lowerMsg.includes("recámara") ||
-      lowerMsg.includes("sala") ||
-      lowerMsg.includes("rodapie") ||
-      lowerMsg.includes("rodapié") ||
-      lowerMsg.includes("baseboard") ||
-      lowerMsg.includes("polvo") ||
-      lowerMsg.includes("dustless");
+      cleanMsg.includes("interior") ||
+      cleanMsg.includes("pared") ||
+      cleanMsg.includes("paredes") ||
+      cleanMsg.includes("techo") ||
+      cleanMsg.includes("techos") ||
+      cleanMsg.includes("ceiling") ||
+      cleanMsg.includes("drywall") ||
+      cleanMsg.includes("yeso") ||
+      cleanMsg.includes("cuarto") ||
+      cleanMsg.includes("recamara") ||
+      cleanMsg.includes("sala") ||
+      cleanMsg.includes("rodapie") ||
+      cleanMsg.includes("baseboard") ||
+      cleanMsg.includes("polvo") ||
+      cleanMsg.includes("dustless");
 
-    // C. WHOLE HOUSE / GENERAL RESIDENTIAL PAINTING
+    // D. WHOLE HOUSE / GENERAL RESIDENTIAL PAINTING
     const isHousePaintingGeneral =
-      lowerMsg.includes("pintar casa") ||
-      lowerMsg.includes("pintar mi casa") ||
-      lowerMsg.includes("pintura de casa") ||
-      lowerMsg.includes("pintar toda la casa") ||
-      lowerMsg.includes("house paint") ||
-      lowerMsg.includes("paint my house") ||
-      lowerMsg.includes("residential paint") ||
-      lowerMsg.includes("home painting");
+      cleanMsg.includes("pintar casa") ||
+      cleanMsg.includes("pintar mi casa") ||
+      cleanMsg.includes("pintura de casa") ||
+      cleanMsg.includes("pintar toda la casa") ||
+      cleanMsg.includes("house paint") ||
+      cleanMsg.includes("paint my house") ||
+      cleanMsg.includes("residential paint") ||
+      cleanMsg.includes("home painting");
 
-    if (isExteriorQuery) {
+    if (isContactQuery) {
+      reply =
+        activeLocale === "es"
+          ? `El número directo de **Raul Burgos** es: **[${RENOVO_KNOWLEDGE.phone}](${RENOVO_KNOWLEDGE.phoneHref})**.\n\nTambién puedes escribirle a **contact@renovoaz.com** o dejarme aquí tu nombre y teléfono, y le pasaré tus datos de inmediato para que te llame y coordinar una asesoría sin costo.`
+          : `You can reach owner and master craftsman **Raul Burgos** directly at **[${RENOVO_KNOWLEDGE.phone}](${RENOVO_KNOWLEDGE.phoneHref})** or via email at **contact@renovoaz.com**.\n\nYou can also leave your name and phone number right here, and I'll dispatch it to Raul immediately to call you back.`;
+    } else if (isExteriorQuery) {
       reply =
         activeLocale === "es"
           ? `**Pintura Exterior de Casas y Protección UV en Arizona:**\n\n${RENOVO_KNOWLEDGE.services.residentialExterior.es}\n\n• **Sellado de Grietas:** Tratamos el estuco con uretano elastomérico que absorbe las contracciones por calor extremo.\n• **Filtro Solar UV:** Utilizamos recubrimientos acrílicos 100% elastoméricos de alto espesor (Sherwin-Williams Loxon/Duration) que soportan más de 46°C sin decolorarse ni agrietarse.\n• **Detalles:** Pintura de molduras, fascia, aleros de madera y portones de cochera.\n\nPuedes conocer nuestro protocolo en [Pintura Residencial](/pintura-residencial) o solicitar una cotización con Raul Burgos en el [Cotizador Oficial](/cotizador).`
