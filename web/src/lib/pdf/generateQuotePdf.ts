@@ -382,19 +382,23 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
       color: cTextMuted,
     }
   );
+  const rawFinish = data.finishType || (isEn ? "2K Catalyzed Polyurethane" : "Laca 2K Catalizada");
+  const finishLine = rawFinish.length > 70 ? rawFinish.slice(0, 67) + "..." : rawFinish;
   page1.drawText(
-    data.finishType || (isEn ? "2K Catalyzed Polyurethane" : "Laca 2K Catalizada"),
+    finishLine,
     {
       x: 175,
       y: currentY - 104,
-      size: 8.5,
+      size: finishLine.length > 50 ? 7.2 : 8.5,
       font: fontBold,
       color: cTextDark,
     }
   );
 
   page1.drawText(
-    isEn ? "Specified Palette / Tone:" : "Color o Tono de Madera:",
+    data.service === "paint-house"
+      ? (isEn ? "Specified Palette & Colors:" : "Paleta de Color y Tonos:")
+      : (isEn ? "Specified Palette / Tone:" : "Color o Tono de Madera:"),
     {
       x: 52,
       y: currentY - 122,
@@ -403,12 +407,14 @@ export async function generateQuotePdf(data: QuoteRequestData): Promise<Uint8Arr
       color: cTextMuted,
     }
   );
+  const rawColors = data.desiredColors || (isEn ? "To be selected from physical workshop samples" : "A definir con muestras físicas");
+  const colorLine = rawColors.length > 72 ? rawColors.slice(0, 69) + "..." : rawColors;
   page1.drawText(
-    data.desiredColors || (isEn ? "To be selected from physical workshop samples" : "A definir con muestras físicas"),
+    colorLine,
     {
       x: 175,
       y: currentY - 122,
-      size: 8.5,
+      size: colorLine.length > 50 ? 7.2 : 8.5,
       font: fontRegular,
       color: cTextDark,
     }

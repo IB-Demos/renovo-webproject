@@ -20,6 +20,7 @@ import {
   WarningCircle,
   Info,
   Check,
+  X,
 } from "@phosphor-icons/react";
 
 interface UploadedPhotoPreview {
@@ -36,10 +37,11 @@ export function QuoteRequestSystem() {
   const [dimensions, setDimensions] = useState<string>("");
   const [doorsEstimate, setDoorsEstimate] = useState<string>("");
   const [drawersEstimate, setDrawersEstimate] = useState<string>("");
-  const [houseScope, setHouseScope] = useState<string>("full-home");
+  const [houseScopes, setHouseScopes] = useState<string[]>(["full-home"]);
   const [homeSize, setHomeSize] = useState<string>("1500-2500");
-  const [desiredColors, setDesiredColors] = useState<string>("");
-  const [finishType, setFinishType] = useState<string>("satin-2k");
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [customColorsText, setCustomColorsText] = useState<string>("");
+  const [selectedFinishes, setSelectedFinishes] = useState<string[]>(["satin-2k"]);
   const [timelineId, setTimelineId] = useState<string>("1-3-months");
   const [notes, setNotes] = useState<string>("");
 
@@ -106,12 +108,12 @@ export function QuoteRequestSystem() {
     },
     {
       id: "paint-house",
-      titleEn: "Residential Painting (Interior & Exterior)",
-      titleEs: "Pintura Residencial (Interior y Exterior)",
-      descEn: "HEPA dustless prep, architectural trim enamels, and UV-reflective coatings engineered for the punishing Sonoran desert sun.",
-      descEs: "Lijado HEPA sin polvo, molduras finas y selladores con blindaje UV formulados para el sol implacable del desierto de Arizona.",
-      badgeEn: "Dustless HEPA Prep",
-      badgeEs: "Preparación HEPA sin Polvo",
+      titleEn: "Residential & Commercial Painting (Interior & Exterior)",
+      titleEs: "Pintura Residencial y Comercial (Interior y Exterior)",
+      descEn: "Full interior walls & ceilings, exterior stucco UV elastomeric shielding, commercial offices, and fine architectural trim.",
+      descEs: "Lijado HEPA sin polvo, estuco exterior con blindaje UV elastomérico, locales comerciales y molduras arquitectónicas.",
+      badgeEn: "Residential & Commercial",
+      badgeEs: "Residencial y Comercial",
       image: "/assets/painting-exterior/exterior-01.jpg",
       tagEn: "Monsoon & UV Shield",
       tagEs: "Protección Solar y Térmica",
@@ -393,14 +395,52 @@ export function QuoteRequestSystem() {
   const handleServiceSelect = (newServiceId: string) => {
     setService(newServiceId);
     if (newServiceId === "paint-house") {
-      setFinishType("exterior-uv-shield");
-    } else if (
-      finishType === "exterior-uv-shield" ||
-      finishType === "interior-emerald-washable" ||
-      finishType === "trim-urethane-enamel"
-    ) {
-      setFinishType("satin-2k");
+      const hasHouseFinish = selectedFinishes.some((f) =>
+        houseFinishOptions.some((hf) => hf.id === f)
+      );
+      if (!hasHouseFinish) {
+        setSelectedFinishes(["exterior-uv-shield"]);
+      }
+    } else {
+      const hasCabinetFinish = selectedFinishes.some((f) =>
+        cabinetFinishOptions.some((cf) => cf.id === f)
+      );
+      if (!hasCabinetFinish) {
+        setSelectedFinishes(["satin-2k"]);
+      }
     }
+  };
+
+  const toggleFinish = (finishId: string) => {
+    setSelectedFinishes((prev) => {
+      if (prev.includes(finishId)) {
+        if (prev.length === 1) return prev;
+        return prev.filter((id) => id !== finishId);
+      } else {
+        return [...prev, finishId];
+      }
+    });
+  };
+
+  const toggleColor = (colorName: string) => {
+    setSelectedColors((prev) => {
+      if (prev.includes(colorName)) {
+        return prev.filter((c) => c !== colorName);
+      } else {
+        return [...prev, colorName];
+      }
+    });
+  };
+
+  const toggleHouseScope = (scopeId: string) => {
+    setHouseScopes((prev) => {
+      if (prev.includes(scopeId)) {
+        if (prev.length === 1) return prev;
+        return prev.filter((id) => id !== scopeId);
+      } else {
+        return [...prev, scopeId];
+      }
+    });
   };
 
   const selectedServiceObj = services.find((s) => s.id === service) || services[0];
@@ -436,17 +476,21 @@ export function QuoteRequestSystem() {
         locale === "en" ? selectedServiceObj.titleEn : selectedServiceObj.titleEs
       );
 
-      // Localized scope summary
+      // Localized scope summary with multiple scope support
       let dimensionsSummary = dimensions.trim();
       if (service === "paint-house") {
         const scopeLabels: Record<string, { en: string; es: string }> = {
-          "exterior-only": { en: "Exterior (Stucco & Trim)", es: "Exterior (Estuco y Fascia)" },
+          "exterior-only": { en: "Exterior (Stucco & Fascia)", es: "Exterior (Estuco y Fascia)" },
           "interior-only": { en: "Interior (Walls & Ceilings)", es: "Interior (Muros y Techos)" },
-          "full-home": { en: "Full Home (In/Out)", es: "Casa Completa (Interior y Exterior)" },
+          "trim-doors": { en: "Doors & Trim (Baseboards)", es: "Puertas y Molduras (Zócalos)" },
+          "full-home": { en: "Full Property (In/Out)", es: "Propiedad Completa (In/Out)" },
+          "commercial": { en: "Commercial / Office", es: "Comercial / Oficinas" },
           "specific-rooms": { en: "Specific Rooms", es: "Áreas Específicas" },
         };
-        const scopeTxt = scopeLabels[houseScope] ? (locale === "en" ? scopeLabels[houseScope].en : scopeLabels[houseScope].es) : houseScope;
-        dimensionsSummary += ` [${locale === "en" ? "Scope" : "Alcance"}: ${scopeTxt}, ${locale === "en" ? "Size" : "Tamaño"}: ${homeSize} sq ft]`;
+        const scopesTxt = houseScopes
+          .map((sc) => (scopeLabels[sc] ? (locale === "en" ? scopeLabels[sc].en : scopeLabels[sc].es) : sc))
+          .join(", ");
+        dimensionsSummary += ` [${locale === "en" ? "Scope" : "Alcance"}: ${scopesTxt || (locale === "en" ? "General" : "General")}, ${locale === "en" ? "Size" : "Tamaño"}: ${homeSize} sq ft]`;
       } else if (doorsEstimate || drawersEstimate) {
         if (locale === "en") {
           dimensionsSummary += ` (Approx: ${doorsEstimate || "0"} doors, ${drawersEstimate || "0"} drawers)`;
@@ -461,21 +505,35 @@ export function QuoteRequestSystem() {
             ? "To be verified on-site during inspection"
             : "A evaluar en sitio durante la visita técnica")
       );
+
+      // Colors compiled from multiple selections + custom specifications
+      const compiledColors = [
+        ...selectedColors,
+        ...(customColorsText.trim() ? [customColorsText.trim()] : []),
+      ].join(", ");
+
       formData.append(
         "desiredColors",
-        desiredColors ||
+        compiledColors ||
           (locale === "en"
             ? "To be selected from physical workshop samples"
             : "A definir con muestras físicas de taller")
       );
 
-      const selectedFinish = allFinishOptions.find((f) => f.id === finishType);
-      formData.append(
-        "finishType",
-        locale === "en"
-          ? selectedFinish?.labelEn || (service === "paint-house" ? "100% Acrylic Elastomeric UV Shield" : "2K Catalyzed Industrial Lacquer")
-          : selectedFinish?.labelEs || (service === "paint-house" ? "Blindaje UV Elastomérico 100% Acrílico" : "Laca 2K Catalizada Industrial")
-      );
+      // Multiple finishes compiled into a clear summary
+      const activeChosenFinishes = allFinishOptions.filter((f) => selectedFinishes.includes(f.id));
+      const finishSummary =
+        activeChosenFinishes.length > 0
+          ? activeChosenFinishes.map((f) => (locale === "en" ? f.labelEn : f.labelEs)).join(" · ")
+          : locale === "en"
+          ? service === "paint-house"
+            ? "100% Acrylic Elastomeric UV Shield"
+            : "2K Catalyzed Industrial Lacquer"
+          : service === "paint-house"
+          ? "Blindaje UV Elastomérico 100% Acrílico"
+          : "Laca 2K Catalizada Industrial";
+
+      formData.append("finishType", finishSummary);
       const selectedTimeline = timelineOptions.find((t) => t.id === timelineId) || timelineOptions[2];
       formData.append(
         "timeline",
@@ -810,39 +868,49 @@ export function QuoteRequestSystem() {
             />
           </div>
 
-          {/* Dedicated House Painting Scope & Size Selector */}
+          {/* Dedicated House & Commercial Painting Scope & Size Selector (Multi-Select) */}
           {service === "paint-house" && (
             <div className="pt-2 space-y-4">
               <div>
-                <span className="text-xs sm:text-sm font-serif text-[#2B231D] block mb-2 font-bold">
-                  {locale === "en" ? "Painting Scope (Select primary area):" : "Alcance de la Pintura (Selecciona el área principal):"}
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs sm:text-sm font-serif text-[#2B231D] font-bold">
+                    {locale === "en" ? "Painting Scope (Select all areas that apply):" : "Alcance de la Pintura (Selecciona todas las áreas aplicables):"}
+                  </span>
+                  <span className="text-xs font-mono font-bold text-[#8C3B1E] bg-[#B85D3B]/10 px-2 py-0.5 rounded-full border border-[#B85D3B]/20">
+                    {houseScopes.length} {locale === "en" ? "selected" : "seleccionadas"}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
                   {[
-                    { id: "exterior-only", labelEn: "Exterior (Stucco & Trim)", labelEs: "Exterior (Estuco y Fascia)" },
+                    { id: "exterior-only", labelEn: "Exterior (Stucco & Fascia)", labelEs: "Exterior (Estuco y Fascia)" },
                     { id: "interior-only", labelEn: "Interior (Walls & Ceilings)", labelEs: "Interior (Muros y Techos)" },
-                    { id: "full-home", labelEn: "Both (Full Home In/Out)", labelEs: "Ambos (Interior y Exterior)" },
-                    { id: "specific-rooms", labelEn: "Specific Rooms / Accents", labelEs: "Áreas Específicas / Acentos" },
-                  ].map((scope) => (
-                    <button
-                      key={scope.id}
-                      type="button"
-                      onClick={() => setHouseScope(scope.id)}
-                      className={`p-3 rounded-xl border text-xs font-serif font-bold text-left transition-all cursor-pointer ${
-                        houseScope === scope.id
-                          ? "border-[#B85D3B] bg-[#FCFAF7] text-[#B85D3B] shadow-xs"
-                          : "border-[#DFD6C6] bg-[#F4EFE6] text-[#2B231D] hover:border-[#1A1410]"
-                      }`}
-                    >
-                      {locale === "en" ? scope.labelEn : scope.labelEs}
-                    </button>
-                  ))}
+                    { id: "trim-doors", labelEn: "Doors & Trim (Baseboards)", labelEs: "Puertas y Molduras (Zócalos)" },
+                    { id: "full-home", labelEn: "Full Property (In/Out)", labelEs: "Propiedad Completa (In/Out)" },
+                    { id: "commercial", labelEn: "Commercial / Office", labelEs: "Comercial / Oficinas" },
+                  ].map((scope) => {
+                    const isSelected = houseScopes.includes(scope.id);
+                    return (
+                      <button
+                        key={scope.id}
+                        type="button"
+                        onClick={() => toggleHouseScope(scope.id)}
+                        className={`p-3 rounded-xl border text-xs font-serif font-bold text-left transition-all cursor-pointer flex items-center justify-between ${
+                          isSelected
+                            ? "border-[#B85D3B] bg-[#FCFAF7] text-[#B85D3B] shadow-xs ring-1 ring-[#B85D3B]"
+                            : "border-[#DFD6C6] bg-[#F4EFE6] text-[#2B231D] hover:border-[#1A1410]"
+                        }`}
+                      >
+                        <span>{locale === "en" ? scope.labelEn : scope.labelEs}</span>
+                        {isSelected && <Check size={14} weight="bold" className="shrink-0 ml-1 text-[#B85D3B]" />}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               <div>
                 <span className="text-xs sm:text-sm font-serif text-[#2B231D] block mb-2 font-bold">
-                  {locale === "en" ? "Approximate Home Size (sq ft):" : "Tamaño Aproximado de la Casa:"}
+                  {locale === "en" ? "Approximate Total Area (sq ft):" : "Tamaño Aproximado Total (Pies Cuadrados):"}
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {[
@@ -935,30 +1003,39 @@ export function QuoteRequestSystem() {
         </div>
 
         <div className="space-y-6">
-          {/* Visual Finish Grade Selector with Photography Cards */}
+          {/* Visual Finish Grade Selector with Photography Cards (Multi-Select) */}
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-1">
-              <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
-                {service === "paint-house"
-                  ? (locale === "en" ? "Architectural Paint Sheen & Protection Grade" : "Grado de Brillo y Nivel de Protección Arquitectónica")
-                  : (locale === "en" ? "Factory Finish Sheen / Coating Type" : "Tipo de Acabado / Grado de Brillo")}
-              </label>
-              <span className="text-xs font-serif font-medium text-[#4A3E34]">
-                {locale === "en" ? "Touch a finish card to select" : "Toca una tarjeta para elegir acabado"}
-              </span>
+              <div>
+                <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
+                  {service === "paint-house"
+                    ? (locale === "en" ? "Architectural Paint Chemistry & Protection (Multiple Selection):" : "Químicas y Niveles de Protección (Selección Múltiple):")
+                    : (locale === "en" ? "Factory Finish Sheen / Coating Type:" : "Tipo de Acabado / Grado de Brillo:")}
+                </label>
+                <span className="text-xs font-serif font-medium text-[#4A3E34]">
+                  {service === "paint-house"
+                    ? (locale === "en" ? "Select all finishes required for your project (exterior, interior, trim)" : "Selecciona todos los acabados que requieras (exterior, muros interiores, molduras)")
+                    : (locale === "en" ? "Select one or more finishes for your cabinetry" : "Selecciona uno o más acabados para tus gabinetes")}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono font-bold text-[#8C3B1E] bg-[#B85D3B]/10 px-2.5 py-1 rounded-full border border-[#B85D3B]/20">
+                  {selectedFinishes.length} {locale === "en" ? "selected" : "seleccionados"}
+                </span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
               {activeFinishOptions.map((f) => {
-                const isSelected = finishType === f.id;
+                const isSelected = selectedFinishes.includes(f.id);
                 return (
                   <button
                     key={f.id}
                     type="button"
-                    onClick={() => setFinishType(f.id)}
-                    className={`interactive-control text-left rounded-2xl overflow-hidden border-2 transition-all flex flex-col justify-between group ${
+                    onClick={() => toggleFinish(f.id)}
+                    className={`interactive-control text-left rounded-2xl overflow-hidden border-2 transition-all flex flex-col justify-between group cursor-pointer ${
                       isSelected
-                        ? "border-[#B85D3B] bg-[#F4EFE6] shadow-md ring-1 ring-[#B85D3B]"
+                        ? "border-[#B85D3B] bg-[#F4EFE6] shadow-md ring-2 ring-[#B85D3B]"
                         : "border-[#DFD6C6] bg-[#FCFAF7] hover:border-[#B85D3B]/50 hover:bg-[#F9F6F0]"
                     }`}
                   >
@@ -1011,48 +1088,49 @@ export function QuoteRequestSystem() {
             </div>
           </div>
 
-          {/* Visual Interactive Color Swatches */}
-          <div>
-            <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] mb-2 font-bold">
-              {service === "paint-house"
-                ? (locale === "en" ? "Desired Paint Colors (Walls, Stucco, Trim)" : "Colores de Pintura Deseados (Muros, Estuco, Molduras)")
-                : (locale === "en" ? "Desired Paint Color or Natural Wood Tone" : "Color de Pintura o Tono de Madera Deseado")}
-            </label>
-            <input
-              type="text"
-              value={desiredColors}
-              onChange={(e) => setDesiredColors(e.target.value)}
-              placeholder={
-                service === "paint-house"
-                  ? (locale === "en"
-                    ? "e.g. SW Pure White on exterior trim, Desert Sand on stucco, Agreeable Gray in living room"
-                    : "ej. SW Pure White en molduras exteriores, Arena en estuco, Agreeable Gray en sala")
-                  : (locale === "en"
-                    ? "e.g. SW Alabaster on perimeters, Natural White Oak on the island"
-                    : "ej. Alabaster de Sherwin-Williams en muros, Roble Claro en la isla")
-              }
-              className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base font-medium text-[#1A1410] placeholder-[#6E6053] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B]"
-            />
-
-            {/* Clickable Visual Swatch Pills with Real Colors */}
-            <div className="pt-3">
-              <span className="text-xs sm:text-sm font-mono text-[#2B231D] uppercase tracking-wider block mb-2 font-bold">
+          {/* Visual Interactive Color Swatches with Multi-Selection */}
+          <div className="space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <label className="block text-xs sm:text-sm font-mono uppercase tracking-wider text-[#1A1410] font-bold">
                 {service === "paint-house"
-                  ? (locale === "en" ? "Architectural Color Palettes in Phoenix (Tap to Select):" : "Paletas Arquitectónicas en Phoenix (Toca para Seleccionar):")
-                  : (locale === "en" ? "Popular Designer Palettes in Phoenix (Tap to Select):" : "Paletas Populares en Phoenix (Toca para Seleccionar):")}
+                  ? (locale === "en" ? "Color Palettes (Select Multiple Tones):" : "Paletas de Color (Selecciona Múltiples Tonos):")
+                  : (locale === "en" ? "Color Palettes & Wood Tones:" : "Paletas de Color y Tonos de Madera:")}
+              </label>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono font-bold text-[#8C3B1E] bg-[#B85D3B]/10 px-2.5 py-0.5 rounded-full border border-[#B85D3B]/20">
+                  {selectedColors.length} {locale === "en" ? "selected" : "seleccionados"}
+                </span>
+                {selectedColors.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedColors([])}
+                    className="text-xs text-[#8C3B1E] hover:underline font-serif font-bold ml-1 cursor-pointer"
+                  >
+                    {locale === "en" ? "Clear all" : "Limpiar"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Clickable Visual Swatch Pills with Real Colors (Multi-Select) */}
+            <div>
+              <span className="text-xs font-mono text-[#2B231D] uppercase tracking-wider block mb-2 font-bold">
+                {service === "paint-house"
+                  ? (locale === "en" ? "Architectural Color Palettes in Phoenix (Tap to Select Multiple):" : "Paletas Arquitectónicas en Phoenix (Toca para Seleccionar Varios):")
+                  : (locale === "en" ? "Popular Designer Palettes (Tap to Select Multiple):" : "Paletas Populares de Taller (Toca para Seleccionar Varios):")}
               </span>
               <div className="flex flex-wrap gap-2.5">
                 {activeColorSwatches.map((swatch, idx) => {
                   const activeName = locale === "en" ? swatch.nameEn : swatch.nameEs;
-                  const isSelected = desiredColors.includes(activeName);
+                  const isSelected = selectedColors.includes(activeName);
                   return (
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => setDesiredColors(activeName)}
-                      className={`interactive-control inline-flex items-center gap-2 px-3.5 py-2 rounded-full border text-xs sm:text-sm font-serif transition-all ${
+                      onClick={() => toggleColor(activeName)}
+                      className={`interactive-control inline-flex items-center gap-2 px-3.5 py-2 rounded-full border text-xs sm:text-sm font-serif transition-all cursor-pointer ${
                         isSelected
-                          ? "border-[#B85D3B] bg-[#F4EFE6] font-bold text-[#1A1410] ring-1 ring-[#B85D3B] shadow-xs"
+                          ? "border-[#B85D3B] bg-[#F4EFE6] font-bold text-[#1A1410] ring-2 ring-[#B85D3B] shadow-sm"
                           : "border-[#DFD6C6] bg-[#FCFAF7] text-[#2B231D] font-medium hover:border-[#B85D3B]/60 hover:bg-[#F9F6F0]"
                       }`}
                     >
@@ -1064,10 +1142,64 @@ export function QuoteRequestSystem() {
                       <span className="text-xs text-[#54463A] hidden sm:inline font-normal">
                         ({locale === "en" ? swatch.labelEn : swatch.labelEs})
                       </span>
+                      {isSelected ? (
+                        <Check size={13} weight="bold" className="text-[#B85D3B]" />
+                      ) : null}
                     </button>
                   );
                 })}
               </div>
+            </div>
+
+            {/* Active Selected Chips List */}
+            {selectedColors.length > 0 && (
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-2">
+                <span className="text-xs font-mono uppercase tracking-wider font-bold text-[#8C3B1E] block">
+                  {locale === "en" ? "Selected Project Palette:" : "Paleta Seleccionada para tu Proyecto:"}
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {selectedColors.map((col, cIdx) => (
+                    <span
+                      key={cIdx}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FCFAF7] border border-[#B85D3B]/40 text-xs font-serif font-bold text-[#1A1410] shadow-2xs"
+                    >
+                      <span>{col}</span>
+                      <button
+                        type="button"
+                        onClick={() => toggleColor(col)}
+                        aria-label={`Remove ${col}`}
+                        className="w-4 h-4 rounded-full hover:bg-[#B85D3B] hover:text-white flex items-center justify-center transition-colors text-[#8C3B1E] cursor-pointer"
+                      >
+                        <X size={11} weight="bold" />
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Additional Custom Colors or Specific Room Allocations */}
+            <div>
+              <label className="block text-xs font-mono uppercase tracking-wider text-[#1A1410] mb-1.5 font-bold">
+                {service === "paint-house"
+                  ? (locale === "en" ? "Additional Custom Colors, HOA Codes, or Specific Room Placements:" : "Colores Adicionales, Códigos HOA o Distribución por Habitación:")
+                  : (locale === "en" ? "Custom Color Names, Island Accent, or Two-Tone Details:" : "Colores Personalizados, Isla en Tono Contraste o Acentos:")}
+              </label>
+              <input
+                type="text"
+                value={customColorsText}
+                onChange={(e) => setCustomColorsText(e.target.value)}
+                placeholder={
+                  service === "paint-house"
+                    ? (locale === "en"
+                      ? "e.g. SW Pure White on exterior trim, Desert Sand on stucco, Agreeable Gray in living room"
+                      : "ej. SW Pure White en fascia exterior, Arena en estuco, Agreeable Gray en sala")
+                    : (locale === "en"
+                      ? "e.g. SW Alabaster on perimeter cabinets, Natural White Oak on the island"
+                      : "ej. Alabaster de Sherwin-Williams en marcos, Roble Claro en la isla")
+                }
+                className="w-full px-4 py-3 rounded-xl border border-[#DFD6C6] bg-[#F4EFE6] text-base font-medium text-[#1A1410] placeholder-[#6E6053] focus:outline-none focus:border-[#B85D3B] focus:ring-1 focus:ring-[#B85D3B]"
+              />
             </div>
           </div>
 
