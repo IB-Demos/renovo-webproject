@@ -80,15 +80,26 @@ export function RenovoChatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Lock body scroll when chatbot is open in full-screen on mobile
+  // Lock body scroll ONLY on mobile screens (< 640px) where chatbot takes full screen
   useEffect(() => {
-    if (isOpen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
+    if (!isOpen) return;
+
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
+    const applyScrollLock = () => {
+      if (mediaQuery.matches) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    };
+
+    applyScrollLock();
+    mediaQuery.addEventListener("change", applyScrollLock);
+
+    return () => {
+      document.body.style.overflow = "";
+      mediaQuery.removeEventListener("change", applyScrollLock);
+    };
   }, [isOpen]);
 
   // Auto-scroll on new messages
