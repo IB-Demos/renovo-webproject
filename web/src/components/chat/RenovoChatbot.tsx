@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
+import { detectLanguage } from "@/lib/i18n/detectLanguage";
 import {
   ChatCircleDots,
   X,
@@ -62,19 +63,24 @@ export function RenovoChatbot() {
     },
   ]);
 
-  // Update welcome if language was detected as Spanish before interaction
+  // Update welcome message ONLY if conversation hasn't started yet
   useEffect(() => {
-    setMessages([
-      {
-        id: "welcome",
-        role: "assistant",
-        content:
-          chatLocale === "es"
-            ? "¡Hola! Soy el asistente de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Pintura Residencial (Interior y Exterior)**, **Cabinet Refacing** o nuestro esmaltado de gabinetes con **Laca 2K Catalizada**?"
-            : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Interior & Exterior House Painting**, **Cabinet Refacing**, or our factory-booth **2K Catalyzed Finishes**?",
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
-    ]);
+    setMessages((prev) => {
+      if (prev.length <= 1) {
+        return [
+          {
+            id: "welcome",
+            role: "assistant",
+            content:
+              chatLocale === "es"
+                ? "¡Hola! Soy el asistente de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Pintura Residencial (Interior y Exterior)**, **Cabinet Refacing** o nuestro esmaltado de gabinetes con **Laca 2K Catalizada**?"
+                : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Interior & Exterior House Painting**, **Cabinet Refacing**, or our factory-booth **2K Catalyzed Finishes**?",
+            timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          },
+        ];
+      }
+      return prev;
+    });
   }, [chatLocale]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -135,20 +141,10 @@ export function RenovoChatbot() {
     const text = (textToSend || inputMessage).trim();
     if (!text || isLoading) return;
 
-    // Detect language in message
-    const lower = text.toLowerCase();
-    const spanishSignals = [
-      "hola", "buen", "dia", "dias", "días", "tarde", "tardes", "noche", "noches",
-      "cotiz", "presupuesto", "precio", "cuanto", "cuánto", "costo",
-      "hablen", "llamen", "llamar", "marcar", "llamada", "telefono", "teléfono",
-      "numero", "número", "correo", "madera", "puerta", "puertas",
-      "cocina", "cocinas", "gabinete", "gabinetes", "refacing", "laca", "pintar",
-      "gracias", "favor", "quiero", "necesito", "interesa", "prefiero", "visita"
-    ];
-    let detectedLocale = chatLocale;
-    if (spanishSignals.some((sig) => lower.includes(sig))) {
-      detectedLocale = "es";
-      setChatLocale("es");
+    // Intelligently detect language in user message (seamless English <-> Spanish switching)
+    const detectedLocale = detectLanguage(text, chatLocale);
+    if (detectedLocale !== chatLocale) {
+      setChatLocale(detectedLocale);
     }
 
     const userMsg: ChatMessage = {
@@ -179,6 +175,12 @@ export function RenovoChatbot() {
       });
 
       const data = await res.json();
+
+      // Sync active locale if server refined it
+      if (data.locale && (data.locale === "en" || data.locale === "es") && data.locale !== detectedLocale) {
+        setChatLocale(data.locale);
+      }
+
       const botReply =
         data.reply ||
         (detectedLocale === "es"

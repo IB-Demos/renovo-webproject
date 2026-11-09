@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
+import { detectLanguage } from "@/lib/i18n/detectLanguage";
 
 export const runtime = "nodejs";
 
@@ -48,19 +49,7 @@ export async function POST(request: Request) {
     const lowerMsg = trimmedMsg.toLowerCase();
 
     // 0. INTELLIGENT BILINGUAL DETECTION (User's input language takes absolute priority)
-    const spanishSignals = [
-      "hola", "buen", "dia", "dias", "días", "tarde", "tardes", "noche", "noches",
-      "cotiz", "presupuesto", "precio", "cuanto", "cuánto", "costo",
-      "hablen", "llamen", "llamar", "marcar", "llamada", "telefono", "teléfono",
-      "numero", "número", "correo", "madera", "puerta", "puertas",
-      "cocina", "cocinas", "gabinete", "gabinetes", "refacing", "laca", "pintar",
-      "casa", "casas", "pared", "paredes", "muro", "muros", "estuco", "techo", "techos",
-      "exterior", "interiores", "interior", "fachada", "gracias", "favor", "quiero",
-      "necesito", "interesa", "prefiero", "visita"
-    ];
-
-    const isSpanish = spanishSignals.some((sig) => lowerMsg.includes(sig));
-    const activeLocale = isSpanish ? "es" : (locale === "es" ? "es" : "en");
+    const activeLocale = detectLanguage(trimmedMsg, locale === "es" ? "es" : "en");
 
     // 1. AUTOMATIC EXTRACTION OF PHONE & EMAIL FROM FREE-TEXT MESSAGE
     const phoneRegex = /(?:\+?1[-.\s]?)?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})/;
@@ -128,6 +117,7 @@ export async function POST(request: Request) {
         reply,
         leadCaptured: true,
         source: "resend-direct",
+        locale: activeLocale,
       });
     }
 
@@ -180,6 +170,7 @@ export async function POST(request: Request) {
               reply: finalReply,
               leadCaptured: Boolean(leadCaptured),
               source: "make.com",
+              locale: activeLocale,
             });
           }
         }
@@ -343,6 +334,7 @@ export async function POST(request: Request) {
       reply,
       leadCaptured,
       source: "local-engine",
+      locale: activeLocale,
     });
   } catch (error: any) {
     console.error("Error in /api/chat:", error);
