@@ -335,7 +335,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-2.5 py-2 rounded-lg bg-[#EAE2D5] font-serif text-xs font-semibold text-[#B85D3B] transition-colors"
               >
-                {t.nav.estimator} (PDF)
+                {t.nav.estimator}
               </Link>
               <Link
                 href="/studio-interactivo"

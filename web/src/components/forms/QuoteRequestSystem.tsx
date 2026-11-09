@@ -457,7 +457,7 @@ export function QuoteRequestSystem() {
               className="interactive-control min-h-[54px] sm:min-h-[56px] px-8 py-4 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-sm sm:text-base font-serif font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2.5 shadow-xl w-full sm:w-auto transition-transform hover:scale-[1.02] cursor-pointer"
             >
               <DownloadSimple size={20} weight="bold" />
-              <span>{locale === "en" ? "Download Proposal (PDF)" : "Descargar Propuesta (PDF)"}</span>
+              <span>{locale === "en" ? "Download Official Proposal" : "Descargar Propuesta Oficial"}</span>
             </button>
 
             <a

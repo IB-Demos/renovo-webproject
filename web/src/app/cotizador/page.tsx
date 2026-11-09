@@ -56,7 +56,7 @@ export default function EstimatorPage() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] text-[#B85D3B] text-xs font-serif font-bold uppercase tracking-wider shadow-xs">
                   <FilePdf size={16} weight="fill" />
-                  <span>{locale === "en" ? "Official Project Proposal (PDF)" : "Propuesta Formal de Proyecto (PDF)"}</span>
+                  <span>{locale === "en" ? "Official Project Proposal" : "Propuesta Formal de Proyecto"}</span>
                 </span>
               </div>
 
@@ -68,8 +68,8 @@ export default function EstimatorPage() {
 
               <p className="text-base sm:text-lg text-[#261F1A] font-normal leading-relaxed max-w-2xl">
                 {locale === "en"
-                  ? "Tell us what you want to accomplish: custom kitchen cabinets, 2K factory spray, cabinet refacing (door replacement), or residential painting. Upload current photos and get an executive PDF proposal delivered straight to Raul Burgos."
-                  : "Cuéntanos qué deseas realizar: desde construir tu cocina desde cero y pintar gabinetes con laca 2K, hasta cabinet refacing (cambio de puertas y frentes) o pintura residencial. Sube fotos de tu espacio y recibe una propuesta corporativa en PDF enviada directo a Raul Burgos."}
+                  ? "Tell us what you want to accomplish: custom kitchen cabinets, 2K factory spray, cabinet refacing (door replacement), or residential painting. Upload current photos and get an executive proposal delivered straight to Raul Burgos."
+                  : "Cuéntanos qué deseas realizar: desde construir tu cocina desde cero y pintar gabinetes con laca 2K, hasta cabinet refacing (cambio de puertas y frentes) o pintura residencial. Sube fotos de tu espacio y recibe una propuesta corporativa enviada directo a Raul Burgos."}
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">

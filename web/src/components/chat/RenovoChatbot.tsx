@@ -80,6 +80,17 @@ export function RenovoChatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Lock body scroll when chatbot is open in full-screen on mobile
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
   // Auto-scroll on new messages
   useEffect(() => {
     if (isOpen) {
@@ -345,10 +356,10 @@ export function RenovoChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 bottom-0 sm:inset-x-auto sm:right-6 sm:bottom-6 w-full sm:w-[410px] h-[85vh] sm:h-[620px] max-h-[90vh] sm:max-h-[660px] z-50 flex flex-col rounded-t-3xl rounded-b-none sm:rounded-3xl bg-[#FCFAF7] border-t-2 sm:border-2 border-[#DFD6C6] shadow-[0_25px_60px_-15px_rgba(26,20,16,0.45)] overflow-hidden"
+            className="fixed inset-0 sm:inset-auto sm:right-6 sm:bottom-6 w-full sm:w-[420px] h-[100dvh] sm:h-[620px] max-h-[100dvh] sm:max-h-[660px] z-50 flex flex-col rounded-none sm:rounded-3xl bg-[#FCFAF7] border-0 sm:border-2 sm:border-[#DFD6C6] shadow-2xl overflow-hidden"
           >
             {/* CHAT HEADER */}
-            <div className="p-3.5 sm:p-4 bg-[#1A1410] text-[#FCFAF7] border-b-2 border-[#C59B27]/40 flex items-center justify-between shrink-0">
+            <div className="p-3.5 sm:p-4 pt-[max(0.875rem,env(safe-area-inset-top))] bg-[#1A1410] text-[#FCFAF7] border-b-2 border-[#C59B27]/40 flex items-center justify-between shrink-0">
               <div className="flex items-center gap-2.5">
                 <div className="relative">
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#B85D3B] border border-white/20 flex items-center justify-center text-white shadow-xs">
@@ -375,25 +386,26 @@ export function RenovoChatbot() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 {/* Fast Lead Request Button */}
                 <button
                   type="button"
                   onClick={() => setShowLeadModal(true)}
-                  className="interactive-control px-2.5 py-1 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-[11px] font-serif font-bold inline-flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
+                  className="interactive-control px-2.5 py-1.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-[11px] font-serif font-bold inline-flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
                   title={chatLocale === "en" ? "Request Call with Raul" : "Pedir llamada de Raul"}
                 >
                   <CalendarCheck size={14} weight="bold" />
-                  <span>{chatLocale === "en" ? "Call" : "Cita"}</span>
+                  <span>{chatLocale === "en" ? "Call Request" : "Pedir Cita"}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-full text-[#DFD6C6] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-                  aria-label="Close Chat"
+                  className="interactive-control w-10 h-10 sm:w-8 sm:h-8 rounded-full text-[#DFD6C6] hover:text-white bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                  aria-label={chatLocale === "en" ? "Close Chat" : "Cerrar Chat"}
+                  title={chatLocale === "en" ? "Close Chat" : "Cerrar Chat"}
                 >
-                  <X size={18} weight="bold" />
+                  <X size={20} weight="bold" />
                 </button>
               </div>
             </div>
@@ -464,7 +476,7 @@ export function RenovoChatbot() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 pb-4 sm:p-3.5 bg-[#FCFAF7] border-t border-[#DFD6C6] shrink-0 space-y-1.5"
+              className="p-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:p-3.5 bg-[#FCFAF7] border-t border-[#DFD6C6] shrink-0 space-y-1.5"
             >
               <div className="flex items-center gap-2">
                 <input
@@ -498,7 +510,7 @@ export function RenovoChatbot() {
                   onClick={() => setIsOpen(false)}
                   className="font-bold text-[#B85D3B] hover:underline whitespace-nowrap shrink-0"
                 >
-                  {chatLocale === "en" ? "Instant Quote (PDF) →" : "Cotizador (PDF) →"}
+                  {chatLocale === "en" ? "Instant Proposal →" : "Cotizador Oficial →"}
                 </Link>
               </div>
             </form>

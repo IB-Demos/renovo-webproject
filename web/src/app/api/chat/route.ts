@@ -207,7 +207,7 @@ export async function POST(request: Request) {
     ) {
       reply =
         activeLocale === "es"
-          ? `**Precios y Cotizaciones Transparentes:**\n\nEn Renovo tratas directamente con el dueño y artesano Raul Burgos—cero comisiones de intermediarios. Cada proyecto incluye medición láser en sitio sin costo y muestras físicas de acabado.\n\nPuedes generar tu presupuesto inmediato con PDF oficial en nuestro [Cotizador en Línea](/cotizador), o simplemente déjame aquí tu nombre y teléfono y Raul se pondrá en contacto contigo.`
+          ? `**Precios y Cotizaciones Transparentes:**\n\nEn Renovo tratas directamente con el dueño y artesano Raul Burgos—cero comisiones de intermediarios. Cada proyecto incluye medición láser en sitio sin costo y muestras físicas de acabado.\n\nPuedes generar tu presupuesto inmediato en nuestro [Cotizador en Línea](/cotizador), o simplemente déjame aquí tu nombre y teléfono y Raul se pondrá en contacto contigo.`
           : `**Transparent Direct Craftsman Pricing:**\n\nYou deal directly with owner Raul Burgos—zero middleman markups or sales commissions. Every estimate includes a complimentary in-home laser measure and physical finish samples.\n\nYou can generate an immediate proposal in our [Online Quote System](/cotizador), or simply leave your name and phone number here and Raul will reach out!`;
     } else if (
       lowerMsg.includes("taller") ||
@@ -241,8 +241,8 @@ export async function POST(request: Request) {
     } else {
       reply =
         activeLocale === "es"
-          ? `¡Hola! Soy el asistente del taller de **Renovo Painting Solutions** en Phoenix, AZ.\n\nTe puedo asesorar con:\n• **Cabinet Refacing:** Renovación completa de puertas y frentes en madera maciza.\n• **Laca 2K Catalizada:** Esmaltado de gabinetes en cabina industrial de taller.\n• **Cocinas Nuevas:** Fabricación a medida desde cero.\n• **Presupuestos:** Generación de propuesta en PDF y visitas en sitio.\n\n¿Qué tipo de transformación te gustaría realizar en tus gabinetes o cocina?`
-          : `Hello! I'm the workshop concierge for **Renovo Painting Solutions** in Phoenix, AZ.\n\nI can help you with:\n• **Cabinet Refacing:** Full door & drawer replacement in custom hardwoods.\n• **2K Catalyzed Spray:** Factory-booth spray finishing with zero brush marks.\n• **Custom Kitchens:** Bespoke cabinetry and architectural islands from scratch.\n• **Proposals & Quotes:** Instant PDF proposals and in-home evaluations.\n\nWhat kind of transformation are you planning for your home?`;
+          ? `¡Hola! Soy el asistente del taller de **Renovo Painting Solutions** en Phoenix, AZ.\n\nTe puedo asesorar con:\n• **Cabinet Refacing:** Renovación completa de puertas y frentes en madera maciza.\n• **Laca 2K Catalizada:** Esmaltado de gabinetes en cabina industrial de taller.\n• **Cocinas Nuevas:** Fabricación a medida desde cero.\n• **Presupuestos:** Propuesta formal detallada y asesoría en sitio sin costo.\n\n¿Qué tipo de transformación te gustaría realizar en tus gabinetes o cocina?`
+          : `Hello! I'm the workshop concierge for **Renovo Painting Solutions** in Phoenix, AZ.\n\nI can help you with:\n• **Cabinet Refacing:** Full door & drawer replacement in custom hardwoods.\n• **2K Catalyzed Spray:** Factory-booth spray finishing with zero brush marks.\n• **Custom Kitchens:** Bespoke cabinetry and architectural islands from scratch.\n• **Proposals & Quotes:** Formal itemized proposals and in-home evaluations.\n\nWhat kind of transformation are you planning for your home?`;
     }
 
     return NextResponse.json({
