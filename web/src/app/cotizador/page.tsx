@@ -127,10 +127,10 @@ export default function EstimatorPage() {
 
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                   <span className="px-3 py-1 rounded-full bg-[#1A1410]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-[#C59B27] font-semibold">
-                    Phoenix Workshop
+                    {locale === "en" ? "Phoenix Workshop" : "Taller en Phoenix"}
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#FCFAF7]/90 backdrop-blur-md border border-[#DFD6C6] text-[11px] font-serif font-bold text-[#1A1410]">
-                    Direct From Craftsman
+                    {locale === "en" ? "Direct From Craftsman" : "Directo con el Artesano"}
                   </span>
                 </div>
 
@@ -139,7 +139,9 @@ export default function EstimatorPage() {
                     <span className="font-serif font-semibold text-[#1A1410]">
                       {locale === "en" ? "No Middlemen, No Sales Commissions" : "Sin Intermediarios ni Comisiones"}
                     </span>
-                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">RENOVO PRICING</span>
+                    <span className="font-mono text-[10px] text-[#B85D3B] font-bold">
+                      {locale === "en" ? "RENOVO PRICING" : "PRECIOS RENOVO"}
+                    </span>
                   </div>
                   <p className="text-[11px] text-[#3D3228] leading-snug">
                     {locale === "en"
