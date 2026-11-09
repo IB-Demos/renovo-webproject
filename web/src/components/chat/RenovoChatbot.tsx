@@ -28,6 +28,7 @@ interface ChatMessage {
 
 export function RenovoChatbot() {
   const { locale } = useRenovo();
+  const [chatLocale, setChatLocale] = useState<"en" | "es">(locale);
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -38,8 +39,17 @@ export function RenovoChatbot() {
   const [isSubmittingLead, setIsSubmittingLead] = useState(false);
   const [leadSuccess, setLeadSuccess] = useState(false);
 
+  // Auto-detect user's preferred language from browser or page context
+  useEffect(() => {
+    if (typeof window !== "undefined" && navigator.language?.toLowerCase().startsWith("es")) {
+      setChatLocale("es");
+    } else {
+      setChatLocale(locale);
+    }
+  }, [locale]);
+
   const initialWelcome =
-    locale === "es"
+    chatLocale === "es"
       ? "¡Hola! Soy el asistente virtual del taller de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Cabinet Refacing**, el esmaltado de fábrica con **Laca 2K Catalizada** o deseas coordinar una **medición en sitio sin costo** con Raul Burgos?"
       : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Cabinet Refacing**, our factory-booth **2K Catalyzed Finishes**, or would you like to schedule a **free in-home laser measurement** with Raul Burgos?";
 
@@ -51,6 +61,21 @@ export function RenovoChatbot() {
       timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ]);
+
+  // Update welcome if language was detected as Spanish before interaction
+  useEffect(() => {
+    setMessages([
+      {
+        id: "welcome",
+        role: "assistant",
+        content:
+          chatLocale === "es"
+            ? "¡Hola! Soy el asistente virtual del taller de **Renovo Painting Solutions** en Phoenix.\n\n¿Tienes alguna duda sobre **Cabinet Refacing**, el esmaltado de fábrica con **Laca 2K Catalizada** o deseas coordinar una **medición en sitio sin costo** con Raul Burgos?"
+            : "Hello! I am the workshop concierge for **Renovo Painting Solutions** in Phoenix.\n\nDo you have questions about **Cabinet Refacing**, our factory-booth **2K Catalyzed Finishes**, or would you like to schedule a **free in-home laser measurement** with Raul Burgos?",
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      },
+    ]);
+  }, [chatLocale]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,12 +95,12 @@ export function RenovoChatbot() {
   }, [isOpen]);
 
   const quickPrompts =
-    locale === "es"
+    chatLocale === "es"
       ? [
-          { label: "¿Diferencia entre Refacing y Cocina Nueva?", query: "¿Cuál es la diferencia entre Cabinet Refacing y hacer una cocina nueva?" },
-          { label: "¿Cómo es el acabado de Laca 2K?", query: "¿Por qué usan laca catalizada 2K y en qué se diferencia de la pintura tradicional?" },
+          { label: "¿Refacing o Cocina Nueva?", query: "¿Cuál es la diferencia entre Cabinet Refacing y hacer una cocina nueva?" },
+          { label: "¿Qué es la Laca 2K?", query: "¿Por qué usan laca catalizada 2K y en qué se diferencia de la pintura tradicional?" },
           { label: "¿Dónde está su taller?", query: "¿Dónde está ubicado su taller en Phoenix y qué zonas atienden?" },
-          { label: "Solicitar cotización con Raul", query: "Quiero solicitar una cotización con Raul Burgos para mis gabinetes." },
+          { label: "Pedir cotización a Raul", query: "Quiero solicitar una cotización con Raul Burgos para mis gabinetes." },
         ]
       : [
           { label: "Refacing vs. New Kitchen?", query: "What is the difference between cabinet refacing and full custom replacement?" },
@@ -87,6 +112,22 @@ export function RenovoChatbot() {
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend || inputMessage).trim();
     if (!text || isLoading) return;
+
+    // Detect language in message
+    const lower = text.toLowerCase();
+    const spanishSignals = [
+      "hola", "buen", "dia", "dias", "días", "tarde", "tardes", "noche", "noches",
+      "cotiz", "presupuesto", "precio", "cuanto", "cuánto", "costo",
+      "hablen", "llamen", "llamar", "marcar", "llamada", "telefono", "teléfono",
+      "numero", "número", "correo", "madera", "puerta", "puertas",
+      "cocina", "cocinas", "gabinete", "gabinetes", "refacing", "laca", "pintar",
+      "gracias", "favor", "quiero", "necesito", "interesa", "prefiero", "visita"
+    ];
+    let detectedLocale = chatLocale;
+    if (spanishSignals.some((sig) => lower.includes(sig))) {
+      detectedLocale = "es";
+      setChatLocale("es");
+    }
 
     const userMsg: ChatMessage = {
       id: String(Date.now()),
@@ -111,14 +152,14 @@ export function RenovoChatbot() {
         body: JSON.stringify({
           message: text,
           history: historyPayload,
-          locale,
+          locale: detectedLocale,
         }),
       });
 
       const data = await res.json();
       const botReply =
         data.reply ||
-        (locale === "es"
+        (detectedLocale === "es"
           ? "Puedes comunicarte directamente con Raul Burgos al (602) 550-4369."
           : "You can reach Raul Burgos directly at (602) 550-4369.");
 
@@ -136,7 +177,7 @@ export function RenovoChatbot() {
         id: String(Date.now() + 1),
         role: "assistant",
         content:
-          locale === "es"
+          detectedLocale === "es"
             ? "Ocurrió un problema de conexión momentáneo. Puedes contactar a Raul Burgos directamente al **(602) 550-4369** o llenar tu solicitud en nuestro [Cotizador](/cotizador)."
             : "Temporary connection error. You can reach Raul Burgos directly at **(602) 550-4369** or submit your inquiry on our [Quote Generator](/cotizador).",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
@@ -158,7 +199,7 @@ export function RenovoChatbot() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: `SOLICITUD DE ASESORÍA: ${leadName} (${leadPhone}) - ${leadNotes}`,
-          locale,
+          locale: chatLocale,
           leadInfo: {
             name: leadName.trim(),
             phone: leadPhone.trim(),
@@ -176,7 +217,7 @@ export function RenovoChatbot() {
         role: "assistant",
         content:
           data.reply ||
-          (locale === "es"
+          (chatLocale === "es"
             ? `¡Listo ${leadName}! Tus datos han sido enviados a Raul Burgos. Se comunicará contigo al teléfono ${leadPhone} a la brevedad.`
             : `All set ${leadName}! Your contact details have been sent to Raul Burgos. He will call you at ${leadPhone} shortly.`),
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
@@ -304,29 +345,29 @@ export function RenovoChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-3 bottom-3 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[410px] h-[85vh] sm:h-[620px] max-h-[700px] z-50 flex flex-col rounded-3xl bg-[#FCFAF7] border-2 border-[#DFD6C6] shadow-[0_25px_60px_-15px_rgba(26,20,16,0.45)] overflow-hidden"
+            className="fixed inset-x-0 bottom-0 sm:inset-x-auto sm:right-6 sm:bottom-6 w-full sm:w-[410px] h-[85vh] sm:h-[620px] max-h-[90vh] sm:max-h-[660px] z-50 flex flex-col rounded-t-3xl rounded-b-none sm:rounded-3xl bg-[#FCFAF7] border-t-2 sm:border-2 border-[#DFD6C6] shadow-[0_25px_60px_-15px_rgba(26,20,16,0.45)] overflow-hidden"
           >
             {/* CHAT HEADER */}
-            <div className="p-4 sm:p-4.5 bg-[#1A1410] text-[#FCFAF7] border-b-2 border-[#C59B27]/40 flex items-center justify-between shrink-0">
-              <div className="flex items-center gap-3">
+            <div className="p-3.5 sm:p-4 bg-[#1A1410] text-[#FCFAF7] border-b-2 border-[#C59B27]/40 flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-2.5">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-[#B85D3B] border border-white/20 flex items-center justify-center text-white shadow-xs">
-                    <ChatCircleDots size={22} weight="fill" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#B85D3B] border border-white/20 flex items-center justify-center text-white shadow-xs">
+                    <ChatCircleDots size={20} weight="fill" />
                   </div>
-                  <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#1A1410]" />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#1A1410]" />
                 </div>
 
                 <div className="space-y-0.5">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <h3 className="font-serif font-bold text-sm sm:text-base text-white leading-tight">
-                      {locale === "en" ? "Renovo Concierge" : "Asistente Renovo"}
+                      {chatLocale === "en" ? "Renovo Concierge" : "Asistente Renovo"}
                     </h3>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#C59B27]/20 text-[#E5B537] border border-[#C59B27]/40 font-bold uppercase">
-                      Phoenix, AZ
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-[#C59B27]/20 text-[#E5B537] border border-[#C59B27]/40 font-bold uppercase">
+                      Phoenix
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#DFD6C6] font-normal">
-                    {locale === "en" ? "Direct Line:" : "Línea Directa:"}{" "}
+                  <p className="text-[10px] sm:text-[11px] text-[#DFD6C6] font-normal">
+                    {chatLocale === "en" ? "Direct:" : "Línea:"}{" "}
                     <a href={COMPANY_INFO.phoneHref} className="hover:underline font-bold text-white">
                       {COMPANY_INFO.phoneDisplay}
                     </a>
@@ -339,17 +380,17 @@ export function RenovoChatbot() {
                 <button
                   type="button"
                   onClick={() => setShowLeadModal(true)}
-                  className="interactive-control px-2.5 py-1.5 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-[11px] font-serif font-bold inline-flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
-                  title={locale === "en" ? "Request Call with Raul" : "Pedir llamada de Raul"}
+                  className="interactive-control px-2.5 py-1 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-white text-[11px] font-serif font-bold inline-flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
+                  title={chatLocale === "en" ? "Request Call with Raul" : "Pedir llamada de Raul"}
                 >
                   <CalendarCheck size={14} weight="bold" />
-                  <span className="hidden sm:inline">{locale === "en" ? "Call Request" : "Pedir Cita"}</span>
+                  <span>{chatLocale === "en" ? "Call" : "Cita"}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full text-[#DFD6C6] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-full text-[#DFD6C6] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                   aria-label="Close Chat"
                 >
                   <X size={18} weight="bold" />
@@ -358,7 +399,7 @@ export function RenovoChatbot() {
             </div>
 
             {/* MESSAGES THREAD */}
-            <div className="flex-1 p-4 sm:p-5 overflow-y-auto space-y-4 bg-[#F4EFE6]/60">
+            <div className="flex-1 min-h-0 p-3.5 sm:p-5 overflow-y-auto space-y-3 sm:space-y-4 bg-[#F4EFE6]/60">
               {messages.map((m) => {
                 const isUser = m.role === "user";
                 return (
@@ -367,7 +408,7 @@ export function RenovoChatbot() {
                     className={`flex flex-col ${isUser ? "items-end" : "items-start"}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-xs ${
+                      className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-xs ${
                         isUser
                           ? "bg-[#B85D3B] text-white rounded-br-xs"
                           : "bg-[#FCFAF7] text-[#1A1410] border border-[#DFD6C6] rounded-bl-xs"
@@ -389,7 +430,7 @@ export function RenovoChatbot() {
                   <span className="w-2 h-2 rounded-full bg-[#B85D3B] animate-bounce [animation-delay:0.2s]" />
                   <span className="w-2 h-2 rounded-full bg-[#B85D3B] animate-bounce [animation-delay:0.4s]" />
                   <span className="text-xs font-serif font-medium pl-1">
-                    {locale === "en" ? "Consulting workshop..." : "Consultando taller..."}
+                    {chatLocale === "en" ? "Consulting workshop..." : "Consultando taller..."}
                   </span>
                 </div>
               )}
@@ -398,16 +439,19 @@ export function RenovoChatbot() {
             </div>
 
             {/* QUICK PROMPT CHIPS */}
-            <div className="px-4 py-2.5 bg-[#FCFAF7] border-t border-[#DFD6C6] flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0">
+            <div
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              className="px-3 py-2 bg-[#FCFAF7] border-t border-[#DFD6C6] flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0"
+            >
               <span className="text-[10px] font-mono uppercase font-bold text-[#8C7A6B] shrink-0">
-                {locale === "en" ? "Suggestions:" : "Sugerencias:"}
+                {chatLocale === "en" ? "Suggestions:" : "Sugerencias:"}
               </span>
               {quickPrompts.map((q, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => handleSendMessage(q.query)}
-                  className="interactive-control whitespace-nowrap px-3 py-1.5 rounded-full border border-[#DFD6C6] bg-[#F4EFE6] hover:bg-[#EAE2D5] text-[#1A1410] text-xs font-serif font-medium hover:border-[#B85D3B] transition-colors shrink-0 cursor-pointer"
+                  className="interactive-control whitespace-nowrap px-2.5 py-1 rounded-full border border-[#DFD6C6] bg-[#F4EFE6] hover:bg-[#EAE2D5] text-[#1A1410] text-[11px] font-serif font-medium hover:border-[#B85D3B] transition-colors shrink-0 cursor-pointer"
                 >
                   {q.label}
                 </button>
@@ -420,7 +464,7 @@ export function RenovoChatbot() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 sm:p-4 bg-[#FCFAF7] border-t border-[#DFD6C6] shrink-0 space-y-1.5"
+              className="p-3 pb-4 sm:p-3.5 bg-[#FCFAF7] border-t border-[#DFD6C6] shrink-0 space-y-1.5"
             >
               <div className="flex items-center gap-2">
                 <input
@@ -429,32 +473,32 @@ export function RenovoChatbot() {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder={
-                    locale === "en"
-                      ? "Ask about finishes, refacing, or quotes..."
-                      : "Pregunta sobre acabados, refacing o cotizaciones..."
+                    chatLocale === "en"
+                      ? "Ask a question or enter phone..."
+                      : "Escribe tu duda o teléfono..."
                   }
-                  className="flex-1 px-4 py-3 rounded-full border-2 border-[#DFD6C6] bg-[#F4EFE6] text-sm sm:text-base text-[#1A1410] placeholder-[#7A6E63] font-medium focus:outline-none focus:border-[#B85D3B]"
+                  className="flex-1 px-3.5 py-2.5 rounded-full border-2 border-[#DFD6C6] bg-[#F4EFE6] text-xs sm:text-sm text-[#1A1410] placeholder-[#7A6E63] font-medium focus:outline-none focus:border-[#B85D3B]"
                 />
                 <button
                   type="submit"
                   disabled={!inputMessage.trim() || isLoading}
-                  className="interactive-control w-11 h-11 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-50 text-white flex items-center justify-center shadow-md transition-all shrink-0 cursor-pointer"
+                  className="interactive-control w-10 h-10 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] disabled:opacity-50 text-white flex items-center justify-center shadow-md transition-all shrink-0 cursor-pointer"
                   aria-label="Send Message"
                 >
-                  <PaperPlaneTilt size={18} weight="bold" />
+                  <PaperPlaneTilt size={17} weight="bold" />
                 </button>
               </div>
 
-              <div className="flex items-center justify-between px-2 pt-0.5">
-                <span className="text-[10px] text-[#8C7A6B] font-serif">
-                  {locale === "en" ? "Crafted by Raul Burgos · Phoenix, AZ" : "Conectado al taller de Raul Burgos · Phoenix"}
+              <div className="flex items-center justify-between px-1.5 pt-0.5 text-[10px] text-[#8C7A6B] font-serif">
+                <span className="truncate mr-2">
+                  {chatLocale === "en" ? "Workshop direct · Phoenix, AZ" : "Taller directo · Phoenix, AZ"}
                 </span>
                 <Link
                   href="/cotizador"
                   onClick={() => setIsOpen(false)}
-                  className="text-[10px] font-serif font-bold text-[#B85D3B] hover:underline"
+                  className="font-bold text-[#B85D3B] hover:underline whitespace-nowrap shrink-0"
                 >
-                  {locale === "en" ? "Official Quote (PDF) →" : "Cotizador Oficial (PDF) →"}
+                  {chatLocale === "en" ? "Instant Quote (PDF) →" : "Cotizador (PDF) →"}
                 </Link>
               </div>
             </form>
