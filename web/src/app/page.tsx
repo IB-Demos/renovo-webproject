@@ -51,85 +51,213 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, [setActiveRoom]);
 
-  // Hero Quick-Switch Showcase
-  const [heroTab, setHeroTab] = useState<"kitchen" | "furniture" | "finish">("kitchen");
+  // Hero Quick-Switch Showcase (4 Core Services)
+  const [heroTab, setHeroTab] = useState<"paintingInterior" | "paintingExterior" | "furniture" | "kitchen">("paintingInterior");
 
-  // Spotlight Before/After state
-  const [activeSpotlightIdx, setActiveSpotlightIdx] = useState(0);
+  // Residential Painting Deep-Dive Tab (Interior / Exterior / Entry Doors)
+  const [paintingFocusTab, setPaintingFocusTab] = useState<"interior" | "exterior" | "doors">("interior");
+
+  // Spotlight Before/After state (Default to Entry Door Restoration Case 02 or Kitchen Case 01)
+  const [activeSpotlightIdx, setActiveSpotlightIdx] = useState(1);
   const [spotlightSliderPos, setSpotlightSliderPos] = useState(50);
 
   const heroShowcase = {
-    kitchen: {
-      image: "/assets/kitchens/kitchen-01.jpg",
-      tagEn: "Paradise Valley Residence · Fine Cabinetry",
-      tagEs: "Residencia en Paradise Valley · Ebanistería Fina",
-      titleEn: "Bespoke Alabaster Kitchen & Center Island",
-      titleEs: "Cocina a Medida en Alabastro con Isla Central",
-      specEn: "Solid Maple Dovetail Joinery · Blum Soft-Close Runners",
-      specEs: "Cajones en Cola de Milano · Herrajes Blum Ocultos",
+    paintingInterior: {
+      image: "/assets/painting-interior/interior-01.jpg",
+      tagEn: "Arcadia Phoenix · Interior Residential Painting",
+      tagEs: "Arcadia Phoenix · Pintura Residencial Interior",
+      titleEn: "HEPA Dustless Interior Walls, Velvet Ceilings & Trim",
+      titleEs: "Muros, Plafones Aterciopelados y Molduras sin Polvo HEPA",
+      specEn: "99.97% Dustless Festool Prep · Zero-VOC Washable Enamels",
+      specEs: "Lijado HEPA 99.97% sin Polvo · Esmaltes Lavables 0-VOC",
+      href: "/pintura-residencial",
+    },
+    paintingExterior: {
+      image: "/assets/painting-exterior/exterior-01.jpg",
+      tagEn: "Scottsdale & Phoenix · Exterior UV Armor",
+      tagEs: "Scottsdale y Phoenix · Blindaje Exterior UV",
+      titleEn: "Elastomeric Stucco, Pergolas & Monumental Entryways",
+      titleEs: "Estuco Elastomérico, Pérgolas y Fachadas contra Sol 115°F+",
+      specEn: "100% Acrylic Elastomeric Shield · Thermal Crack Sealing",
+      specEs: "Escudo Acrílico Elastomérico · Sellado Térmico de Grietas",
+      href: "/pintura-residencial",
     },
     furniture: {
       image: "/assets/blueprints-and-docs/custom-furniture-01.jpg",
       tagEn: "Scottsdale Residence · Architectural Millwork",
-      tagEs: "Residencia en Scottsdale · Ebanistería Arquitectónica",
-      titleEn: "Twin Arched Fireplace Niches & Floating Shelving",
-      titleEs: "Nichos Gemelos Arqueados con Repisas Flotantes",
-      specEn: "Handcrafted Arched Framing · Integrated Warm 2700K Lighting",
-      specEs: "Cabezal Curvo Hecho a Mano · Iluminación Cálida 2700K",
+      tagEs: "Residencia en Scottsdale · Muebles a Medida",
+      titleEn: "Twin Arched Fireplace Niches & Floating Media Walls",
+      titleEs: "Libreros Gemelos Arqueados, Muros de TV y Cavas",
+      specEn: "Handcrafted Rift White Oak · Integrated Warm 2700K LED",
+      specEs: "Encino Blanco Hecho a Mano · Iluminación Cálida 2700K",
+      href: "/muebles-a-medida",
     },
-    finish: {
-      image: "/assets/painting-interior/interior-01.jpg",
-      tagEn: "Arcadia Phoenix · Fine Residential Finishes",
-      tagEs: "Arcadia Phoenix · Acabados Finos Residenciales",
-      titleEn: "Velvet Ceilings & Factory Sprayed Architectural Trim",
-      titleEs: "Plafones Aterciopelados y Molduras de Fábrica",
-      specEn: "HEPA Dustless Preparation · High-Adhesion 2K Topcoats",
-      specEs: "Preparación HEPA sin Polvo · Acabados 2K de Alta Resistencia",
+    kitchen: {
+      image: "/assets/kitchens/kitchen-01.jpg",
+      tagEn: "Paradise Valley Residence · Kitchens & 2K Refacing",
+      tagEs: "Residencia en Paradise Valley · Cocinas y Lacas 2K",
+      titleEn: "Bespoke Alabaster Kitchens & Factory 2K Refinishing",
+      titleEs: "Cocinas a Medida y Renovación en Laca Catalizada 2K",
+      specEn: "Solid Maple Dovetail Joinery · KCMA 2K Spray Booth Finish",
+      specEs: "Cajones en Cola de Milano · Acabado 2K de Cabina KCMA",
+      href: "/cocinas-y-gabinetes",
+    },
+  };
+
+  const paintingDeepDive = {
+    interior: {
+      badgeEn: "INTERIOR ARCHITECTURAL PAINTING · ZERO DUST",
+      badgeEs: "PINTURA RESIDENCIAL INTERIOR · CERO POLVO",
+      titleEn: "Impeccable Interior Walls, High Ceilings, Baseboards & Staircases.",
+      titleEs: "Muros Interiores, Dobles Alturas, Zoclos y Escaleras con Perfección Láser.",
+      descEn:
+        "Painting an occupied luxury home requires surgical cleanliness. We seal floors and furniture hermetically, sand walls and trim with hospital-grade Festool HEPA extractors (capturing 99.97% of dust), caulk baseboards with laser-straight reveals, and apply odorless Zero-VOC washable velvet enamels.",
+      descEs:
+        "Pintar una residencia habitada exige limpieza quirúrgica. Protegemos pisos y mobiliario herméticamente, lijamos muros y molduras con aspiración Festool grado HEPA (capturando el 99.97% del polvo), perfilamos zoclos con cortes láser y aplicamos esmaltes aterciopelados 0-VOC lavables y sin olor.",
+      mainImage: "/assets/painting-interior/interior-01.jpg",
+      secondaryImage: "/assets/painting-interior/interior-05.jpg",
+      CaptionMainEn: "Double-height living spaces & crisp architectural trim in Arcadia",
+      CaptionMainEs: "Estancias de doble altura y molduras perfiladas al milímetro en Arcadia",
+      specs: [
+        {
+          labelEn: "Dust Containment",
+          labelEs: "Control de Polvo",
+          valEn: "99.97% HEPA Extraction + ZipWall Air Locks",
+          valEs: "Extracción HEPA 99.97% + Sellado Hermético",
+        },
+        {
+          labelEn: "Wall & Ceiling Chemistry",
+          labelEs: "Química para Muros y Plafones",
+          valEn: "Zero-VOC Scrubbable Matte & Velvet Enamels",
+          valEs: "Esmaltes Mate y Terciopelo 0-VOC Lavables",
+        },
+        {
+          labelEn: "Trim, Doors & Baseboards",
+          labelEs: "Zoclos, Puertas y Molduras",
+          valEn: "HVLP Fine-Finish Urethane Enamel (Zero Brush Marks)",
+          valEs: "Uretano por Aspersión Fina HVLP (Cero Brocha)",
+        },
+      ],
+    },
+    exterior: {
+      badgeEn: "ARIZONA EXTERIOR & STUCCO SOLAR ARMOR · 115°F+ RATED",
+      badgeEs: "PINTURA EXTERIOR Y ESTUCO · BLINDAJE SOLAR 45°C+",
+      titleEn: "Engineered to Endure Punishing Sonoran UV Radiation & Monsoon Storms.",
+      titleEs: "Diseñada para Resistir el Sol Extremo de Arizona y Tormentas de Monzón.",
+      descEn:
+        "Ninety percent of exterior paint jobs in Phoenix chalk, fade, or peel prematurely because contractors paint over dusty stucco. We hydro-wash at 3,000 PSI, trench and seal stucco hairline cracks with elastomeric urethane, prime alkali-burned zones, and spray high-build 100% acrylic elastomeric coatings.",
+      descEs:
+        "El 90% de las pinturas exteriores en Phoenix se decoloran o descarapelan porque pintan sobre estuco polvoso. Hidrolavamos a presión, sellamos grietas térmicas con poliuretano elástico, imprimamos zonas alcalinas y aplicamos recubrimientos 100% acrílicos elastoméricos de alto espesor con bloqueador UV.",
+      mainImage: "/assets/painting-exterior/exterior-01.jpg",
+      secondaryImage: "/assets/painting-exterior/exterior-02.jpg",
+      CaptionMainEn: "Full exterior stucco, stone fascia & pergola armor in Phoenix Metro",
+      CaptionMainEs: "Protección integral de fachada en estuco, fascias y pérgolas en Phoenix",
+      specs: [
+        {
+          labelEn: "Substrate Preparation",
+          labelEs: "Preparación de Fachada",
+          valEn: "Hydro-Wash Decontamination + Elastomeric Trenching",
+          valEs: "Hidrolavado Profundo + Sellado Elástico de Grietas",
+        },
+        {
+          labelEn: "Stucco & Masonry Armor",
+          labelEs: "Blindaje de Estuco y Muros",
+          valEn: "100% Acrylic High-Build UV-Reflective Elastomeric",
+          valEs: "Elastomérico 100% Acrílico Termorreflectivo UV",
+        },
+        {
+          labelEn: "Fascias, Eaves & Ironwork",
+          labelEs: "Fascias, Aleros y Herrería",
+          valEn: "Rust-Inhibitive Primer + Direct-to-Metal Urethane",
+          valEs: "Primer Anticorrosivo + Uretano de Alta Adherencia",
+        },
+      ],
+    },
+    doors: {
+      badgeEn: "MONUMENTAL ENTRY DOORS, PORTICOS & CEDAR CEILINGS",
+      badgeEs: "PUERTAS PRINCIPALES, PÓRTICOS Y CIELOS DE MADERA",
+      titleEn: "Fine Restoration of Sun-Weathered Hardwood Entry Doors & Pergolas.",
+      titleEs: "Restauración Artesanal de Puertas Dobles de Madera, Pórticos y Vigas.",
+      descEn:
+        "Your front entry door is the handshake of your residence—and the first surface attacked by west-facing desert sun. We strip failing varnish down to raw wood, apply custom hand-rubbed penetrating stains or 2K obsidian enamels, and seal with marine-grade UV-absorber topcoats.",
+      descEs:
+        "La puerta principal es la carta de presentación de tu casa y la superficie más castigada por el sol poniente. Retiramos barnices quemados hasta la madera virgen, aplicamos tintes penetrantes o esmaltes 2K y blindamos con poliuretanos marinos con filtro UV cerámico.",
+      mainImage: "/assets/before-after/pair-02-double-door-after.jpg",
+      secondaryImage: "/assets/before-after/pair-04-oak-door-after.jpg",
+      CaptionMainEn: "Carved double entry door restored with espresso stain & marine UV shield",
+      CaptionMainEs: "Puerta doble labrada restaurada con tinte espresso y barniz marino UV",
+      specs: [
+        {
+          labelEn: "Wood Stripping & Sanding",
+          labelEs: "Restauración de Madera",
+          valEn: "Full Strip to Virgin Grain + Precision Glass Masking",
+          valEs: "Desbaste a Poro Virgen + Enmascarado de Vitrales",
+        },
+        {
+          labelEn: "Stain & Pigment System",
+          labelEs: "Sistema de Tintes y Color",
+          valEn: "Deep-Penetrating Oil Stains or 2K Exterior Satin",
+          valEs: "Tintes de Penetración Profunda o Esmalte Exterior 2K",
+        },
+        {
+          labelEn: "Solar UV Protection",
+          labelEs: "Escudo Solar UV",
+          valEn: "Multi-Layer Marine Urethane with Ceramic UV Blockers",
+          valEs: "Uretano Marino Multicapa con Bloqueador Cerámico UV",
+        },
+      ],
     },
   };
 
   const activeSpotlight = BEFORE_AFTER_PAIRS[activeSpotlightIdx] || BEFORE_AFTER_PAIRS[0];
 
+  const spotlightCaseLabels: Record<string, { en: string; es: string }> = {
+    "pair-01-kitchen": { en: "01 · Kitchen 2K Conversion", es: "01 · Cocina Alabastro 2K" },
+    "pair-02-double-door": { en: "02 · Carved Double Entry Door", es: "02 · Puerta Doble Exterior" },
+    "pair-03-glass-door": { en: "03 · Leaded-Glass Entryway", es: "03 · Puerta Vitral Bronce" },
+    "pair-04-oak-door": { en: "04 · Solid Oak Entry Door", es: "04 · Puerta Encino Carbón" },
+  };
+
   const chemistryComparisons = [
     {
-      featureEn: "Coating Chemistry",
-      featureEs: "Tecnología de Recubrimiento",
-      renovoEn: "Industrial 2K Catalyzed Polyurethane Lacquer",
-      renovoEs: "Laca Catalizada Poliuretano 2K de Cabina",
-      standardEn: "Consumer Latex / Wall Paint",
-      standardEs: "Pintura Látex de Muro Tradicional",
+      featureEn: "Interior House Painting & Prep",
+      featureEs: "Pintura Residencial Interior y Preparación",
+      renovoEn: "Festool HEPA dustless sanding (99.97% dust capture), laser caulk lines & Zero-VOC washable velvet enamels",
+      renovoEs: "Lijado Festool HEPA (99.97% sin polvo), perfilado láser en molduras y esmaltes 0-VOC lavables sin olor",
+      standardEn: "Open hand-sanding that fills your home and AC ducts with drywall dust; low-grade flat paint that chalks when wiped",
+      standardEs: "Lijado abierto que contamina muebles y ductos de aire; pintura económica que se mancha al intentar limpiarla",
     },
     {
-      featureEn: "Curing Mechanism",
-      featureEs: "Mecanismo de Curado",
-      renovoEn: "Chemical molecular cross-linking in 24 hours",
-      renovoEs: "Entrecruzamiento químico molecular en 24h",
-      standardEn: "Simple evaporation (remains soft for 30+ days)",
-      standardEs: "Evaporación simple (permanece suave semanas)",
+      featureEn: "Exterior Stucco & Desert UV Armor",
+      featureEs: "Pintura Exterior, Estuco y Sol de 115°F+",
+      renovoEn: "3,000 PSI hydro-wash, elastomeric crack trenching, alkali sealers & 100% acrylic UV-reflective elastomeric coat",
+      renovoEs: "Hidrolavado profundo, sellado elástico de grietas térmicas y recubrimiento 100% acrílico elastomérico con filtro UV",
+      standardEn: "Spraying thinned latex over dusty stucco; hairline cracks reopen and color fades within 18–24 months",
+      standardEs: "Aplicar pintura diluida sobre polvo; las grietas reaparecen y el sol quema el color en menos de dos veranos",
     },
     {
-      featureEn: "Surface Texture",
-      featureEs: "Textura al Tacto",
-      renovoEn: "Factory-smooth velvet spray (zero brush strokes)",
-      renovoEs: "Tersura aterciopelada de fábrica (cero brocha o rodillo)",
-      standardEn: "Visible brush marks, roller orange-peel stipple",
-      standardEs: "Marcas visibles de brocha y piel de naranja",
+      featureEn: "Entry Doors, Trim & Exterior Woodwork",
+      featureEs: "Puertas Principales, Molduras y Pérgolas",
+      renovoEn: "Stripped to virgin grain, custom penetrating stains or HVLP urethane enamels + marine UV-blocker topcoats",
+      renovoEs: "Desbaste a madera virgen, tintes penetrantes o uretano HVLP + barniz marino con absorbentes UV cerámicos",
+      standardEn: "Brushing consumer polyurethane over old flaking varnish; blisters and peels under west-facing sun",
+      standardEs: "Brochar barniz comercial sobre barniz viejo; se ampolla y descarapela con el sol poniente",
     },
     {
-      featureEn: "Heat & Moisture Resistance",
-      featureEs: "Resistencia a Humedad y Grasa",
-      renovoEn: "Impervious KCMA-tested barrier against boiling grease & steam",
-      renovoEs: "Barrera impermeable certificada KCMA contra vapor y grasa",
-      standardEn: "Softens, bubbles, and peels near stoves and sinks",
-      standardEs: "Se ablanda y despega cerca de tarjas y estufas",
+      featureEn: "Custom Millwork & Kitchen Cabinetry",
+      featureEs: "Muebles a Medida y Gabinetes de Cocina",
+      renovoEn: "Industrial 2K Catalyzed Polyurethane in positive-pressure spray booths (chemical cross-linking in 24h)",
+      renovoEs: "Poliuretano Catalizado 2K en cabina presurizada (reticulación química molecular en 24h, cero brocha)",
+      standardEn: "Consumer wall latex applied with rollers or brushes; leaves orange-peel texture and peels near sinks and stoves",
+      standardEs: "Pintura de muro aplicada con brocha o rodillo; deja textura de piel de naranja y se desprende con la grasa",
     },
     {
-      featureEn: "Expected Durability",
-      featureEs: "Vida Útil Comprobada",
-      renovoEn: "10 to 15+ years of active family performance",
-      renovoEs: "10 a 15+ años de durabilidad de uso diario",
-      standardEn: "Chips and wears away in 12 to 18 months",
-      standardEs: "Se desportilla y desgasta en 12 a 18 meses",
+      featureEn: "Proven Arizona Service Life",
+      featureEs: "Vida Útil Comprobada en Arizona",
+      renovoEn: "10 to 15+ years of structural and aesthetic integrity across interiors, exteriors, and millwork",
+      renovoEs: "10 a 15+ años de durabilidad comprobada tanto en fachadas e interiores como en ebanistería fina",
+      standardEn: "Requires costly repainting and stripping every 1 to 3 years",
+      standardEs: "Requiere repintado y reparaciones costosas cada 1 a 3 años",
     },
   ];
 
@@ -170,14 +298,12 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF7]/90 border border-[#DFD6C6] shadow-xs">
                 <Sparkle size={13} className="text-[#B85D3B]" weight="fill" />
                 <span className="text-xs sm:text-sm uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
-                  {locale === "en"
-                    ? "PHOENIX, ARIZONA · HANDCRAFTED CABINETRY & FINISHES"
-                    : "PHOENIX, ARIZONA · EBANISTERÍA Y ACABADOS DE AUTOR"}
+                  {t.hero.eyebrow}
                 </span>
               </div>
 
               {/* Main Grand Serif Headline */}
-              <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-semibold leading-[1.06] tracking-[-0.02em] font-serif text-[#1A1410]">
+              <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-semibold leading-[1.06] tracking-[-0.02em] font-serif text-[#1A1410]">
                 {t.hero.headlinePart1}{" "}
                 <span className="italic text-[#B85D3B] font-medium">
                   {t.hero.headlineItalic}
@@ -186,11 +312,34 @@ export default function HomePage() {
               </h1>
 
               {/* Editorial Subhead */}
-              <p className="text-lg sm:text-2xl text-[#2E241D] leading-relaxed max-w-2xl font-normal">
-                {locale === "en"
-                  ? "From grain-matched rift-cut white oak arched built-ins to factory 2K catalyzed kitchens, Raul Burgos and our dedicated craftsmen design, hand-build, and finish timeless living spaces across Arizona."
-                  : "Desde libreros arqueados en encino blanco hasta cocinas completas en laca catalizada 2K, Raul Burgos y nuestro equipo de artesanos diseñan, construyen a mano y transforman residencias en todo Arizona."}
+              <p className="text-lg sm:text-xl text-[#2E241D] leading-relaxed max-w-2xl font-normal">
+                {t.hero.subhead}
               </p>
+
+              {/* Quick Discipline Pills */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <Link
+                  href="/pintura-residencial"
+                  className="interactive-control px-3.5 py-1.5 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] text-xs font-serif font-semibold text-[#261F1A] inline-flex items-center gap-1.5 shadow-2xs"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#B85D3B]" />
+                  <span>{locale === "en" ? "Interior & Exterior House Painting" : "Pintura Residencial Interior y Exterior"}</span>
+                </Link>
+                <Link
+                  href="/muebles-a-medida"
+                  className="interactive-control px-3.5 py-1.5 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] text-xs font-serif font-semibold text-[#261F1A] inline-flex items-center gap-1.5 shadow-2xs"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#C59B27]" />
+                  <span>{locale === "en" ? "Custom Built-Ins & Millwork" : "Muebles a Medida y Libreros"}</span>
+                </Link>
+                <Link
+                  href="/cocinas-y-gabinetes"
+                  className="interactive-control px-3.5 py-1.5 rounded-full bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] text-xs font-serif font-semibold text-[#261F1A] inline-flex items-center gap-1.5 shadow-2xs"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#475845]" />
+                  <span>{locale === "en" ? "Custom Kitchens & 2K Refacing" : "Cocinas y Gabinetes 2K"}</span>
+                </Link>
+              </div>
 
               {/* Primary Action Buttons */}
               <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-4">
@@ -223,13 +372,14 @@ export default function HomePage() {
             {/* Right 5 Columns: Floating Interactive Showcase Card */}
             <div className="lg:col-span-5">
               <div className="p-3 sm:p-4 rounded-3xl bg-[#FCFAF7]/95 border border-[#DFD6C6] backdrop-blur-xl shadow-xl space-y-3">
-                {/* Mode Selector Tabs */}
-                <div className="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-center">
+                {/* Mode Selector Tabs (4 Core Disciplines) */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-center">
                   {(
                     [
-                      { id: "kitchen", labelEn: "Kitchens", labelEs: "Cocinas" },
+                      { id: "paintingInterior", labelEn: "Interiors", labelEs: "Interiores" },
+                      { id: "paintingExterior", labelEn: "Exteriors", labelEs: "Exteriores" },
                       { id: "furniture", labelEn: "Built-Ins", labelEs: "Muebles" },
-                      { id: "finish", labelEn: "Finishes", labelEs: "Acabados" },
+                      { id: "kitchen", labelEn: "Kitchens", labelEs: "Cocinas" },
                     ] as const
                   ).map((tab) => {
                     const isSelected = heroTab === tab.id;
@@ -290,13 +440,7 @@ export default function HomePage() {
                 <div className="px-2 py-1 text-[11px] text-[#3D3228] flex items-center justify-between">
                   <span>{locale === "en" ? heroShowcase[heroTab].specEn : heroShowcase[heroTab].specEs}</span>
                   <Link
-                    href={
-                      heroTab === "kitchen"
-                        ? "/cocinas-y-gabinetes"
-                        : heroTab === "furniture"
-                        ? "/muebles-a-medida"
-                        : "/pintura-residencial"
-                    }
+                    href={heroShowcase[heroTab].href}
                     className="text-[#B85D3B] hover:underline inline-flex items-center gap-1 shrink-0 font-medium ml-2"
                   >
                     <span>{locale === "en" ? "Explore" : "Ver más"}</span>
@@ -313,15 +457,15 @@ export default function HomePage() {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-wrap items-center justify-between gap-4 text-xs text-[#3D3228]">
             <div className="flex items-center gap-2">
               <CheckCircle size={15} className="text-[#B85D3B]" weight="fill" />
-              <span>{locale === "en" ? "10+ Years Serving Arizona" : "Más de 10 Años en Arizona"}</span>
+              <span>{locale === "en" ? "99.97% HEPA Dustless Interior Painting" : "Pintura Interior 99.97% Libre de Polvo HEPA"}</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck size={15} className="text-[#B85D3B]" weight="fill" />
-              <span>{locale === "en" ? "KCMA & 2K Catalyzed Chemistry" : "Norma KCMA y Lacas Catalizadas 2K"}</span>
+              <span>{locale === "en" ? "115°F+ UV Exterior Stucco & Door Armor" : "Blindaje Exterior UV 115°F+ y Lacas 2K"}</span>
             </div>
             <div className="hidden sm:flex items-center gap-2">
               <Hammer size={15} className="text-[#B85D3B]" weight="fill" />
-              <span>{locale === "en" ? "100% Handcrafted in Phoenix" : "Fabricación a Mano en Phoenix"}</span>
+              <span>{locale === "en" ? "Custom Millwork & Kitchens in Phoenix" : "Muebles a Medida y Cocinas en Phoenix"}</span>
             </div>
             <div className="flex items-center gap-2 font-serif text-[12px]">
               <MapPin size={15} className="text-[#B85D3B]" />
@@ -332,66 +476,104 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
-          2. THE THREE MASTER DISCIPLINES (Warm Sonoran Earth Gallery)
+          2. THE FOUR MASTER DISCIPLINES (Balanced Service Architecture)
       ===================================================================== */}
       <section data-casa-room="kitchen" className="py-20 lg:py-28 bg-[#EAE2D5] border-b border-[#DFD6C6] relative">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="max-w-2xl mb-14 space-y-3">
+          <div className="max-w-3xl mb-14 space-y-3">
             <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
-              {locale === "en" ? "MASTER DISCIPLINES" : "NUESTRAS ESPECIALIDADES"}
+              {locale === "en" ? "ARCHITECTURAL SERVICES & DISCIPLINES" : "NUESTRAS ESPECIALIDADES RESIDENCIALES"}
             </div>
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] tracking-tight">
               {locale === "en"
-                ? "Every Space Built with Soul, Art & Precision."
-                : "Cada Espacio Creado con Alma, Arte y Precisión."}
+                ? "Fine Residential Painting, Bespoke Millwork & 2K Kitchens."
+                : "Pintura Residencial de Alta Gama, Muebles de Autor y Cocinas 2K."}
             </h2>
             <p className="text-base text-[#3D3228] leading-relaxed font-normal">
               {locale === "en"
-                ? "We don't do mass-produced boxes. From raw hardwood selection to the final coat of 2K catalyzed finish, every project is handled by our dedicated Phoenix craftsmen."
-                : "No hacemos muebles genéricos. Desde la selección de madera noble hasta la última mano de laca catalizada 2K, cada proyecto es ejecutado por nuestros artesanos en Phoenix."}
+                ? "Whether repainting the entire interior and exterior of your residence with zero dust, restoring a sun-weathered front entry door, building an arched white oak bookcase, or refinishing your kitchen in a 2K spray booth—every discipline is executed by our Phoenix craftsmen."
+                : "Ya sea pintar el interior y exterior completo de tu residencia sin una partícula de polvo, restaurar tu puerta principal, fabricar un librero arqueado en encino blanco o transformar tu cocina en cabina 2K, nuestro equipo en Phoenix ejecuta cada disciplina con rigor técnico."}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Discipline 01: Kitchens */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Discipline 01: Interior Residential Painting */}
             <article className="group rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl">
               <div>
                 <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#261F1A]">
                   <img
-                    src="/assets/kitchens/kitchen-02.jpg"
-                    alt="Custom Kitchens by Renovo"
+                    src="/assets/painting-interior/interior-01.jpg"
+                    alt="Interior Residential Painting by Renovo"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
-                    {locale === "en" ? "01 · Fine Cabinetry" : "01 · Ebanistería Fina"}
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
+                    {locale === "en" ? "01 · Interior Painting" : "01 · Pintura Interior HEPA"}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
-                    {locale === "en" ? "Custom Kitchens & Cabinetry" : "Cocinas y Gabinetes a Medida"}
+                <div className="p-6 space-y-2.5">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
+                    {locale === "en" ? "Interior House Painting & Trim" : "Pintura Residencial Interior y Molduras"}
                   </h3>
-                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
-                      ? "Custom-built islands, recessed Shaker door profiles, Blum soft-close concealed hardware, and durable 2K polyurethane finishes resistant to heat and moisture."
-                      : "Islas a medida, perfiles de puerta Shaker, herrajes ocultos Blum de cierre suave y acabados catalizados 2K ultra-resistentes al calor y la grasa."}
+                      ? "Festool HEPA 99.97% dustless sanding, double-height walls, velvet ceilings, laser-caulked baseboards, staircases, and odorless Zero-VOC washable enamels."
+                      : "Lijado Festool HEPA 99.97% libre de polvo, muros de doble altura, plafones aterciopelados, zoclos perfilados con láser y esmaltes 0-VOC lavables sin olor."}
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 sm:px-7 pb-6 sm:pb-7 pt-2 border-t border-[#DFD6C6]">
+              <div className="px-6 pb-6 pt-2 border-t border-[#DFD6C6]">
                 <Link
-                  href="/cocinas-y-gabinetes"
+                  href="/pintura-residencial"
                   className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
                 >
-                  <span>{locale === "en" ? "Explore Kitchens & Cabinetry" : "Ver Cocinas y Gabinetes"}</span>
+                  <span>{locale === "en" ? "Explore Interior Painting" : "Ver Pintura Interior"}</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>
             </article>
 
-            {/* Discipline 02: Built-Ins & Millwork */}
+            {/* Discipline 02: Exterior Painting, Stucco & Entry Doors */}
+            <article className="group rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl">
+              <div>
+                <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#261F1A]">
+                  <img
+                    src="/assets/painting-exterior/exterior-01.jpg"
+                    alt="Exterior Stucco & UV Painting by Renovo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
+                    {locale === "en" ? "02 · Exterior & UV Armor" : "02 · Fachadas y Exterior UV"}
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-2.5">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
+                    {locale === "en" ? "Exterior Stucco, Doors & Pergolas" : "Pintura Exterior, Estuco y Puertas"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed font-normal">
+                    {locale === "en"
+                      ? "100% acrylic elastomeric stucco coatings, thermal crack repair, cedar tongue-and-groove ceilings, and marine UV entry door restorations built for 115°F+ desert sun."
+                      : "Recubrimientos elastoméricos 100% acrílicos para estuco, sellado de grietas térmicas, pérgolas de cedro y restauración de puertas principales contra el sol de 115°F+."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2 border-t border-[#DFD6C6]">
+                <Link
+                  href="/pintura-residencial"
+                  className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
+                >
+                  <span>{locale === "en" ? "Explore Exterior Coatings" : "Ver Pintura Exterior"}</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </article>
+
+            {/* Discipline 03: Built-Ins & Millwork */}
             <article className="group rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl">
               <div>
                 <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#261F1A]">
@@ -401,24 +583,24 @@ export default function HomePage() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
-                    {locale === "en" ? "02 · Custom Built-Ins" : "02 · Muebles de Autor"}
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
+                    {locale === "en" ? "03 · Custom Millwork" : "03 · Muebles de Autor"}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
-                    {locale === "en" ? "Architectural Built-Ins & Furniture" : "Muebles de Autor y Built-Ins"}
+                <div className="p-6 space-y-2.5">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
+                    {locale === "en" ? "Arched Built-Ins & Custom Furniture" : "Muebles a Medida y Built-Ins"}
                   </h3>
-                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
-                      ? "Arched rift-cut white oak fireplace niches, floating entertainment centers, illuminated stemware credenzas, and custom bathroom vanities."
-                      : "Nichos gemelos arqueados en encino blanco, centros de entretenimiento flotantes, cavas de vino iluminadas y muebles de baño de autor."}
+                      ? "Handcrafted rift-cut white oak fireplace niches, full-wall entertainment centers, illuminated wine credenzas, and fluted floating bathroom vanities."
+                      : "Libreros gemelos arqueados en encino blanco, centros de entretenimiento de muro completo, cavas iluminadas a 2700K y vanitorios flotantes."}
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 sm:px-7 pb-6 sm:pb-7 pt-2 border-t border-[#DFD6C6]">
+              <div className="px-6 pb-6 pt-2 border-t border-[#DFD6C6]">
                 <Link
                   href="/muebles-a-medida"
                   className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
@@ -429,39 +611,39 @@ export default function HomePage() {
               </div>
             </article>
 
-            {/* Discipline 03: Painting & Fine Finishes */}
+            {/* Discipline 04: Kitchens */}
             <article className="group rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] hover:border-[#B85D3B] transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl">
               <div>
                 <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#261F1A]">
                   <img
-                    src="/assets/painting-interior/interior-01.jpg"
-                    alt="Fine Architectural Painting by Renovo"
+                    src="/assets/kitchens/kitchen-02.jpg"
+                    alt="Custom Kitchens by Renovo"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
-                    {locale === "en" ? "03 · Fine Residential Painting" : "03 · Pintura Residencial de Autor"}
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-[#261F1A]/85 backdrop-blur-md text-[11px] font-serif italic text-[#C59B27] border border-white/10 shadow-xs">
+                    {locale === "en" ? "04 · Kitchens & 2K" : "04 · Cocinas y Gabinetes"}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-3">
-                  <h3 className="text-2xl font-serif font-semibold text-[#261F1A]">
-                    {locale === "en" ? "House Painting: Interior & Exterior" : "Pintura de Casas: Interior y Exterior"}
+                <div className="p-6 space-y-2.5">
+                  <h3 className="text-xl font-serif font-semibold text-[#261F1A]">
+                    {locale === "en" ? "Custom Kitchens & 2K Refacing" : "Cocinas a Medida y Refacing 2K"}
                   </h3>
-                  <p className="text-sm text-[#3D3228] leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-[#3D3228] leading-relaxed font-normal">
                     {locale === "en"
-                      ? "Hospital-grade HEPA dustless interior sanding, crisp baseboard laser caulk lines, zero-VOC velvet enamels, and heavy-body elastomeric UV coatings designed to endure 115°F+ Arizona solar heat without chalking or peeling."
-                      : "Lijado interior libre de polvo con aspiración Festool grado HEPA, sellado perimetral láser en molduras, esmaltes lavables 0-VOC y blindaje elastomérico contra el sol de más de 45°C en estucos exteriores."}
+                      ? "Custom islands, solid maple dovetail drawers, Blum concealed soft-close runners, and KCMA-certified 2K polyurethane spray booth finishes."
+                      : "Islas centrales, cajones en cola de milano, herrajes ocultos Blum y renovación en cabina con laca de poliuretano catalizado 2K."}
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 sm:px-7 pb-6 sm:pb-7 pt-2 border-t border-[#DFD6C6]">
+              <div className="px-6 pb-6 pt-2 border-t border-[#DFD6C6]">
                 <Link
-                  href="/pintura-residencial"
+                  href="/cocinas-y-gabinetes"
                   className="interactive-control inline-flex items-center gap-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] hover:text-[#261F1A] font-semibold transition-colors"
                 >
-                  <span>{locale === "en" ? "Explore Interior & Exterior Painting" : "Ver Pintura Interior y Exterior"}</span>
+                  <span>{locale === "en" ? "Explore Kitchens & 2K" : "Ver Cocinas y Gabinetes"}</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>
@@ -471,27 +653,200 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
-          3. FEATURED TRANSFORMATION SPOTLIGHT (Seamless Before / After Reveal)
+          2B. ARCHITECTURAL RESIDENTIAL PAINTING SPOTLIGHT (Interior HEPA / Exterior UV / Doors)
       ===================================================================== */}
-      <section data-casa-room="entryway" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
+      <section data-casa-room="entryway" className="py-20 lg:py-28 bg-[#F4EFE6] border-b border-[#DFD6C6] relative">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="max-w-2xl space-y-3">
+              <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
+                {locale === "en"
+                  ? "ARCHITECTURAL RESIDENTIAL PAINTING · INTERIOR & EXTERIOR"
+                  : "PINTURA RESIDENCIAL DE ALTA GAMA · INTERIOR Y EXTERIOR"}
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] tracking-tight">
+                {locale === "en"
+                  ? "Complete House Painting Engineered for Arizona Living."
+                  : "Pintura Residencial Integral Diseñada para el Clima de Arizona."}
+              </h2>
+              <p className="text-base text-[#3D3228] leading-relaxed font-normal">
+                {locale === "en"
+                  ? "Renovo is a full-scope residential painting house. From dust-free interior repaints in occupied residences to elastomeric exterior stucco armor and hardwood entry door restorations."
+                  : "En Renovo ejecutamos proyectos integrales de pintura residencial: desde interiores completos sin polvo en hogares habitados hasta blindaje elastomérico de fachadas y restauración de puertas monumentales."}
+              </p>
+            </div>
+
+            {/* Interactive Switcher: Interior / Exterior / Entry Doors */}
+            <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] self-start lg:self-auto">
+              {(
+                [
+                  { id: "interior", labelEn: "Interior HEPA Painting", labelEs: "Interiores sin Polvo HEPA" },
+                  { id: "exterior", labelEn: "Exterior Stucco & UV", labelEs: "Fachadas y Estuco UV" },
+                  { id: "doors", labelEn: "Entry Doors & Woodwork", labelEs: "Puertas y Maderas" },
+                ] as const
+              ).map((tab) => {
+                const isSelected = paintingFocusTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setPaintingFocusTab(tab.id)}
+                    className={`interactive-control relative px-4 py-2.5 rounded-xl text-xs font-serif transition-colors ${
+                      isSelected ? "text-[#FCFAF7] font-semibold" : "text-[#3D3228] hover:text-[#1A1410]"
+                    }`}
+                  >
+                    {isSelected && (
+                      <motion.span
+                        layoutId="home-painting-focus-pill"
+                        transition={motionTokens.spring.snappy}
+                        className="absolute inset-0 rounded-xl bg-[#B85D3B] shadow-xs"
+                      />
+                    )}
+                    <span className="relative z-10">{locale === "en" ? tab.labelEn : tab.labelEs}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={paintingFocusTab}
+              initial={{ opacity: 0, y: 8, filter: "blur(3px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -6, filter: "blur(2px)" }}
+              transition={{ duration: 0.35, ease: motionTokens.easing.out }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center rounded-3xl p-6 sm:p-8 lg:p-10 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl"
+            >
+              {/* Left 6 Cols: Narrative & Technical Protocol */}
+              <div className="lg:col-span-6 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAE2D5] border border-[#DFD6C6] text-[11px] font-mono uppercase tracking-wider text-[#B85D3B] font-semibold">
+                  <Sparkle size={12} weight="fill" />
+                  <span>
+                    {locale === "en"
+                      ? paintingDeepDive[paintingFocusTab].badgeEn
+                      : paintingDeepDive[paintingFocusTab].badgeEs}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-4xl font-serif font-semibold text-[#1A1410] leading-tight">
+                  {locale === "en"
+                    ? paintingDeepDive[paintingFocusTab].titleEn
+                    : paintingDeepDive[paintingFocusTab].titleEs}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#3D3228] leading-relaxed">
+                  {locale === "en"
+                    ? paintingDeepDive[paintingFocusTab].descEn
+                    : paintingDeepDive[paintingFocusTab].descEs}
+                </p>
+
+                {/* 3 Technical Specs */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                  {paintingDeepDive[paintingFocusTab].specs.map((spec, i) => (
+                    <div
+                      key={i}
+                      className="p-3.5 rounded-2xl bg-[#F4EFE6] border border-[#DFD6C6] space-y-1"
+                    >
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#B85D3B] font-bold">
+                        {locale === "en" ? spec.labelEn : spec.labelEs}
+                      </div>
+                      <div className="text-xs font-serif font-semibold text-[#1A1410] leading-snug">
+                        {locale === "en" ? spec.valEn : spec.valEs}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/pintura-residencial"
+                    className="interactive-control px-6 py-3 rounded-full bg-[#B85D3B] hover:bg-[#A34E2F] text-[#FCFAF7] text-xs font-serif font-semibold uppercase tracking-wider inline-flex items-center gap-2 shadow-md"
+                  >
+                    <span>
+                      {locale === "en"
+                        ? "Open Interactive Color Simulator & Protocols"
+                        : "Abrir Simulador de Color y Protocolos de Pintura"}
+                    </span>
+                    <ArrowRight size={14} weight="bold" />
+                  </Link>
+                  <Link
+                    href="/cotizador"
+                    className="interactive-control text-xs font-serif font-semibold text-[#261F1A] hover:text-[#B85D3B] underline underline-offset-4"
+                  >
+                    {locale === "en" ? "Estimate Painting Project →" : "Cotizar Proyecto de Pintura →"}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right 6 Cols: Dual Photo Showcase */}
+              <div className="lg:col-span-6 grid grid-cols-12 gap-4 items-center">
+                <div className="col-span-8 rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-lg bg-[#1A1410] relative">
+                  <img
+                    src={paintingDeepDive[paintingFocusTab].mainImage}
+                    alt={paintingDeepDive[paintingFocusTab].titleEn}
+                    className="w-full aspect-[4/3] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 text-[11px] font-serif text-white/95">
+                    {locale === "en"
+                      ? paintingDeepDive[paintingFocusTab].CaptionMainEn
+                      : paintingDeepDive[paintingFocusTab].CaptionMainEs}
+                  </div>
+                </div>
+                <div className="col-span-4 space-y-4">
+                  <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md bg-[#1A1410]">
+                    <img
+                      src={paintingDeepDive[paintingFocusTab].secondaryImage}
+                      alt="Renovo Surface Detail"
+                      className="w-full aspect-[3/4] object-cover"
+                    />
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-[#EAE2D5] border border-[#DFD6C6] text-center space-y-0.5">
+                    <div className="text-sm font-mono font-bold text-[#B85D3B]">10+ {locale === "en" ? "YRS" : "AÑOS"}</div>
+                    <div className="text-[10px] font-serif text-[#3D3228] leading-tight">
+                      {locale === "en" ? "Arizona UV & Adhesion Guarantee" : "Garantía de Adhesión y Sol en AZ"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          3. FEATURED TRANSFORMATION SPOTLIGHT (Doors, Exteriors & Kitchens)
+      ===================================================================== */}
+      <section data-casa-room="entryway" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left 5 Cols: Storytelling & Project Selectors */}
             <div className="lg:col-span-5 space-y-6">
               <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
-                {locale === "en" ? "TRANSFORMATION SPOTLIGHT" : "CASO DE ÉXITO EN PHOENIX"}
+                {locale === "en"
+                  ? "BEFORE & AFTER CASE STUDIES · DOORS, EXTERIORS & KITCHENS"
+                  : "CASOS DE ÉXITO EN PHOENIX · PUERTAS, EXTERIORES Y COCINAS"}
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
-                {locale === "en"
+                {activeSpotlight.category === "entry-door"
+                  ? locale === "en"
+                    ? "Sun-Weathered Entry Doors & Porticos Restored to Grandeur."
+                    : "Puertas Principales y Pórticos Restaurados contra el Sol de Arizona."
+                  : locale === "en"
                   ? "From Dated Stained Oak to Factory Alabaster Elegance."
-                  : "De Madera Desgastada a Elegancia de Fábrica."}
+                  : "De Madera Desgastada a Elegancia de Cabina 2K."}
               </h2>
 
               <p className="text-base text-[#3D3228] font-normal leading-relaxed">
-                {locale === "en"
-                  ? "Witness how our 4-stage preparation and 2K catalyzed factory spraying completely reimagined this Phoenix residence, without replacing the existing cabinet framework."
-                  : "Observa cómo nuestro protocolo de 4 etapas y aplicación catalizada 2K transformó esta residencia en Phoenix sin necesidad de demoler los gabinetes."}
+                {activeSpotlight.category === "entry-door"
+                  ? locale === "en"
+                    ? "Slide to compare how we strip sun-bleached exterior hardwood doors down to raw grain, apply deep penetrating stains or 2K urethane enamels, and seal against 115°F+ UV exposure."
+                    : "Desliza para comparar cómo restauramos puertas principales quemadas por el sol hasta la veta virgen, aplicamos tintes profundos o uretanos 2K y sellamos con blindaje marino UV."
+                  : locale === "en"
+                  ? "Witness how our 4-stage preparation and 2K catalyzed factory spraying completely reimagined this Phoenix kitchen without demolition."
+                  : "Observa cómo nuestro protocolo de 4 etapas y aplicación catalizada 2K transformó esta cocina en Phoenix sin necesidad de demolición."}
               </p>
 
               {/* Case details pill */}
@@ -512,25 +867,31 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Project Quick-Switch Tabs */}
+              {/* Project Quick-Switch Tabs with Explicit Discipline Names */}
               <div className="flex flex-wrap gap-2 pt-1">
-                {BEFORE_AFTER_PAIRS.map((pair, idx) => (
-                  <button
-                    key={pair.id}
-                    type="button"
-                    onClick={() => {
-                      setActiveSpotlightIdx(idx);
-                      setSpotlightSliderPos(50);
-                    }}
-                    className={`interactive-control px-3.5 py-1.5 rounded-full text-xs font-serif uppercase tracking-wider transition-all ${
-                      idx === activeSpotlightIdx
-                        ? "bg-[#B85D3B] text-[#FCFAF7] font-bold shadow-xs"
-                        : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] shadow-xs"
-                    }`}
-                  >
-                    Case 0{idx + 1}
-                  </button>
-                ))}
+                {BEFORE_AFTER_PAIRS.map((pair, idx) => {
+                  const labelObj = spotlightCaseLabels[pair.id] || {
+                    en: `Case 0${idx + 1}`,
+                    es: `Caso 0${idx + 1}`,
+                  };
+                  return (
+                    <button
+                      key={pair.id}
+                      type="button"
+                      onClick={() => {
+                        setActiveSpotlightIdx(idx);
+                        setSpotlightSliderPos(50);
+                      }}
+                      className={`interactive-control px-3.5 py-2 rounded-full text-xs font-serif tracking-wide transition-all ${
+                        idx === activeSpotlightIdx
+                          ? "bg-[#B85D3B] text-[#FCFAF7] font-bold shadow-xs"
+                          : "bg-[#FCFAF7] border border-[#DFD6C6] text-[#3D3228] hover:text-[#261F1A] shadow-xs"
+                      }`}
+                    >
+                      {labelObj[locale]}
+                    </button>
+                  );
+                })}
               </div>
 
               <div className="pt-2">
@@ -538,7 +899,7 @@ export default function HomePage() {
                   href="/transformaciones"
                   className="interactive-control inline-flex items-center gap-2 text-sm font-semibold text-[#261F1A] hover:text-[#B85D3B] transition-colors"
                 >
-                  <span>{locale === "en" ? "View Full Documentary & All 4 Cases" : "Ver Documental Completo y Casos"}</span>
+                  <span>{locale === "en" ? "Explore All Before & After Case Studies" : "Ver Todos los Casos de Antes y Después"}</span>
                   <ArrowRight size={15} />
                 </Link>
               </div>
@@ -606,23 +967,25 @@ export default function HomePage() {
       <AtelierVideoReelsShowcase initialFilter="all" />
 
       {/* =====================================================================
-          4. THE 2K CHEMICAL CHEMISTRY ADVANTAGE (Clear Comparison Table)
+          4. SURFACE SCIENCE & COATING ENGINEERING (Residential Painting & 2K)
       ===================================================================== */}
       <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-14 space-y-3">
             <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
-              {locale === "en" ? "FACTORY SCIENCE & CHEMICAL INTEGRITY" : "CIENCIA DE FÁBRICA Y QUÍMICA 2K"}
+              {locale === "en"
+                ? "SURFACE ENGINEERING · INTERIORS, EXTERIORS & 2K MILLWORK"
+                : "INGENIERÍA DE RECUBRIMIENTOS · INTERIORES, FACHADAS Y LACAS 2K"}
             </div>
             <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
               {locale === "en"
-                ? "Why True 2K Polyurethane Outlasts Standard House Paint."
-                : "¿Por Qué el Poliuretano Catalizado 2K Supera a la Pintura Común?"}
+                ? "Why Renovo Coatings Outlast Ordinary Painters across Every Surface."
+                : "¿Por Qué Nuestros Sistemas Superan a los Pintores Convencionales en Toda tu Casa?"}
             </h2>
             <p className="text-base text-[#3D3228] font-normal leading-relaxed">
               {locale === "en"
-                ? "Most contractors apply consumer wall latex with a brush or consumer sprayer. We formulate two-component catalyzed polyurethane in temperature-controlled spray booths for molecular cross-linking."
-                : "La mayoría de los contratistas aplican pintura látex con brocha o rodillo. Nosotros formulamos poliuretano catalizado de dos componentes en cabina controlada para un entrecruzamiento molecular absoluto."}
+                ? "Whether we are painting your interior living room walls with HEPA dust extraction, shielding exterior stucco against 115°F+ desert sun, or spraying cabinet doors in our 2K booth—we engineer each coating system for the exact substrate."
+                : "Ya sea pintando los muros interiores de tu sala sin polvo HEPA, blindando el estuco exterior contra el sol de 45°C+ o aplicando poliuretano 2K en ebanistería y cocinas: formulamos el sistema químico exacto para cada superficie."}
             </p>
           </div>
 
@@ -637,16 +1000,16 @@ export default function HomePage() {
                 <thead>
                   <tr className="border-b border-[#DFD6C6] bg-[#F4EFE6]">
                     <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#3D3228]">
-                      {locale === "en" ? "Performance Parameter" : "Parámetro de Rendimiento"}
+                      {locale === "en" ? "Residential Discipline" : "Disciplina Residencial"}
                     </th>
                     <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#B85D3B] bg-[#B85D3B]/5 border-x border-[#DFD6C6]">
                       <div className="flex items-center gap-2">
                         <Sparkle size={15} weight="fill" />
-                        <span>{locale === "en" ? "Renovo 2K Factory Coating" : "Renovo Laca Catalizada 2K"}</span>
+                        <span>{locale === "en" ? "Renovo Architectural Protocol" : "Estándar Arquitectónico Renovo"}</span>
                       </div>
                     </th>
                     <th className="p-5 sm:p-6 text-xs uppercase tracking-wider font-serif font-bold text-[#3D3228]">
-                      {locale === "en" ? "Standard House Painter Latex" : "Pintura Látex de Brocha Común"}
+                      {locale === "en" ? "Conventional Painter / Contractor" : "Pintor o Contratista Convencional"}
                     </th>
                   </tr>
                 </thead>
@@ -686,35 +1049,35 @@ export default function HomePage() {
             {/* Story */}
             <div className="lg:col-span-7 space-y-6">
               <div className="text-xs uppercase tracking-[0.16em] text-[#B85D3B] font-serif font-bold">
-                {locale === "en" ? "FOUNDER & HERITAGE" : "HISTORIA Y ARTESANÍA"}
+                {locale === "en" ? "FOUNDER & HERITAGE" : "HISTORIA Y ARTESANÍA INTEGRAL"}
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A] leading-[1.12]">
                 {locale === "en"
-                  ? "Crafting Spaces with Passion, Warmth and Enduring Soul."
-                  : "Creando Espacios con Pasión, Calidez y un Alma que Perdura."}
+                  ? "One Master Team for Your Walls, Facade, Millwork & Kitchen."
+                  : "Un Mismo Estándar Maestro para tus Muros, Fachada, Muebles y Cocina."}
               </h2>
 
               <div className="space-y-4 text-base text-[#3D3228] font-normal leading-relaxed">
                 <p>
                   {locale === "en"
-                    ? "Renovo started with an uncompromising standard: treat every kitchen, every arched fireplace bookcase, and every bathroom vanity as an heirloom piece of architectural furniture."
-                    : "Renovo nació bajo un estándar inflexible: tratar cada cocina, cada librero arqueado y cada vanitorio como una pieza patrimonial de ebanistería arquitectónica."}
+                    ? "Renovo Painting Solutions was founded on a rare dual mastery: architectural residential painting and fine custom woodworking. Homeowners no longer have to coordinate separate painters, cabinetmakers, and wood restorers."
+                    : "Renovo Painting Solutions nació de una doble maestría poco común: la pintura residencial arquitectónica de alta precisión y la ebanistería fina a medida. Así, nuestros clientes no tienen que lidiar con contratistas separados para pintar su casa, restaurar sus puertas y fabricar sus muebles o cocinas."}
                 </p>
                 <p>
                   {locale === "en"
-                    ? "In our workshop at 2231 W Shangri La Rd in Phoenix, master craftsman Raul Burgos oversees every cut, dovetail joinery, and 2K catalyzed lacquer application in climate-controlled spray booths."
-                    : "En nuestro taller en 2231 W Shangri La Rd en Phoenix, el maestro ebanista Raul Burgos supervisa cada ensamble en cola de milano y cada aplicación de laca catalizada 2K en cabinas profesionales."}
+                    ? "From dustless HEPA interior painting and UV-shield exterior stucco coatings in your residence, to custom white oak built-ins and 2K catalyzed cabinetry crafted at our 2231 W Shangri La Rd workshop in Phoenix—master craftsman Raul Burgos personally oversees every detail."
+                    : "Desde pintura interior libre de polvo HEPA y blindaje de fachadas en sitio, hasta libreros arqueados en encino blanco y cocinas en laca 2K fabricadas en nuestro taller en 2231 W Shangri La Rd en Phoenix, Raul Burgos supervisa personalmente cada detalle."}
                 </p>
               </div>
 
               {/* Founder Quote */}
               <div className="p-6 rounded-2xl bg-[#FCFAF7] border-l-4 border-[#B85D3B] border-y border-r border-[#DFD6C6] text-sm text-[#261F1A] italic font-serif shadow-xs">
                 {locale === "en"
-                  ? '"When you run your hand across one of our cabinet doors, you feel zero brush marks, zero roller orange-peel, just pure velvet smoothness that lasts for decades."'
-                  : '"Cuando pasas la mano por una de nuestras puertas, sientes cero marcas de brocha o rodillo, solo una tersura aterciopelada que perdura por décadas."'}
+                  ? '"Whether we are cutting a laser-crisp line along your living room ceiling, sealing exterior stucco against the Arizona summer, or spraying a custom oak built-in, our signature is the same: zero shortcuts and enduring beauty."'
+                  : '"Ya sea perfilando un muro de doble altura en tu sala, blindando la fachada exterior contra el verano de Arizona o lacando un mueble de autor en cabina, nuestra firma es la misma: cero atajos y belleza que perdura por décadas."'}
                 <div className="mt-2 text-xs font-serif uppercase tracking-wider text-[#B85D3B] font-bold not-italic">
-                  Raul Burgos · Founder & Master Craftsman
+                  Raul Burgos · Founder, Master Painter & Cabinetmaker
                 </div>
               </div>
 
@@ -723,35 +1086,49 @@ export default function HomePage() {
                   href="/nosotros"
                   className="interactive-control inline-flex items-center gap-2 text-sm font-semibold text-[#261F1A] hover:text-[#B85D3B] transition-colors"
                 >
-                  <span>{locale === "en" ? "Learn More About Our Journey & Shop" : "Conoce Nuestra Historia y Taller"}</span>
+                  <span>{locale === "en" ? "Learn More About Our Journey & Phoenix Shop" : "Conoce Nuestra Historia y Taller en Phoenix"}</span>
                   <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
 
-            {/* Visual Mosaic of Real Workshop Photos */}
+            {/* Visual Mosaic of Real Workshop & Residential Painting Photos */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="rounded-3xl overflow-hidden border border-[#DFD6C6] shadow-xl">
+              <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] shadow-xl">
                 <img
-                  src="/assets/kitchens/kitchen-08.jpg"
-                  alt="Renovo Kitchen in Paradise Valley"
+                  src="/assets/painting-interior/interior-02.jpg"
+                  alt="Renovo Fine Residential Interior Painting in Phoenix"
                   className="w-full aspect-[4/3] object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3.5 text-[11px] font-serif text-white font-medium">
+                  {locale === "en"
+                    ? "01 · HEPA Dustless Interior & Exterior Residential Painting"
+                    : "01 · Pintura Residencial Interior y Exterior sin Polvo HEPA"}
+                </span>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md">
+                <div className="relative rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md">
                   <img
                     src="/assets/blueprints-and-docs/custom-furniture-19.jpg"
                     alt="Illuminated White Oak Wine & Stemware Hutch by Renovo"
                     className="w-full aspect-square object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-2.5 left-2.5 right-2.5 text-[10px] font-serif text-white leading-tight">
+                    {locale === "en" ? "02 · Bespoke Millwork & Built-Ins" : "02 · Muebles a Medida y Cavas"}
+                  </span>
                 </div>
-                <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md">
+                <div className="relative rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md">
                   <img
-                    src="/assets/painting-interior/interior-02.jpg"
-                    alt="Interior Paint Detail"
+                    src="/assets/kitchens/kitchen-08.jpg"
+                    alt="Renovo Kitchen in Paradise Valley"
                     className="w-full aspect-square object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-2.5 left-2.5 right-2.5 text-[10px] font-serif text-white leading-tight">
+                    {locale === "en" ? "03 · Custom Kitchens & 2K Lacquer" : "03 · Cocinas y Lacas 2K de Cabina"}
+                  </span>
                 </div>
               </div>
             </div>
