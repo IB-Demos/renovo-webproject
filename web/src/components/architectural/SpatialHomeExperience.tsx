@@ -87,7 +87,7 @@ const SPATIAL_ROOMS: RoomSpace[] = [
       en: "High-traffic heart of the Arizona residence. Engineered with moisture-proof 2K polyurethane coatings that resist culinary oils, heavy steam, and desert temperature shifts.",
       es: "El epicentro de la residencia. Construida con poliuretanos 2K catalizados inmunes a vapores, aceites de cocina y los cambios de temperatura del desierto de Arizona.",
     },
-    baseImage: "/assets/kitchens/kitchen-14.jpg",
+    baseImage: "/assets/kitchens/kitchen-02.jpg",
     orientationAdvice: {
       en: "Recommended orientation: North / North-East daylight balances cool undertones and warm oak islands.",
       es: "Orientación recomendada: Luz norte o nororiente equilibra tonos fríos y maderas cálidas.",

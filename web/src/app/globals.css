@@ -18,7 +18,7 @@
 }
 
 :root {
-  /* Renovo Sonoran Heritage Palette (Proposal 2: Tierra Desértica & Pigmentos Minerales) */
+  /* Renovo Sonoran Heritage Palette (Tierra Desértica & Pigmentos Minerales) */
   --bg: #F4EFE6;
   --bg-subtle: #EAE2D5;
   --bg-card: #FCFAF7;
@@ -49,7 +49,11 @@
   --navy: #22303C;
   --wood-oak: #C79F67;
 
+  /* Motion Architect & Emil Kowalski Precision Easing Curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html {
@@ -83,16 +87,18 @@ body {
   font-family: var(--font-mono);
 }
 
-/* Headings with calibrated breathing room */
+/* Headings with calibrated breathing room & optical balance */
 h1, h2, h3, h4 {
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   margin-top: 0;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 p {
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .tabular-nums {
@@ -107,26 +113,68 @@ p {
 }
 
 .luxury-card-hover {
-  transition: transform 260ms var(--ease-smooth), border-color 260ms var(--ease-smooth), box-shadow 260ms var(--ease-smooth);
+  transition-property: transform, border-color, box-shadow;
+  transition-duration: 240ms;
+  transition-timing-function: var(--ease-out);
 }
 
-.luxury-card-hover:hover {
-  transform: translateY(-3px);
-  border-color: rgba(184, 93, 59, 0.5);
-  box-shadow: 0 16px 36px -8px rgba(38, 31, 26, 0.14);
+@media (hover: hover) and (pointer: fine) {
+  .luxury-card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(184, 93, 59, 0.5);
+    box-shadow: 0 16px 36px -8px rgba(38, 31, 26, 0.14);
+  }
 }
 
-/* Minimalist Touch Controls (WCAG 44px min tap target) */
+/* Minimalist Touch Controls (WCAG 44px min tap target, NO transition: all) */
 .interactive-control {
   min-height: 44px;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  transition: all 180ms var(--ease-smooth);
+  transition-property: transform, background-color, border-color, color, box-shadow, opacity;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
 }
 
 .interactive-control:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+}
+
+.interactive-control:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
+/* Subtle Ambient Blueprint Drift */
+@keyframes blueprintDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-8px, -6px, 0) scale(1.012);
+  }
+}
+
+.animate-blueprint-drift {
+  animation: blueprintDrift 24s var(--ease-in-out) infinite;
+}
+
+/* Accessibility: Reduced Motion Discipline */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+  .interactive-control:active,
+  .luxury-card-hover:hover {
+    transform: none !important;
+  }
+  .animate-blueprint-drift {
+    animation: none !important;
+  }
 }
 
 /* Custom Scrollbar for Luxury Aesthetics */
@@ -147,7 +195,6 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--terracotta);
 }
-
 
 /* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {

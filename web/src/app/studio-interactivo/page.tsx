@@ -3,7 +3,9 @@
 import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
 import { useRenovo } from "@/context/RenovoContext";
+import { motionTokens } from "@/lib/motionTokens";
 import { SpatialHomeExperience } from "@/components/architectural/SpatialHomeExperience";
 import { ArchitecturalDraftingTable } from "@/components/architectural/ArchitecturalDraftingTable";
 import { DesertLightEngine } from "@/components/architectural/DesertLightEngine";
@@ -198,7 +200,7 @@ function InteractiveStudioContent() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    src="/assets/blueprints-and-docs/custom-furniture-04.jpg"
+                    src="/assets/blueprints-and-docs/custom-furniture-19.jpg"
                     alt="Renovo Atelier Digital Drafting"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -245,18 +247,25 @@ function InteractiveStudioContent() {
                   key={tool.id}
                   type="button"
                   onClick={() => setActiveTab(tool.id)}
-                  className={`interactive-control px-4 py-2.5 rounded-2xl border text-left transition-all shrink-0 flex items-center gap-2.5 min-h-[44px] ${
+                  className={`interactive-control relative px-4 py-2.5 rounded-2xl border text-left transition-colors shrink-0 flex items-center gap-2.5 min-h-[44px] ${
                     isSelected
-                      ? "bg-[#B85D3B] text-[#FCFAF7] border-[#B85D3B] shadow-md font-semibold font-serif"
+                      ? "text-[#FCFAF7] border-[#B85D3B] font-semibold font-serif"
                       : "bg-[#FCFAF7] text-[#3D3228] border-[#DFD6C6] hover:border-[#261F1A] hover:text-[#261F1A] font-serif shadow-xs"
                   }`}
                 >
+                  {isSelected && (
+                    <motion.span
+                      layoutId="studio-tool-tab"
+                      transition={motionTokens.spring.snappy}
+                      className="absolute inset-0 rounded-2xl bg-[#B85D3B] shadow-md"
+                    />
+                  )}
                   <Icon
                     size={16}
                     weight={isSelected ? "bold" : "regular"}
-                    className={isSelected ? "text-[#FCFAF7]" : "text-[#B85D3B]"}
+                    className={`relative z-10 ${isSelected ? "text-[#FCFAF7]" : "text-[#B85D3B]"}`}
                   />
-                  <div className="text-xs">
+                  <div className="relative z-10 text-xs">
                     <span>{locale === "en" ? tool.titleEn : tool.titleEs}</span>
                   </div>
                 </button>
@@ -267,38 +276,46 @@ function InteractiveStudioContent() {
       </section>
 
       {/* 3. ACTIVE TOOL VIEWPORT */}
-      <div>
-        {activeTab === "spatial" && <SpatialHomeExperience />}
-        {activeTab === "drafting" && <ArchitecturalDraftingTable />}
-        {activeTab === "light" && <DesertLightEngine />}
-        {activeTab === "matrix" && <CabinetDecisionMatrix />}
-        {activeTab === "joinery" && <ExplodedCabinetJoinery />}
-        {activeTab === "chronology" && <CraftChronology />}
-        {activeTab === "samplebox" && <SampleBoxConcierge />}
-        {activeTab === "estimator" && (
-          <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-              <div className="mb-12 max-w-2xl space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
-                  <Calculator size={14} />
-                  <span>{locale === "en" ? "Parametric Estimator" : "Cotizador Paramétrico"}</span>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.28, ease: motionTokens.easing.out }}
+        >
+          {activeTab === "spatial" && <SpatialHomeExperience />}
+          {activeTab === "drafting" && <ArchitecturalDraftingTable />}
+          {activeTab === "light" && <DesertLightEngine />}
+          {activeTab === "matrix" && <CabinetDecisionMatrix />}
+          {activeTab === "joinery" && <ExplodedCabinetJoinery />}
+          {activeTab === "chronology" && <CraftChronology />}
+          {activeTab === "samplebox" && <SampleBoxConcierge />}
+          {activeTab === "estimator" && (
+            <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
+              <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="mb-12 max-w-2xl space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B85D3B]/10 border border-[#B85D3B]/30 text-[#B85D3B] text-xs font-serif italic">
+                    <Calculator size={14} />
+                    <span>{locale === "en" ? "Parametric Estimator" : "Cotizador Paramétrico"}</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
+                    {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
+                  </h2>
+                  <p className="text-base text-[#3D3228] font-normal">
+                    {locale === "en"
+                      ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
+                      : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
+                  </p>
                 </div>
-                <h2 className="text-3xl sm:text-5xl font-semibold font-serif text-[#261F1A]">
-                  {locale === "en" ? "Calculate Your Investment in Seconds" : "Calcula tu Inversión en Segundos"}
-                </h2>
-                <p className="text-base text-[#3D3228] font-normal">
-                  {locale === "en"
-                    ? "Select your scope, cabinet count, wood choices, and finish level to generate an immediate estimate range."
-                    : "Selecciona el alcance, número de puertas, maderas y nivel de acabado para ver el rango estimado al instante."}
-                </p>
+                <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
+                  <ParametricScopeEstimator />
+                </div>
               </div>
-              <div className="rounded-3xl p-6 sm:p-8 bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
-                <ParametricScopeEstimator />
-              </div>
-            </div>
-          </section>
-        )}
-      </div>
+            </section>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* 4. CALL TO ACTION */}
       <section className="py-20 lg:py-28 bg-[#EAE2D5] text-[#1A1410] border-t border-[#DFD6C6] relative overflow-hidden">

@@ -5,6 +5,9 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useRenovo, CasaRoomId } from "@/context/RenovoContext";
 import { COMPANY_INFO, BEFORE_AFTER_PAIRS } from "@/lib/company-data/portfolio";
+import { motionTokens } from "@/lib/motionTokens";
+import { AtelierVideoReelsShowcase } from "@/components/architectural/AtelierVideoReelsShowcase";
+import { MolecularCoatingMotionGraphic } from "@/components/architectural/MolecularCoatingMotionGraphic";
 import {
   Sparkle,
   ArrowRight,
@@ -235,13 +238,22 @@ export default function HomePage() {
                         key={tab.id}
                         type="button"
                         onClick={() => setHeroTab(tab.id)}
-                        className={`interactive-control py-2 px-2 rounded-xl text-xs font-serif transition-all ${
+                        className={`interactive-control relative py-2 px-2 rounded-xl text-xs font-serif transition-colors ${
                           isSelected
-                            ? "bg-[#B85D3B] text-[#FCFAF7] font-semibold shadow-xs"
+                            ? "text-[#FCFAF7] font-semibold"
                             : "text-[#3D3228] hover:text-[#261F1A]"
                         }`}
                       >
-                        {locale === "en" ? tab.labelEn : tab.labelEs}
+                        {isSelected && (
+                          <motion.span
+                            layoutId="hero-showcase-tab"
+                            transition={motionTokens.spring.snappy}
+                            className="absolute inset-0 rounded-xl bg-[#B85D3B] shadow-xs"
+                          />
+                        )}
+                        <span className="relative z-10">
+                          {locale === "en" ? tab.labelEn : tab.labelEs}
+                        </span>
                       </button>
                     );
                   })}
@@ -254,10 +266,10 @@ export default function HomePage() {
                       key={heroTab}
                       src={heroShowcase[heroTab].image}
                       alt={heroShowcase[heroTab].titleEn}
-                      initial={{ opacity: 0, scale: 1.05 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
+                      initial={{ opacity: 0, scale: 1.03, filter: "blur(4px)" }}
+                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, filter: "blur(2px)" }}
+                      transition={{ duration: 0.4, ease: motionTokens.easing.out }}
                       className="w-full h-full object-cover"
                     />
                   </AnimatePresence>
@@ -589,6 +601,11 @@ export default function HomePage() {
       </section>
 
       {/* =====================================================================
+          3B. ATELIER VIDEO REELS & KINETIC WORKSHOP CINEMA
+      ===================================================================== */}
+      <AtelierVideoReelsShowcase initialFilter="all" />
+
+      {/* =====================================================================
           4. THE 2K CHEMICAL CHEMISTRY ADVANTAGE (Clear Comparison Table)
       ===================================================================== */}
       <section data-casa-room="patio" className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#EAE2D5]">
@@ -607,6 +624,11 @@ export default function HomePage() {
                 ? "Most contractors apply consumer wall latex with a brush or consumer sprayer. We formulate two-component catalyzed polyurethane in temperature-controlled spray booths for molecular cross-linking."
                 : "La mayoría de los contratistas aplican pintura látex con brocha o rodillo. Nosotros formulamos poliuretano catalizado de dos componentes en cabina controlada para un entrecruzamiento molecular absoluto."}
             </p>
+          </div>
+
+          {/* Interactive 400x Cross-Section Motion Graphic Visualizer */}
+          <div className="mb-12">
+            <MolecularCoatingMotionGraphic />
           </div>
 
           <div className="rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">
@@ -711,7 +733,7 @@ export default function HomePage() {
             <div className="lg:col-span-5 space-y-4">
               <div className="rounded-3xl overflow-hidden border border-[#DFD6C6] shadow-xl">
                 <img
-                  src="/assets/kitchens/kitchen-05.jpg"
+                  src="/assets/kitchens/kitchen-08.jpg"
                   alt="Renovo Kitchen in Paradise Valley"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -719,8 +741,8 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-md">
                   <img
-                    src="/assets/blueprints-and-docs/custom-furniture-04.jpg"
-                    alt="Custom Furniture Detail"
+                    src="/assets/blueprints-and-docs/custom-furniture-19.jpg"
+                    alt="Illuminated White Oak Wine & Stemware Hutch by Renovo"
                     className="w-full aspect-square object-cover"
                   />
                 </div>

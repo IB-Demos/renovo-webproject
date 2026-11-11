@@ -176,7 +176,7 @@ export default function AboutPage() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    src="/assets/kitchens/kitchen-05.jpg"
+                    src="/assets/kitchens/kitchen-08.jpg"
                     alt="Master Craftsman Raul Burgos at Renovo Workshop"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -255,7 +255,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5 space-y-4">
               <div className="rounded-3xl overflow-hidden border border-[#DFD6C6] shadow-xl">
                 <img
-                  src="/assets/kitchens/kitchen-05.jpg"
+                  src="/assets/kitchens/kitchen-03.jpg"
                   alt="Renovo Kitchen in Paradise Valley"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -263,8 +263,8 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden border border-[#DFD6C6] shadow-sm">
                   <img
-                    src="/assets/blueprints-and-docs/custom-furniture-04.jpg"
-                    alt="Custom Furniture Detail"
+                    src="/assets/blueprints-and-docs/custom-furniture-19.jpg"
+                    alt="Illuminated White Oak Wine & Stemware Hutch by Renovo"
                     className="w-full aspect-square object-cover"
                   />
                 </div>

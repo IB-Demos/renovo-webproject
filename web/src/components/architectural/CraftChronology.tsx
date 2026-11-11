@@ -67,7 +67,7 @@ const CRAFT_STAGES: Stage[] = [
       es: "Retiro total de barniz viejo y grasas hasta los poros limpios de la madera.",
     },
     equipment: "Festool Rotex Dual-Mode Sanders, CT-MIDI HEPA Dust Extractors",
-    image: "/assets/blueprints-and-docs/custom-furniture-03.jpg",
+    image: "/assets/kitchens/kitchen-06.jpg",
     inspectionStandard: {
       en: "99.97% dust capture at the sandpaper surface; zero airborne residue inside your living room.",
       es: "99.97% de captura de polvo al lijar; cero residuos en el aire de tu residencia.",
@@ -119,7 +119,7 @@ const CRAFT_STAGES: Stage[] = [
       es: "Inspección con luz rasante para eliminar cada poro y marca de ensamble.",
     },
     equipment: "Catalyzed Glazing Putty, Flexible Japanese Trowels",
-    image: "/assets/blueprints-and-docs/custom-furniture-05.jpg",
+    image: "/assets/painting-interior/interior-05.jpg",
     inspectionStandard: {
       en: "Glass-smooth tactile touch; zero shadow lines under angled directional lighting.",
       es: "Tacto terso de cristal; cero sombras o desniveles bajo iluminación angular.",
@@ -145,7 +145,7 @@ const CRAFT_STAGES: Stage[] = [
       es: "Cabina presurizada con filtración de aire sin partículas en Phoenix.",
     },
     equipment: "Kremlin Air-Assisted Airless Sprayers, Positive Pressure Clean Booth",
-    image: "/assets/kitchens/kitchen-14.jpg",
+    image: "/assets/kitchens/kitchen-02.jpg",
     inspectionStandard: {
       en: "Zero brush marks, zero roller stipple; uniform 4-mil wet film thickness.",
       es: "Cero marcas de brocha o rodillo; espesor homogéneo de 4 milésimas de pulgada.",
@@ -171,7 +171,7 @@ const CRAFT_STAGES: Stage[] = [
       es: "Secado a temperatura y humedad controlada para una dureza impenetrable.",
     },
     equipment: "Infrared Thermal Curing Array, Digital 60° Gloss Meter",
-    image: "/assets/kitchens/kitchen-05.jpg",
+    image: "/assets/kitchens/kitchen-08.jpg",
     inspectionStandard: {
       en: "Resistant to boiling water, cooking oil, mustard, red wine, and abrasive sponges.",
       es: "Resistencia certificada a grasa caliente, mostaza, vino tinto y calor de cocina.",

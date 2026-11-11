@@ -296,7 +296,7 @@ export function ArchitecturalDraftingTable() {
         en: "7 ft (2.13 m) Wide × 34 in (86 cm) Height",
         es: "2.13 m de Ancho × 86 cm de Altura",
       },
-      photoUrl: "/assets/blueprints-and-docs/custom-furniture-07.jpg",
+      photoUrl: "/assets/blueprints-and-docs/custom-furniture-06.jpg",
       photoAlt: "Completed custom floating bathroom vanity by Renovo in Arcadia",
       features: [
         {

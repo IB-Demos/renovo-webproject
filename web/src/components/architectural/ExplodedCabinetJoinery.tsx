@@ -83,7 +83,7 @@ const CABINET_LAYERS: CabinetLayer[] = [
     builderGradeFailEs: "Los módulos comerciales sin bastidor de madera maciza se descuadran con el tiempo, haciendo que las puertas rocen entre sí.",
     renovoStandardEn: "Rigid hardwood perimeter frame that anchors directly into your home's wall studs, ensuring square cabinet reveals for decades.",
     renovoStandardEs: "Marco perimetral sólido anclado directamente a los montantes de la pared, garantizando holguras perfectas de por vida.",
-    image: "/assets/kitchens/kitchen-05.jpg",
+    image: "/assets/kitchens/kitchen-03.jpg",
     svgHighlightCoords: { cx: 480, cy: 200, r: 45 },
   },
   {
@@ -97,7 +97,7 @@ const CABINET_LAYERS: CabinetLayer[] = [
     builderGradeFailEs: "Pintores comunes usan rodillo y pintura vinílica o laca barata que se descarapela alrededor de las jaladeras en meses.",
     renovoStandardEn: "Hermetic chemical cross-linking that bonds into a velvet ceramic-like shield. Immune to cooking oils, vinegar, steam, and scrub sponges.",
     renovoStandardEs: "Polimerización química cruzada que crea un escudo terso como cerámica, inmune a grasas, vinagre, vapor y lavado diario.",
-    image: "/assets/kitchens/kitchen-14.jpg",
+    image: "/assets/kitchens/kitchen-02.jpg",
     svgHighlightCoords: { cx: 460, cy: 110, r: 40 },
   },
 ];

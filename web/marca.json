@@ -1,0 +1,58 @@
+{
+  "nombre": "Renovo Painting Solutions",
+  "sistema": "Fine Cabinetry & Architectural Color Atelier (renovo-atelier-v2)",
+  "director": "Raul Burgos",
+  "ubicacion": "2231 W Shangri La Rd, Ste K-L, Phoenix, AZ 85029",
+  "idioma": "es",
+  "idiomas_soportados": ["en", "es"],
+  "categoria": "Ebanistería arquitectónica a medida, cocinas de autor y recubrimientos catalizados 2K",
+  "paleta": {
+    "fondo_primario": "#F4EFE6",
+    "superficie_elevada": "#EAE2D5",
+    "superficie_tarjeta": "#FCFAF7",
+    "tinta_primaria": "#1A1410",
+    "tinta_secundaria": "#3D3228",
+    "acento_terracota": "#B85D3B",
+    "acento_oro_artesanal": "#C59B27",
+    "acento_salvia_sonorense": "#3D5A45",
+    "acento_indigo_medianoche": "#22303C",
+    "madera_encino_blanco": "#C79F67"
+  },
+  "tipografia": {
+    "titulares": "Playfair Display (600, Regular & Italic, tracking -0.02em)",
+    "cuerpo": "Plus Jakarta Sans (400, 500, 600)",
+    "especificaciones": "JetBrains Mono (tabular-nums)"
+  },
+  "direccion_de_arte": {
+    "luz": "Luz natural rasante del desierto de Arizona (2700K amanecer dorado, 5500K mediodía cenital sin reflejos especulares, 2700K iluminación arquitectónica LED oculta en nichos y vitrinas)",
+    "lente_y_encuadre": "Fotografía editorial de arquitectura interior con lente tilt-shift 24mm y 35mm f/4, líneas verticales rectas, profundidad táctil en vetas de roble blanco (rift-cut white oak) y tersura satinada 18% libre de marcas de brocha",
+    "estilo_visual": [
+      "Architectural Digest",
+      "deVOL Kitchens",
+      "Amber Interiors",
+      "Sonoran Desert Warmth",
+      "Heirloom Millwork Craftsmanship"
+    ],
+    "exclusiones": [
+      "Sin plásticos de pintor ni cintas azules en tomas de entrega final",
+      "Sin texto horneado de redes sociales (TikTok/Instagram overlays) en vistas principales",
+      "Sin reflejos de fotógrafo en vitrinas de cristal",
+      "Sin contactos eléctricos destapados en fotografías de portada",
+      "Sin gradientes neón o estética fría de software"
+    ]
+  },
+  "motion": {
+    "curvas": {
+      "enter": "cubic-bezier(0.23, 1, 0.32, 1)",
+      "smooth": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "inOut": "cubic-bezier(0.77, 0, 0.175, 1)",
+      "drawer": "cubic-bezier(0.32, 0.72, 0, 1)"
+    },
+    "reglas": [
+      "Nunca usar transition: all",
+      "Nunca escalar desde 0; iniciar entre 0.94 y 0.97 con opacidad y desenfoque sutil",
+      "Salidas 30% más rápidas que las entradas",
+      "Respetar prefers-reduced-motion y @media (hover: hover) and (pointer: fine)"
+    ]
+  }
+}

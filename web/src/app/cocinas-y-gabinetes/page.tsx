@@ -125,7 +125,7 @@ export default function KitchensAndMillworkPage() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    src="/assets/kitchens/kitchen-14.jpg"
+                    src="/assets/kitchens/kitchen-02.jpg"
                     alt="Renovo Bespoke Kitchen Showcase"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

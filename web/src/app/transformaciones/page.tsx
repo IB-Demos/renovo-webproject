@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { BeforeAfterLab } from "@/components/workbench/BeforeAfterLab";
+import { MolecularCoatingMotionGraphic } from "@/components/architectural/MolecularCoatingMotionGraphic";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -140,7 +141,7 @@ export default function TransformationsPage() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD6C6] bg-[#1A1410] shadow-2xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    src="/assets/kitchens/kitchen-14.jpg"
+                    src="/assets/kitchens/kitchen-02.jpg"
                     alt="Renovo Transformation Showcase"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -199,6 +200,10 @@ export default function TransformationsPage() {
                 ? "Understand the molecular chemistry that makes our factory spray last 10+ years without chipping, peeling, or fading."
                 : "Conoce la ciencia química que permite a nuestras lacas de cabina durar más de 10 años sin desportillarse ni perder brillo."}
             </p>
+          </div>
+
+          <div className="mb-12">
+            <MolecularCoatingMotionGraphic />
           </div>
 
           <div className="rounded-3xl overflow-hidden bg-[#FCFAF7] border border-[#DFD6C6] shadow-xl">

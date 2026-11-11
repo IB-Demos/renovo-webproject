@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useRenovo, CASA_ROOMS, LIGHTING_MODES } from "@/context/RenovoContext";
+import { motionTokens } from "@/lib/motionTokens";
 
 export function CasaAtmosphereCanvas() {
   const { activeRoom, lightingMode, activeRoomColors } = useRenovo();
@@ -14,13 +15,13 @@ export function CasaAtmosphereCanvas() {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-all duration-1000 ease-out"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-opacity duration-700 ease-out"
     >
       {/* ===================================================================
           1. DESERT KELVIN LIGHTING OVERLAY (Dawn, Noon, Sunset, Night)
       =================================================================== */}
       <div
-        className="absolute inset-0 transition-all duration-1000"
+        className="absolute inset-0 transition-opacity duration-700 ease-out"
         style={{
           background:
             lightingMode === "night"
@@ -37,15 +38,15 @@ export function CasaAtmosphereCanvas() {
           3. FAINT ARCHITECTURAL ELEVATION SKETCHES (Room Blueprint Linework)
           Rendered at 0.035 to 0.06 opacity so text remains 100% legible
       =================================================================== */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.045] select-none pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.045] select-none pointer-events-none animate-blueprint-drift">
         <AnimatePresence mode="wait">
           {activeRoom === "kitchen" && (
             <motion.svg
               key="kitchen-lines"
-              initial={{ opacity: 0, scale: 0.98 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.65, ease: motionTokens.easing.out }}
               className="w-[1200px] h-[900px] stroke-[#1A1410]"
               fill="none"
               strokeWidth="1.2"

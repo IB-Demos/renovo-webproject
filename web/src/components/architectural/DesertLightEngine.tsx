@@ -55,7 +55,7 @@ export function DesertLightEngine() {
         en: "18% Satin Velvet Lustre",
         es: "18% Brillo Satinado Aterciopelado",
       },
-      photoUrl: "/assets/kitchens/kitchen-05.jpg",
+      photoUrl: "/assets/kitchens/kitchen-03.jpg",
       photoAlt: "Navajo Alabaster custom kitchen cabinets in Phoenix",
       recommendedKelvin: "3000K Warm Neutral",
       lightingAdvice: {
@@ -123,7 +123,7 @@ export function DesertLightEngine() {
         en: "20% Satin Low-Lustre",
         es: "20% Satinado Suave",
       },
-      photoUrl: "/assets/kitchens/kitchen-14.jpg",
+      photoUrl: "/assets/kitchens/kitchen-02.jpg",
       photoAlt: "Midnight indigo island and custom bar in Phoenix residence",
       recommendedKelvin: "3000K Neutral LED",
       lightingAdvice: {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { BlueprintAnatomyExplorer } from "@/components/workbench/BlueprintAnatomyExplorer";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
+import { AtelierVideoReelsShowcase } from "@/components/architectural/AtelierVideoReelsShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import { ArrowRight, Phone, Compass, ShieldCheck } from "@phosphor-icons/react";
 
@@ -149,6 +150,9 @@ export default function CustomFurniturePage() {
           <BlueprintAnatomyExplorer />
         </div>
       </section>
+
+      {/* 2B. MILLWORK WORKSHOP REEL SHOWCASE */}
+      <AtelierVideoReelsShowcase initialFilter="millwork" compact />
 
       {/* 3. FULL ARCHIVE PORTFOLIO */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">

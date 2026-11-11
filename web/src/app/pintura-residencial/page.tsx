@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRenovo } from "@/context/RenovoContext";
 import { PaintSimulatorLab } from "@/components/workbench/PaintSimulatorLab";
 import { RealPortfolioShowcase } from "@/components/workbench/RealPortfolioShowcase";
+import { AtelierVideoReelsShowcase } from "@/components/architectural/AtelierVideoReelsShowcase";
 import { COMPANY_INFO } from "@/lib/company-data/portfolio";
 import {
   Sparkle,
@@ -236,6 +237,9 @@ export default function ResidentialPaintingPage() {
           </div>
         </div>
       </section>
+
+      {/* 3B. EXTERIOR FIELD REELS SHOWCASE */}
+      <AtelierVideoReelsShowcase initialFilter="exterior" compact />
 
       {/* 4. REAL PAINTING & FINISHES ARCHIVE */}
       <section className="py-20 lg:py-28 border-b border-[#DFD6C6] bg-[#F4EFE6]">
